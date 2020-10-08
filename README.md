@@ -7,7 +7,7 @@ Flutter UI + Simple Animations
 Many thanks to the designer Mao Lop for creating this fantastic design.
 ### Design
 <img src="https://cdn.dribbble.com/users/5722038/screenshots/14208274/media/47048aa12baeeb107f8304d6e132ae4d.png" height="400"/>|
-#### Designer Dribble Profile
+#### Dribble Designer Profile
 ### [Mauricio Lopez](https://dribbble.com/m4st3rmiau)
 
 ___
