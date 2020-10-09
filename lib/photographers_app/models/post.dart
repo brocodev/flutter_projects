@@ -1,49 +1,49 @@
 import 'package:flutter_projects/photographers_app/models/users.dart';
 
-class Post {
+class PhotoAppPost {
   final String photoPost;
-  final int comments;
-  final int likes;
-  final bool isLiked;
-  final User user;
+  int comments;
+  int likes;
+  bool isLiked;
+  final PhotoAppUser user;
 
-  Post({this.photoPost, this.comments, this.likes, this.isLiked, this.user});
+  PhotoAppPost({this.photoPost, this.comments, this.likes, this.isLiked, this.user});
 
   static final listHomePost = [
-    Post(
-      user: User.kevin,
-      likes: 1220,
-      comments: 229,
-      isLiked: true,
-      photoPost: User.kevin.listPhotosUrl.first,
-    ),
-    Post(
-      user: User.maria,
+    PhotoAppPost(
+      user: PhotoAppUser.kevin,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: User.maria.listPhotosUrl.first,
+      photoPost: PhotoAppUser.kevin.listPhotosUrl.first,
     ),
-    Post(
-      user: User.liliana,
+    PhotoAppPost(
+      user: PhotoAppUser.maria,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: User.liliana.listPhotosUrl.first,
+      photoPost: PhotoAppUser.maria.listPhotosUrl.first,
     ),
-    Post(
-      user: User.eduard,
+    PhotoAppPost(
+      user: PhotoAppUser.liliana,
       likes: 1220,
       comments: 229,
-      isLiked: true,
-      photoPost: User.eduard.listPhotosUrl.first,
+      isLiked: false,
+      photoPost: PhotoAppUser.liliana.listPhotosUrl.first,
     ),
-    Post(
-      user: User.kevin,
+    PhotoAppPost(
+      user: PhotoAppUser.eduard,
       likes: 1220,
       comments: 229,
-      isLiked: true,
-      photoPost: User.kevin.listPhotosUrl[1],
+      isLiked: false,
+      photoPost: PhotoAppUser.eduard.listPhotosUrl.first,
+    ),
+    PhotoAppPost(
+      user: PhotoAppUser.kevin,
+      likes: 1220,
+      comments: 229,
+      isLiked: false,
+      photoPost: PhotoAppUser.kevin.listPhotosUrl[1],
     ),
   ];
 }

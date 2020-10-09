@@ -8,7 +8,7 @@ import 'package:flutter_projects/photographers_app/pages/home/widgets/search_inp
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePhotoApp extends StatelessWidget {
+class PhotoAppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +27,9 @@ class HomePhotoApp extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              itemCount: Post.listHomePost.length,
+              itemCount: PhotoAppPost.listHomePost.length,
               itemBuilder: (context, index) {
-                final post = Post.listHomePost[index];
+                final post = PhotoAppPost.listHomePost[index];
                 return PostContainer(
                   post: post,
                   isInverted: index.isEven,
@@ -69,9 +69,9 @@ class HomePhotoApp extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.only(left: 20, top: 20),
                     scrollDirection: Axis.horizontal,
-                    itemCount: User.popularUsers.length,
+                    itemCount: PhotoAppUser.popularUsers.length,
                     itemBuilder: (context, index) {
-                      final user = User.popularUsers[index];
+                      final user = PhotoAppUser.popularUsers[index];
                       return ImageUserContainer(user: user);
                     },
                   ),

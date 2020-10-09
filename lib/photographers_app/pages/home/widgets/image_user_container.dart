@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/models/users.dart';
+import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
 class ImageUserContainer extends StatelessWidget {
   const ImageUserContainer({
@@ -9,7 +10,7 @@ class ImageUserContainer extends StatelessWidget {
     @required this.user,
   }) : super(key: key);
 
-  final User user;
+  final PhotoAppUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class ImageUserContainer extends StatelessWidget {
             user.name,
             style: TextStyle(
               fontSize: 18,
-              fontWeight: FontWeight.normal,
+              color: PhotoAppColors.kDarkBlue,
             ),
           ),
         ],

@@ -1,15 +1,15 @@
 import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/photographers_app/clippers/tile_clipper.dart';
 import 'package:flutter_projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostContainer extends StatelessWidget {
-  final Post post;
+class PostContainer extends StatefulWidget {
+  final PhotoAppPost post;
   final bool isInverted;
 
   const PostContainer({
@@ -19,6 +19,38 @@ class PostContainer extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _PostContainerState createState() => _PostContainerState();
+}
+
+class _PostContainerState extends State<PostContainer>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _scaleHeart;
+  Animation<double> _downOpacity;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400));
+    _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(curve: Curves.decelerate, parent: _controller));
+    _downOpacity = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
+        curve: Interval(
+          0.5,
+          1.0,
+          curve: Curves.decelerate,
+        ),
+        parent: _controller));
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _controller.reset();
+      }
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 15),
@@ -26,38 +58,51 @@ class PostContainer extends StatelessWidget {
         width: MediaQuery.of(context).size.width * .8,
         child: Stack(
           children: [
+            //==== IMAGE POST ===
+
             Positioned(
               top: 0,
               bottom: 40,
               right: 0,
               left: 0,
-              child: ClipPath(
-                clipper: _TileClipper(inverted: isInverted),
-                child: CachedNetworkImage(
-                  imageUrl: post.photoPost,
-                  fit: BoxFit.cover,
+              child: GestureDetector(
+                onDoubleTap: () {
+                  _controller.forward();
+                  setState(() {
+                    widget.post.isLiked = true;
+                  });
+                },
+                child: ClipPath(
+                  clipper: TileClipper(inverted: widget.isInverted),
+                  child: CachedNetworkImage(
+                    imageUrl: widget.post.photoPost,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
+
+            //==== INFORMATION POST ===
+
             Align(
               alignment: Alignment.bottomCenter,
               child: Row(
                 children: [
                   Transform(
                     transform: Matrix4.identity()
-                      ..rotateZ(pi * (isInverted ? -.03 : 0.03))
-                      ..setTranslationRaw(10, isInverted ? -30 : -20, 0),
+                      ..rotateZ(pi * (widget.isInverted ? -.03 : 0.03))
+                      ..setTranslationRaw(10, widget.isInverted ? -30 : -20, 0),
                     child: Row(
                       children: [
                         CircleAvatar(
                           radius: 15,
                           backgroundColor: Colors.white,
-                          backgroundImage:
-                              CachedNetworkImageProvider(post.user.photoUrl),
+                          backgroundImage: CachedNetworkImageProvider(
+                              widget.post.user.photoUrl),
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          post.user.name.split(" ").first,
+                          widget.post.user.name.split(" ").first,
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -67,14 +112,14 @@ class PostContainer extends StatelessWidget {
                   const Spacer(),
                   Transform(
                     transform: Matrix4.identity()
-                      ..rotateZ(pi * (isInverted ? .02 : - 0.035))
-                      ..setTranslationRaw(0, isInverted ? -45 : -10, 0),
+                      ..rotateZ(pi * (widget.isInverted ? .02 : -0.035))
+                      ..setTranslationRaw(0, widget.isInverted ? -45 : -10, 0),
                     child: Row(
                       children: [
                         Icon(FontAwesomeIcons.solidCommentDots, size: 18),
                         const SizedBox(width: 3),
                         Text(
-                          post.comments.toString(),
+                          widget.post.comments.toString(),
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold,
                             color: PhotoAppColors.kDarkBlue,
@@ -86,21 +131,21 @@ class PostContainer extends StatelessWidget {
                   const SizedBox(width: 20),
                   Transform(
                     transform: Matrix4.identity()
-                      ..rotateZ(pi * (isInverted ? .035 : - 0.06))
-                      ..setTranslationRaw(0, isInverted ? -40 : -20, 0),
+                      ..rotateZ(pi * (widget.isInverted ? .035 : -0.06))
+                      ..setTranslationRaw(0, widget.isInverted ? -40 : -20, 0),
                     child: Row(
                       children: [
                         Icon(
-                            post.isLiked
-                                ? FontAwesomeIcons.solidHeart
-                                : FontAwesomeIcons.heart,
+                            widget.post.isLiked
+                                ? FontAwesomeIcons.heart
+                                : FontAwesomeIcons.solidHeart,
                             size: 18,
-                            color: post.isLiked
-                                ? Colors.redAccent[700]
-                                : PhotoAppColors.kDarkBlue),
+                            color: widget.post.isLiked
+                                ? PhotoAppColors.kDarkBlue
+                                : Colors.redAccent[700]),
                         const SizedBox(width: 3),
                         Text(
-                          post.likes.toString(),
+                          widget.post.likes.toString(),
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold,
                             color: PhotoAppColors.kDarkBlue,
@@ -112,39 +157,29 @@ class PostContainer extends StatelessWidget {
                 ],
               ),
             ),
+
+            //==== HEART ANIMATED POST ===
+
+            AnimatedBuilder(
+                animation: _controller,
+                builder: (context, _) {
+                  return Center(
+                    child: Transform.scale(
+                      scale: 20 * _scaleHeart.value,
+                      child: Icon(
+                        Icons.favorite,
+                        color: Colors.white.withOpacity(
+                          1 *
+                              (_scaleHeart.value.clamp(0.0, .5) *
+                                  _downOpacity.value),
+                        ),
+                      ),
+                    ),
+                  );
+                })
           ],
         ),
       ),
     );
   }
-}
-
-class _TileClipper extends CustomClipper<Path> {
-  final bool inverted;
-
-  _TileClipper({this.inverted = false});
-
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    final curveSize = 30.0;
-    if (inverted) {
-      path.moveTo(0, curveSize);
-      path.quadraticBezierTo(size.width * .5, 0, size.width, curveSize);
-      path.lineTo(size.width, size.height - curveSize);
-      path.quadraticBezierTo(size.width * .5, size.height - (curveSize * 2), 0,
-          size.height - curveSize);
-    } else {
-      path.moveTo(0, curveSize + 3);
-      path.quadraticBezierTo(
-          size.width * .5, curveSize * 2, size.width, curveSize + 3);
-      path.lineTo(size.width, size.height - curveSize + 3);
-      path.quadraticBezierTo(size.width * .5, size.height + curveSize, 0,
-          size.height - curveSize + 3);
-    }
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
 }

@@ -1,4 +1,4 @@
-class User {
+class PhotoAppUser {
   final String name;
   final String typeUser;
   final int followers;
@@ -6,7 +6,7 @@ class User {
   final String photoUrl;
   final List<String> listPhotosUrl;
 
-  User({
+  PhotoAppUser({
     this.name,
     this.typeUser,
     this.followers,
@@ -15,7 +15,7 @@ class User {
     this.listPhotosUrl,
   });
 
-  static final liliana = User(
+  static final liliana = PhotoAppUser(
       name: 'Liliana Mondragon',
       followers: 14320,
       following: 120,
@@ -34,7 +34,7 @@ class User {
         'https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
       ],
       typeUser: "Photographer");
-  static final julissa = User(
+  static final julissa = PhotoAppUser(
       name: 'Julissa Towers',
       followers: 13320,
       following: 320,
@@ -51,7 +51,7 @@ class User {
         'https://images.unsplash.com/photo-1501554728187-ce583db33af7?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
       ],
       typeUser: "Model");
-  static final eduard = User(
+  static final eduard = PhotoAppUser(
     name: 'Eduard O.',
     followers: 9320,
     following: 20,
@@ -69,7 +69,7 @@ class User {
     ],
     typeUser: "Designer",
   );
-  static final karla = User(
+  static final karla = PhotoAppUser(
       name: 'Karla Smith',
       followers: 14020,
       following: 402,
@@ -86,7 +86,7 @@ class User {
         'https://images.unsplash.com/photo-1601348435451-8caff6b824ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
       typeUser: "Photographer");
-  static final maria = User(
+  static final maria = PhotoAppUser(
       name: 'Maria Lopez',
       followers: 11200,
       following: 297,
@@ -102,7 +102,7 @@ class User {
         'https://images.unsplash.com/photo-1598137203988-80de6392fc1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
       typeUser: "Photographer");
-  static final kevin = User(
+  static final kevin = PhotoAppUser(
       name: 'Kevin Melendez',
       followers: 14200,
       following: 47,

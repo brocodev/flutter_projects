@@ -234,7 +234,7 @@ class ProjectModel {
   );
   static final photographersApp = ProjectModel(
       title: 'Social Photographers App',
-      description: 'Flutter UI',
+      description: 'Flutter UI + Simple animation',
       designer: 'Manuel Rovira',
       pathImage: Res.photographers_app,
       routeNavigator: 'photographers'
