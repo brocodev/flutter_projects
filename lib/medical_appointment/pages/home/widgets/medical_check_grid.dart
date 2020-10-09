@@ -75,7 +75,7 @@ class _MedicalCheckItemWidget extends StatelessWidget {
                           TextSpan(
                               text: "\n${medicalCheckItem.info}",
                               style: TextStyle(
-                                color: AppColors.kLightBlue,
+                                color: MedicalAppColors.kLightBlue,
                               ))
                         ]))
                   ])),

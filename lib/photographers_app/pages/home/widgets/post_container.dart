@@ -136,13 +136,14 @@ class _PostContainerState extends State<PostContainer>
                     child: Row(
                       children: [
                         Icon(
-                            widget.post.isLiked
-                                ? FontAwesomeIcons.heart
-                                : FontAwesomeIcons.solidHeart,
-                            size: 18,
-                            color: widget.post.isLiked
-                                ? PhotoAppColors.kDarkBlue
-                                : Colors.redAccent[700]),
+                          widget.post.isLiked
+                              ? FontAwesomeIcons.solidHeart
+                              : FontAwesomeIcons.heart,
+                          size: 18,
+                          color: widget.post.isLiked
+                              ? Colors.redAccent[700]
+                              : PhotoAppColors.kDarkBlue,
+                        ),
                         const SizedBox(width: 3),
                         Text(
                           widget.post.likes.toString(),

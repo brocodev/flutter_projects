@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class AppColors {
+class MedicalAppColors {
  static final kLightCyan = Color(0xff9ae2e6);
  static final kDarkTeal = Color(0xff527c88);
  static final kDarkBlue = Color(0xff1238a0);

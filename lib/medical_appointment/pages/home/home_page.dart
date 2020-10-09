@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/models/doctor.dart';
+import 'package:flutter_projects/medical_appointment/pages/home/widgets/appointment_details_home.dart';
 import 'package:flutter_projects/medical_appointment/pages/home/widgets/appointment_traslucid_card.dart';
 import 'package:flutter_projects/medical_appointment/pages/home/widgets/custom_app_bar.dart';
 import 'package:flutter_projects/medical_appointment/pages/home/widgets/list_categories.dart';
@@ -59,64 +60,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                     AnimatedSwitcher(
                       duration: kThemeAnimationDuration,
                       child: showAppointmentDetails
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  'Hospital address',
-                                  style: TextStyle(
-                                      color: Colors.white.withOpacity(.9),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      height: 3),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white30,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.map,
-                                        size: 40,
-                                        color: Colors.white70,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Flexible(
-                                        child: Text(
-                                          "123 Main Street, New York, NY 10030 Kensington Hill",
-                                          style: TextStyle(
-                                            fontSize: 17,
-                                            color: Colors.white70,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Text(
-                                  'Medical indications',
-                                  style: TextStyle(
-                                      color: Colors.white.withOpacity(.9),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      height: 3),
-                                ),
-                                SizedBox(
-                                  height: 90,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                        width: 100,
-                                        color: Colors.white,
-                                      );
-                                    },
-                                  ),
-                                )
-                              ],
-                            )
+                          ? AppointmentDetailsHome()
                           : const SizedBox(),
                     ),
                     const Spacer(),
@@ -172,7 +116,7 @@ class _BodyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final sectionStyle = GoogleFonts.poppins(
       fontSize: 20,
-      color: AppColors.kDarkTeal,
+      color: MedicalAppColors.kDarkTeal,
       fontWeight: FontWeight.w600,
     );
     return ListView(

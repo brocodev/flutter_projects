@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/medical_appointment/utils/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,9 +19,9 @@ class AppointmentTranslucentCard extends StatelessWidget {
       fontSize: 16,
     );
     return Container(
-      margin: const EdgeInsets.only(top: 8),
       width: double.infinity,
       height: 160,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.white30,
         borderRadius: BorderRadius.circular(10),
@@ -37,6 +39,41 @@ class AppointmentTranslucentCard extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            height: 28,
+            width: 90,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.white70,
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20)),
+            ),
+            child: Text(
+              "01:30 p.m.",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: MedicalAppColors.kDarkBlue,
+                  fontSize: 12),
+            ),
+          ),
+          Align(
+            alignment: Alignment(.9, .7),
+            child: Container(
+              height: 50,
+              width: 50,
+              padding: const EdgeInsets.all(2.0),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white70, width: 3),
+                  borderRadius: BorderRadius.circular(30)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://pavlov.psyciencia.com/2012/06/empatia-doctor.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -78,7 +115,6 @@ class _IconCard extends StatelessWidget {
   const _IconCard({
     Key key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {

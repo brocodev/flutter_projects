@@ -11,10 +11,10 @@ class MedicalApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: AppColors.kBlue,
+          primaryColor: MedicalAppColors.kBlue,
           accentColor: Colors.pinkAccent,
-          primaryColorLight: AppColors.kLightBlue,
-          primaryColorDark: AppColors.kDarkBlue,
+          primaryColorLight: MedicalAppColors.kLightBlue,
+          primaryColorDark: MedicalAppColors.kDarkBlue,
           textTheme: GoogleFonts.poppinsTextTheme(),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
@@ -38,9 +38,9 @@ class _MainPageState extends State<MainPage> {
         children: <Widget>[
           [
             MedicalHomePage(),
-            Scaffold(),
-            Scaffold(),
-            Scaffold(),
+            Scaffold(body: Text("Doctors")),
+            Scaffold(body: Text("History")),
+            Scaffold(body: Text("Urgency")),
           ][indexPage],
           Positioned(
             bottom: 0,

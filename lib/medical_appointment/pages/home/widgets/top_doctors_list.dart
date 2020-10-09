@@ -37,8 +37,8 @@ class TopDoctorsList extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             gradient: LinearGradient(colors: [
-                              AppColors.kLightBlue,
-                              AppColors.kBlue,
+                              MedicalAppColors.kLightBlue,
+                              MedicalAppColors.kBlue,
                             ])),
                         child: _DoctorInformation(doctor: doctor),
                       ),
@@ -179,40 +179,40 @@ class _BackContainer extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.favorite,
-            color: AppColors.kDarkTeal,
+            color: MedicalAppColors.kDarkTeal,
             size: 16,
           ),
           Text(
             " ${doctor.likes} likes",
             style: TextStyle(
               fontSize: 12.5,
-              color: AppColors.kDarkTeal,
+              color: MedicalAppColors.kDarkTeal,
              ),
           ),
           const Spacer(),
           Icon(
             Icons.comment,
-            color: AppColors.kDarkTeal,
+            color: MedicalAppColors.kDarkTeal,
             size: 16,
           ),
           Text(
             " ${doctor.comments} reviews",
             style: TextStyle(
               fontSize: 12.5,
-              color: AppColors.kDarkTeal,
+              color: MedicalAppColors.kDarkTeal,
              ),
           ),
           const Spacer(),
           Icon(
             Icons.send,
-            color: AppColors.kDarkTeal,
+            color: MedicalAppColors.kDarkTeal,
             size: 16,
           ),
           Text(
             " Message",
             style: TextStyle(
               fontSize: 12.5,
-              color: AppColors.kDarkTeal,
+              color: MedicalAppColors.kDarkTeal,
              ),
           ),
         ],

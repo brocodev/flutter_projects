@@ -7,7 +7,7 @@ class TonguePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..shader = LinearGradient(
-        colors: [AppColors.kBlue, AppColors.kDarkBlue],
+        colors: [MedicalAppColors.kBlue, MedicalAppColors.kDarkBlue],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       ).createShader(
