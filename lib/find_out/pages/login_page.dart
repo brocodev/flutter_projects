@@ -131,7 +131,7 @@ class LoginPage extends StatelessWidget {
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,
-          child: HomePage(),
+          child: HomePageFindOut(),
         );
       },
     );

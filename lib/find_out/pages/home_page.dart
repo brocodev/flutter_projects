@@ -4,7 +4,7 @@ import 'package:flutter_projects/find_out/pages/widgets/drop_down_widget.dart';
 import 'package:flutter_projects/find_out/pages/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/pages/widgets/page_view_places.dart';
 
-class HomePage extends StatelessWidget {
+class HomePageFindOut extends StatelessWidget {
   final pageController = PageController(viewportFraction: .999);
 
   @override

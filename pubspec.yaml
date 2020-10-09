@@ -27,7 +27,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/img/
+    - assets/img/findout/
+    - assets/img/medical/
     - assets/img/movie/
     - assets/img/music/
-    - assets/img/findout/
+    - assets/img/

@@ -4,36 +4,7 @@ class Res {
   static const String music_two = "assets/img/music_two.png";
   static const String movie = "assets/img/movie.gif";
   static const String findout = "assets/img/findout.png";
+  static const String medical_appointment = "assets/img/medical_appointment.png";
+  static const String photographers_app = "assets/img/photographers_app.png";
 }
 
-class ResFindOut{
-  static const String background1 = "assets/img/findout/background1.jpg";
-  static const String background2 = "assets/img/findout/background2.jpg";
-  static const String background3 = "assets/img/findout/background3.jpg";
-  static const String bar = "assets/img/findout/bar.jpg";
-  static const String friends1 = "assets/img/findout/friends1.jpg";
-  static const String friends2 = "assets/img/findout/friends2.jpg";
-  static const String friends3 = "assets/img/findout/friends3.jpg";
-  static const String map = "assets/img/findout/map.jpg";
-}
-
-class ResMovie {
-  static const String actor1 = "assets/img/movie/actor1.jpg";
-  static const String actor2 = "assets/img/movie/actor2.jpg";
-  static const String actor3 = "assets/img/movie/actor3.jpg";
-  static const String actor4 = "assets/img/movie/actor4.jpg";
-  static const String actor5 = "assets/img/movie/actor5.jpg";
-  static const String apokolips_war = "assets/img/movie/apokolips_war.jpg";
-  static const String bad_boys2 = "assets/img/movie/bad_boys2.jpg";
-  static const String bird_prey = "assets/img/movie/bird_prey.jpg";
-  static const String jojo_rabbit = "assets/img/movie/jojo_rabbit.jpg";
-  static const String kissing_both = "assets/img/movie/kissing_both.jpg";
-  static const String mision_rescate = "assets/img/movie/mision_rescate.jpg";
-  static const String mortal_kombat = "assets/img/movie/mortal_kombat.jpg";
-  static const String onward = "assets/img/movie/onward.jpg";
-  static const String qr_code = "assets/img/movie/qr_code.png";
-  static const String rambo = "assets/img/movie/rambo.jpg";
-  static const String red_son = "assets/img/movie/red_son.jpg";
-  static const String sonic = "assets/img/movie/sonic.jpg";
-  static const String star_wars = "assets/img/movie/star_wars.jpg";
-}

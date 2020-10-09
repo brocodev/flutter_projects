@@ -5,8 +5,10 @@ import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
 import 'package:flutter_projects/music_app_two/music_app_two.dart';
+import 'package:flutter_projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/res.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'medical_appointment/medical_app.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
             MovieSelectionApp(),
         ProjectModel.musicApp.routeNavigator: (context) => MusicApp(),
         ProjectModel.musicAppTwo.routeNavigator: (context) => MusicAppTwo(),
+        ProjectModel.medicalAppointment.routeNavigator: (context) => MedicalApp(),
+        ProjectModel.photographersApp.routeNavigator: (context) => PhotographersApp(),
       },
     );
   }
@@ -221,10 +225,26 @@ class ProjectModel {
     pathImage: Res.music_two,
     routeNavigator: "music_two",
   );
+  static final medicalAppointment = ProjectModel(
+    title: 'Medical Appointment',
+    description: 'Flutter UI',
+    designer: 'Kevin Melendez',
+    pathImage: Res.medical_appointment,
+    routeNavigator: 'medical'
+  );
+  static final photographersApp = ProjectModel(
+      title: 'Social Photographers App',
+      description: 'Flutter UI',
+      designer: 'Manuel Rovira',
+      pathImage: Res.photographers_app,
+      routeNavigator: 'photographers'
+  );
   static final listProjects = [
-    findOut,
-    movieSelection,
-    musicApp,
+    photographersApp,
+    medicalAppointment,
     musicAppTwo,
+    findOut,
+    musicApp,
+    movieSelection,
   ];
 }
