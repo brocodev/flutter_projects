@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
+import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
 import 'package:flutter_projects/music_app_two/music_app_two.dart';
@@ -34,13 +35,13 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => MainPage(),
-        ProjectModel.findOut.routeNavigator: (context) => FindOutApp(),
-        ProjectModel.movieSelection.routeNavigator: (context) =>
-            MovieSelectionApp(),
-        ProjectModel.musicApp.routeNavigator: (context) => MusicApp(),
-        ProjectModel.musicAppTwo.routeNavigator: (context) => MusicAppTwo(),
-        ProjectModel.medicalAppointment.routeNavigator: (context) => MedicalApp(),
-        ProjectModel.photographersApp.routeNavigator: (context) => PhotographersApp(),
+        _ProjectModel.findOut.route: (context) => FindOutApp(),
+        _ProjectModel.movieSelection.route: (context) => MovieSelectionApp(),
+        _ProjectModel.musicApp.route: (context) => MusicApp(),
+        _ProjectModel.musicAppTwo.route: (context) => MusicAppTwo(),
+        _ProjectModel.medicalAppointment.route: (context) => MedicalApp(),
+        _ProjectModel.photographersApp.route: (context) => PhotographersApp(),
+        _ProjectModel.instagram.route: (context) => InstagramApp(),
       },
     );
   }
@@ -63,10 +64,10 @@ class MainPage extends StatelessWidget {
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        itemCount: ProjectModel.listProjects.length,
+        itemCount: _ProjectModel.listProjects.length,
         itemBuilder: (context, index) {
-          final project = ProjectModel.listProjects[index];
-          return ProjectCard(
+          final project = _ProjectModel.listProjects[index];
+          return _ProjectCard(
             project: project,
           );
         },
@@ -75,13 +76,13 @@ class MainPage extends StatelessWidget {
   }
 }
 
-class ProjectCard extends StatelessWidget {
-  const ProjectCard({
+class _ProjectCard extends StatelessWidget {
+  const _ProjectCard({
     Key key,
     @required this.project,
   }) : super(key: key);
 
-  final ProjectModel project;
+  final _ProjectModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -162,8 +163,7 @@ class ProjectCard extends StatelessWidget {
               width: size.width * .24,
               child: FlatButton(
                 shape: StadiumBorder(side: BorderSide(color: Colors.cyan)),
-                onPressed: () =>
-                    Navigator.pushNamed(context, project.routeNavigator),
+                onPressed: () => Navigator.pushNamed(context, project.route),
                 color: Colors.white,
                 textColor: Colors.cyan,
                 child: AutoSizeText(
@@ -183,63 +183,68 @@ class ProjectCard extends StatelessWidget {
   }
 }
 
-class ProjectModel {
+class _ProjectModel {
   final String title;
   final String description;
   final String designer;
   final String pathImage;
-  final String routeNavigator;
+  final String route;
 
-  ProjectModel({
+  _ProjectModel({
     this.title,
     this.description,
     this.designer,
     this.pathImage,
-    this.routeNavigator,
+    this.route,
   });
 
-  static final findOut = ProjectModel(
+  static final findOut = _ProjectModel(
       title: "Find Out",
       description: "Flutter UI + Simple Animations",
       designer: "Mao Lop",
       pathImage: Res.findout,
-      routeNavigator: "findOut");
-  static final movieSelection = ProjectModel(
+      route: "findOut");
+  static final movieSelection = _ProjectModel(
     title: "Movie Selection",
     description: "Flutter UI + Animations",
     designer: "Leonid Arestov",
     pathImage: Res.movie,
-    routeNavigator: "movie",
+    route: "movie",
   );
-  static final musicApp = ProjectModel(
+  static final musicApp = _ProjectModel(
     title: "Music App",
     description: "Flutter UI + Hero Animations",
     designer: "Mantra Design",
     pathImage: Res.music,
-    routeNavigator: "music",
+    route: "music",
   );
-  static final musicAppTwo = ProjectModel(
+  static final musicAppTwo = _ProjectModel(
     title: "Music App Two",
-    description: "Flutter UI + Animations",
+    description: "Flutter UI + Explicit Animations",
     designer: "Khonok Lee",
     pathImage: Res.music_two,
-    routeNavigator: "music_two",
+    route: "music_two",
   );
-  static final medicalAppointment = ProjectModel(
-    title: 'Medical Appointment',
-    description: 'Flutter UI',
-    designer: 'Kevin Melendez',
-    pathImage: Res.medical_appointment,
-    routeNavigator: 'medical'
-  );
-  static final photographersApp = ProjectModel(
+  static final medicalAppointment = _ProjectModel(
+      title: 'Medical Appointment',
+      description: 'Flutter UI',
+      designer: 'Kevin Melendez',
+      pathImage: Res.medical_appointment,
+      route: 'medical');
+  static final photographersApp = _ProjectModel(
       title: 'Social Photographers App',
       description: 'Flutter UI + Simple animation',
       designer: 'Manuel Rovira',
       pathImage: Res.photographers_app,
-      routeNavigator: 'photographers'
-  );
+      route: 'photographers');
+  static final instagram = _ProjectModel(
+      title: 'Instagram redesign',
+      description: 'Flutter UI + Implicit Animations',
+      designer: 'Manuel Rovira',
+      pathImage: Res.instagram,
+      route: 'instagram');
   static final listProjects = [
+    instagram,
     photographersApp,
     medicalAppointment,
     musicAppTwo,

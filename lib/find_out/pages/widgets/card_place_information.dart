@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class CardPlaceInformation extends StatelessWidget {
   const CardPlaceInformation({
@@ -38,9 +38,9 @@ class CardPlaceInformation extends StatelessWidget {
                       foregroundColor: Colors.white,
                       child: Icon(
                         [
-                          FontAwesomeIcons.facebookF,
-                          FontAwesomeIcons.twitter,
-                          FontAwesomeIcons.google,
+                          FontAwesome.facebook,
+                          FontAwesome.twitter,
+                          FontAwesome.google,
                         ][index],
                         size: 12,
                       ),

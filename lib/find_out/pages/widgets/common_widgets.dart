@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_projects/find_out/models/place.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindOutLogo extends StatelessWidget {
@@ -39,7 +39,7 @@ class FindOutLogo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Icon(
-                      FontAwesomeIcons.search,
+                      FontAwesome.search,
                       size: fontSize * .7,
                       color: Colors.pinkAccent,
                     ),
@@ -90,7 +90,7 @@ class FindOutHorizontalLogo extends StatelessWidget {
               style: style
             ),
             Icon(
-              FontAwesomeIcons.search,
+              FontAwesome.search,
               size: fontSize * .8,
               color: Colors.pinkAccent,
             ),

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/utils/app_colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppointmentTranslucentCard extends StatelessWidget {
@@ -127,7 +127,7 @@ class _IconCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(FontAwesomeIcons.heartbeat, size: 70, color: Colors.white),
+          Icon(FontAwesome.heartbeat, size: 70, color: Colors.white),
           Text(
             "Heart care",
             style: TextStyle(

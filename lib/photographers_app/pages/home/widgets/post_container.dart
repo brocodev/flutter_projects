@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/clippers/tile_clipper.dart';
 import 'package:flutter_projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PostContainer extends StatefulWidget {
@@ -116,7 +116,7 @@ class _PostContainerState extends State<PostContainer>
                       ..setTranslationRaw(0, widget.isInverted ? -45 : -10, 0),
                     child: Row(
                       children: [
-                        Icon(FontAwesomeIcons.solidCommentDots, size: 18),
+                        Icon(FontAwesome.commenting, size: 18),
                         const SizedBox(width: 3),
                         Text(
                           widget.post.comments.toString(),
@@ -137,8 +137,8 @@ class _PostContainerState extends State<PostContainer>
                       children: [
                         Icon(
                           widget.post.isLiked
-                              ? FontAwesomeIcons.solidHeart
-                              : FontAwesomeIcons.heart,
+                              ? FontAwesome.heart
+                              : FontAwesome.heart_o,
                           size: 18,
                           color: widget.post.isLiked
                               ? Colors.redAccent[700]

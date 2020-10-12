@@ -3,7 +3,7 @@ import 'package:flutter_projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/photographers_app/pages/home/photo_app_home.dart';
 import 'package:flutter_projects/photographers_app/pages/profile/photo_app_profile.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotographersApp extends StatelessWidget {
@@ -110,7 +110,7 @@ class _WavedNavigationBar extends StatelessWidget {
                         : PhotoAppColors.kGrey,
                     icon: Icon([
                       Icons.widgets,
-                      FontAwesomeIcons.solidCommentDots,
+                      FontAwesome.commenting,
                       Icons.favorite,
                       Icons.person,
                     ][index]),

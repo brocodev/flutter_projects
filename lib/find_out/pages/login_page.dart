@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_projects/find_out/pages/clippers/inverted_top_border.dart';
 import 'package:flutter_projects/find_out/pages/home_page.dart';
 import 'package:flutter_projects/find_out/pages/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/pages/widgets/text_input_find_out.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -69,7 +69,7 @@ class LoginPage extends StatelessWidget {
                                   const SizedBox(height: 60),
                                   TextInputFindOut(
                                     label: 'Nombre de usuario',
-                                    iconData: FontAwesomeIcons.user,
+                                    iconData: FontAwesome.user,
                                     textInputType: TextInputType.emailAddress,
                                   ),
                                   const SizedBox(height: 20),
