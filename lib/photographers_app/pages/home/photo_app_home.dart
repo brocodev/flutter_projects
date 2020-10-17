@@ -5,6 +5,7 @@ import 'package:flutter_projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/photographers_app/pages/home/widgets/image_user_container.dart';
 import 'package:flutter_projects/photographers_app/pages/home/widgets/post_container.dart';
 import 'package:flutter_projects/photographers_app/pages/home/widgets/search_input.dart';
+import 'package:flutter_projects/photographers_app/pages/profile/photo_app_profile.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -72,7 +73,16 @@ class PhotoAppHome extends StatelessWidget {
                     itemCount: PhotoAppUser.popularUsers.length,
                     itemBuilder: (context, index) {
                       final user = PhotoAppUser.popularUsers[index];
-                      return ImageUserContainer(user: user);
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => PhotoAppProfile(user: user),
+                              ));
+                        },
+                        child: ImageUserContainer(user: user),
+                      );
                     },
                   ),
                 )
