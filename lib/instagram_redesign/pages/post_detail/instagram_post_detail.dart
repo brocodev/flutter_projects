@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
+import 'package:flutter_projects/instagram_redesign/pages/post_detail/widgets/add_comment_text_field.dart';
 import 'package:flutter_projects/instagram_redesign/pages/post_detail/widgets/comment_list_tile.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/ample_post_container.dart';
 
@@ -16,7 +17,6 @@ class InstagramPostDetail extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onPrimary,
-
       //------------------------------
       //--- POST DETAIL APP BAR
       //------------------------------
@@ -44,7 +44,7 @@ class InstagramPostDetail extends StatelessWidget {
             top: 0,
             right: 0,
             left: 0,
-            bottom: screenHeight * .3,
+            height: (screenHeight * .7) - 76,
             child: Hero(
               tag: post.id,
               child: AmplePostContainer(
@@ -105,11 +105,39 @@ class InstagramPostDetail extends StatelessWidget {
                   onPressed: () => expandComments.value = !expandComments.value,
                   icon: Icon(value
                       ? Icons.keyboard_arrow_down
-                      : Icons.keyboard_arrow_up
-                  ),
+                      : Icons.keyboard_arrow_up),
                 ),
               );
             },
+          ),
+
+          //----------------------------------
+          //----ADD COMMENT TEXT FIELD
+          //----------------------------------
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 90,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 20,
+                    )
+                  ]),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: AddCommentTextField(),
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),

@@ -29,6 +29,7 @@ class _AmplePostContainerState extends State<AmplePostContainer>
   AnimationController _controller;
   Animation _scaleHeart;
   Animation _outOpacityHeart;
+  final indexNotifier = ValueNotifier(0);
 
   @override
   void initState() {
@@ -54,7 +55,6 @@ class _AmplePostContainerState extends State<AmplePostContainer>
 
   @override
   Widget build(BuildContext context) {
-    final indexNotifier = ValueNotifier(0);
     final post = widget.post;
     final user = post.userPost;
 
@@ -253,26 +253,3 @@ class _AmplePostContainerState extends State<AmplePostContainer>
     );
   }
 }
-
-// Transform.scale(
-// scale: 20,
-// child: Stack(
-// alignment: Alignment.center,
-// children: [
-// Icon(FontAwesome.heart_o,
-// color: Colors.white, size: 20),
-// ShaderMask(
-// shaderCallback: (bounds) => LinearGradient(
-// colors: [
-// Colors.purpleAccent,
-// Colors.redAccent,
-// Colors.amberAccent,
-// ],
-// begin: Alignment.topCenter,
-// end: Alignment.bottomCenter,
-// ).createShader(bounds),
-// child:
-// Icon(FontAwesome.heart, size: 16, color: Colors.white)),
-// ],
-// ),
-// ),
