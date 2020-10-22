@@ -138,7 +138,7 @@ packages:
       name: flutter_svg
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.19.0"
+    version: "0.19.1"
   flutter_swiper:
     dependency: "direct main"
     description:

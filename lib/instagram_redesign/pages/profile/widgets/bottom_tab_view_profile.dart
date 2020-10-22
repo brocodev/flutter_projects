@@ -1,0 +1,110 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_projects/instagram_redesign/models/ig_user.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+
+class BottomTabViewProfile extends StatefulWidget {
+  final IgUser user;
+
+  const BottomTabViewProfile({
+    Key key,
+    @required this.user,
+  }) : super(key: key);
+
+  @override
+  _BottomTabViewProfileState createState() => _BottomTabViewProfileState();
+}
+
+class _BottomTabViewProfileState extends State<BottomTabViewProfile>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 6, vsync: this);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final user = widget.user;
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: TabBar(
+        labelColor: colorScheme.onBackground,
+        unselectedLabelColor: colorScheme.onBackground.withOpacity(.3),
+        controller: _tabController,
+        indicator: UnderlineTabIndicator(borderSide: BorderSide.none),
+        tabs: [
+          Tab(icon: Icon(Icons.widgets)),
+          Tab(icon: Icon(Icons.ondemand_video)),
+          Tab(icon: Icon(Feather.tv)),
+          Tab(icon: Icon(Icons.contacts)),
+          Tab(icon: Icon(Feather.link)),
+          Tab(icon: Icon(Icons.bookmark_border)),
+        ],
+      ),
+      body: TabBarView(controller: _tabController, children: [
+        //----------------------------
+        //----PHOTOS TAB VIEW
+        //----------------------------
+        StaggeredGridView.countBuilder(
+          crossAxisCount: 3,
+          physics: const BouncingScrollPhysics(),
+          itemCount: user.listPhotosUrl.length,
+          padding: const EdgeInsets.only(bottom: 76),
+          mainAxisSpacing: 5.0,
+          crossAxisSpacing: 5.0,
+          itemBuilder: (BuildContext context, int index) {
+            return CachedNetworkImage(
+              imageUrl: user.listPhotosUrl[index],
+              fit: BoxFit.cover,
+            );
+          },
+          staggeredTileBuilder: (int index) =>
+              StaggeredTile.count(index == 0 ? 2 : 1, index == 0 ? 2 : 1),
+        ),
+        Container(), //---VIDEOS
+        Container(), //---STREAMS
+        Container(), //---CONTACTS
+
+        //-------------------------------------
+        //------EXTERNAL PLATFORMS GRID VIEW
+        //-------------------------------------
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 10 / 2.8,
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15),
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.fromLTRB(15, 15, 10, 76),
+          itemCount: user.externalPlatforms.length,
+          itemBuilder: (context, index) {
+            final externalPlatform = user.externalPlatforms[index];
+            return Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(externalPlatform.imagePath))),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {},
+                  color: externalPlatform.haveDarkImage
+                      ? Colors.white
+                      : Colors.black,
+                  icon: Icon(Icons.launch),
+                ),
+              ),
+            );
+          },
+        ), //---LINKS
+        Container(), //---SAVED
+      ]),
+    );
+  }
+}

@@ -8,7 +8,6 @@ import 'package:flutter_projects/instagram_redesign/pages/post_detail/instagram_
 import 'package:flutter_projects/instagram_redesign/pages/widgets/ample_post_container.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-
 class InstagramHome extends StatefulWidget {
   const InstagramHome({
     Key key,
@@ -98,10 +97,12 @@ class _InstagramHomeState extends State<InstagramHome>
                     itemBuilder: (context, index) {
                       final itemSize = 75.0;
                       if ((index == 0)) {
-                        return InstagramAddStory(itemSize: itemSize);
+                        return InstagramAddItem(
+                          itemSize: itemSize,
+                          label: 'My Story',
+                        );
                       } else {
-                        final stories =
-                            IgStories.listUserStories[(index - 1)];
+                        final stories = IgStories.listUserStories[(index - 1)];
                         return InstagramStoriesItem(
                           itemSize: itemSize,
                           stories: stories,
@@ -135,7 +136,7 @@ class _InstagramHomeState extends State<InstagramHome>
                       setState(() {
                         selectedIndex = index;
                       });
-                      return _openDetails(context, post);
+                      _openDetails(context, post);
                     },
                     child: Hero(
                         tag: post.id,
@@ -144,47 +145,6 @@ class _InstagramHomeState extends State<InstagramHome>
                 );
               }, childCount: IgPost.listPosts.length)),
             ],
-          ),
-
-          //------------------------------
-          //----HIDE SETTINGS CARD ZONE
-          //------------------------------
-          AnimatedBuilder(
-            animation: instagramBloc,
-            builder: (context, child) {
-              return instagramBloc.settingState == SettingsSate.visible
-                  ? child
-                  : const SizedBox();
-            },
-            child: Positioned.fill(child: GestureDetector(
-              onPanDown: (details) {
-                instagramBloc.hideSettings();
-              },
-            )),
-          ),
-
-          //------------------------------
-          //----SETTINGS BLUR CARD
-          //------------------------------
-          AnimatedBuilder(
-            animation: instagramBloc,
-            builder: (context, child) {
-              return AnimatedPositioned(
-                  duration: kThemeAnimationDuration,
-                  top: instagramBloc.settingState == SettingsSate.visible
-                      ? 0
-                      : -210,
-                  left: 0,
-                  right: 0,
-                  child: child);
-            },
-            child: Column(
-              children: [
-                SettingsBlurCard(
-                  height: 210,
-                ),
-              ],
-            ),
           ),
         ],
       ),

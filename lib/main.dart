@@ -9,7 +9,7 @@ import 'package:flutter_projects/music_app_two/music_app_two.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/res.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'medical_appointment/medical_app.dart';
+import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

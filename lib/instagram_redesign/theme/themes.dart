@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class InstagramTheme {
   static final kAppBarThemeLight = AppBarTheme(
-      iconTheme: IconThemeData(color: Colors.grey.shade300),
+      iconTheme: IconThemeData(color: Colors.grey.shade400),
       brightness: Brightness.light,
       color: Color(0xFFF2F6F9),
       elevation: 0,
@@ -17,6 +17,7 @@ class InstagramTheme {
       ));
 
   static final kAppBarThemeDark = kAppBarThemeLight.copyWith(
+      iconTheme: IconThemeData(color: Colors.white),
       brightness: Brightness.dark,
       color: Colors.black,
       textTheme: TextTheme(
@@ -32,6 +33,7 @@ class InstagramTheme {
       scaffoldBackgroundColor: Colors.black,
       backgroundColor: Colors.black,
       colorScheme: ColorScheme.dark(),
+      textTheme: GoogleFonts.latoTextTheme(),
       appBarTheme: InstagramTheme.kAppBarThemeDark);
 
   static final kLightTheme = ThemeData(

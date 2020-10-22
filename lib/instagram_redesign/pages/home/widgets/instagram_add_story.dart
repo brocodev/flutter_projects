@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-class InstagramAddStory extends StatelessWidget {
-  const InstagramAddStory({
+class InstagramAddItem extends StatelessWidget {
+  const InstagramAddItem({
     Key key,
     @required this.itemSize,
     this.onTap,
+    this.label = "",
   }) : super(key: key);
 
   final double itemSize;
   final VoidCallback onTap;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class InstagramAddStory extends StatelessWidget {
               borderRadius: BorderRadius.circular(itemSize * .4),
             )),
         Text(
-          "My Story",
+          label,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,

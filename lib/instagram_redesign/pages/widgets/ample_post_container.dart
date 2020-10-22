@@ -18,7 +18,7 @@ class AmplePostContainer extends StatefulWidget {
   }) : super(key: key);
   final IgPost post;
   final BorderRadiusGeometry borderRadius;
-  final height;
+  final double height;
 
   @override
   _AmplePostContainerState createState() => _AmplePostContainerState();
@@ -83,14 +83,13 @@ class _AmplePostContainerState extends State<AmplePostContainer>
                     return Stack(
                       fit: StackFit.expand,
                       children: [
-                        CachedNetworkImage(
-                          imageUrl: post.photos[index],
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => Container(
-                            color: Colors.white,
-                            child: CupertinoActivityIndicator(
-                              radius: 40,
-                            ),
+                        DecoratedBox(
+                          decoration: BoxDecoration(color: Colors.white),
+                          child: CachedNetworkImage(
+                            imageUrl: post.photos[index],
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) =>
+                                CupertinoActivityIndicator(radius: 40),
                           ),
                         ),
                         DecoratedBox(

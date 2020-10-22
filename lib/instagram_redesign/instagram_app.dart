@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/instagram_bloc.dart';
 import 'package:flutter_projects/instagram_redesign/pages/home/instagram_home.dart';
+import 'package:flutter_projects/instagram_redesign/pages/home/widgets/settings_blur_card.dart';
+import 'package:flutter_projects/instagram_redesign/pages/profile/instagram_profile.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/rounded_navigation_bar.dart';
 import 'package:flutter_projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -41,57 +43,105 @@ class _MateApp extends StatelessWidget {
   }
 }
 
-class _InstagramNavigationPage extends StatelessWidget {
+class _InstagramNavigationPage extends StatefulWidget {
+  @override
+  _InstagramNavigationPageState createState() =>
+      _InstagramNavigationPageState();
+}
+
+class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
-    final indexNotifier = ValueNotifier(0);
-    return ValueListenableBuilder(
-        valueListenable: indexNotifier,
-        builder: (context, index, child) {
-          return Scaffold(
-            body: AnimatedSwitcher(
+    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+
+    return Scaffold(
+      body: OverflowBox(
+        alignment: Alignment.topCenter,
+        maxHeight: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: [
+            AnimatedSwitcher(
               duration: kThemeAnimationDuration,
               child: [
-                LayoutBuilder(builder: (context, constraints) {
-                  return OverflowBox(
-                      alignment: Alignment.topCenter,
-                      maxHeight: constraints.maxHeight + 50,
-                      child: InstagramHome());
-                }),
+                InstagramHome(),
                 Scaffold(body: Center(child: Text("Explore"))),
                 Scaffold(body: Center(child: Text("Add"))),
                 Scaffold(body: Center(child: Text("Favorites"))),
-                Scaffold(body: Center(child: Text("Profile"))),
+                InstagramProfile(),
               ][index],
             ),
-            bottomNavigationBar: RoundedNavigationBar(
-              selectColor: Theme.of(context).colorScheme.onBackground,
-              onTap: (value) => indexNotifier.value = value,
-              currentIndex: index,
-              items: [
-                RoundedNavigationBarItem(
-                  iconData: Icons.home_rounded,
-                  hasNotification: false,
-                ),
-                RoundedNavigationBarItem(
-                  iconData: Feather.search,
-                  hasNotification: false,
-                ),
-                RoundedNavigationBarItem(
-                  iconData: Icons.add_box_outlined,
-                  hasNotification: false,
-                ),
-                RoundedNavigationBarItem(
-                  iconData: Icons.favorite_border,
-                  hasNotification: true,
-                ),
-                RoundedNavigationBarItem(
-                  iconData: Feather.user,
-                  hasNotification: false,
-                ),
-              ],
+
+            //------------------------------
+            //----SETTINGS BLUR CARD
+            //------------------------------
+            AnimatedBuilder(
+              animation: instagramBloc,
+              builder: (context, settingsCard) {
+                return AnimatedPositioned(
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.fastOutSlowIn,
+                    top: instagramBloc.settingState == SettingsSate.visible
+                        ? 0
+                        : -210,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Stack(
+                      children: [
+                        //--------------------------
+                        //----HIDE SETTINGS ZONE
+                        //--------------------------
+                        instagramBloc.settingState == SettingsSate.visible
+                            ? Positioned.fill(
+                                child: GestureDetector(onPanDown: (details) {
+                                instagramBloc.hideSettings();
+                              }))
+                            : const SizedBox(),
+                        settingsCard,
+                      ],
+                    ));
+              },
+              child: SettingsBlurCard(height: 210),
             ),
-          );
-        });
+          ],
+        ),
+      ),
+      bottomNavigationBar: RoundedNavigationBar(
+        selectColor: Theme.of(context).colorScheme.onBackground,
+        onTap: (value) {
+          setState(() {
+            index = value;
+          });
+        },
+        currentIndex: index,
+        items: [
+          RoundedNavigationBarItem(
+            selectedIconData: Icons.home_rounded,
+            iconData: Icons.home_outlined,
+            hasNotification: false,
+          ),
+          RoundedNavigationBarItem(
+            iconData: Feather.search,
+            hasNotification: false,
+          ),
+          RoundedNavigationBarItem(
+            iconData: Icons.add_box_outlined,
+            hasNotification: false,
+          ),
+          RoundedNavigationBarItem(
+            iconData: Icons.favorite_border,
+            selectedIconData: Icons.favorite,
+            hasNotification: true,
+          ),
+          RoundedNavigationBarItem(
+            iconData: Icons.person_outlined,
+            selectedIconData: Icons.person,
+            hasNotification: false,
+          ),
+        ],
+      ),
+    );
   }
 }

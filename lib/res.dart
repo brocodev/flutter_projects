@@ -6,6 +6,6 @@ class Res {
   static const String findout = "assets/img/findout.png";
   static const String medical_appointment = "assets/img/medical_appointment.png";
   static const String photographers_app = "assets/img/photographers_app.png";
-  static const String instagram = "assets/img/instagram.png";
+  static const String instagram = "assets/img/ig.png";
 }
 
