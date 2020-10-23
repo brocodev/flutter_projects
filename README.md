@@ -13,6 +13,14 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ___
+## Instagram Redesign App
+Flutter UI + Animations + Slivers
+### Design
+<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/e488189eee322da095517bc0c75224d4.png" height="400"/>|
+#### [Dribbble design resource](https://dribbble.com/shots/6690819--Social-App-Design-Photographers)
+
+
+___
 ## Social App Photographers
 Flutter UI + Clippers
 ### Design
