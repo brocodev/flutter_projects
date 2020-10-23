@@ -119,31 +119,31 @@ class _InstagramHomeState extends State<InstagramHome>
               //---------------------------------
               SliverToBoxAdapter(child: const SizedBox(height: 70)),
               SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                final post = IgPost.listPosts[index];
-                return AnimatedBuilder(
-                  animation: _controller,
-                  builder: (context, child) {
-                    return Align(
-                      alignment: Alignment.bottomCenter,
-                      heightFactor:
-                          selectedIndex < index ? _heightFactor.value : .92,
-                      child: child,
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final post = IgPost.listPosts[index];
+                    return AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return Align(
+                          alignment: Alignment.bottomCenter,
+                          heightFactor:
+                              selectedIndex < index ? _heightFactor.value : .92,
+                          child: child,
+                        );
+                      },
+                      child: Hero(
+                          tag: post.id,
+                          child: AmplePostContainer(
+                            post: post,
+                            onTap: () => _openDetails(context, post, index),
+                            height: 600.0,
+                          )),
                     );
                   },
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                      _openDetails(context, post);
-                    },
-                    child: Hero(
-                        tag: post.id,
-                        child: AmplePostContainer(post: post, height: 600.0)),
-                  ),
-                );
-              }, childCount: IgPost.listPosts.length)),
+                  childCount: IgPost.listPosts.length,
+                ),
+              ),
             ],
           ),
         ],
@@ -151,7 +151,10 @@ class _InstagramHomeState extends State<InstagramHome>
     );
   }
 
-  _openDetails(BuildContext context, IgPost post) async {
+  _openDetails(BuildContext context, IgPost post, int indexPost) async {
+    setState(() {
+      selectedIndex = indexPost;
+    });
     _controller.forward();
     await Navigator.push(context, PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {

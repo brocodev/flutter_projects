@@ -15,10 +15,12 @@ class AmplePostContainer extends StatefulWidget {
     @required this.post,
     this.borderRadius = const BorderRadius.vertical(top: Radius.circular(50)),
     this.height,
+    this.onTap,
   }) : super(key: key);
   final IgPost post;
   final BorderRadiusGeometry borderRadius;
   final double height;
+  final VoidCallback onTap;
 
   @override
   _AmplePostContainerState createState() => _AmplePostContainerState();
@@ -63,6 +65,7 @@ class _AmplePostContainerState extends State<AmplePostContainer>
       child: SizedBox(
         height: widget.height,
         child: GestureDetector(
+          onTap: widget.onTap,
           onDoubleTap: () {
             _controller.forward();
             setState(() {
