@@ -30,22 +30,22 @@ class RoundedNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(items.length, (index) {
           final item = items[index];
-          return Stack(
-            alignment: Alignment(.4, .2),
-            children: [
-              IconButton(
-                color: index == currentIndex ? selectColor : unselectColor,
-                icon: Icon(index == currentIndex
+          return IconButton(
+            onPressed: () {
+              if (onTap != null) {
+                onTap(index);
+              }
+            },
+            color: index == currentIndex ? selectColor : unselectColor,
+            icon: Stack(
+              alignment: Alignment(1,.5),
+              children: [
+                Icon(index == currentIndex
                     ? item.selectedIconData ?? item.iconData
                     : item.iconData),
-                onPressed: () {
-                  if (onTap != null) {
-                    onTap(index);
-                  }
-                },
-              ),
-              if (item.hasNotification) RedDot()
-            ],
+                if (item.hasNotification) RedDot()
+              ],
+            ),
           );
         }),
       ),

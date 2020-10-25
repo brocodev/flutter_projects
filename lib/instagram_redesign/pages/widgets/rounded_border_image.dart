@@ -6,13 +6,15 @@ class RoundedBorderImage extends StatelessWidget {
   final double height;
   final Color borderColor;
   final double borderWidth;
+  final double borderRadius;
 
   const RoundedBorderImage({
     Key key,
-    this.imageUrl,
-    this.height,
+    @required this.imageUrl,
+    @required this.height,
     this.borderColor,
     this.borderWidth = 3.0,
+    this.borderRadius,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class RoundedBorderImage extends StatelessWidget {
             color: borderColor ?? Theme.of(context).backgroundColor,
             width: borderWidth,
           ),
-          borderRadius: BorderRadius.circular(height * .4),
+          borderRadius: BorderRadius.circular(borderRadius ?? height * .4),
           image: DecorationImage(
               image: CachedNetworkImageProvider(imageUrl), fit: BoxFit.cover)),
     );

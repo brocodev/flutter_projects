@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/instagram_bloc.dart';
+import 'package:flutter_projects/instagram_redesign/pages/activity/activities_page.dart';
 import 'package:flutter_projects/instagram_redesign/pages/home/instagram_home.dart';
 import 'package:flutter_projects/instagram_redesign/pages/home/widgets/settings_blur_card.dart';
 import 'package:flutter_projects/instagram_redesign/pages/profile/instagram_profile.dart';
@@ -65,11 +66,11 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
             AnimatedSwitcher(
               duration: kThemeAnimationDuration,
               child: [
-                InstagramHome(),
-                Scaffold(body: Center(child: Text("Explore"))),
-                Scaffold(body: Center(child: Text("Add"))),
-                Scaffold(body: Center(child: Text("Favorites"))),
-                InstagramProfile(),
+                const InstagramHome(),
+                const Scaffold(body: Center(child: Text("Explore"))),
+                const Scaffold(body: Center(child: Text("Add"))),
+                const ActivitiesPage(),
+                const InstagramProfile(),
               ][index],
             ),
 

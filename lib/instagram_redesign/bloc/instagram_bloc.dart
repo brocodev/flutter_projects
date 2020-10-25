@@ -8,6 +8,8 @@ class InstagramBloc with ChangeNotifier {
   ViewState viewState = ViewState.ample;
   ThemeMode themeMode = ThemeMode.light;
 
+
+
   void showSettings() {
     settingState = SettingsSate.visible;
     notifyListeners();

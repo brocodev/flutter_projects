@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/rounded_border_image.dart';
 
 
-class GradientBorderImage extends StatelessWidget {
-  const GradientBorderImage({
+class RoundedGradientBorderImage extends StatelessWidget {
+  const RoundedGradientBorderImage({
     Key key,
     @required this.height,
     @required this.imageUrl,

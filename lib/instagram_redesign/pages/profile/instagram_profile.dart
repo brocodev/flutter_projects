@@ -6,12 +6,14 @@ import 'package:flutter_projects/instagram_redesign/models/ig_user.dart';
 import 'package:flutter_projects/instagram_redesign/pages/home/widgets/home_widgets.dart';
 import 'package:flutter_projects/instagram_redesign/pages/profile/widgets/bottom_tab_view_profile.dart';
 import 'package:flutter_projects/instagram_redesign/pages/profile/widgets/title_subtitle_text.dart';
-import 'package:flutter_projects/instagram_redesign/pages/widgets/gradient_border_image.dart';
+import 'package:flutter_projects/instagram_redesign/pages/widgets/rounded_gradient_border_image.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/rounded_border_image.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InstagramProfile extends StatelessWidget {
+  const InstagramProfile({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final currentUser = IgUser.kevin;
@@ -246,7 +248,7 @@ class _ImageProfile extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: GradientBorderImage(height: 80, imageUrl: imageProfileUrl),
+          child: RoundedGradientBorderImage(height: 80, imageUrl: imageProfileUrl),
         ),
         Container(
           padding: const EdgeInsets.all(5),
