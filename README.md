@@ -17,6 +17,9 @@ ___
 Flutter UI + Animations + Slivers
 ### Design
 <img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/e488189eee322da095517bc0c75224d4.png" height="400"/>|
+<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/fbc4301054738e30faa51756e3a6f8de.png" height="400"/>|
+<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/6a9a09247ba28064324eac088a8fba96.png" height="400"/>|
+
 #### [Dribbble design resource](https://dribbble.com/shots/6690819--Social-App-Design-Photographers)
 
 
