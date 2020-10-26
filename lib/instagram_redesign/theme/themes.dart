@@ -32,7 +32,8 @@ class InstagramTheme {
       primaryColorBrightness: Brightness.dark,
       scaffoldBackgroundColor: Colors.black,
       backgroundColor: Colors.black,
-      colorScheme: ColorScheme.dark(primaryVariant: Colors.white12),
+      colorScheme:
+          ColorScheme.dark(primaryVariant: Colors.white.withOpacity(.06)),
       textTheme: GoogleFonts.latoTextTheme(),
       appBarTheme: InstagramTheme.kAppBarThemeDark);
 

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
 import 'package:flutter_projects/instagram_redesign/pages/post_detail/widgets/add_comment_text_field.dart';
 import 'package:flutter_projects/instagram_redesign/pages/post_detail/widgets/comment_list_tile.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/ample_post_container.dart';
+import 'package:flutter_projects/instagram_redesign/pages/widgets/clean_post_container.dart';
 
 class InstagramPostDetail extends StatelessWidget {
   final IgPost post;
@@ -14,14 +16,19 @@ class InstagramPostDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final expandComments = ValueNotifier(false);
+    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+      backgroundColor: instagramBloc.viewState == ViewState.clean
+          ? null
+          : Theme.of(context).colorScheme.onPrimary,
       //------------------------------
       //--- POST DETAIL APP BAR
       //------------------------------
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+        backgroundColor: instagramBloc.viewState == ViewState.clean
+            ? null
+            : Theme.of(context).colorScheme.onPrimary,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           color: Theme.of(context).colorScheme.onBackground,
@@ -47,10 +54,12 @@ class InstagramPostDetail extends StatelessWidget {
             height: (screenHeight * .7) - 76,
             child: Hero(
               tag: post.id,
-              child: AmplePostContainer(
-                post: post,
-                borderRadius: BorderRadius.circular(50),
-              ),
+              child: (instagramBloc.viewState == ViewState.ample)
+                  ? AmplePostContainer(
+                      post: post,
+                      borderRadius: BorderRadius.circular(50),
+                    )
+                  : CleanPostContainer(post: post),
             ),
           ),
 
@@ -72,9 +81,18 @@ class InstagramPostDetail extends StatelessWidget {
             child: Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
-                color: Theme.of(context).colorScheme.onPrimary,
-              ),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  boxShadow: [
+                    if (instagramBloc.viewState == ViewState.clean)
+                      BoxShadow(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withOpacity(.06),
+                          blurRadius: 10,
+                          offset: Offset(0, -5))
+                  ]),
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(20),

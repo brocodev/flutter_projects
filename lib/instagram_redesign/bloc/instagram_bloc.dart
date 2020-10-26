@@ -5,7 +5,7 @@ enum ViewState { ample, clean, old }
 
 class InstagramBloc with ChangeNotifier {
   SettingsSate settingState = SettingsSate.hide;
-  ViewState viewState = ViewState.ample;
+  ViewState viewState = ViewState.clean;
   ThemeMode themeMode = ThemeMode.light;
 
 

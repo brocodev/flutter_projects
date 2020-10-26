@@ -2,11 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart' show CupertinoActivityIndicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
-import 'package:flutter_projects/instagram_redesign/pages/widgets/like_button.dart';
+import 'package:flutter_projects/instagram_redesign/pages/widgets/footer_post.dart';
+import 'package:flutter_projects/instagram_redesign/pages/widgets/post_buttons.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/page_indicators.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/rounded_border_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AmplePostContainer extends StatefulWidget {
@@ -33,6 +33,10 @@ class _AmplePostContainerState extends State<AmplePostContainer>
   Animation _outOpacityHeart;
   final indexNotifier = ValueNotifier(0);
 
+  _statusListener(AnimationStatus status) {
+    if (status == AnimationStatus.completed) _controller.reset();
+  }
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -43,14 +47,13 @@ class _AmplePostContainerState extends State<AmplePostContainer>
     _outOpacityHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
         curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
         parent: _controller));
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) _controller.reset();
-    });
+    _controller.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
+    _controller.removeStatusListener(_statusListener);
     _controller.dispose();
     super.dispose();
   }
@@ -158,73 +161,20 @@ class _AmplePostContainerState extends State<AmplePostContainer>
                     //---------------------------
                     //---LIKES AND COMMENTS
                     //---------------------------
-                    Row(
-                      children: [
-                        LikeButton(
-                          likes: post.likes,
-                          isLiked: post.isLiked,
-                          onTap: () {
-                            setState(() {
-                              post.isLiked = !post.isLiked;
-                            });
-                          },
-                        ),
-                        const SizedBox(width: 20),
-                        Icon(FontAwesome5Solid.comment_dots,
-                            color: Colors.white),
-                        const SizedBox(width: 5),
-                        Text(
-                          post.comments.length.toString(),
-                          style: GoogleFonts.lato(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Icon(FontAwesome.send, color: Colors.white),
-                        const Spacer(),
-                        Icon(FontAwesome.bookmark_o, color: Colors.white),
-                      ],
-                    ),
+                    PostButtons(
+                        post: post,
+                        onTapLike: () {
+                          setState(() {
+                            post.isLiked = !post.isLiked;
+                          });
+                        }),
                     //------------------------------------------
                     //---USERS COMMENTS PHOTOS & DESCRIPTION
                     //------------------------------------------
                     const SizedBox(height: 20),
-                    Row(
-                      children: List.generate(3, (index) {
-                        return Align(
-                          widthFactor: .8,
-                          child: RoundedBorderImage(
-                            imageUrl: post.comments[index].user.photoUrl,
-                            height: 30,
-                            borderWidth: 1.5,
-                          ),
-                        );
-                      })
-                        ..add(const SizedBox(width: 20))
-                        ..add(Flexible(
-                            child: Text(
-                          post.description,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        )))
-                        ..add(SizedBox(
-                          height: 30,
-                          child: FlatButton(
-                            color: Colors.white,
-                            textColor: Colors.black,
-                            shape: StadiumBorder(),
-                            onPressed: () {},
-                            child: Text(
-                              "More",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        )),
+                    FooterPost(
+                      post: post,
+                      colorDescription: Colors.white,
                     )
                   ],
                 ),
