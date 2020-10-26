@@ -94,7 +94,7 @@ class _ProjectCard extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            height: size.height * .17,
+            height: 150,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
@@ -111,7 +111,7 @@ class _ProjectCard extends StatelessWidget {
                   child: Image.asset(
                     project.pathImage,
                     height: double.infinity,
-                    width: size.width * .32,
+                    width: size.width * .3,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -123,6 +123,7 @@ class _ProjectCard extends StatelessWidget {
                     children: [
                       AutoSizeText(
                         project.title,
+                        maxLines: 1,
                         style: GoogleFonts.poppins(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
@@ -140,43 +141,45 @@ class _ProjectCard extends StatelessWidget {
                       AutoSizeText(
                         'Designer',
                         style: GoogleFonts.poppins(
-                            fontSize: 16, color: Colors.grey),
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       AutoSizeText(
                         project.designer,
                         style: GoogleFonts.poppins(
-                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                      const Spacer(),
+                      SizedBox(
+                        height: 30,
+                        width: double.infinity,
+                        child: FlatButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, project.route),
+                          color: Colors.cyan[50],
+                          textColor: Colors.cyan,
+                          child: AutoSizeText(
+                            "See project",
+                            maxLines: 1,
+                            softWrap: false,
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
           ),
-          Positioned(
-            right: 12,
-            bottom: 12,
-            child: SizedBox(
-              height: size.height * .032,
-              width: size.width * .24,
-              child: FlatButton(
-                shape: StadiumBorder(side: BorderSide(color: Colors.cyan)),
-                onPressed: () => Navigator.pushNamed(context, project.route),
-                color: Colors.white,
-                textColor: Colors.cyan,
-                child: AutoSizeText(
-                  "See project",
-                  maxLines: 1,
-                  softWrap: false,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );

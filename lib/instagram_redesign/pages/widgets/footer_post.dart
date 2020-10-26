@@ -8,10 +8,12 @@ class FooterPost extends StatelessWidget {
     @required this.post,
     this.colorDescription,
     this.colorMoreButton,
+    this.colorMoreText,
   }) : super(key: key);
 
   final IgPost post;
   final Color colorMoreButton;
+  final Color colorMoreText;
   final Color colorDescription;
 
   @override
@@ -34,16 +36,17 @@ class FooterPost extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-              color: colorDescription ??
-                  Theme.of(context).colorScheme.onBackground,
-              fontWeight: FontWeight.bold),
+            color:
+                colorDescription ?? Theme.of(context).colorScheme.onBackground,
+            fontWeight: FontWeight.bold,
+          ),
         )))
         ..add(const SizedBox(width: 5))
         ..add(SizedBox(
           height: 30,
           child: FlatButton(
             color: colorMoreButton ?? Colors.white,
-            textColor: colorDescription,
+            textColor: colorMoreText ?? colorDescription,
             shape: StadiumBorder(),
             onPressed: () {},
             child: Text(

@@ -50,184 +50,189 @@ class InstagramProfile extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          //--------------------------------
-          //---- HEADER IMAGE PROFILE
-          //--------------------------------
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IgTitleSubtitleText(
-                title: currentUser.following.toString(),
-                subtitle: "Following",
-                height: 2,
-                crossAxisAlignment: CrossAxisAlignment.end,
-              ),
-              const SizedBox(width: 20),
-              Stack(
-                alignment: Alignment(.7, -.8),
-                children: [
-                  _ImageProfile(imageProfileUrl: currentUser.photoUrl),
-                ],
-              ),
-              const SizedBox(width: 20),
-              IgTitleSubtitleText(
-                title:
-                    (currentUser.followers / 1000).toString().substring(0, 4) +
-                        "K",
-                subtitle: "Followers",
-                height: 2,
-                crossAxisAlignment: CrossAxisAlignment.start,
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          //------------------------------
-          //---- NAME AND TYPE USER
-          //------------------------------
-          Row(
-            children: [
-              Expanded(
-                  child: Text(
-                currentUser.name,
-                textAlign: TextAlign.right,
-                style: GoogleFonts.lato(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            //--------------------------------
+            //---- HEADER IMAGE PROFILE
+            //--------------------------------
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IgTitleSubtitleText(
+                  title: currentUser.following.toString(),
+                  subtitle: "Following",
+                  height: 2,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                 ),
-              )),
-              const SizedBox(width: 10),
-              Text(
-                "|",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onBackground
-                        .withOpacity(.3)),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                  child: Text(
-                currentUser.typeUser,
-                textAlign: TextAlign.left,
-                style: GoogleFonts.lato(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-            ],
-          ),
-
-          //--------------------------
-          //----PROFILE DESCRIPTION
-          //--------------------------
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-            child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                  text:
-                      'I like to travel and program different types of applications with Flutter, search me in my GitHub or Facebook like',
-                  style: GoogleFonts.lato(color: Colors.grey),
+                const SizedBox(width: 20),
+                Stack(
+                  alignment: Alignment(.7, -.8),
                   children: [
-                    TextSpan(
-                        text: " @brocodev",
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontWeight: FontWeight.bold))
-                  ]),
-            ),
-          ),
-          const SizedBox(height: 10),
-
-          //-------------------------------
-          //-----PROFILE OPTIONS BUTTONS
-          //-------------------------------
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(3, (index) {
-              final selectedIndex = 2;
-              return Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: FlatButton(
-                    color: index == selectedIndex
-                        ? Colors.lightBlue
-                        : Colors.grey[100],
-                    textColor: index == selectedIndex
-                        ? Colors.white
-                        : Colors.grey[800],
-                    shape: ContinuousRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      ["Edit profile", "Statistics", "Contact"][index],
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                    _ImageProfile(imageProfileUrl: currentUser.photoUrl),
+                  ],
                 ),
-              );
-            })
-              ..insert(0, const SizedBox(width: 10))
-              ..add(const SizedBox(width: 10)),
-          ),
+                const SizedBox(width: 20),
+                IgTitleSubtitleText(
+                  title: (currentUser.followers / 1000)
+                          .toString()
+                          .substring(0, 4) +
+                      "K",
+                  subtitle: "Followers",
+                  height: 2,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            //------------------------------
+            //---- NAME AND TYPE USER
+            //------------------------------
+            Row(
+              children: [
+                Expanded(
+                    child: Text(
+                  currentUser.name,
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+                const SizedBox(width: 10),
+                Text(
+                  "|",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onBackground
+                          .withOpacity(.3)),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                    child: Text(
+                  currentUser.typeUser,
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+              ],
+            ),
 
-          const SizedBox(height: 20),
-          //--------------------------------
-          //-----PROFILE CATEGORIES POSTS
-          //--------------------------------
-          SizedBox(
-            height: 95,
-            child: ListView.builder(
-              itemCount: currentUser.collections.length,
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.only(left: 20),
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                final igCollection = currentUser.collections[index];
-                if (index == 0)
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: InstagramAddItem(itemSize: 70, label: 'New'),
-                  );
-
-                return Padding(
-                  padding: const EdgeInsets.only(right: 15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //--------------------------
+            //----PROFILE DESCRIPTION
+            //--------------------------
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                    text:
+                        'I like to travel and program different types of applications with Flutter, search me in my GitHub or Facebook like',
+                    style: GoogleFonts.lato(color: Colors.grey),
                     children: [
-                      RoundedBorderImage(
-                        imageUrl: igCollection.iconImage,
-                        borderColor: Colors.transparent,
-                        height: 70,
+                      TextSpan(
+                          text: " @brocodev",
+                          style: TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold))
+                    ]),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            //-------------------------------
+            //-----PROFILE OPTIONS BUTTONS
+            //-------------------------------
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(3, (index) {
+                final selectedIndex = 2;
+                return Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: FlatButton(
+                      color: index == selectedIndex
+                          ? Colors.lightBlue
+                          : Colors.grey[100],
+                      textColor: index == selectedIndex
+                          ? Colors.white
+                          : Colors.grey[800],
+                      shape: ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
                       ),
-                      Text(
-                        igCollection.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      )
-                    ],
+                      onPressed: () {},
+                      child: Text(
+                        ["Edit profile", "Statistics", "Contact"][index],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 );
-              },
+              })
+                ..insert(0, const SizedBox(width: 10))
+                ..add(const SizedBox(width: 10)),
             ),
-          ),
-          const SizedBox(height: 20),
-          //----------------------------------
-          //-----BOTTOM TAB LAYOUT
-          //----------------------------------
-          const Divider(height: 2),
-          Expanded(
-            child: BottomTabViewProfile(user: currentUser),
-          )
-        ],
+
+            const SizedBox(height: 20),
+            //--------------------------------
+            //-----PROFILE CATEGORIES POSTS
+            //--------------------------------
+            SizedBox(
+              height: 95,
+              child: ListView.builder(
+                itemCount: currentUser.collections.length,
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.only(left: 20),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final igCollection = currentUser.collections[index];
+                  if (index == 0)
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: InstagramAddItem(itemSize: 70, label: 'New'),
+                    );
+
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RoundedBorderImage(
+                          imageUrl: igCollection.iconImage,
+                          borderColor: Colors.transparent,
+                          height: 70,
+                        ),
+                        Text(
+                          igCollection.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 20),
+            //----------------------------------
+            //-----BOTTOM TAB LAYOUT
+            //----------------------------------
+            const Divider(height: 2),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .5,
+              child: BottomTabViewProfile(user: currentUser),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -248,7 +253,8 @@ class _ImageProfile extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: RoundedGradientBorderImage(height: 80, imageUrl: imageProfileUrl),
+          child:
+              RoundedGradientBorderImage(height: 80, imageUrl: imageProfileUrl),
         ),
         Container(
           padding: const EdgeInsets.all(5),

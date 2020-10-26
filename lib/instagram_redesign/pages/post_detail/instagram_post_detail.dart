@@ -72,7 +72,7 @@ class InstagramPostDetail extends StatelessWidget {
               return AnimatedPositioned(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.fastOutSlowIn,
-                  top: (screenHeight * (value ? 0.1 : 0.7)) - 76,
+                  top: (screenHeight * (value ? 0.12 : 0.7)) - 76,
                   left: 0,
                   right: 0,
                   bottom: 0,
@@ -115,7 +115,7 @@ class InstagramPostDetail extends StatelessWidget {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.fastOutSlowIn,
-                top: (screenHeight * (value ? 0.06 : 0.7)) - 76,
+                top: (screenHeight * (value ? .08 : 0.7)) - 76,
                 left: 0,
                 right: 0,
                 child: IconButton(

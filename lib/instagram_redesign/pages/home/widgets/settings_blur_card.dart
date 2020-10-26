@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
@@ -150,7 +151,7 @@ class _ViewModeItem extends StatelessWidget {
             child: AnimatedContainer(
               duration: kThemeAnimationDuration,
               alignment: Alignment.center,
-              height: 95,
+              height: 80,
               margin: const EdgeInsets.only(right: 10),
               decoration: BoxDecoration(
                 border: Border.all(
@@ -162,12 +163,12 @@ class _ViewModeItem extends StatelessWidget {
                 color: instagramBloc.viewState == viewState
                     ? colorScheme.onBackground.withOpacity(.2)
                     : colorScheme.onPrimary.withOpacity(.2),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(25),
               ),
               child: Text(
                 "$modeNumber",
                 style: GoogleFonts.lato(
-                  fontSize: 30,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -207,12 +208,16 @@ class _SettingsSwitcher extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(
-            label,
-            style: GoogleFonts.lato(
-              fontWeight: FontWeight.bold,
-              height: 1.5,
-              color: Colors.white,
+          Expanded(
+            child: AutoSizeText(
+              label,
+              maxLines: 1,
+              textAlign: TextAlign.right,
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.bold,
+                height: 1.5,
+                color: Colors.white,
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -223,8 +228,7 @@ class _SettingsSwitcher extends StatelessWidget {
             child: AnimatedContainer(
               duration: kThemeAnimationDuration,
               curve: Curves.fastOutSlowIn,
-              height: 30,
-              width: 60,
+              width: 50,
               padding: const EdgeInsets.all(3),
               alignment: value ? Alignment.centerRight : Alignment.centerLeft,
               decoration: BoxDecoration(
@@ -232,8 +236,8 @@ class _SettingsSwitcher extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Container(
-                height: 25,
-                width: 25,
+                height: 20,
+                width: 20,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,

@@ -1,24 +1,28 @@
 import 'package:flutter_projects/instagram_redesign/models/ig_user.dart';
 
-class IgStories {
+class IgUserStories {
+  final int indexStory;
   final IgUser instagramUser;
-  final List<StoryModel> stories;
+  final List<StoryModel> listStories;
 
-  IgStories({
+  IgUserStories({
+    this.indexStory,
     this.instagramUser,
-    this.stories,
+    this.listStories,
   });
 
-  static final List<IgStories> listUserStories = List.generate(
+  static final List<IgUserStories> listUserStories = List.generate(
     IgUser.users.length,
     (index) {
       final user = IgUser.users[index];
-      return IgStories(
+      return IgUserStories(
+          indexStory: index,
           instagramUser: user,
-          stories: List.generate(3, (i) {
+          listStories: List.generate(3, (i) {
             return StoryModel(
               imageUrl: user.listPhotosUrl[i],
               isViewed: false,
+              duration: const Duration(seconds: 3),
             );
           }));
     },
@@ -27,7 +31,8 @@ class IgStories {
 
 class StoryModel {
   final String imageUrl;
+  final Duration duration;
   bool isViewed;
 
-  StoryModel({this.imageUrl, this.isViewed});
+  StoryModel({this.imageUrl, this.isViewed, this.duration});
 }

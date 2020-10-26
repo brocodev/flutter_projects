@@ -62,9 +62,9 @@ class _CleanPostContainerState extends State<CleanPostContainer>
       child: Container(
         height: widget.height,
         margin: const EdgeInsets.only(
-          bottom: 30,
-          left: 30,
-          right: 30,
+          bottom: 20,
+          left: 20,
+          right: 20,
         ),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(

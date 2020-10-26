@@ -85,7 +85,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                     curve: Curves.fastOutSlowIn,
                     top: instagramBloc.settingState == SettingsSate.visible
                         ? 0
-                        : -210,
+                        : -200,
                     left: 0,
                     right: 0,
                     bottom: 0,
@@ -104,7 +104,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                       ],
                     ));
               },
-              child: SettingsBlurCard(height: 210),
+              child: SettingsBlurCard(height: 200),
             ),
           ],
         ),

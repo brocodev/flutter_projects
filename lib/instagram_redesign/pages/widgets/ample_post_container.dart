@@ -131,7 +131,7 @@ class _AmplePostContainerState extends State<AmplePostContainer>
                       children: [
                         RoundedBorderImage(
                           imageUrl: user.photoUrl,
-                          height: 45,
+                          height: 40,
                           borderColor: Colors.transparent,
                         ),
                         const SizedBox(width: 10),
@@ -140,7 +140,7 @@ class _AmplePostContainerState extends State<AmplePostContainer>
                           style: GoogleFonts.lato(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
-                              fontSize: 16),
+                              fontSize: 14),
                         ),
                         const Spacer(),
                         Padding(
@@ -171,9 +171,10 @@ class _AmplePostContainerState extends State<AmplePostContainer>
                     //------------------------------------------
                     //---USERS COMMENTS PHOTOS & DESCRIPTION
                     //------------------------------------------
-                    const SizedBox(height: 20),
+                    SizedBox(height: MediaQuery.of(context).size.height * .03),
                     FooterPost(
                       post: post,
+                      colorMoreText: Colors.black,
                       colorDescription: Colors.white,
                     )
                   ],

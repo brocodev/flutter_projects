@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
-import 'package:flutter_projects/instagram_redesign/models/ig_stories.dart';
+import 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart';
 import 'package:flutter_projects/instagram_redesign/pages/home/widgets/home_widgets.dart';
 import 'package:flutter_projects/instagram_redesign/pages/post_detail/instagram_post_detail.dart';
+import 'package:flutter_projects/instagram_redesign/pages/story/instagram_stories.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/ample_post_container.dart';
 import 'package:flutter_projects/instagram_redesign/pages/widgets/clean_post_container.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -28,7 +29,7 @@ class _InstagramHomeState extends State<InstagramHome>
   void initState() {
     _controller =
         AnimationController(duration: kThemeAnimationDuration, vsync: this);
-    _heightFactor = Tween(begin: 0.92, end: 1.0).animate(
+    _heightFactor = Tween(begin: 0.88, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
     super.initState();
   }
@@ -42,6 +43,7 @@ class _InstagramHomeState extends State<InstagramHome>
   @override
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: AnimatedBuilder(
@@ -89,15 +91,16 @@ class _InstagramHomeState extends State<InstagramHome>
                 //--------------------------------------------
                 SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 100,
+                    height: screenHeight * .12,
                     child: ListView.builder(
-                      itemExtent: 85,
-                      itemCount: IgStories.listUserStories.length + 1,
+                      itemExtent: screenHeight * .1,
+                      itemCount: IgUserStories.listUserStories.length + 1,
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       itemBuilder: (context, index) {
-                        final itemSize = 75.0;
+                        final itemSize =
+                            MediaQuery.of(context).size.height * .09;
                         if ((index == 0)) {
                           return InstagramAddItem(
                             itemSize: itemSize,
@@ -105,11 +108,11 @@ class _InstagramHomeState extends State<InstagramHome>
                           );
                         } else {
                           final stories =
-                              IgStories.listUserStories[(index - 1)];
+                              IgUserStories.listUserStories[(index - 1)];
                           return InstagramStoriesItem(
                             itemSize: itemSize,
                             stories: stories,
-                            onTap: () {},
+                            onTap: () => _openStories(context, stories),
                           );
                         }
                       },
@@ -122,12 +125,16 @@ class _InstagramHomeState extends State<InstagramHome>
                 //---------------------------------
                 SliverToBoxAdapter(
                     child: SizedBox(
-                  height: instagramBloc.viewState == ViewState.ample ? 70 : 20,
+                  height: instagramBloc.viewState == ViewState.ample
+                      ? screenHeight * .09
+                      : 20,
                 )),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
                       final post = IgPost.listPosts[index];
+                      final heightItem =
+                          (screenHeight * .6).clamp(450.0, 550.0);
                       switch (instagramBloc.viewState) {
                         case ViewState.clean:
                           //-------------------------------
@@ -137,10 +144,11 @@ class _InstagramHomeState extends State<InstagramHome>
                             tag: post.id,
                             child: CleanPostContainer(
                               post: post,
-                              height: 500.0,
+                              height: heightItem,
                               onTap: () {
                                 Navigator.push(context, PageRouteBuilder(
-                                  pageBuilder: (context, animation, secondaryAnimation) {
+                                  pageBuilder:
+                                      (context, animation, secondaryAnimation) {
                                     return FadeTransition(
                                       opacity: animation,
                                       child: InstagramPostDetail(post: post),
@@ -160,7 +168,7 @@ class _InstagramHomeState extends State<InstagramHome>
                               alignment: Alignment.bottomCenter,
                               heightFactor: selectedIndex < index
                                   ? _heightFactor.value
-                                  : .92,
+                                  : .88,
                               child: child,
                             ),
                             child: Hero(
@@ -169,7 +177,7 @@ class _InstagramHomeState extends State<InstagramHome>
                                   post: post,
                                   onTap: () =>
                                       _openDetails(context, post, index),
-                                  height: 600.0,
+                                  height: heightItem,
                                 )),
                           );
                       }
@@ -181,6 +189,19 @@ class _InstagramHomeState extends State<InstagramHome>
             );
           }),
     );
+  }
+
+  _openStories(BuildContext context, IgUserStories stories) {
+    Navigator.push(context, PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: InstagramStories(
+            stories: stories,
+          ),
+        );
+      },
+    ));
   }
 
   _openDetails(BuildContext context, IgPost post, int indexPost) async {
