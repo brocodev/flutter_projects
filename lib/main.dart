@@ -7,7 +7,6 @@ import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
 import 'package:flutter_projects/music_app_two/music_app_two.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
-import 'package:flutter_projects/res.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
@@ -205,46 +204,46 @@ class _ProjectModel {
       title: "Find Out",
       description: "Flutter UI + Simple Animations",
       designer: "Mao Lop",
-      pathImage: Res.findout,
+      pathImage: 'assets/img/findout.png',
       route: "findOut");
   static final movieSelection = _ProjectModel(
     title: "Movie Selection",
     description: "Flutter UI + Animations",
     designer: "Leonid Arestov",
-    pathImage: Res.movie,
+    pathImage: 'assets/img/movie.gif',
     route: "movie",
   );
   static final musicApp = _ProjectModel(
     title: "Music App",
     description: "Flutter UI + Hero Animations",
     designer: "Mantra Design",
-    pathImage: Res.music,
+    pathImage: "assets/img/music.gif",
     route: "music",
   );
   static final musicAppTwo = _ProjectModel(
     title: "Music App Two",
     description: "Flutter UI + Explicit Animations",
     designer: "Khonok Lee",
-    pathImage: Res.music_two,
+    pathImage: 'assets/img/music_two.png',
     route: "music_two",
   );
   static final medicalAppointment = _ProjectModel(
       title: 'Medical Appointment',
       description: 'Flutter UI',
       designer: 'Kevin Melendez',
-      pathImage: Res.medical_appointment,
+      pathImage: 'assets/img/medical_appointment.png',
       route: 'medical');
   static final photographersApp = _ProjectModel(
       title: 'Social Photographers App',
       description: 'Flutter UI + Simple animation',
       designer: 'Manuel Rovira',
-      pathImage: Res.photographers_app,
+      pathImage: 'assets/img/photographers_app.png',
       route: 'photographers');
   static final instagram = _ProjectModel(
       title: 'Instagram redesign',
       description: 'Flutter UI + Implicit Animations',
       designer: 'Manuel Rovira',
-      pathImage: Res.instagram,
+      pathImage: 'assets/img/ig.png',
       route: 'instagram');
   static final listProjects = [
     instagram,

@@ -130,14 +130,14 @@ class IgUser {
       externalPlatforms: [
         ExternalPlatform.kGitHub..urlLauncher = "",
         ExternalPlatform.kFacebook..urlLauncher = "",
-        ExternalPlatform.kTwitch..urlLauncher = "",
         ExternalPlatform.kUplabs..urlLauncher = "",
         ExternalPlatform.kTwitter..urlLauncher = "",
-        ExternalPlatform.kDiscord..urlLauncher = "",
         ExternalPlatform.kInstagram..urlLauncher = "",
+        ExternalPlatform.kYoutube..urlLauncher = "",
+        ExternalPlatform.kTwitch..urlLauncher = "",
+        ExternalPlatform.kDiscord..urlLauncher = "",
         ExternalPlatform.kSnapchat..urlLauncher = "",
         ExternalPlatform.kUnsplash..urlLauncher = "",
-        ExternalPlatform.kYoutube..urlLauncher = "",
       ],
       listPhotosUrl: [
         'https://images.unsplash.com/photo-1589793080380-6089f6eb360e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_projects/find_out/pages/welcome_page.dart';
+import 'package:flutter_projects/find_out/ui/welcome_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,8 +18,8 @@ class FindOutApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFFFF256C),
         textTheme: GoogleFonts.poppinsTextTheme().apply(
-              bodyColor: Colors.white,
-            ),
+          bodyColor: Colors.white,
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: WelcomePage(),
