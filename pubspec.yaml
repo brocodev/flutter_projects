@@ -35,3 +35,7 @@ flutter:
     - assets/img/
     - assets/svg/instagram/
     - assets/img/instagram/
+  fonts:
+    - family: MDIcons
+      fonts:
+        - asset: assets/icons/md_icons/MdIcons.ttf

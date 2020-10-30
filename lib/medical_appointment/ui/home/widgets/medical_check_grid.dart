@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/models/medical_check_item.dart';
-import 'package:flutter_projects/medical_appointment/utils/app_colors.dart';
+import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalCheckGrid extends StatelessWidget {
@@ -9,8 +9,8 @@ class MedicalCheckGrid extends StatelessWidget {
     return SizedBox(
       height: 420,
       child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
@@ -75,7 +75,7 @@ class _MedicalCheckItemWidget extends StatelessWidget {
                           TextSpan(
                               text: "\n${medicalCheckItem.info}",
                               style: TextStyle(
-                                color: MedicalAppColors.kLightBlue,
+                                color: MdAppColors.kLightBlue,
                               ))
                         ]))
                   ])),
