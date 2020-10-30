@@ -1,65 +1,67 @@
+import 'package:flutter/material.dart';
+
 class ExternalPlatform {
   final String name;
-  String urlLauncher;
+  final String urlLauncher;
   final String imagePath;
   final bool haveDarkImage;
 
-  ExternalPlatform._(
+  const ExternalPlatform._(
       {this.name, this.urlLauncher, this.imagePath, this.haveDarkImage});
 
-  static final kDiscord = ExternalPlatform._(
+  static const kDiscord = ExternalPlatform._(
     name: "Discord",
     haveDarkImage: false,
     imagePath: 'assets/img/instagram/discord.png',
   );
 
-  static final kFacebook = ExternalPlatform._(
+  static const kFacebook = ExternalPlatform._(
     name: "Facebook",
     haveDarkImage: true,
     imagePath: 'assets/img/instagram/facebook.png',
   );
 
-  static final kGitHub = ExternalPlatform._(
+  static const kGitHub = ExternalPlatform._(
     name: "GitHub",
     haveDarkImage: true,
     imagePath: 'assets/img/instagram/github.png',
   );
-  static final kTwitch = ExternalPlatform._(
+  static const kTwitch = ExternalPlatform._(
     name: "twitch",
     haveDarkImage: true,
     imagePath: 'assets/img/instagram/twitch.png',
   );
-  static final kUnsplash = ExternalPlatform._(
+  static const kUnsplash = ExternalPlatform._(
     name: "Unsplash",
     haveDarkImage: true,
     imagePath: 'assets/img/instagram/unsplash.png',
   );
 
-  static final kInstagram = ExternalPlatform._(
+  static const kInstagram = ExternalPlatform._(
     name: "Unsplash",
     haveDarkImage: false,
     imagePath: 'assets/img/instagram/instagram.png',
   );
 
-  static final kSnapchat = ExternalPlatform._(
+  static const kSnapchat = ExternalPlatform._(
     name: "Snapchat",
     haveDarkImage: false,
     imagePath: 'assets/img/instagram/snapchat.png',
   );
 
-  static final kTwitter = ExternalPlatform._(
+  static const kTwitter = ExternalPlatform._(
     name: "Twitter",
     haveDarkImage: true,
     imagePath: 'assets/img/instagram/twitter.png',
   );
 
-  static final kUplabs = ExternalPlatform._(
+  static const kUplabs = ExternalPlatform._(
     name: "Uplabs",
     haveDarkImage: false,
     imagePath: 'assets/img/instagram/uplabs.png',
   );
 
-  static final kYoutube = ExternalPlatform._(
+  static const kYoutube = ExternalPlatform._(
     name: "YouTube",
     haveDarkImage: false,
     imagePath: 'assets/img/instagram/youtube.png',

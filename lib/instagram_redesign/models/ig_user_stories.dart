@@ -5,7 +5,7 @@ class IgUserStories {
   final IgUser instagramUser;
   final List<StoryModel> listStories;
 
-  IgUserStories({
+  const IgUserStories({
     this.indexStory,
     this.instagramUser,
     this.listStories,

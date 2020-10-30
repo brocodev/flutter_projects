@@ -3,13 +3,13 @@ class IgCollection {
   final String iconImage;
   final List<String> imagesCollection;
 
-  IgCollection({
+  const IgCollection({
     this.title,
     this.iconImage,
     this.imagesCollection,
   });
 
-  static final listCollection = [
+  static const listCollection = [
     IgCollection(
       title: 'Food',
       iconImage:

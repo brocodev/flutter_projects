@@ -12,7 +12,7 @@ class IgUser {
   final String username;
   final List<ExternalPlatform> externalPlatforms;
 
-  IgUser(
+  const IgUser(
       {this.name,
       this.typeUser,
       this.username,
@@ -23,7 +23,7 @@ class IgUser {
       this.listPhotosUrl,
       this.collections});
 
-  static final liliana = IgUser(
+  static const liliana = IgUser(
       name: 'Liliana Mondragon',
       followers: 14320,
       collections: IgCollection.listCollection,
@@ -44,7 +44,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1581568703422-1a538f9af7c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
       ],
       typeUser: "Photographer");
-  static final julissa = IgUser(
+  static const julissa = IgUser(
       name: 'Julissa Towers',
       followers: 13320,
       username: 'juli_towers99',
@@ -63,7 +63,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1595877786670-393ef0ac0961?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
       ],
       typeUser: "Model");
-  static final eduard = IgUser(
+  static const eduard = IgUser(
     name: 'Eduard Otero',
     followers: 9320,
     username: 'edoter_0',
@@ -83,7 +83,7 @@ class IgUser {
     ],
     typeUser: "Designer",
   );
-  static final karla = IgUser(
+  static const karla = IgUser(
       name: 'Karla Smith',
       followers: 14020,
       collections: IgCollection.listCollection,
@@ -102,7 +102,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1601348435451-8caff6b824ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
       typeUser: "Photographer");
-  static final maria = IgUser(
+  static const maria = IgUser(
       name: 'Maria Lopez',
       username: 'maria11lp',
       followers: 11200,
@@ -120,24 +120,25 @@ class IgUser {
         'https://images.unsplash.com/photo-1598137203988-80de6392fc1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
       typeUser: "Photographer");
-  static final kevin = IgUser(
+  static const kevin = IgUser(
       name: 'Kevin Melendez',
       followers: 14200,
       username: 'kevin_mdez_hdez',
       collections: IgCollection.listCollection,
       following: 47,
-      photoUrl: 'https://scontent.faca1-1.fna.fbcdn.net/v/t1.0-9/120603136_2461308150844778_7380402767182275816_n.jpg?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=YqMDa3aMdgMAX8QMKTS&_nc_ht=scontent.faca1-1.fna&oh=576f59fafbc50c7eff7eced5e1349d64&oe=5FB75AF6',
+      photoUrl:
+          'https://scontent.faca1-1.fna.fbcdn.net/v/t1.0-9/120603136_2461308150844778_7380402767182275816_n.jpg?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=YqMDa3aMdgMAX8QMKTS&_nc_ht=scontent.faca1-1.fna&oh=576f59fafbc50c7eff7eced5e1349d64&oe=5FB75AF6',
       externalPlatforms: [
-        ExternalPlatform.kGitHub..urlLauncher = "",
-        ExternalPlatform.kFacebook..urlLauncher = "",
-        ExternalPlatform.kUplabs..urlLauncher = "",
-        ExternalPlatform.kTwitter..urlLauncher = "",
-        ExternalPlatform.kInstagram..urlLauncher = "",
-        ExternalPlatform.kYoutube..urlLauncher = "",
-        ExternalPlatform.kTwitch..urlLauncher = "",
-        ExternalPlatform.kDiscord..urlLauncher = "",
-        ExternalPlatform.kSnapchat..urlLauncher = "",
-        ExternalPlatform.kUnsplash..urlLauncher = "",
+        ExternalPlatform.kDiscord,
+        ExternalPlatform.kFacebook,
+        ExternalPlatform.kUplabs,
+        ExternalPlatform.kTwitter,
+        ExternalPlatform.kInstagram,
+        ExternalPlatform.kYoutube,
+        ExternalPlatform.kTwitch,
+        ExternalPlatform.kDiscord,
+        ExternalPlatform.kSnapchat,
+        ExternalPlatform.kUnsplash,
       ],
       listPhotosUrl: [
         'https://images.unsplash.com/photo-1589793080380-6089f6eb360e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80',
@@ -152,7 +153,7 @@ class IgUser {
       ],
       typeUser: "Developer");
 
-  static final users = [
+  static const users = [
     liliana,
     julissa,
     kevin,
