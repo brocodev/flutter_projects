@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Brocodev Projects',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
         backgroundColor: Colors.grey[50],

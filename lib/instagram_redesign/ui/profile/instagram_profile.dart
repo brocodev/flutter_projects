@@ -128,7 +128,7 @@ class InstagramProfile extends StatelessWidget {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                     text:
-                        'I like to travel and program different types of applications with Flutter, search me in my GitHub or Facebook like',
+                        'I like to travel and program different types of applications with Flutter, doctors me in my GitHub or Facebook like',
                     style: GoogleFonts.lato(color: Colors.grey),
                     children: [
                       TextSpan(

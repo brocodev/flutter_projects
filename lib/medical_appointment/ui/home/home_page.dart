@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/medical_appointment/models/md_appointment.dart';
 import 'package:flutter_projects/medical_appointment/models/md_doctor.dart';
 import 'package:flutter_projects/medical_appointment/models/md_doctor_category.dart';
+import 'package:flutter_projects/medical_appointment/models/md_patient.dart';
 import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 import 'package:flutter_projects/medical_appointment/ui/home/widgets/home_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,18 +20,18 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final expandDuration = const Duration(milliseconds: 400);
-    final heightCurtain = (size.width * .85).clamp(300.0, 340.0);
+    final heightCurtain = (size.width * .75).clamp(310.0, 340.0);
+    final nextAppointment = MedicalAppointment.nextAppointment;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           //-----------------------------------
-          //---BOTTOM BODY ITEMS
+          //----BOTTOM BODY ITEMS
           //-----------------------------------
           _BodyHome(
             contentPadding: EdgeInsets.only(top: (heightCurtain) - 20),
           ),
-
           //-----------------------------------
           //----TOP BODY WIDGETS
           //-----------------------------------
@@ -39,7 +41,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
             top: 0,
             left: 0,
             right: 0,
-            height: expandAppointment ? size.width * 1.5 : heightCurtain,
+            height: expandAppointment ? heightCurtain + 280 : heightCurtain,
             child: CustomPaint(
               painter: TonguePainter(curveRadius: 30.0),
               child: Column(
@@ -50,13 +52,12 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                   //------SEARCH BUTTON AND USER IMAGE
                   //---------------------------------------------
                   const Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: const SearchAppBar(),
                   ),
-
                   const Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
+                        horizontal: 15, vertical: 10),
                     child: Text(
                       'Your next appointment',
                       style: TextStyle(
@@ -69,14 +70,10 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                   //----------------------------------
                   //-----NEXT APPOINTMENT CARD
                   //----------------------------------
-                  Container(
-                    width: double.infinity,
+                  NextAppointmentCard(
                     height: heightCurtain - 175,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    mdAppointment: nextAppointment,
                   ),
                   //--------------------------------
                   //------NEXT APPOINTMENT DETAILS
@@ -84,7 +81,9 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                   AnimatedSwitcher(
                     duration: kThemeAnimationDuration,
                     child: showAppointmentDetails
-                        ? SizedBox(height: 200, child: Placeholder())
+                        ? AppointmentDetails(
+                            mdAppointment: nextAppointment,
+                          )
                         : const SizedBox(),
                   ),
                   const Spacer(),
@@ -141,6 +140,8 @@ class _BodyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final currentPatient = MedicalPatient.currentPatient;
     final sectionStyle = GoogleFonts.poppins(
       fontSize: 18,
       color: MdAppColors.kDarkTeal,
@@ -200,23 +201,45 @@ class _BodyHome extends StatelessWidget {
             },
           ),
         ),
+        //--------------------------------------------
+        //------LAST MEDICAL CHECK
+        //--------------------------------------------
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: RichText(
-            text: TextSpan(
-                text: 'Last medical check',
-                style: sectionStyle,
-                children: [
-                  TextSpan(
-                      text: ' (2020 - Ago - 12)',
-                      style: TextStyle(
-                          fontSize: sectionStyle.fontSize * .75,
-                          color: Colors.grey[400],
-                          fontWeight: FontWeight.w700))
-                ]),
+          child: Text.rich(
+            TextSpan(text: 'Last medical check', children: [
+              TextSpan(
+                  text: ' (2020 - Ago - 12)',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ))
+            ]),
+            style: sectionStyle,
           ),
         ),
-        // MedicalCheckGrid()
+        //--------------------------------------------
+        //------LAST MEDICAL CHECK GRID
+        //--------------------------------------------
+        SizedBox(
+          height: size.width * 1.1,
+          child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+              childAspectRatio: 10 / 4.5,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            itemCount: currentPatient.medicalChecks.length,
+            itemBuilder: (context, index) {
+              final medicalCheck = currentPatient.medicalChecks[index];
+              return MedicalCheckCard(medicalCheck: medicalCheck);
+            },
+          ),
+        )
       ],
     );
   }

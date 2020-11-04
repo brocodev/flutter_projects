@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 class MdAppColors {
- static final kLightCyan = Color(0xff9ae2e6);
- static final kDarkTeal = Color(0xff527c88);
- static final kDarkBlue = Color(0xff1238a0);
- static final kBlue = Color(0xff1a75fe);
- static final kLightBlue = Color(0xff16C2D5);
+ static const kLightCyan = Color(0xff9ae2e6);
+ static const kDarkTeal = Color(0xff527c88);
+ static const kDarkBlue = Color(0xff1238a0);
+ static const kBlue = Color(0xff1a75fe);
+ static const kLightBlue = Color(0xff16C2D5);
 }

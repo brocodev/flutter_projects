@@ -1,5 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_projects/medical_appointment/models/md_patient.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({
@@ -45,7 +46,7 @@ class SearchAppBar extends StatelessWidget {
                 color: Colors.white,
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(
-                      "https://scontent.faca1-1.fna.fbcdn.net/v/t1.0-9/120603136_2461308150844778_7380402767182275816_n.jpg?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=YqMDa3aMdgMAX8QMKTS&_nc_ht=scontent.faca1-1.fna&oh=576f59fafbc50c7eff7eced5e1349d64&oe=5FB75AF6"),
+                      MedicalPatient.currentPatient.photoUrl),
                   fit: BoxFit.cover,
                 )),
           ),
