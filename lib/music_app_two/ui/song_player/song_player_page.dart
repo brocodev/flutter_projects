@@ -3,19 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
 import 'package:flutter_projects/music_app_two/models/song.dart';
-import 'package:flutter_projects/music_app_two/pages/widgets/vinyl_disk.dart';
+import 'package:flutter_projects/music_app_two/ui/song_player/widgets/song_player_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PlayerSongPage extends StatefulWidget {
+const kDuration800ms = const Duration(milliseconds: 800);
+
+class SongPlayerPage extends StatefulWidget {
   final Song song;
 
-  const PlayerSongPage({Key key, @required this.song}) : super(key: key);
+  const SongPlayerPage({Key key, @required this.song}) : super(key: key);
 
   @override
-  _PlayerSongPageState createState() => _PlayerSongPageState();
+  _SongPlayerPageState createState() => _SongPlayerPageState();
 }
 
-class _PlayerSongPageState extends State<PlayerSongPage>
+class _SongPlayerPageState extends State<SongPlayerPage>
     with TickerProviderStateMixin {
   AnimationController _controller;
   AnimationController _controllerSkew;
@@ -50,7 +52,7 @@ class _PlayerSongPageState extends State<PlayerSongPage>
     super.dispose();
   }
 
-  _onPauseOrPlay(bool isPlayed) {
+  void _onPauseOrPlay(bool isPlayed) {
     if (isPlayed) {
       _controller.stop();
       secondLapse?.cancel();
@@ -64,7 +66,7 @@ class _PlayerSongPageState extends State<PlayerSongPage>
     }
   }
 
-  _onPanUpdate(details) {
+  void _onPanUpdate(details) {
     setState(() {
       if (details.delta.dx > 0) {
         vinylDragValue += -.007;
@@ -82,7 +84,7 @@ class _PlayerSongPageState extends State<PlayerSongPage>
     });
   }
 
-  _onPanDown(details) {
+  void _onPanDown(details) {
     setState(() {
       isOnPlay = true;
     });
@@ -94,7 +96,7 @@ class _PlayerSongPageState extends State<PlayerSongPage>
     _onPauseOrPlay(isOnPlay);
   }
 
-  _onPanEnd(details) {
+  void _onPanEnd(details) {
     setState(() {
       isOnPlay = false;
     });
@@ -108,25 +110,35 @@ class _PlayerSongPageState extends State<PlayerSongPage>
 
   @override
   Widget build(BuildContext context) {
-    final sizeVinylDisk = MediaQuery.of(context).size.width * .8;
+    final size = MediaQuery.of(context).size;
+    final sizeVinylDisk = size.height * .42;
     final durationTextStyle = const TextStyle(
-        fontFamily: 'Poppins', fontWeight: FontWeight.w500, fontSize: 18);
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.w500,
+    );
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: Column(
         children: <Widget>[
-          _CustomAppBar(),
+          NowPlayingAppBar(),
           Center(
+            //-------------------------------------------
+            //-----TWEEN BUILDERS ANIMATIONS
+            //-------------------------------------------
             child: ScaleAnimation(
-              duration: const Duration(milliseconds: 800),
+              duration: kDuration800ms,
               initScale: 1.4,
               finalScale: 1.0,
               child: OpacityAnimation(
-                duration: const Duration(milliseconds: 800),
+                duration: kDuration800ms,
                 child: TranslateAnimation(
-                    duration: const Duration(milliseconds: 800),
+                    duration: kDuration800ms,
                     offsetDirection: Axis.vertical,
                     offset: -300,
+                    //-----------------------------------------
+                    //-----SKEW DISK ANIMATION
+                    //-----------------------------------------
                     child: AnimatedBuilder(
                       animation: _controllerSkew,
                       builder: (context, child) {
@@ -141,6 +153,9 @@ class _PlayerSongPageState extends State<PlayerSongPage>
                           ),
                         );
                       },
+                      //--------------------------------
+                      //----DRAG DISK ANIMATION
+                      //--------------------------------
                       child: AnimatedBuilder(
                         animation: _controller,
                         builder: (context, child) {
@@ -165,6 +180,9 @@ class _PlayerSongPageState extends State<PlayerSongPage>
                             ),
                           );
                         },
+                        //-------------------------
+                        //----ROTATE DISK
+                        //-------------------------
                         child: Transform.rotate(
                           angle: (pi) * vinylDragValue,
                           child: VinylDisk(
@@ -180,16 +198,25 @@ class _PlayerSongPageState extends State<PlayerSongPage>
           Text(
             widget.song.album.author,
             style: GoogleFonts.poppins(
-                fontSize: 24,
+                fontSize: 20,
                 shadows: [Shadow(color: Colors.black26, blurRadius: 20)]),
           ),
           const SizedBox(height: 10),
-          _PlayerIndicator(
-            songTitle: widget.song.title,
-            percentIndicator: playedSeconds / widget.song.duration.inSeconds,
+          //-------------------------------
+          //----PLAY SONG INDICATOR
+          //-------------------------------
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: PlayerIndicator(
+              songTitle: widget.song.title,
+              percentIndicator: playedSeconds / widget.song.duration.inSeconds,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
+            //-------------------------------------------------
+            //-----PLAYED SONG TIME // TOTAL SONG TIME
+            //-------------------------------------------------
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -205,7 +232,7 @@ class _PlayerSongPageState extends State<PlayerSongPage>
             ),
           ),
           const SizedBox(height: 30),
-          _PlayerControls(
+          PlayerControls(
             isOnPlay: isOnPlay,
             onPausePlay: () {
               setState(() {
@@ -224,193 +251,4 @@ class _PlayerSongPageState extends State<PlayerSongPage>
         (duration - Duration(minutes: duration.inMinutes)).inSeconds.toString();
     return '${duration.inMinutes}:${seconds.length == 1 ? '0' + seconds : seconds}';
   }
-}
-
-class _CustomAppBar extends StatelessWidget {
-  const _CustomAppBar({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: kToolbarHeight * 2,
-      decoration: BoxDecoration(
-          color: Colors.grey[100],
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(60),
-          )),
-      child: SafeArea(
-        child: Row(
-          children: <Widget>[
-            BackButton(),
-            const Spacer(),
-            Text(
-              "NOW PLAYING",
-              style: GoogleFonts.poppins(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                  letterSpacing: 3.0),
-            ),
-            const Spacer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PlayerControls extends StatelessWidget {
-  const _PlayerControls({
-    Key key,
-    @required this.onPausePlay,
-    @required this.isOnPlay,
-  }) : super(key: key);
-
-  final VoidCallback onPausePlay;
-  final bool isOnPlay;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        Container(
-          width: 270,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 40,
-                offset: Offset(0, 30),
-              )
-            ],
-            borderRadius: BorderRadius.circular(30.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                onPressed: () {},
-                iconSize: 40,
-                color: Color(0xffd4af70),
-                icon: Icon(Icons.skip_previous),
-              ),
-              IconButton(
-                onPressed: () {},
-                iconSize: 40,
-                color: Color(0xffd4af70),
-                icon: Icon(Icons.skip_next),
-              ),
-            ],
-          ),
-        ),
-        InkWell(
-          onTap: onPausePlay,
-          borderRadius: BorderRadius.circular(45),
-          child: CircleAvatar(
-            backgroundColor: Color(0xffd4af70),
-            radius: 45,
-            foregroundColor: Colors.white,
-            child: Icon(
-              isOnPlay ? Icons.play_arrow : Icons.pause,
-              size: 70,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class _PlayerIndicator extends StatelessWidget {
-  final String songTitle;
-  final double percentIndicator;
-
-  const _PlayerIndicator({
-    Key key,
-    @required this.songTitle,
-    @required this.percentIndicator,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Text(
-          songTitle,
-          style: GoogleFonts.spectral(
-            fontSize: 75,
-            fontWeight: FontWeight.w800,
-            shadows: [
-              Shadow(
-                color: Colors.black26,
-                blurRadius: 40,
-                offset: Offset(0, 20),
-              )
-            ],
-          ),
-        ),
-        CustomPaint(
-          painter: LineIndicator(percentIndicator - .005),
-          child: ClipPath(
-            clipper: TextClipper(percentIndicator),
-            child: Text(
-              songTitle,
-              overflow: TextOverflow.clip,
-              softWrap: false,
-              style: GoogleFonts.spectral(
-                fontSize: 75,
-                color: Colors.white70,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class LineIndicator extends CustomPainter {
-  final double percent;
-
-  LineIndicator(this.percent);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawLine(
-      Offset(size.width * percent, 0),
-      Offset(size.width * percent, size.height),
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..color = Colors.black
-        ..strokeWidth = 3.0,
-    );
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
-
-class TextClipper extends CustomClipper<Path> {
-  final double percent;
-
-  TextClipper(this.percent);
-
-  @override
-  Path getClip(Size size) {
-    final path = Path()
-      ..moveTo(size.width * percent, 0)
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(size.width * percent, size.height);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

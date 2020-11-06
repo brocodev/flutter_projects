@@ -1,56 +1,40 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/music_app_two/models/album.dart';
-
 import 'vinyl_disk.dart';
 
 class AlbumDiskContainer extends StatelessWidget {
   final Album album;
   final double factorChange;
+  final double height;
 
   const AlbumDiskContainer({
     Key key,
     @required this.album,
     @required this.factorChange,
+    this.height,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final albumImageHeight = MediaQuery.of(context).size.height*.2;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Stack(
       fit: StackFit.expand,
       alignment: Alignment.center,
       children: <Widget>[
-        // Align(
-        //   alignment: Alignment(1 * (1 - factorChange), 0),
-        //   child: Transform.rotate(
-        //     angle: -factorChange * (pi),
-        //     child: _VinylDisk(
-        //         albumImagePath: album.pathImage,
-        //         heightDisk: albumImageHeight),
-        //   ),
-        // ),
-        // Align(
-        //   alignment: Alignment(-1 * (1 - factorChange), 0),
-        //   child: _AlbumImage(
-        //     albumImageHeight: albumImageHeight,
-        //     album: album,
-        //   ),
-        // ),
         Positioned(
-          right: -90 * (1 - factorChange),
-          left: 20.0 * factorChange,
+          right: (-screenWidth * .15) * (1 - factorChange),
+          left: 10 * (1 - factorChange),
           child: Transform.rotate(
             angle: -factorChange * (pi),
-            child: VinylDisk(
-                albumImagePath: album.pathImage,
-                heightDisk: albumImageHeight),
+            child:
+                VinylDisk(albumImagePath: album.pathImage, heightDisk: height),
           ),
         ),
         Positioned(
-          left: 45 * factorChange,
+          left: 25 * factorChange,
           child: _AlbumImage(
-            albumImageHeight: albumImageHeight,
+            albumImageHeight: height,
             album: album,
           ),
         ),

@@ -15,8 +15,8 @@ class SongPlayFooter extends StatelessWidget {
     return Row(
       children: <Widget>[
         SizedBox(
-          height: kToolbarHeight,
-          width: kToolbarHeight,
+          height: 50,
+          width: 50,
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -39,24 +39,23 @@ class SongPlayFooter extends StatelessWidget {
           children: <Widget>[
             Text(
               song.album.author,
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16),
+              style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
             ),
             Text(
               'Anonimo',
               style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey,
-                  fontSize: 15,
-                  height: 2),
+                fontWeight: FontWeight.w500,
+                color: Colors.grey,
+                fontSize: 15,
+                height: 1.5,
+              ),
             ),
           ],
         ),
         const Spacer(),
         IconButton(
           onPressed: () {},
-          iconSize: 45,
+          iconSize: 38,
           color: Colors.grey[700],
           icon: Icon(
             Icons.play_circle_outline,
@@ -64,7 +63,7 @@ class SongPlayFooter extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {},
-          iconSize: 45,
+          iconSize: 38,
           color: Colors.grey[700],
           icon: Icon(
             Icons.playlist_play,

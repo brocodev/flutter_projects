@@ -3,22 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_projects/music_app_two/models/album.dart';
 import 'package:flutter_projects/music_app_two/models/song.dart';
-import 'package:flutter_projects/music_app_two/pages/player_song_page.dart';
-import 'package:flutter_projects/music_app_two/pages/widgets/album_disk_container.dart';
-import 'package:flutter_projects/music_app_two/pages/widgets/description_container.dart';
+import 'package:flutter_projects/music_app_two/ui/my_library/widgets/my_library_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widgets/song_play_footer.dart';
 
-class SelectAlbumPage extends StatefulWidget {
-  const SelectAlbumPage({
+class MyLibraryPage extends StatefulWidget {
+  const MyLibraryPage({
     Key key,
   }) : super(key: key);
 
   @override
-  _SelectAlbumPageState createState() => _SelectAlbumPageState();
+  _MyLibraryPageState createState() => _MyLibraryPageState();
 }
 
-class _SelectAlbumPageState extends State<SelectAlbumPage> {
+class _MyLibraryPageState extends State<MyLibraryPage> {
   PageController pageAlbumController;
   PageController pageDescriptionController;
   double pageDescription;
@@ -37,44 +34,64 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
     pageDescriptionController = PageController(
       initialPage: 1,
     );
-
-    pageAlbumController.addListener(() {
-      if (isAlbumScrolling) {
-        pageDescriptionController.position.jumpTo(
-            pageAlbumController.page * MediaQuery.of(context).size.width);
-        setState(() {
-          scrollDirection = pageAlbumController.position.userScrollDirection;
-        });
-      }
-    });
-
-    pageDescriptionController.addListener(() {
-      setState(() {
-        pageDescription = pageDescriptionController.page;
-        scrollDirection =
-            pageDescriptionController.position.userScrollDirection;
-      });
-    });
-
-    pageAlbumController.addListener(() {
-      setState(() {
-        pageAlbum = pageAlbumController.page;
-      });
-    });
+    pageAlbumController.addListener(_pageAlbumListener);
+    pageDescriptionController.addListener(_pageDescriptionListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    pageAlbumController.removeListener(() {});
-    pageDescriptionController.removeListener(() {});
+    pageAlbumController.removeListener(_pageAlbumListener);
+    pageDescriptionController.removeListener(_pageDescriptionListener);
     pageAlbumController.dispose();
     pageDescriptionController.dispose();
     super.dispose();
   }
 
+  //--------------------------------
+  //----PAGE DESCRIPTION LISTENER
+  //--------------------------------
+  void _pageDescriptionListener() {
+    setState(() {
+      pageDescription = pageDescriptionController.page;
+      scrollDirection = pageDescriptionController.position.userScrollDirection;
+    });
+  }
+
+  //--------------------------------
+  //----PAGE ALBUM LISTENER
+  //--------------------------------
+  void _pageAlbumListener() {
+    if (isAlbumScrolling) {
+      pageDescriptionController.position
+          .jumpTo(pageAlbumController.page * MediaQuery.of(context).size.width);
+      setState(() {
+        scrollDirection = pageAlbumController.position.userScrollDirection;
+        pageAlbum = pageAlbumController.page;
+      });
+    } else {
+      setState(() {
+        pageAlbum = pageAlbumController.page;
+      });
+    }
+  }
+
+  //--------------------------------
+  //----OPEN PLAYER PAGE
+  //--------------------------------
+  void _openPlayerPage(BuildContext context) {
+    final route =
+        PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
+      return FadeTransition(
+          opacity: animation, child: SongPlayerPage(song: Song.currentSong));
+    });
+    Navigator.push(context, route);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final heightAlbumList = MediaQuery.of(context).size.width * .5;
+    print(heightAlbumList);
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -91,17 +108,23 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
       ),
       body: Stack(
         children: <Widget>[
+          //-------------------------------------------------
+          //-----BOTTOM WIDGETS
+          //-------------------------------------------------
           Positioned(
-            top: 260,
+            top: heightAlbumList,
             right: 0,
             left: 0,
             bottom: 0,
             child: GestureDetector(
-              onPanDown: (details) {
+              onPanDown: (_) {
                 isAlbumScrolling = false;
               },
               child: Column(
                 children: <Widget>[
+                  //-----------------------------------
+                  //-----PAGE VIEW DESCRIPTIONS
+                  //-----------------------------------
                   Expanded(
                     child: PageView.builder(
                         onPageChanged: (value) {
@@ -115,29 +138,43 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
                         itemBuilder: (context, index) {
                           final album = Album.listAlbum[index];
                           final percent = (pageDescription - index).abs();
-                          final factor =
+                          final scrollDirectionFactor =
                               scrollDirection == ScrollDirection.forward
                                   ? 1
                                   : -1;
+                          //---------------------------------------------------------
+                          //------DESCRIPTION CONTAINER WITH TRANSFORMS ANIMATIONS
+                          //---------------------------------------------------------
                           return Transform.scale(
                             scale: 1.0 * (1 - percent).clamp(.8, 1.0),
                             child: Transform(
                               transform: Matrix4.identity()
                                 ..setEntry(3, 2, 0.001)
-                                ..rotateY((.9 * percent) * factor),
+                                ..rotateY(
+                                    (.9 * percent) * scrollDirectionFactor),
+                              alignment: Alignment.center,
                               child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 30),
+                                child: DescriptionContainer(
+                                  album: album,
                                   padding: const EdgeInsets.only(
-                                    right: 40,
-                                    left: 40,
-                                    bottom: 20,
+                                    top: 75,
+                                    left: 20,
+                                    right: 20,
                                   ),
-                                  child: DescriptionContainer(album: album)),
+                                ),
+                              ),
                             ),
                           );
                         }),
                   ),
+                  //-------------------------------------
+                  //------CURRENT SONG FOOTER
+                  //-------------------------------------
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     child: InkWell(
                         onTap: () => _openPlayerPage(context),
                         child: SongPlayFooter(song: Song.currentSong)),
@@ -146,17 +183,23 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
               ),
             ),
           ),
+          //--------------------------------------------------
+          //-----TOP WIDGETS
+          //--------------------------------------------------
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
+                //-------------------------------------
+                //----MY LIBRARY TEXT
+                //-------------------------------------
                 child: RichText(
                   text: TextSpan(
                       text: 'My',
                       style: GoogleFonts.spectral(
                         color: Colors.grey[800],
-                        fontSize: 42,
+                        fontSize: 38,
                       ),
                       children: [
                         TextSpan(
@@ -167,8 +210,11 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
                       ]),
                 ),
               ),
+              //------------------------------------------
+              //-----ALBUM LIST CONTAINER
+              //------------------------------------------
               Container(
-                height: MediaQuery.of(context).size.height * .26,
+                height: heightAlbumList,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(color: Colors.grey[100], boxShadow: [
                   BoxShadow(
@@ -183,8 +229,11 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
                     begin: Alignment.center,
                     end: Alignment.bottomCenter,
                   )),
+                  //--------------------------------------
+                  //-----PAGE VIEW ALBUMS
+                  //--------------------------------------
                   child: GestureDetector(
-                    onPanDown: (details) {
+                    onPanDown: (_) {
                       isAlbumScrolling = true;
                     },
                     child: PageView.builder(
@@ -201,6 +250,7 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
                               1.0 * (1.0 - (percentAlbum / 3)).clamp(.8, 1.0),
                           child: AlbumDiskContainer(
                             album: album,
+                            height: heightAlbumList - 38,
                             factorChange: percentDescription,
                           ),
                         );
@@ -214,14 +264,5 @@ class _SelectAlbumPageState extends State<SelectAlbumPage> {
         ],
       ),
     );
-  }
-
-  _openPlayerPage(BuildContext context) {
-    final route =
-        PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
-      return FadeTransition(
-          opacity: animation, child: PlayerSongPage(song: Song.currentSong));
-    });
-    Navigator.push(context, route);
   }
 }

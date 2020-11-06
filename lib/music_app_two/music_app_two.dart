@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/music_app_two/ui/my_library/my_library_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'pages/select_album_page.dart';
 
 class MusicAppTwo extends StatelessWidget {
   @override
@@ -21,7 +21,7 @@ class MusicAppTwo extends StatelessWidget {
           actionsIconTheme: IconThemeData(color: Colors.black),
         ),
       ),
-      home: SelectAlbumPage(),
+      home: MyLibraryPage(),
     );
   }
 }
