@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:flutter_projects/movie_selection/models/actors.dart';
 import 'package:google_fonts/google_fonts.dart';
 

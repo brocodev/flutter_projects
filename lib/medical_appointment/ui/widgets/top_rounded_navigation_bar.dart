@@ -101,12 +101,10 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10)),
         child: Row(
           children: [
-            if (!isSelected) const SizedBox(width: 15),
             Icon(
               item.selectedIcon,
               color: color,
             ),
-            if (!isSelected) const SizedBox(width: 10),
             const SizedBox(width: 5),
             AnimatedDefaultTextStyle(
               child: Text(item.label),

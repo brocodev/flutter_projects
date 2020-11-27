@@ -81,8 +81,22 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                   AnimatedSwitcher(
                     duration: kThemeAnimationDuration,
                     child: showAppointmentDetails
-                        ? AppointmentDetails(
-                            mdAppointment: nextAppointment,
+                        ? GestureDetector(
+                            onVerticalDragUpdate: (details) {
+                              if (details.primaryDelta < -7) {
+                                setState(() {
+                                  showAppointmentDetails = false;
+                                });
+                                Future.delayed(kThemeAnimationDuration, () {
+                                  setState(() {
+                                    expandAppointment = false;
+                                  });
+                                });
+                              }
+                            },
+                            child: AppointmentDetails(
+                              mdAppointment: nextAppointment,
+                            ),
                           )
                         : const SizedBox(),
                   ),

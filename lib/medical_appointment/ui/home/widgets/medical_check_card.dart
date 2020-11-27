@@ -52,6 +52,8 @@ class MedicalCheckCard extends StatelessWidget {
                       medicalCheck.value.toString() +
                           ' ' +
                           medicalCheck.getMeasure(),
+                      overflow: TextOverflow.fade,
+                      softWrap: false,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: MdAppColors.kLightCyan,

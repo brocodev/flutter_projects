@@ -1,4 +1,3 @@
-import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/find_out/models/comments.dart';
 
 class Place {

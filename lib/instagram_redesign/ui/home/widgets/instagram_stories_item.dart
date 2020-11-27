@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_gradient_border_image.dart';
-import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_image.dart';
 
 class InstagramStoriesItem extends StatelessWidget {
   const InstagramStoriesItem({

@@ -192,7 +192,7 @@ class _ProjectModel {
   final String pathImage;
   final String route;
 
-  _ProjectModel({
+  const _ProjectModel({
     this.title,
     this.description,
     this.designer,
@@ -200,52 +200,52 @@ class _ProjectModel {
     this.route,
   });
 
-  static final findOut = _ProjectModel(
+  static const findOut = _ProjectModel(
       title: "Find Out",
       description: "Flutter UI + Simple Animations",
       designer: "Mao Lop",
       pathImage: 'assets/img/findout.png',
       route: "findOut");
-  static final movieSelection = _ProjectModel(
+  static const movieSelection = _ProjectModel(
     title: "Movie Selection",
     description: "Flutter UI + Animations",
     designer: "Leonid Arestov",
     pathImage: 'assets/img/movie.gif',
     route: "movie",
   );
-  static final musicApp = _ProjectModel(
+  static const musicApp = _ProjectModel(
     title: "Music App",
     description: "Flutter UI + Hero Animations",
     designer: "Mantra Design",
     pathImage: "assets/img/music.gif",
     route: "music",
   );
-  static final musicAppTwo = _ProjectModel(
+  static const musicAppTwo = _ProjectModel(
     title: "Music App Two",
     description: "Flutter UI + Explicit Animations",
     designer: "Khonok Lee",
     pathImage: 'assets/img/music_two.png',
     route: "music_two",
   );
-  static final medicalAppointment = _ProjectModel(
+  static const medicalAppointment = _ProjectModel(
       title: 'Medical Appointment',
       description: 'Flutter UI',
       designer: 'Kevin Melendez',
       pathImage: 'assets/img/medical_appointment.png',
       route: 'medical');
-  static final photographersApp = _ProjectModel(
+  static const photographersApp = _ProjectModel(
       title: 'Social Photographers App',
       description: 'Flutter UI + Simple animation',
       designer: 'Manuel Rovira',
       pathImage: 'assets/img/photographers_app.png',
       route: 'photographers');
-  static final instagram = _ProjectModel(
+  static const instagram = _ProjectModel(
       title: 'Instagram redesign',
       description: 'Flutter UI + Implicit Animations',
       designer: 'Manuel Rovira',
       pathImage: 'assets/img/ig.png',
       route: 'instagram');
-  static final listProjects = [
+  static const listProjects = [
     instagram,
     photographersApp,
     medicalAppointment,

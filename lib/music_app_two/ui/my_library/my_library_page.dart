@@ -91,7 +91,6 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   @override
   Widget build(BuildContext context) {
     final heightAlbumList = MediaQuery.of(context).size.width * .5;
-    print(heightAlbumList);
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
