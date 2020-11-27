@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_projects/medical_appointment/ui/doctors/doctors_page.dart';
 import 'package:flutter_projects/medical_appointment/ui/home/home_page.dart';
 import 'package:flutter_projects/medical_appointment/ui/widgets/top_rounded_navigation_bar.dart';
@@ -9,6 +10,9 @@ import 'package:google_fonts/google_fonts.dart';
 class MedicalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    });
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

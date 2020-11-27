@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/music_app_two/models/album.dart';
-import 'file:///C:/Users/kevin/Documents/Projects/flutter/flutter_projects/lib/music_app_two/ui/my_library/widgets/row_stars.dart';
+import 'package:flutter_projects/music_app_two/ui/my_library/widgets/row_stars.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionContainer extends StatelessWidget {
