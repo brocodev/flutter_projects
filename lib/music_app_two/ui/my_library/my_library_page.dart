@@ -236,7 +236,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                       isAlbumScrolling = true;
                     },
                     child: PageView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemCount: Album.listAlbum.length,
                       controller: pageAlbumController,
                       itemBuilder: (context, index) {

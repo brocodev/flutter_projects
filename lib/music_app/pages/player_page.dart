@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/music_app/models/album_model.dart';
 import 'package:flutter_projects/music_app/pages/widgets/play_song_card.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class PlayerPage extends StatefulWidget {
   final AlbumModel album;
@@ -64,29 +63,29 @@ class _PlayerPageState extends State<PlayerPage>
           Column(
             children: <Widget>[
               const Spacer(),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: AnimatedBuilder(
-                      animation: _animationController,
-                      builder: (context, _) {
-                        return Opacity(
-                          opacity: 1.0 * _sizeCardAnimation.value,
-                          child: Swiper(
-                            itemBuilder: (BuildContext context, int index) {
-                              return PlaySongCard(
-                                itemAnimation: _cardAnimation,
-                                album: widget.album,
-                                indexSong: index,
-                              );
-                            },
-                            itemCount: widget.album.songs.length,
-                            itemWidth: itemWidth,
-                            itemHeight: itemHeight *
-                                _sizeCardAnimation.value.clamp(.25, 1.0),
-                            layout: SwiperLayout.TINDER,
-                          ),
-                        );
-                      })),
+              // Align(
+              //     alignment: Alignment.bottomCenter,
+              //     child: AnimatedBuilder(
+              //         animation: _animationController,
+              //         builder: (context, _) {
+              //           return Opacity(
+              //             opacity: 1.0 * _sizeCardAnimation.value,
+              //             child: Swiper(
+              //               itemBuilder: (BuildContext context, int index) {
+              //                 return PlaySongCard(
+              //                   itemAnimation: _cardAnimation,
+              //                   album: widget.album,
+              //                   indexSong: index,
+              //                 );
+              //               },
+              //               itemCount: widget.album.songs.length,
+              //               itemWidth: itemWidth,
+              //               itemHeight: itemHeight *
+              //                   _sizeCardAnimation.value.clamp(.25, 1.0),
+              //               layout: SwiperLayout.TINDER,
+              //             ),
+              //           );
+              //         })),
               SizedBox(
                 height: size.height * .06,
               ),

@@ -7,6 +7,7 @@ import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
 import 'package:flutter_projects/music_app_two/music_app_two.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
+import 'package:flutter_projects/superheroes/superheroes_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.medicalAppointment.route: (context) => MedicalApp(),
         _ProjectModel.photographersApp.route: (context) => PhotographersApp(),
         _ProjectModel.instagram.route: (context) => InstagramApp(),
+        _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
       },
     );
   }
@@ -245,7 +247,15 @@ class _ProjectModel {
       designer: 'Manuel Rovira',
       pathImage: 'assets/img/ig.png',
       route: 'instagram');
+  static const superheroes = _ProjectModel(
+      title: 'Superhero Movies',
+      description: 'Flutter UI + Animations',
+      designer: 'vijay verma',
+      pathImage: 'assets/img/heroes.gif',
+      route: 'superhero');
+
   static const listProjects = [
+    superheroes,
     instagram,
     photographersApp,
     medicalAppointment,
