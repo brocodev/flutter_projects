@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -69,11 +68,11 @@ class SuperheroPageCard extends StatelessWidget {
               children: [
                 SizedBox(
                   width: size.width * .6,
-                  child: AutoSizeText(
+                  child: Text(
                     hero.heroName.toLowerCase(),
                     maxLines: 2,
                     style: GoogleFonts.spartan(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         fontSize: 68,
                         letterSpacing: -3.0,
                         color: Colors.white,

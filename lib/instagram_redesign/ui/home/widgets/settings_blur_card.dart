@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
@@ -208,15 +207,18 @@ class _SettingsSwitcher extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          const SizedBox(width: 10),
           Expanded(
-            child: AutoSizeText(
-              label,
-              maxLines: 1,
-              textAlign: TextAlign.right,
-              style: GoogleFonts.lato(
-                fontWeight: FontWeight.bold,
-                height: 1.5,
-                color: Colors.white,
+            child: FittedBox(
+              child: Text(
+                label,
+                maxLines: 1,
+                textAlign: TextAlign.right,
+                style: GoogleFonts.lato(
+                  fontWeight: FontWeight.bold,
+                  height: 1.5,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

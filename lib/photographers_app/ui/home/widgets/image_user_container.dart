@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/models/users.dart';
@@ -43,12 +42,14 @@ class ImageUserContainer extends StatelessWidget {
                       fit: BoxFit.cover)),
             ),
             const SizedBox(height: 10),
-            AutoSizeText(
-              user.name,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: PhotoAppColors.kDarkBlue,
+            FittedBox(
+              child: Text(
+                user.name,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: PhotoAppColors.kDarkBlue,
+                ),
               ),
             ),
           ],

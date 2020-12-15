@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
@@ -122,24 +121,28 @@ class _ProjectCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AutoSizeText(
-                        project.title,
-                        maxLines: 1,
-                        style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey[600]),
+                      FittedBox(
+                        child: Text(
+                          project.title,
+                          maxLines: 1,
+                          style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey[600]),
+                        ),
                       ),
-                      AutoSizeText(
-                        project.description,
-                        maxLines: 1,
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.blue),
+                      FittedBox(
+                        child: Text(
+                          project.description,
+                          maxLines: 1,
+                          style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue),
+                        ),
                       ),
                       const Spacer(),
-                      AutoSizeText(
+                      Text(
                         'Designer',
                         style: GoogleFonts.poppins(
                           fontSize: 14,
@@ -147,7 +150,7 @@ class _ProjectCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      AutoSizeText(
+                      Text(
                         project.designer,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w500,
@@ -164,7 +167,7 @@ class _ProjectCard extends StatelessWidget {
                               Navigator.pushNamed(context, project.route),
                           color: Colors.cyan[50],
                           textColor: Colors.cyan,
-                          child: AutoSizeText(
+                          child: Text(
                             "See project",
                             maxLines: 1,
                             softWrap: false,

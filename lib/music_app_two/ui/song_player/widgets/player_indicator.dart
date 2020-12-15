@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,34 +15,38 @@ class PlayerIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        AutoSizeText(
-          songTitle,
-          maxLines: 1,
-          style: GoogleFonts.spectral(
-            fontSize: 50,
-            fontWeight: FontWeight.w800,
-            shadows: [
-              Shadow(
-                color: Colors.black26,
-                blurRadius: 40,
-                offset: Offset(0, 20),
-              )
-            ],
+        FittedBox(
+          child: Text(
+            songTitle,
+            maxLines: 1,
+            style: GoogleFonts.spectral(
+              fontSize: 50,
+              fontWeight: FontWeight.w800,
+              shadows: [
+                Shadow(
+                  color: Colors.black26,
+                  blurRadius: 40,
+                  offset: Offset(0, 20),
+                )
+              ],
+            ),
           ),
         ),
         CustomPaint(
           painter: _LineIndicator(percentIndicator - .005),
           child: ClipPath(
             clipper: _TextClipper(percentIndicator),
-            child: AutoSizeText(
-              songTitle,
-              maxLines: 1,
-              overflow: TextOverflow.clip,
-              softWrap: false,
-              style: GoogleFonts.spectral(
-                fontSize: 50,
-                color: Colors.white70,
-                fontWeight: FontWeight.w800,
+            child: FittedBox(
+              child: Text(
+                songTitle,
+                maxLines: 1,
+                overflow: TextOverflow.clip,
+                softWrap: false,
+                style: GoogleFonts.spectral(
+                  fontSize: 50,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
           ),
