@@ -17,6 +17,36 @@ class Superhero {
 
   static const marvelHeroes = [
     Superhero(
+        heroName: 'Spider Man',
+        name: 'Peter Parker',
+        description:
+            'Spider-Man has spider-like abilities including superhuman strength and the ability to cling to most surfaces. '
+            'He is also extremely agile and has amazing reflexes. Spider-Man also has a “spider sense,” that warns him of '
+            'impending danger. Spider-Man has supplemented his powers with technology',
+        pathImage: 'assets/img/superheroes/spiderman-a.png',
+        movies: HeroMovie.spidermanMovies,
+        rawColor: 0xffA41209),
+    Superhero(
+        heroName: 'Iron Man',
+        name: 'Tony Stark',
+        description:
+            'He is the Armored Avenger - driven by a heart that is part machine, but all hero! He is the '
+            'INVINCIBLE IRON MAN! Iron Man\'s Powers and Abilities: Wears modular arc reactor-powered Iron Man armor, '
+            'granting superhuman strength & durability, the ability to fly & project Repulsor blasts',
+        pathImage: 'assets/img/superheroes/ironman-a.png',
+        movies: HeroMovie.ironManMovies,
+        rawColor: 0xffB3790F),
+    Superhero(
+        heroName: 'Thor',
+        name: 'Thor Odinson',
+        description:
+            'Thor Odinson is the Asgardian God of Thunder, superhero, self-proclaimed protector of Earth and the king of '
+            'Asgard. Thor made a name for himself as the mightiest warrior on his homeworld and subsequently became well '
+            'known for his actions on Earth, which included acting as a founding member of the Avengers.',
+        pathImage: 'assets/img/superheroes/thor-c.png',
+        movies: HeroMovie.thorMovies,
+        rawColor: 0xff3E4953),
+    Superhero(
         heroName: 'Ant Man',
         name: 'Scott Lang',
         description:
@@ -66,36 +96,6 @@ class Superhero {
         pathImage: 'assets/img/superheroes/hulk-b.png',
         movies: HeroMovie.hulkMovies,
         rawColor: 0xff047A3B),
-    Superhero(
-        heroName: 'Iron Man',
-        name: 'Tony Stark',
-        description:
-            'He is the Armored Avenger - driven by a heart that is part machine, but all hero! He is the '
-            'INVINCIBLE IRON MAN! Iron Man\'s Powers and Abilities: Wears modular arc reactor-powered Iron Man armor, '
-            'granting superhuman strength & durability, the ability to fly & project Repulsor blasts',
-        pathImage: 'assets/img/superheroes/ironman-a.png',
-        movies: HeroMovie.ironManMovies,
-        rawColor: 0xffB3790F),
-    Superhero(
-        heroName: 'Spider Man',
-        name: 'Peter Parker',
-        description:
-            'Spider-Man has spider-like abilities including superhuman strength and the ability to cling to most surfaces. '
-            'He is also extremely agile and has amazing reflexes. Spider-Man also has a “spider sense,” that warns him of '
-            'impending danger. Spider-Man has supplemented his powers with technology',
-        pathImage: 'assets/img/superheroes/spiderman-a.png',
-        movies: HeroMovie.spidermanMovies,
-        rawColor: 0xffA41209),
-    Superhero(
-        heroName: 'Thor',
-        name: 'Thor Odinson',
-        description:
-            'Thor Odinson is the Asgardian God of Thunder, superhero, self-proclaimed protector of Earth and the king of '
-            'Asgard. Thor made a name for himself as the mightiest warrior on his homeworld and subsequently became well '
-            'known for his actions on Earth, which included acting as a founding member of the Avengers.',
-        pathImage: 'assets/img/superheroes/thor-c.png',
-        movies: HeroMovie.thorMovies,
-        rawColor: 0xff3E4953),
   ];
 }
 
