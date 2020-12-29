@@ -51,11 +51,9 @@ class SuperheroCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FittedBox(
-                  child: Text(
-                    superhero.heroName.replaceAll(' ', '\n').toLowerCase(),
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
+                Text(
+                  superhero.heroName.toLowerCase(),
+                  style: Theme.of(context).textTheme.headline2,
                 ),
                 Text(
                   superhero.name.toLowerCase(),
