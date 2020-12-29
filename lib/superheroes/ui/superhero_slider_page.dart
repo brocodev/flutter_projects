@@ -7,8 +7,6 @@ class SuperheroSliderPage extends StatefulWidget {
   const SuperheroSliderPage({
     Key key,
   }) : super(key: key);
-  Widgets from
-  Superhero app it separated in files
   @override
   _SuperheroSliderPageState createState() => _SuperheroSliderPageState();
 }
