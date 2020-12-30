@@ -24,7 +24,8 @@ class SuperheroesApp extends StatelessWidget {
           headline2: GoogleFonts.spartan(
             fontWeight: FontWeight.w600,
             letterSpacing: -3.0,
-            height: 1.0,
+            height: 0.9,
+            fontSize: 64,
           ),
           headline5: GoogleFonts.spartan(
             letterSpacing: -1.0,

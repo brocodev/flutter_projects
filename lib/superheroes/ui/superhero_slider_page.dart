@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter_projects/superheroes/ui/superhero_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/superheroes/models/superhero.dart';
 import 'package:flutter_projects/superheroes/ui/widgets/superhero_card.dart';
@@ -7,6 +8,7 @@ class SuperheroSliderPage extends StatefulWidget {
   const SuperheroSliderPage({
     Key key,
   }) : super(key: key);
+
   @override
   _SuperheroSliderPageState createState() => _SuperheroSliderPageState();
 }
@@ -26,6 +28,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     _auxIndex = _index + 1;
     _percent = 0.0;
     _auxPercent = 1.0 - _percent;
+    _isScrolling = false;
     _pageController.addListener(_pageListener);
     super.initState();
   }
@@ -100,7 +103,10 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
             controller: _pageController,
             itemCount: heroes.length,
             itemBuilder: (context, index) {
-              return const SizedBox();
+              return InkWell(
+                onTap: () => _openDetail(context, heroes[index]),
+                child: const SizedBox(),
+              );
             },
           )
         ],
@@ -108,4 +114,16 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     );
   }
 
+  _openDetail(BuildContext context, Superhero superhero) {
+    Navigator.push(context, PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: SuperheroDetailPage(
+            superhero: superhero,
+          ),
+        );
+      },
+    ));
+  }
 }

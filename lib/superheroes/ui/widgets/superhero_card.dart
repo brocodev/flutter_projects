@@ -1,7 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/superheroes/models/superhero.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class SuperheroCard extends StatelessWidget {
   final Superhero superhero;
@@ -25,10 +26,13 @@ class SuperheroCard extends StatelessWidget {
           // COLOR BACKGROUND WITH ROUNDED CORNERS
           Positioned.fill(
             top: separation,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Color(superhero.rawColor),
-                borderRadius: BorderRadius.circular(40),
+            child: Hero(
+              tag: superhero.heroName + "background",
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Color(superhero.rawColor),
+                  borderRadius: BorderRadius.circular(40),
+                ),
               ),
             ),
           ),
@@ -40,7 +44,13 @@ class SuperheroCard extends StatelessWidget {
             bottom: size.height * .35,
             child: Opacity(
               opacity: 1.0 - factorChange,
-              child: Image.asset(superhero.pathImage),
+              child: Transform.scale(
+                scale: lerpDouble(1, .4, factorChange),
+                child: Hero(
+                  tag: superhero.pathImage,
+                  child: Image.asset(superhero.pathImage),
+                ),
+              ),
             ),
           ),
 
@@ -51,13 +61,21 @@ class SuperheroCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  superhero.heroName.toLowerCase(),
-                  style: Theme.of(context).textTheme.headline2,
+                FittedBox(
+                  child: Hero(
+                    tag: superhero.heroName,
+                    child: Text(
+                      superhero.heroName.replaceAll(' ', '\n').toLowerCase(),
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                  ),
                 ),
-                Text(
-                  superhero.name.toLowerCase(),
-                  style: Theme.of(context).textTheme.headline5,
+                Hero(
+                  tag: superhero.name,
+                  child: Text(
+                    superhero.name.toLowerCase(),
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
                 ),
                 const SizedBox(height: 25),
                 Text.rich(
