@@ -18,10 +18,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ___
 ## Superhero Movies App 
+### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="15"/> [Youtube Tutorial](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
 Flutter UI + Animations
+
 ### Design
 <img src="https://i.ibb.co/D7ZwT0y/Youtube-Video-1.png" height="400"/>|
-#### [Youtube Tutorial](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
 #### [Dribbble design resource](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction)
 
 ___
