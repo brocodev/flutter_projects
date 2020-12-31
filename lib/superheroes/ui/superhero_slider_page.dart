@@ -38,8 +38,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     _pageController.removeListener(_pageListener);
     super.dispose();
   }
-
+  //--------------------------
   // PAGE VIEW LISTENER
+  //--------------------------
   void _pageListener() {
     _index = _pageController.page.floor();
     _auxIndex = _index + 1;
@@ -55,6 +56,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     final heroes = Superhero.marvelHeroes;
     final angleRotate = (-pi * .5);
     return Scaffold(
+      //---------------
+      // APP BAR
+      //---------------
       appBar: AppBar(
         title: Text("movies"),
         elevation: 0,
@@ -66,7 +70,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
       ),
       body: Stack(
         children: [
+          //-----------------------
           // SUPERHERO CARDS
+          //-----------------------
           AnimatedPositioned(
             duration: kThemeAnimationDuration,
             top: 0,
@@ -75,7 +81,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
             left: _isScrolling ? 10 : 0,
             child: Stack(
               children: [
+                //----------------
                 // BACK CARD
+                //----------------
                 Transform.translate(
                   offset: Offset(0, 50 * _auxPercent),
                   child: SuperheroCard(
@@ -83,7 +91,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
                     factorChange: _auxPercent,
                   ),
                 ),
+                //----------------
                 // FRONT CARD
+                //----------------
                 Transform.translate(
                   offset: Offset(-800 * _percent, 100 * _percent),
                   child: Transform.rotate(
@@ -97,8 +107,10 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
               ],
             ),
           ),
+          //-----------------------------------------------------
           // VOID PAGE VIEW
-          // This pageview is just for using the pagecontroller
+          // -This page view is just for using the page controller
+          //-----------------------------------------------------
           PageView.builder(
             controller: _pageController,
             itemCount: heroes.length,

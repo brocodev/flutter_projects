@@ -55,13 +55,41 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
       });
     });
 
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed)
-        setState(() {
-          _enableInfoItems = true;
-        });
-    });
+    _controller.addStatusListener(_statusListener);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeStatusListener(_statusListener);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  //----------------------------------------
+  // ANIMATION CONTROLLER STATUS LISTENER
+  //----------------------------------------
+  void _statusListener(AnimationStatus status) {
+    if (status == AnimationStatus.completed)
+      setState(() {
+        _enableInfoItems = true;
+      });
+  }
+
+  //-----------------------
+  // BACK BUTTON TAP
+  //-----------------------
+  void _backButtonTap() async {
+    setState(() {
+      _enableInfoItems = false;
+    });
+    Future.delayed(const Duration(milliseconds: 600), () {
+      setState(() {
+        _changeToBlack = false;
+      });
+    });
+    await _controller.reverse();
+    Navigator.pop(context);
   }
 
   @override
@@ -71,8 +99,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     return Material(
       child: Stack(
         children: [
-          //Animated Background
-          //
+          //-----------------------
+          // ANIMATED BACKGROUND
+          //-----------------------
           Positioned.fill(
               child: Hero(
             tag: widget.superhero.heroName + "background",
@@ -97,13 +126,17 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                   );
                 }),
           )),
-          //Items - body
-          //
+          //----------------------
+          // ITEMS - BODY
+          //----------------------
           SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //---------------------
+                // SUPERHERO IMAGE
+                //---------------------
                 SafeArea(
                   child: Hero(
                     tag: widget.superhero.pathImage,
@@ -119,6 +152,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      //--------------------------
+                      // SUPERHERO NAME
+                      //--------------------------
                       Align(
                         heightFactor: .7,
                         alignment: Alignment.bottomLeft,
@@ -143,6 +179,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          //--------------------------
+                          // SUPERHERO REAL NAME
+                          //--------------------------
                           Hero(
                             tag: widget.superhero.name,
                             child: AnimatedDefaultTextStyle(
@@ -156,6 +195,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                                       : Colors.white),
                             ),
                           ),
+                          //--------------------------
+                          // ANIMATED MARVEL LOGO
+                          //--------------------------
                           TweenAnimationBuilder(
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.fastOutSlowIn,
@@ -178,6 +220,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                         ],
                       ),
                       const Divider(height: 30),
+                      //---------------------------
+                      // ANIMATED SUPERHERO DESCRIPTION
+                      //---------------------------
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 800),
                         curve: Curves.elasticOut,
@@ -202,6 +247,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                         ),
                       ),
                       const Divider(height: 30),
+                      //----------------------------------
+                      // ANIMATED MOVIES TEXT
+                      //----------------------------------
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 800),
                         curve: Curves.elasticOut,
@@ -223,6 +271,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                     ],
                   ),
                 ),
+                //----------------------------
+                // SUPERHERO MOVIES LIST
+                //----------------------------
                 SizedBox(
                   height: 240,
                   child: ListView.builder(
@@ -235,6 +286,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       final movie = widget.superhero.movies[index];
+                      //---------------------------
+                      // ANIMATED MOVIES CARD
+                      //---------------------------
                       return TweenAnimationBuilder<double>(
                         duration: Duration(milliseconds: 1000 + (300 * index)),
                         curve: Curves.elasticOut,
@@ -264,25 +318,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
               ],
             ),
           ),
-          //Back Button
-          //
+          //-------------------------
+          // BACK BUTTON
+          //-------------------------
           Positioned(
             left: 20,
             top: 0,
             child: SafeArea(
               child: IconButton(
-                onPressed: () async {
-                  setState(() {
-                    _enableInfoItems = false;
-                  });
-                  Future.delayed(const Duration(milliseconds: 600), () {
-                    setState(() {
-                      _changeToBlack = false;
-                    });
-                  });
-                  await _controller.reverse();
-                  Navigator.pop(context);
-                },
+                onPressed: _backButtonTap,
                 icon: Icon(Icons.arrow_back_ios),
               ),
             ),
