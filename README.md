@@ -1,6 +1,10 @@
 
 # My Flutter Projects
 Flutter apps with cool design and moderate animations
+
+# Social Media
+#### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="10"/> [Youtube](https://www.youtube.com/channel/UCe2G2ZkcHG9TliZ03L14U7g) _ <img src="https://www.flaticon.es/svg/static/icons/svg/124/124010.svg" height="10"/> [Facebook](https://www.facebook.com/brocodev) _ <img src="https://www.flaticon.com/svg/static/icons/svg/124/124021.svg" height="12"/> [Twitter](https://twitter.com/brocodev1) 
+
 ## Getting Started
 This project is a starting point for a Flutter application.
 A few resources to get you started if this is your first Flutter project:
@@ -11,6 +15,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+___
+## Superhero Movies App 
+Flutter UI + Animations
+### Design
+<img src="https://i.ibb.co/D7ZwT0y/Youtube-Video-1.png" height="400"/>|
+#### [Youtube Tutorial](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
+#### [Dribbble design resource](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction)
 
 ___
 ## Instagram Redesign App
@@ -35,7 +47,7 @@ ___
 Flutter UI + Simple Animations
 
 ### Design
-<img src="https://scontent.faca1-1.fna.fbcdn.net/v/l/t1.0-9/120035501_2452450025063924_1219526402470013890_o.jpg?_nc_cat=108&_nc_sid=b9115d&_nc_ohc=-VTPy2TQTB0AX_h-Q7W&_nc_oc=AQlqZmpebUAZ_vJubmzO2bSJahfgJZh5YYdBaXaKClwUCEFi7Q2V1CsnAJUX8jyZMJMBhdoh8IbRJgTn5sDN4T4r&_nc_ht=scontent.faca1-1.fna&oh=76e69635cca879b8ed99a73603fd48d5&oe=5FA4D4D5" height="400"/>|
+<img src="https://scontent.faca1-1.fna.fbcdn.net/v/t1.0-9/120007047_144680167329509_7841391971143586735_o.png?_nc_cat=102&ccb=2&_nc_sid=730e14&_nc_eui2=AeE9PehpegExETEchpuRik2j6OLMxEXJjLzo4szERcmMvIaWefR4T80u9SMAyeqzpaB6UbPYvgSX8ZO3E0khYL0T&_nc_ohc=OcuH8vxee1gAX_F_Ztr&_nc_ht=scontent.faca1-1.fna&oh=52c6999c2b4070d8b1e6e755c26a9815&oe=601363DC" height="600"/>|
 #### [Uplabs Design](https://www.uplabs.com/posts/my-medical-appoinment)
 ___
 ## FindOut
