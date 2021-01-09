@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
+import 'package:flutter_projects/gaming_app/gaming_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.photographersApp.route: (context) => PhotographersApp(),
         _ProjectModel.instagram.route: (context) => InstagramApp(),
         _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
+        _ProjectModel.gamingApp.route: (context) => GamingApp(),
       },
     );
   }
@@ -255,7 +257,15 @@ class _ProjectModel {
       pathImage: 'assets/img/heroes.gif',
       route: 'superhero');
 
+  static const gamingApp = _ProjectModel(
+      title: 'Orix Gaming',
+      description: 'Flutter UI + Animations',
+      designer: 'Sajon',
+      pathImage: 'assets/img/gaming_app.jpg',
+      route: 'gaming');
+
   static const listProjects = [
+    gamingApp,
     superheroes,
     instagram,
     photographersApp,
