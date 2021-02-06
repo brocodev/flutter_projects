@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
-import 'package:flutter_projects/gaming_app/gaming_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_app/music_app.dart';
 import 'package:flutter_projects/music_app_two/music_app_two.dart';
+import 'package:flutter_projects/orix_gaming/orix_gaming_app.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/superheroes/superheroes_app.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.photographersApp.route: (context) => PhotographersApp(),
         _ProjectModel.instagram.route: (context) => InstagramApp(),
         _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
-        _ProjectModel.gamingApp.route: (context) => GamingApp(),
+        _ProjectModel.orixGaming.route: (context) => OrixGamingApp(),
       },
     );
   }
@@ -257,15 +257,15 @@ class _ProjectModel {
       pathImage: 'assets/img/heroes.gif',
       route: 'superhero');
 
-  static const gamingApp = _ProjectModel(
+  static const orixGaming = _ProjectModel(
       title: 'Orix Gaming',
       description: 'Flutter UI + Animations',
       designer: 'Sajon',
-      pathImage: 'assets/img/gaming_app.jpg',
+      pathImage: 'assets/img/orix_gaming.jpg',
       route: 'gaming');
 
   static const listProjects = [
-    gamingApp,
+    orixGaming,
     superheroes,
     instagram,
     photographersApp,
