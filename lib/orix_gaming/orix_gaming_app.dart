@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/kevin/Documents/Projects/flutter/flutter_projects/lib/orix_gaming/ui/orix_gaming_home_page.dart';
-import 'file:///C:/Users/kevin/Documents/Projects/flutter/flutter_projects/lib/orix_gaming/ui/widgets/orix_navigation_bar.dart';
+import 'package:flutter_projects/orix_gaming/ui/orix_gaming_home_page.dart';
+import 'package:flutter_projects/orix_gaming/ui/widgets/orix_navigation_bar.dart';
 
 class OrixGamingApp extends StatelessWidget {
   @override
