@@ -179,7 +179,7 @@ class _StatusGame extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Text(
-            '${(videoGame.nowPlaying / 1000).toStringAsFixed(1)} Playing',
+            '${(videoGame.nowPlaying / 1000).toStringAsFixed(1)}k Playing',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
               fontSize: 12,
