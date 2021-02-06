@@ -23,10 +23,10 @@ class _MainPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  __MainPageState createState() => __MainPageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class __MainPageState extends State<_MainPage> {
+class _MainPageState extends State<_MainPage> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
