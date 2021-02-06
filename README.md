@@ -22,7 +22,7 @@ ___
 Flutter UI + Animations
 
 ### Design
-<img src="https://i.ibb.co/D7ZwT0y/Youtube-Video-1.png" height="400"/>|
+<img src="https://i.ibb.co/D7ZwT0y/Youtube-Video-1.png" width="800"/>|
 #### [Dribbble design resource](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction)
 
 ___
