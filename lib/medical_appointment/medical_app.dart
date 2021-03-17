@@ -39,7 +39,7 @@ class _MainPageState extends State<_MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      // resizeToAvoidBottomPadding: false,
       body: OverflowBox(
         alignment: Alignment.topCenter,
         maxHeight: MediaQuery.of(context).size.height,
@@ -48,8 +48,8 @@ class _MainPageState extends State<_MainPage> {
           child: [
             MedicalHomePage(),
             DoctorsPage(),
-            Scaffold(body: Center(child: Text("History"))),
-            Scaffold(body: Center(child: Text("Urgency"))),
+            const Scaffold(body: Center(child: Text("History"))),
+            const Scaffold(body: Center(child: Text("Urgency"))),
           ][indexPage],
         ),
       ),

@@ -34,6 +34,7 @@ flutter:
     - assets/img/gaming/
     - assets/svg/instagram/
     - assets/svg/medical/
+    - assets/img/books/
   fonts:
     - family: MDIcons
       fonts:

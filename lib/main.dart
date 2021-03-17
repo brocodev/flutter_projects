@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_projects/books_app/book_app.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.instagram.route: (context) => InstagramApp(),
         _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
         _ProjectModel.orixGaming.route: (context) => OrixGamingApp(),
+        _ProjectModel.bookApp.route: (context) => BookApp(),
       },
     );
   }
@@ -264,7 +266,15 @@ class _ProjectModel {
       pathImage: 'assets/img/orix_gaming.jpg',
       route: 'gaming');
 
+  static const bookApp = _ProjectModel(
+      title: 'Custom Book List',
+      description: 'Flutter UI + Animations',
+      designer: 'Sam',
+      pathImage: 'assets/img/book_app.gif',
+      route: 'book');
+
   static const listProjects = [
+    bookApp,
     orixGaming,
     superheroes,
     instagram,

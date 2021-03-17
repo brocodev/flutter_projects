@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/music_app/models/album_model.dart';
-import 'package:flutter_projects/music_app/pages/widgets/play_song_card.dart';
 
 class PlayerPage extends StatefulWidget {
   final AlbumModel album;
@@ -17,7 +16,6 @@ class _PlayerPageState extends State<PlayerPage>
   AnimationController _animationController;
   Animation<double> _resizeContainer;
   Animation<double> _cardAnimation;
-  Animation<double> _sizeCardAnimation;
 
   @override
   void initState() {
@@ -26,11 +24,6 @@ class _PlayerPageState extends State<PlayerPage>
     _resizeContainer = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
       parent: _animationController,
       curve: Interval(0.0, 0.3, curve: Curves.fastOutSlowIn),
-    ));
-
-    _sizeCardAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(0.3, 0.6, curve: Curves.fastOutSlowIn),
     ));
 
     _cardAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -53,8 +46,6 @@ class _PlayerPageState extends State<PlayerPage>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final itemWidth = size.width * 0.9;
-    final itemHeight = size.height * .8;
     return Scaffold(
       backgroundColor: Colors.blueGrey[300],
       body: Stack(
@@ -63,29 +54,6 @@ class _PlayerPageState extends State<PlayerPage>
           Column(
             children: <Widget>[
               const Spacer(),
-              // Align(
-              //     alignment: Alignment.bottomCenter,
-              //     child: AnimatedBuilder(
-              //         animation: _animationController,
-              //         builder: (context, _) {
-              //           return Opacity(
-              //             opacity: 1.0 * _sizeCardAnimation.value,
-              //             child: Swiper(
-              //               itemBuilder: (BuildContext context, int index) {
-              //                 return PlaySongCard(
-              //                   itemAnimation: _cardAnimation,
-              //                   album: widget.album,
-              //                   indexSong: index,
-              //                 );
-              //               },
-              //               itemCount: widget.album.songs.length,
-              //               itemWidth: itemWidth,
-              //               itemHeight: itemHeight *
-              //                   _sizeCardAnimation.value.clamp(.25, 1.0),
-              //               layout: SwiperLayout.TINDER,
-              //             ),
-              //           );
-              //         })),
               SizedBox(
                 height: size.height * .06,
               ),
