@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app/models/album_model.dart';
-import 'package:flutter_projects/music_app/pages/album_grid_page.dart';
-import 'package:flutter_projects/music_app/pages/player_page.dart';
-import 'package:flutter_projects/music_app/pages/widgets/large_album_card.dart';
+import 'package:flutter_projects/music_album_list/models/album_model.dart';
+import 'package:flutter_projects/music_album_list/pages/album_grid_page.dart';
+import 'package:flutter_projects/music_album_list/pages/player_page.dart';
+import 'package:flutter_projects/music_album_list/pages/widgets/large_album_card.dart';
 
 class AlbumListPage extends StatefulWidget {
   @override

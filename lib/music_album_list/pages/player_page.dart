@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app/models/album_model.dart';
+import 'package:flutter_projects/music_album_list/models/album_model.dart';
 
 class PlayerPage extends StatefulWidget {
   final AlbumModel album;

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
-import 'package:flutter_projects/music_app_two/models/song.dart';
-import 'package:flutter_projects/music_app_two/ui/song_player/widgets/song_player_widgets.dart';
+import 'package:flutter_projects/music_player_vinyls/models/song.dart';
+import 'package:flutter_projects/music_player_vinyls/ui/song_player/widgets/song_player_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const kDuration800ms = const Duration(milliseconds: 800);
@@ -121,10 +121,10 @@ class _SongPlayerPageState extends State<SongPlayerPage>
       backgroundColor: Colors.grey[200],
       body: Column(
         children: <Widget>[
-          NowPlayingAppBar(),
+          const NowPlayingAppBar(),
           Center(
             //-------------------------------------------
-            //-----TWEEN BUILDERS ANIMATIONS
+            // Implicit Animations
             //-------------------------------------------
             child: ScaleAnimation(
               duration: kDuration800ms,
@@ -137,7 +137,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                     offsetDirection: Axis.vertical,
                     offset: -300,
                     //-----------------------------------------
-                    //-----SKEW DISK ANIMATION
+                    // Disk Skew Animation
                     //-----------------------------------------
                     child: AnimatedBuilder(
                       animation: _controllerSkew,
@@ -154,7 +154,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                         );
                       },
                       //--------------------------------
-                      //----DRAG DISK ANIMATION
+                      // On drag disk animation
                       //--------------------------------
                       child: AnimatedBuilder(
                         animation: _controller,
@@ -181,7 +181,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                           );
                         },
                         //-------------------------
-                        //----ROTATE DISK
+                        // Disk Rotate animation
                         //-------------------------
                         child: Transform.rotate(
                           angle: (pi) * vinylDragValue,
@@ -203,7 +203,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
           ),
           const SizedBox(height: 10),
           //-------------------------------
-          //----PLAY SONG INDICATOR
+          // Play time indicator
           //-------------------------------
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -215,7 +215,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             //-------------------------------------------------
-            //-----PLAYED SONG TIME // TOTAL SONG TIME
+            // Playback time and ending time
             //-------------------------------------------------
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,6 +232,9 @@ class _SongPlayerPageState extends State<SongPlayerPage>
             ),
           ),
           const SizedBox(height: 30),
+          //-----------------------------------------
+          // Player controls
+          //-----------------------------------------
           PlayerControls(
             isOnPlay: isOnPlay,
             onPausePlay: () {

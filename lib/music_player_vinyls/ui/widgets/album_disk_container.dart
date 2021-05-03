@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app_two/models/album.dart';
+import 'package:flutter_projects/music_player_vinyls/models/album.dart';
 import 'vinyl_disk.dart';
 
 class AlbumDiskContainer extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_projects/music_app_two/models/album.dart';
-import 'package:flutter_projects/music_app_two/models/song.dart';
-import 'package:flutter_projects/music_app_two/ui/my_library/widgets/my_library_widgets.dart';
+import 'package:flutter_projects/music_player_vinyls/models/album.dart';
+import 'package:flutter_projects/music_player_vinyls/models/song.dart';
+import 'package:flutter_projects/music_player_vinyls/ui/my_library/widgets/my_library_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyLibraryPage extends StatefulWidget {

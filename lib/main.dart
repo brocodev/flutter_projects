@@ -4,8 +4,8 @@ import 'package:flutter_projects/books_app/book_app.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
-import 'package:flutter_projects/music_app/music_app.dart';
-import 'package:flutter_projects/music_app_two/music_app_two.dart';
+import 'package:flutter_projects/music_album_list/music_album_list.dart';
+import 'package:flutter_projects/music_player_vinyls/music_player_vinyls.dart';
 import 'package:flutter_projects/orix_gaming/orix_gaming_app.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/superheroes/superheroes_app.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => MainPage(),
         _ProjectModel.findOut.route: (context) => FindOutApp(),
         _ProjectModel.movieSelection.route: (context) => MovieSelectionApp(),
-        _ProjectModel.musicApp.route: (context) => MusicApp(),
+        _ProjectModel.musicApp.route: (context) => MusicAlbumList(),
         _ProjectModel.musicAppTwo.route: (context) => MusicAppTwo(),
         _ProjectModel.medicalAppointment.route: (context) => MedicalApp(),
         _ProjectModel.photographersApp.route: (context) => PhotographersApp(),

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app_two/models/album.dart';
-import 'package:flutter_projects/music_app_two/ui/my_library/widgets/row_stars.dart';
+import 'package:flutter_projects/music_player_vinyls/models/album.dart';
+import 'package:flutter_projects/music_player_vinyls/ui/my_library/widgets/row_stars.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionContainer extends StatelessWidget {
-  final Album album;
-  final EdgeInsetsGeometry padding;
-
   const DescriptionContainer({
     Key key,
     @required this.album,
     this.padding,
   }) : super(key: key);
+
+  final Album album;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class DescriptionContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           //--------------------------
-          //----TEXT AND STARS
+          // Text and stars
           //--------------------------
           Row(
             children: <Widget>[
@@ -58,7 +58,7 @@ class DescriptionContainer extends StatelessWidget {
             ],
           ),
           //-------------------------------
-          //-----TITLE TEXT
+          // Title text
           //-------------------------------
           Text(
             album.title,
@@ -71,7 +71,7 @@ class DescriptionContainer extends StatelessWidget {
             ),
           ),
           //----------------------------
-          //----ARTIST/BAND/AUTHOR
+          // Artist name
           //----------------------------
           Text.rich(
             TextSpan(text: 'By ', children: [
@@ -86,7 +86,7 @@ class DescriptionContainer extends StatelessWidget {
             ),
           ),
           //----------------------------
-          //-----INFO ALBUM
+          // Album information
           //----------------------------
           Text.rich(
             TextSpan(
@@ -107,7 +107,7 @@ class DescriptionContainer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           //----------------------------------
-          //----ALBUM DESCRIPTION
+          // Album Description
           //----------------------------------
           Flexible(
             child: SingleChildScrollView(
@@ -123,7 +123,7 @@ class DescriptionContainer extends StatelessWidget {
             ),
           ),
           //----------------------------------
-          //----ALBUM GENRES
+          // Album Genres
           //----------------------------------
           SizedBox(
             height: 45,

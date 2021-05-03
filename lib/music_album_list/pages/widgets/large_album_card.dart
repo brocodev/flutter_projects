@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app/models/album_model.dart';
+import 'package:flutter_projects/music_album_list/models/album_model.dart';
 
 class LargeAlbumCard extends StatelessWidget {
   const LargeAlbumCard({

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_app_two/ui/my_library/my_library_page.dart';
+import 'package:flutter_projects/music_player_vinyls/ui/my_library/my_library_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MusicAppTwo extends StatelessWidget {
