@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_player_vinyls/models/album.dart';
+import 'package:flutter_projects/music_vinyl_player/models/album.dart';
 import 'vinyl_disk.dart';
 
-class AlbumDiskContainer extends StatelessWidget {
+class AlbumDiskCard extends StatelessWidget {
   final Album album;
   final double factorChange;
   final double height;
 
-  const AlbumDiskContainer({
+  const AlbumDiskCard({
     Key key,
     @required this.album,
     @required this.factorChange,

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
-import 'package:flutter_projects/music_player_vinyls/models/song.dart';
-import 'package:flutter_projects/music_player_vinyls/ui/song_player/widgets/song_player_widgets.dart';
+import 'package:flutter_projects/music_vinyl_player/models/song.dart';
+import 'package:flutter_projects/music_vinyl_player/ui/song_player/widgets/song_player_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const kDuration800ms = const Duration(milliseconds: 800);
@@ -154,7 +154,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                         );
                       },
                       //--------------------------------
-                      // On drag disk animation
+                      // On drag disk detector
                       //--------------------------------
                       child: AnimatedBuilder(
                         animation: _controller,
@@ -198,8 +198,14 @@ class _SongPlayerPageState extends State<SongPlayerPage>
           Text(
             widget.song.album.author,
             style: GoogleFonts.poppins(
-                fontSize: 20,
-                shadows: [Shadow(color: Colors.black26, blurRadius: 20)]),
+              fontSize: 20,
+              shadows: [
+                Shadow(
+                  color: Colors.black26,
+                  blurRadius: 20,
+                )
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           //-------------------------------

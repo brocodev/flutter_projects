@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_player_vinyls/ui/my_library/my_library_page.dart';
+import 'package:flutter_projects/music_vinyl_player/ui/my_library/my_library_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MusicAppTwo extends StatelessWidget {
+class MusicVinylPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_player_vinyls/models/song.dart';
+import 'package:flutter_projects/music_vinyl_player/models/song.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SongPlayFooter extends StatelessWidget {

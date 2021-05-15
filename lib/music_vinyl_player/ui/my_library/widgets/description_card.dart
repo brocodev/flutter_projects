@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/music_player_vinyls/models/album.dart';
-import 'package:flutter_projects/music_player_vinyls/ui/my_library/widgets/row_stars.dart';
+import 'package:flutter_projects/music_vinyl_player/models/album.dart';
+import 'package:flutter_projects/music_vinyl_player/ui/my_library/widgets/row_stars.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DescriptionContainer extends StatelessWidget {
-  const DescriptionContainer({
+class DescriptionCard extends StatelessWidget {
+  const DescriptionCard({
     Key key,
     @required this.album,
     this.padding,

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_projects/music_player_vinyls/models/album.dart';
-import 'package:flutter_projects/music_player_vinyls/models/song.dart';
-import 'package:flutter_projects/music_player_vinyls/ui/my_library/widgets/my_library_widgets.dart';
+import 'package:flutter_projects/music_vinyl_player/models/album.dart';
+import 'package:flutter_projects/music_vinyl_player/models/song.dart';
+import 'package:flutter_projects/music_vinyl_player/ui/my_library/widgets/my_library_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyLibraryPage extends StatefulWidget {
@@ -16,68 +16,68 @@ class MyLibraryPage extends StatefulWidget {
 }
 
 class _MyLibraryPageState extends State<MyLibraryPage> {
-  PageController pageAlbumController;
-  PageController pageDescriptionController;
-  double pageDescription;
-  double pageAlbum;
-  ScrollDirection scrollDirection;
-  bool isAlbumScrolling = false;
+  PageController _pageAlbumController;
+  PageController _pageDescriptionController;
+  double _pageDescription;
+  double _pageAlbum;
+  ScrollDirection _scrollDirection;
+  bool _isAlbumScrolling = false;
 
   @override
   void initState() {
-    pageDescription = 1.0;
-    pageAlbum = 1.0;
-    pageAlbumController = PageController(
+    _pageDescription = 1.0;
+    _pageAlbum = 1.0;
+    _pageAlbumController = PageController(
       viewportFraction: .6,
       initialPage: 1,
     );
-    pageDescriptionController = PageController(
+    _pageDescriptionController = PageController(
       initialPage: 1,
     );
-    pageAlbumController.addListener(_pageAlbumListener);
-    pageDescriptionController.addListener(_pageDescriptionListener);
+    _pageAlbumController.addListener(_pageAlbumListener);
+    _pageDescriptionController.addListener(_pageDescriptionListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    pageAlbumController.removeListener(_pageAlbumListener);
-    pageDescriptionController.removeListener(_pageDescriptionListener);
-    pageAlbumController.dispose();
-    pageDescriptionController.dispose();
+    _pageAlbumController.removeListener(_pageAlbumListener);
+    _pageDescriptionController.removeListener(_pageDescriptionListener);
+    _pageAlbumController.dispose();
+    _pageDescriptionController.dispose();
     super.dispose();
   }
 
   //--------------------------------
-  //----PAGE DESCRIPTION LISTENER
+  // Page description listener
   //--------------------------------
   void _pageDescriptionListener() {
     setState(() {
-      pageDescription = pageDescriptionController.page;
-      scrollDirection = pageDescriptionController.position.userScrollDirection;
+      _pageDescription = _pageDescriptionController.page;
+      _scrollDirection = _pageDescriptionController.position.userScrollDirection;
     });
   }
 
   //--------------------------------
-  //----PAGE ALBUM LISTENER
+  // Page album listener
   //--------------------------------
   void _pageAlbumListener() {
-    if (isAlbumScrolling) {
-      pageDescriptionController.position
-          .jumpTo(pageAlbumController.page * MediaQuery.of(context).size.width);
+    if (_isAlbumScrolling) {
+      _pageDescriptionController.position
+          .jumpTo(_pageAlbumController.page * MediaQuery.of(context).size.width);
       setState(() {
-        scrollDirection = pageAlbumController.position.userScrollDirection;
-        pageAlbum = pageAlbumController.page;
+        _scrollDirection = _pageAlbumController.position.userScrollDirection;
+        _pageAlbum = _pageAlbumController.page;
       });
     } else {
       setState(() {
-        pageAlbum = pageAlbumController.page;
+        _pageAlbum = _pageAlbumController.page;
       });
     }
   }
 
   //--------------------------------
-  //----OPEN PLAYER PAGE
+  // Open player page
   //--------------------------------
   void _openPlayerPage(BuildContext context) {
     final route =
@@ -107,9 +107,9 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
       ),
       body: Stack(
         children: <Widget>[
-          //-------------------------------------------------
-          //-----BOTTOM WIDGETS
-          //-------------------------------------------------
+          //--------------------------------
+          // Bottom Widgets
+          //--------------------------------
           Positioned(
             top: heightAlbumList,
             right: 0,
@@ -117,33 +117,33 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
             bottom: 0,
             child: GestureDetector(
               onPanDown: (_) {
-                isAlbumScrolling = false;
+                _isAlbumScrolling = false;
               },
               child: Column(
                 children: <Widget>[
                   //-----------------------------------
-                  //-----PAGE VIEW DESCRIPTIONS
+                  // Page View Description
                   //-----------------------------------
                   Expanded(
                     child: PageView.builder(
                         onPageChanged: (value) {
-                          if (!isAlbumScrolling)
-                            pageAlbumController.animateToPage(value,
+                          if (!_isAlbumScrolling)
+                            _pageAlbumController.animateToPage(value,
                                 duration: const Duration(milliseconds: 600),
                                 curve: Curves.easeInOutQuint);
                         },
                         itemCount: Album.listAlbum.length,
-                        controller: pageDescriptionController,
+                        controller: _pageDescriptionController,
                         itemBuilder: (context, index) {
                           final album = Album.listAlbum[index];
-                          final percent = (pageDescription - index).abs();
+                          final percent = (_pageDescription - index).abs();
                           final scrollDirectionFactor =
-                              scrollDirection == ScrollDirection.forward
+                              _scrollDirection == ScrollDirection.forward
                                   ? 1
                                   : -1;
-                          //---------------------------------------------------------
-                          //------DESCRIPTION CONTAINER WITH TRANSFORMS ANIMATIONS
-                          //---------------------------------------------------------
+                          //---------------------------------------
+                          // Description card
+                          //---------------------------------------
                           return Transform.scale(
                             scale: 1.0 * (1 - percent).clamp(.8, 1.0),
                             child: Transform(
@@ -155,7 +155,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 30),
-                                child: DescriptionContainer(
+                                child: DescriptionCard(
                                   album: album,
                                   padding: const EdgeInsets.only(
                                     top: 75,
@@ -169,7 +169,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                         }),
                   ),
                   //-------------------------------------
-                  //------CURRENT SONG FOOTER
+                  // Song Player Footer
                   //-------------------------------------
                   Padding(
                     padding: const EdgeInsets.symmetric(
@@ -182,16 +182,16 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
               ),
             ),
           ),
-          //--------------------------------------------------
-          //-----TOP WIDGETS
-          //--------------------------------------------------
+          //-----------------------------------------
+          // Top Widgets
+          //-----------------------------------------
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 //-------------------------------------
-                //----MY LIBRARY TEXT
+                // My Library Text
                 //-------------------------------------
                 child: RichText(
                   text: TextSpan(
@@ -210,7 +210,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                 ),
               ),
               //------------------------------------------
-              //-----ALBUM LIST CONTAINER
+              // Albums List Container
               //------------------------------------------
               Container(
                 height: heightAlbumList,
@@ -229,25 +229,25 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                     end: Alignment.bottomCenter,
                   )),
                   //--------------------------------------
-                  //-----PAGE VIEW ALBUMS
+                  // Page View Album
                   //--------------------------------------
                   child: GestureDetector(
                     onPanDown: (_) {
-                      isAlbumScrolling = true;
+                      _isAlbumScrolling = true;
                     },
                     child: PageView.builder(
                       physics: const BouncingScrollPhysics(),
                       itemCount: Album.listAlbum.length,
-                      controller: pageAlbumController,
+                      controller: _pageAlbumController,
                       itemBuilder: (context, index) {
                         final album = Album.listAlbum[index];
                         final percentDescription =
-                            (pageDescription - index).abs();
-                        final percentAlbum = (pageAlbum - index).abs();
+                            (_pageDescription - index).abs();
+                        final percentAlbum = (_pageAlbum - index).abs();
                         return Transform.scale(
                           scale:
                               1.0 * (1.0 - (percentAlbum / 3)).clamp(.8, 1.0),
-                          child: AlbumDiskContainer(
+                          child: AlbumDiskCard(
                             album: album,
                             height: heightAlbumList - 38,
                             factorChange: percentDescription,
