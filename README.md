@@ -31,7 +31,6 @@ Flutter UI + Animations + Slivers + Simple Bloc
  |  <img src="https://media3.giphy.com/media/kcWFROSu37gtXpMGv4/giphy.webp" width="250" > |  <img src="https://media2.giphy.com/media/Ay2opGqGyWxGXSQRqV/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250" > |
 ### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
-
 ___
 ## Social App Photographers
 Flutter UI + Clippers + Animations
@@ -50,6 +49,22 @@ Flutter UI + Simple Animations
 ### [Inspiration](https://www.uplabs.com/posts/my-medical-appoinment) <img src="https://cdn-images-1.medium.com/max/280/1*pWMauDqpatwd-TNnGrB-vg@2x.png" width="16">
 
 ___
+## Music Albums Collection
+Flutter UI + Hero Animations
+ | Albums Grid/List Page   | Player Page  |
+ | ----------------- |-------------|
+ | <img src="https://media4.giphy.com/media/6K9huKbDSNXIQEiz3g/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/DML1C5bzWDrMJVug1v/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
+___
+## Music Vinyl Animation
+Flutter UI + Animations
+ | Albums List Page | Player Page  |
+ | ----------------- |-------------|
+ | <img src="https://media.giphy.com/media/T4i2qn96gHbfB3OoN7/giphy.gif" width="250" > | <img src="https://media.giphy.com/media/4Jv4R2I0aopCOmhNQg/giphy.gif" width="250">|
+#### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
+___
 ## FindOut
 Flutter UI + Simple Animations
  | Home Page | City Page |
@@ -63,24 +78,9 @@ ___
 Flutter UI + Animations
  | Home Page  | Page flow - Buy Ticket  |
  | ---------- |-------------------------|
- | <img src="https://media0.giphy.com/media/6KAleTd3WggPOgc4Rn/giphy.gif" width="250"> | <img src="https://media.giphy.com/media/Jj2yKZQc0B8gZ387ue/giphy.gif" width="250">|
+ | <img src="https://media0.giphy.com/media/6KAleTd3WggPOgc4Rn/giphy.webp" width="250"> | <img src="https://media.giphy.com/media/Jj2yKZQc0B8gZ387ue/giphy.gif" width="250">|
  
 ### [Inspiration ](https://www.uplabs.com/posts/movie-selection-screens-animation) <img src="https://cdn-images-1.medium.com/max/280/1*pWMauDqpatwd-TNnGrB-vg@2x.png" width="16">
 
-___
-## Music Albums Collection
-Flutter UI + Hero Animations
- | Albums Grid/List Page   | Player Page  |
- | ----------------- |-------------|
- | <img src="" width="250" > | <img src="" width="250">|
-### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
-
-___
-## Music Vinyl Animation
-Flutter UI + Animations
- | Albums List Page | Player Page  |
- | ----------------- |-------------|
- | <img src="" width="250" > | <img src="" width="250">|
-#### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
