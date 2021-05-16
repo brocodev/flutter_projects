@@ -8,6 +8,7 @@ class MusicAlbumList extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(),
         appBarTheme: AppBarTheme(
           color: Colors.white,
