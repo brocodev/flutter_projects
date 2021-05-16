@@ -26,9 +26,13 @@ Flutter UI + Animations
 ___
 ## Instagram Redesign App
 Flutter UI + Animations + Slivers + Simple Bloc
- | Home Page | Dark Mode | Stories View | Notifications Page |
- |-----------|-----------|--------------|--------------------|
- |  <img src="https://media3.giphy.com/media/kcWFROSu37gtXpMGv4/giphy.webp" width="250" > |  <img src="https://media2.giphy.com/media/Ay2opGqGyWxGXSQRqV/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250" > |
+ | Home Page | Dark Mode |
+ |-----------|-----------|
+ |<img src="https://media3.giphy.com/media/kcWFROSu37gtXpMGv4/giphy.webp" width="250" >|<img src="https://media2.giphy.com/media/Ay2opGqGyWxGXSQRqV/giphy.gif" width="250"> |
+ 
+ | Stories View | Notifications Page |
+ |--------------|--------------------|
+ |<img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250">|
 ### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
