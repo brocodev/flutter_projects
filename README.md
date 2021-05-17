@@ -17,13 +17,6 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ___
-## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
-Flutter UI + Animations 
- | Slider Page | Detail Page |
- | ----------------- |-------------|
- | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
-___
 ## Instagram Redesign App
 Flutter UI + Animations + Slivers + Simple Bloc
  | Home Page | Dark Mode |
@@ -34,6 +27,13 @@ Flutter UI + Animations + Slivers + Simple Bloc
  |--------------|--------------------|
  |<img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250">|
 ### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+___
+## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
+Flutter UI + Animations 
+ | Slider Page | Detail Page |
+ | ----------------- |-------------|
+ | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
 ## Social App Photographers
@@ -43,6 +43,14 @@ Flutter UI + Clippers + Animations
  | <img src="https://media1.giphy.com/media/9lPSh9Kmkx06njdmt6/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/QVjFJABT8dfXWgfv8G/giphy.webp" width="250">|
  
 ### [Inspiration](https://dribbble.com/shots/6690819--Social-App-Design-Photographers) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
+___
+## Gaming App
+Flutter UI + Page View Animation 
+ | Home Page | Trending Page |
+ | ----------------- |-------------|
+ | <img src="https://media3.giphy.com/media/7vG0x6xREqBrtAgDh1/giphy.gif" width="250" > | <img src="https://media0.giphy.com/media/rnSIi0c1YJQaz0TV5i/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/14420964-Gaming-App) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
 ## My Medical Appointment
@@ -57,7 +65,7 @@ ___
 Flutter UI + Hero Animations
  | Albums Grid/List Page   | Player Page  |
  | ----------------- |-------------|
- | <img src="https://media4.giphy.com/media/6K9huKbDSNXIQEiz3g/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/DML1C5bzWDrMJVug1v/giphy.gif" width="250">|
+ | <img src="https://media0.giphy.com/media/hJvFVeckEgFziFMivt/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/DML1C5bzWDrMJVug1v/giphy.gif" width="250">|
 ### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
