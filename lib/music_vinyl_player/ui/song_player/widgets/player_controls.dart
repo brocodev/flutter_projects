@@ -4,11 +4,11 @@ class PlayerControls extends StatelessWidget {
   const PlayerControls({
     Key key,
     @required this.onPausePlay,
-    @required this.isOnPlay,
+    @required this.isPlaying,
   }) : super(key: key);
 
   final VoidCallback onPausePlay;
-  final bool isOnPlay;
+  final bool isPlaying;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class PlayerControls extends StatelessWidget {
             radius: 42,
             foregroundColor: Colors.white,
             child: Icon(
-              isOnPlay ? Icons.play_arrow : Icons.pause,
+              isPlaying ? Icons.pause : Icons.play_arrow,
               size: 60,
             ),
           ),
