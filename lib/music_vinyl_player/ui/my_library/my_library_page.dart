@@ -20,6 +20,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   PageController _pageDescriptionController;
   double _pageDescription;
   double _pageAlbum;
+  int _pageAlbumIndex;
   ScrollDirection _scrollDirection;
   bool _isAlbumScrolling = false;
 
@@ -27,8 +28,9 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   void initState() {
     _pageDescription = 1.0;
     _pageAlbum = 1.0;
+    _pageAlbumIndex = 1;
     _pageAlbumController = PageController(
-      viewportFraction: .6,
+      viewportFraction: .58,
       initialPage: 1,
     );
     _pageDescriptionController = PageController(
@@ -54,7 +56,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   void _pageDescriptionListener() {
     setState(() {
       _pageDescription = _pageDescriptionController.page;
-      _scrollDirection = _pageDescriptionController.position.userScrollDirection;
+      _scrollDirection =
+          _pageDescriptionController.position.userScrollDirection;
     });
   }
 
@@ -63,8 +66,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   //--------------------------------
   void _pageAlbumListener() {
     if (_isAlbumScrolling) {
-      _pageDescriptionController.position
-          .jumpTo(_pageAlbumController.page * MediaQuery.of(context).size.width);
+      _pageDescriptionController.position.jumpTo(
+          _pageAlbumController.page * MediaQuery.of(context).size.width);
       setState(() {
         _scrollDirection = _pageAlbumController.position.userScrollDirection;
         _pageAlbum = _pageAlbumController.page;
@@ -130,13 +133,14 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                           if (!_isAlbumScrolling)
                             _pageAlbumController.animateToPage(value,
                                 duration: const Duration(milliseconds: 600),
-                                curve: Curves.easeInOutQuint);
+                                curve: Curves.fastOutSlowIn);
                         },
                         itemCount: Album.listAlbum.length,
                         controller: _pageDescriptionController,
                         itemBuilder: (context, index) {
                           final album = Album.listAlbum[index];
-                          final percent = (_pageDescription - index).abs();
+                          final percentDescription =
+                              (_pageDescription - index).abs();
                           final scrollDirectionFactor =
                               _scrollDirection == ScrollDirection.forward
                                   ? 1
@@ -145,12 +149,13 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                           // Description card
                           //---------------------------------------
                           return Transform.scale(
-                            scale: 1.0 * (1 - percent).clamp(.8, 1.0),
+                            scale:
+                                1.0 * (1 - percentDescription).clamp(.8, 1.0),
                             child: Transform(
                               transform: Matrix4.identity()
                                 ..setEntry(3, 2, 0.001)
-                                ..rotateY(
-                                    (.9 * percent) * scrollDirectionFactor),
+                                ..rotateY((.9 * percentDescription) *
+                                    scrollDirectionFactor),
                               alignment: Alignment.center,
                               child: Padding(
                                 padding:
@@ -229,7 +234,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                     end: Alignment.bottomCenter,
                   )),
                   //--------------------------------------
-                  // Page View Album
+                  // Page View Album Covers
                   //--------------------------------------
                   child: GestureDetector(
                     onPanDown: (_) {
@@ -238,19 +243,27 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                     child: PageView.builder(
                       physics: const BouncingScrollPhysics(),
                       itemCount: Album.listAlbum.length,
+                      onPageChanged: (value) {
+                        setState(() {
+                          _pageAlbumIndex = value;
+                        });
+                      },
                       controller: _pageAlbumController,
                       itemBuilder: (context, index) {
                         final album = Album.listAlbum[index];
                         final percentDescription =
                             (_pageDescription - index).abs();
                         final percentAlbum = (_pageAlbum - index).abs();
+
                         return Transform.scale(
                           scale:
                               1.0 * (1.0 - (percentAlbum / 3)).clamp(.8, 1.0),
-                          child: AlbumDiskCard(
+                          child: VinylAlbumCover(
                             album: album,
                             height: heightAlbumList - 38,
                             factorChange: percentDescription,
+                            currentIndex: _pageAlbumIndex,
+                            index: index,
                           ),
                         );
                       },

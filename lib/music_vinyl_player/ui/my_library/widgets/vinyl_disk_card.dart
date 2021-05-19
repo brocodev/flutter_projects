@@ -1,29 +1,36 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/music_vinyl_player/models/album.dart';
-import 'vinyl_disk.dart';
+import '../../widgets/vinyl_disk.dart';
 
-class AlbumDiskCard extends StatelessWidget {
-  final Album album;
-  final double factorChange;
-  final double height;
-
-  const AlbumDiskCard({
+class VinylAlbumCover extends StatelessWidget {
+  const VinylAlbumCover({
     Key key,
     @required this.album,
     @required this.factorChange,
     this.height,
+    this.currentIndex,
+    this.index,
   }) : super(key: key);
+  final Album album;
+  final double factorChange;
+  final double height;
+  final int currentIndex;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final val = currentIndex >= index;
     return Stack(
       fit: StackFit.expand,
       alignment: Alignment.center,
       children: <Widget>[
+        //-------------------------------
+        // Vinyl Disk Animation
+        //-------------------------------
         Positioned(
-          right: (-screenWidth * .15) * (1 - factorChange),
+          right: (-screenWidth * .15) * (val ? (1 - factorChange) : 0.0),
           left: 10 * (1 - factorChange),
           child: Transform.rotate(
             angle: -factorChange * (pi),
@@ -31,8 +38,11 @@ class AlbumDiskCard extends StatelessWidget {
                 VinylDisk(albumImagePath: album.pathImage, heightDisk: height),
           ),
         ),
+        //-------------------------------
+        // Cover Image Animation
+        //-------------------------------
         Positioned(
-          left: 25 * factorChange,
+          left: 20 * factorChange,
           child: _AlbumImage(
             albumImageHeight: height,
             album: album,
@@ -59,9 +69,10 @@ class _AlbumImage extends StatelessWidget {
       height: albumImageHeight,
       width: albumImageHeight,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          image: DecorationImage(
-              image: AssetImage(album.pathImage), fit: BoxFit.cover)),
+        borderRadius: BorderRadius.circular(4),
+        image: DecorationImage(
+            image: AssetImage(album.pathImage), fit: BoxFit.cover),
+      ),
     );
   }
 }
