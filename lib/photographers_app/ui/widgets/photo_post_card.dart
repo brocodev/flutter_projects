@@ -8,21 +8,21 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostContainer extends StatefulWidget {
-  final PhotoAppPost post;
+class PhotoPostCard extends StatefulWidget {
+  final PhotoPost post;
   final bool isInverted;
 
-  const PostContainer({
+  const PhotoPostCard({
     Key key,
     @required this.post,
     @required this.isInverted,
   }) : super(key: key);
 
   @override
-  _PostContainerState createState() => _PostContainerState();
+  _PhotoPostCardState createState() => _PhotoPostCardState();
 }
 
-class _PostContainerState extends State<PostContainer>
+class _PhotoPostCardState extends State<PhotoPostCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _scaleHeart;
@@ -31,7 +31,7 @@ class _PostContainerState extends State<PostContainer>
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 400));
+        vsync: this, duration: const Duration(milliseconds: 600));
     _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(curve: Curves.decelerate, parent: _controller));
     _downOpacity = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
@@ -58,8 +58,9 @@ class _PostContainerState extends State<PostContainer>
         width: MediaQuery.of(context).size.width * .8,
         child: Stack(
           children: [
-            //==== IMAGE POST ===
-
+            //------------------------------
+            // Post image
+            //------------------------------
             Positioned(
               top: 0,
               bottom: 40,
@@ -81,9 +82,9 @@ class _PostContainerState extends State<PostContainer>
                 ),
               ),
             ),
-
-            //==== INFORMATION POST ===
-
+            //------------------------------
+            // User, likes and comments
+            //------------------------------
             Align(
               alignment: Alignment.bottomCenter,
               child: Row(
@@ -158,9 +159,9 @@ class _PostContainerState extends State<PostContainer>
                 ],
               ),
             ),
-
-            //==== HEART ANIMATED POST ===
-
+            //----------------------------------
+            // Heart Animation
+            //----------------------------------
             AnimatedBuilder(
                 animation: _controller,
                 builder: (context, _) {

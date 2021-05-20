@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/photographers_app/models/models.dart';
-import 'package:flutter_projects/photographers_app/ui/home/widgets/home_widgets.dart';
-import 'package:flutter_projects/photographers_app/ui/profile/photo_app_profile.dart';
+import 'package:flutter_projects/photographers_app/models/post.dart';
+import 'package:flutter_projects/photographers_app/models/users.dart';
+import 'package:flutter_projects/photographers_app/ui/photo_profile_page.dart';
+import 'package:flutter_projects/photographers_app/ui/widgets/image_user_container.dart';
+import 'package:flutter_projects/photographers_app/ui/widgets/photo_post_card.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PhotoAppHome extends StatelessWidget {
+class PhotoHomePage extends StatelessWidget {
+  const PhotoHomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +18,7 @@ class PhotoAppHome extends StatelessWidget {
         leading: Icon(Icons.scatter_plot),
         title: Text("Explore",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        actions: [const Center(child: const SearchInput())],
+        actions: [const Center(child: const _SearchInput())],
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -22,17 +26,17 @@ class PhotoAppHome extends StatelessWidget {
         children: [
           const SizedBox(height: 20),
           //------------------------------------
-          //-------HORIZONTAL POST LIST VIEW
+          // Post Horizontal List View
           //------------------------------------
           SizedBox(
             height: MediaQuery.of(context).size.height * .52,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              itemCount: PhotoAppPost.listHomePost.length,
+              itemCount: PhotoPost.listHomePost.length,
               itemBuilder: (context, index) {
-                final post = PhotoAppPost.listHomePost[index];
-                return PostContainer(
+                final post = PhotoPost.listHomePost[index];
+                return PhotoPostCard(
                   post: post,
                   isInverted: index.isEven,
                 );
@@ -40,16 +44,13 @@ class PhotoAppHome extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          //-------------------------------
-          //-----POPULAR USER LIST
-          //------------------------------
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 //--------------------------------
-                //------POPULAR USER TEXT
+                // Popular users Text
                 //--------------------------------
                 child: RichText(
                   text: TextSpan(
@@ -69,24 +70,24 @@ class PhotoAppHome extends StatelessWidget {
                       ]),
                 ),
               ),
-              //----------------------------
-              //-----LIST PHOTO USERS
-              //-----------------------------
+              //-------------------------------
+              // Popular users List View
+              //-------------------------------
               SizedBox(
                 height: MediaQuery.of(context).size.height * .2,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.only(left: 20, top: 20),
                   scrollDirection: Axis.horizontal,
-                  itemCount: PhotoAppUser.popularUsers.length,
+                  itemCount: PhotoUser.popularUsers.length,
                   itemBuilder: (context, index) {
-                    final user = PhotoAppUser.popularUsers[index];
-                    return ImageUserContainer(
+                    final user = PhotoUser.popularUsers[index];
+                    return PhotoUserCard(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => PhotoAppProfile(user: user),
+                              builder: (_) => PhotoProfilePage(user: user),
                             ));
                       },
                       user: user,
@@ -97,6 +98,38 @@ class PhotoAppHome extends StatelessWidget {
               )
             ],
           )
+        ],
+      ),
+    );
+  }
+}
+
+class _SearchInput extends StatelessWidget {
+  const _SearchInput({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 45,
+      width: MediaQuery.of(context).size.width * .4,
+      alignment: Alignment.centerLeft,
+      padding: const EdgeInsets.only(left: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.horizontal(left: Radius.circular(25)),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.search),
+          Text(
+            "Search",
+            style: GoogleFonts.lato(
+              color: PhotoAppColors.kGrey,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );

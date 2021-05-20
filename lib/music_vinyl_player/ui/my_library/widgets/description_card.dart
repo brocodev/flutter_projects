@@ -17,6 +17,7 @@ class DescriptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: padding,
+      margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(
@@ -24,8 +25,9 @@ class DescriptionCard extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey[200],
-              blurRadius: 20,
+              color: Colors.black12,
+              offset: Offset(-10,10),
+              blurRadius: 10,
             )
           ]),
       child: Column(

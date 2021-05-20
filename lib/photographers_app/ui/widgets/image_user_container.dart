@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
-class ImageUserContainer extends StatelessWidget {
-  final PhotoAppUser user;
+class PhotoUserCard extends StatelessWidget {
+  final PhotoUser user;
   final double size;
   final VoidCallback onTap;
 
-  const ImageUserContainer({
+  const PhotoUserCard({
     Key key,
     @required this.user,
     this.size = 100.0,

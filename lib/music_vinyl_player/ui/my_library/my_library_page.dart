@@ -135,6 +135,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                                 duration: const Duration(milliseconds: 600),
                                 curve: Curves.fastOutSlowIn);
                         },
+                        physics: const BouncingScrollPhysics(),
                         itemCount: Album.listAlbum.length,
                         controller: _pageDescriptionController,
                         itemBuilder: (context, index) {

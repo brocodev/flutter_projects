@@ -28,7 +28,7 @@ class CurvedNavigationBar extends StatelessWidget {
         color: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 30),
         //----------------------------------
-        //----GENERATE ITEMS
+        // Generate Navigation Items
         //----------------------------------
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,7 +61,7 @@ class CurvedNavigationBarItem {
   final IconData iconData;
   final IconData selectedIconData;
 
-  CurvedNavigationBarItem({
+  const CurvedNavigationBarItem({
     @required this.iconData,
     this.selectedIconData,
   });

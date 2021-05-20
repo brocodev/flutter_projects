@@ -22,6 +22,7 @@ class TranslateAnimation extends StatelessWidget {
       duration: duration,
       child: child,
       curve: curve,
+
       tween: Tween(begin: 1.0, end: 0.0),
       builder: (context, value, child) {
         return Transform.translate(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/models/users.dart';
-import 'package:flutter_projects/photographers_app/ui/home/photo_app_home.dart';
-import 'package:flutter_projects/photographers_app/ui/profile/photo_app_profile.dart';
+import 'package:flutter_projects/photographers_app/ui/photo_home_page.dart';
+import 'package:flutter_projects/photographers_app/ui/photo_profile_page.dart';
 import 'package:flutter_projects/photographers_app/ui/widgets/curved_navigation_bar.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -15,7 +15,7 @@ class PhotographersApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xffF4F3F3),
         //-----------------------------
-        //--------APP BAR THEME
+        // App Bar Theme
         //-----------------------------
         appBarTheme: AppBarTheme(
             color: Colors.transparent,
@@ -25,7 +25,7 @@ class PhotographersApp extends StatelessWidget {
                 .apply(bodyColor: PhotoAppColors.kDarkBlue),
             iconTheme: IconThemeData(color: PhotoAppColors.kDarkBlue)),
         //---------------------------
-        //-----TEXT THEME
+        // Text Theme
         //---------------------------
         textTheme: GoogleFonts.philosopherTextTheme().apply(
           bodyColor: PhotoAppColors.kDarkBlue,
@@ -34,17 +34,17 @@ class PhotographersApp extends StatelessWidget {
         iconTheme: IconThemeData(color: PhotoAppColors.kDarkBlue),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: _MainPagePhotoApp(),
+      home: _NavigationPage(),
     );
   }
 }
 
-class _MainPagePhotoApp extends StatefulWidget {
+class _NavigationPage extends StatefulWidget {
   @override
-  _MainPagePhotoAppState createState() => _MainPagePhotoAppState();
+  _NavigationPageState createState() => _NavigationPageState();
 }
 
-class _MainPagePhotoAppState extends State<_MainPagePhotoApp> {
+class _NavigationPageState extends State<_NavigationPage> {
   int index = 0;
 
   @override
@@ -56,10 +56,10 @@ class _MainPagePhotoAppState extends State<_MainPagePhotoApp> {
         child: AnimatedSwitcher(
             duration: kThemeAnimationDuration,
             child: [
-              PhotoAppHome(),
-              Scaffold(body: Center(child: Text("Messages"))),
-              Scaffold(body: Center(child: Text("Favorites"))),
-              PhotoAppProfile(user: PhotoAppUser.liliana),
+              const PhotoHomePage(),
+              const Scaffold(body: Center(child: Text("Messages"))),
+              const Scaffold(body: Center(child: Text("Favorites"))),
+              PhotoProfilePage(user: PhotoUser.liliana),
             ][index]),
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -68,10 +68,10 @@ class _MainPagePhotoAppState extends State<_MainPagePhotoApp> {
         }),
         currentIndex: index,
         items: [
-          CurvedNavigationBarItem(iconData: Icons.widgets),
-          CurvedNavigationBarItem(iconData: FontAwesome.commenting),
-          CurvedNavigationBarItem(iconData: Icons.favorite),
-          CurvedNavigationBarItem(iconData: Icons.person),
+          const CurvedNavigationBarItem(iconData: Icons.widgets),
+          const CurvedNavigationBarItem(iconData: FontAwesome.commenting),
+          const CurvedNavigationBarItem(iconData: Icons.favorite),
+          const CurvedNavigationBarItem(iconData: Icons.person),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
