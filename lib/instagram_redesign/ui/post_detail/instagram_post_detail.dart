@@ -4,9 +4,14 @@ import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/ui/post_detail/widgets/detail_widgets.dart';
 
 class InstagramPostDetail extends StatelessWidget {
-  final IgPost post;
+  const InstagramPostDetail({
+    Key key,
+    @required this.post,
+    @required this.postCard,
+  }) : super(key: key);
 
-  const InstagramPostDetail({Key key, @required this.post}) : super(key: key);
+  final IgPost post;
+  final Widget postCard;
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +20,12 @@ class InstagramPostDetail extends StatelessWidget {
     final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
 
     return Scaffold(
-      backgroundColor: instagramBloc.viewState == ViewState.clean
-          ? null
-          : Theme.of(context).colorScheme.onPrimary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       //------------------------------
-      //--- POST DETAIL APP BAR
+      // Post Detail App Bar
       //------------------------------
       appBar: AppBar(
-        backgroundColor: instagramBloc.viewState == ViewState.clean
-            ? null
-            : Theme.of(context).colorScheme.onPrimary,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           color: Theme.of(context).colorScheme.onBackground,
@@ -40,9 +41,9 @@ class InstagramPostDetail extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          //----------------------
-          //--- INSTAGRAM POST
-          //----------------------
+          //-----------------------------------
+          // Instagram Post
+          //-----------------------------------
           Positioned(
             top: 0,
             right: 0,
@@ -50,18 +51,13 @@ class InstagramPostDetail extends StatelessWidget {
             height: (screenHeight * .7) - 76,
             child: Hero(
               tag: post.id,
-              child: (instagramBloc.viewState == ViewState.ample)
-                  ? AmplePostContainer(
-                      post: post,
-                      borderRadius: BorderRadius.circular(50),
-                    )
-                  : CleanPostContainer(post: post),
+              child: postCard
             ),
           ),
 
-          //----------------------
-          //--- LIST COMMENTS
-          //----------------------
+          //-----------------------------------
+          // Comments List View
+          //-----------------------------------
           ValueListenableBuilder(
             valueListenable: expandComments,
             builder: (context, value, child) {
@@ -102,9 +98,9 @@ class InstagramPostDetail extends StatelessWidget {
             ),
           ),
 
-          //-------------------------
-          //--- EXPAND LIST BUTTON
-          //-------------------------
+          //-----------------------------------
+          // Expand Comments Button
+          //-----------------------------------
           ValueListenableBuilder(
             valueListenable: expandComments,
             builder: (context, value, _) {
@@ -126,7 +122,7 @@ class InstagramPostDetail extends StatelessWidget {
           ),
 
           //----------------------------------
-          //----ADD COMMENT TEXT FIELD
+          // Add comment text field
           //----------------------------------
           Positioned(
             bottom: 0,

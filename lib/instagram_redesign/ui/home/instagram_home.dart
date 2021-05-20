@@ -18,7 +18,7 @@ class _InstagramHomeState extends State<InstagramHome>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _heightFactor;
-  int selectedIndex = -1;
+  int selectedIndexPost = -1;
 
   @override
   void initState() {
@@ -48,7 +48,7 @@ class _InstagramHomeState extends State<InstagramHome>
               physics: const BouncingScrollPhysics(),
               slivers: [
                 //-------------------------------
-                //----INSTAGRAM SLIVER APP BAR
+                // Instagram Sliver App Bar
                 //-------------------------------
                 SliverAppBar(
                   leadingWidth: 80,
@@ -74,7 +74,7 @@ class _InstagramHomeState extends State<InstagramHome>
                           Positioned(
                             right: 10,
                             bottom: 20,
-                            child: RedDot(),
+                            child: const RedDot(),
                           )
                         ],
                       ),
@@ -82,7 +82,7 @@ class _InstagramHomeState extends State<InstagramHome>
                   ],
                 ),
                 //--------------------------------------------
-                //--------STORIES ITEMS HORIZONTAL LIST
+                // Friends Stories List View
                 //--------------------------------------------
                 SliverToBoxAdapter(
                   child: SizedBox(
@@ -116,7 +116,7 @@ class _InstagramHomeState extends State<InstagramHome>
                 ),
 
                 //----------------------------------
-                //---- INSTAGRAM POSTS SLIVER LIST
+                // Friends Post List View
                 //---------------------------------
                 SliverToBoxAdapter(
                     child: SizedBox(
@@ -133,11 +133,11 @@ class _InstagramHomeState extends State<InstagramHome>
                       switch (instagramBloc.viewState) {
                         case ViewState.clean:
                           //-------------------------------
-                          //----CLEAN VIEW
+                          // Clean Post Card
                           //-------------------------------
                           return Hero(
                             tag: post.id,
-                            child: CleanPostContainer(
+                            child: CleanPostCard(
                               post: post,
                               height: heightItem,
                               onTap: () {
@@ -146,7 +146,10 @@ class _InstagramHomeState extends State<InstagramHome>
                                       (context, animation, secondaryAnimation) {
                                     return FadeTransition(
                                       opacity: animation,
-                                      child: InstagramPostDetail(post: post),
+                                      child: InstagramPostDetail(
+                                        post: post,
+                                        postCard: CleanPostCard(post: post),
+                                      ),
                                     );
                                   },
                                 ));
@@ -155,23 +158,23 @@ class _InstagramHomeState extends State<InstagramHome>
                           );
                         default:
                           //------------------------------
-                          //----AMPLE VIEW
+                          // Ample Post Card
                           //------------------------------
                           return AnimatedBuilder(
                             animation: _controller,
                             builder: (context, child) => Align(
                               alignment: Alignment.bottomCenter,
-                              heightFactor: selectedIndex < index
+                              heightFactor: selectedIndexPost < index
                                   ? _heightFactor.value
                                   : .88,
                               child: child,
                             ),
                             child: Hero(
                                 tag: post.id,
-                                child: AmplePostContainer(
+                                child: AmplePostCard(
                                   post: post,
                                   onTap: () =>
-                                      _openDetails(context, post, index),
+                                      _openDetailsFromAmpleView(context, post, index),
                                   height: heightItem,
                                 )),
                           );
@@ -199,16 +202,22 @@ class _InstagramHomeState extends State<InstagramHome>
     ));
   }
 
-  _openDetails(BuildContext context, IgPost post, int indexPost) async {
+  void _openDetailsFromAmpleView(BuildContext context, IgPost post, int indexPost) async {
     setState(() {
-      selectedIndex = indexPost;
+      selectedIndexPost = indexPost;
     });
     _controller.forward();
     await Navigator.push(context, PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,
-          child: InstagramPostDetail(post: post),
+          child: InstagramPostDetail(
+            post: post,
+            postCard: AmplePostCard(
+              post: post,
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
         );
       },
     ));

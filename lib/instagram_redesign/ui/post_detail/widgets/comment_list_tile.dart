@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_image.dart';
 
@@ -12,6 +13,7 @@ class CommentListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
     return Row(
       children: [
         RoundedBorderImage(
@@ -32,21 +34,33 @@ class CommentListTile extends StatelessWidget {
               Text(
                 comment.comment,
                 maxLines: 1,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
               ),
             ],
           ),
         ),
-        FlatButton(
-          color: Colors.grey[100],
-          shape: StadiumBorder(),
-          textColor: Colors.black,
+        TextButton(
+          style: TextButton.styleFrom(
+            primary: Theme.of(context).colorScheme.onBackground,
+            backgroundColor: instagramBloc.themeMode == ThemeMode.dark
+                ? Colors.grey[900]
+                : Colors.grey[100],
+            shape: const StadiumBorder(),
+            textStyle: TextStyle(fontWeight: FontWeight.w400),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          ),
           onPressed: () {},
           child: Text("Reply"),
         ),
         FloatingActionButton(
           heroTag: UniqueKey(),
-          backgroundColor: Colors.grey[100],
+          foregroundColor: Theme.of(context).colorScheme.onBackground,
+          backgroundColor: instagramBloc.themeMode == ThemeMode.dark
+              ? Colors.grey[900]
+              : Colors.grey[100],
           shape: StadiumBorder(),
           highlightElevation: 0,
           elevation: 0,

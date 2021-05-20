@@ -9,8 +9,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AmplePostContainer extends StatefulWidget {
-  const AmplePostContainer({
+class AmplePostCard extends StatefulWidget {
+  const AmplePostCard({
     Key key,
     @required this.post,
     this.borderRadius = const BorderRadius.vertical(top: Radius.circular(50)),
@@ -23,10 +23,10 @@ class AmplePostContainer extends StatefulWidget {
   final VoidCallback onTap;
 
   @override
-  _AmplePostContainerState createState() => _AmplePostContainerState();
+  _AmplePostCardState createState() => _AmplePostCardState();
 }
 
-class _AmplePostContainerState extends State<AmplePostContainer>
+class _AmplePostCardState extends State<AmplePostCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _scaleHeart;

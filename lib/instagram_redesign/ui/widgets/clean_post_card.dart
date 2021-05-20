@@ -5,12 +5,12 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/footer_post.dart'
 import 'package:flutter_projects/instagram_redesign/ui/widgets/page_indicators.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/post_buttons.dart';
 
-class CleanPostContainer extends StatefulWidget {
+class CleanPostCard extends StatefulWidget {
   final IgPost post;
   final double height;
   final VoidCallback onTap;
 
-  const CleanPostContainer({
+  const CleanPostCard({
     Key key,
     this.post,
     this.height,
@@ -18,10 +18,10 @@ class CleanPostContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CleanPostContainerState createState() => _CleanPostContainerState();
+  _CleanPostCardState createState() => _CleanPostCardState();
 }
 
-class _CleanPostContainerState extends State<CleanPostContainer>
+class _CleanPostCardState extends State<CleanPostCard>
     with SingleTickerProviderStateMixin {
   int indexPageView = 0;
   AnimationController _controller;

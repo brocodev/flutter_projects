@@ -127,7 +127,7 @@ class IgUser {
       collections: IgCollection.listCollection,
       following: 47,
       photoUrl:
-          'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fG1lbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=500&q=60',
+          'https://i.ibb.co/c1j1VDT/yo.jpg',
       externalPlatforms: [
         ExternalPlatform.kDiscord,
         ExternalPlatform.kFacebook,
