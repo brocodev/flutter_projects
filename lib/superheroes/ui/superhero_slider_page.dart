@@ -36,10 +36,11 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
   @override
   void dispose() {
     _pageController.removeListener(_pageListener);
+    _pageController.dispose();
     super.dispose();
   }
   //--------------------------
-  // PAGE VIEW LISTENER
+  // Page View Listener
   //--------------------------
   void _pageListener() {
     _index = _pageController.page.floor();
@@ -48,7 +49,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     _auxPercent = 1.0 - _percent;
 
     _isScrolling = (_pageController.page % 1.0 != 0);
-    setState(() {}); // refresh values on the ui
+    setState(() {});
   }
 
   @override
@@ -57,7 +58,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     final angleRotate = (-pi * .5);
     return Scaffold(
       //---------------
-      // APP BAR
+      // App Bar
       //---------------
       appBar: AppBar(
         title: Text("movies"),
@@ -71,7 +72,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
       body: Stack(
         children: [
           //-----------------------
-          // SUPERHERO CARDS
+          // Superhero Cards
           //-----------------------
           AnimatedPositioned(
             duration: kThemeAnimationDuration,
@@ -82,7 +83,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
             child: Stack(
               children: [
                 //----------------
-                // BACK CARD
+                // Back Card
                 //----------------
                 Transform.translate(
                   offset: Offset(0, 50 * _auxPercent),
@@ -92,7 +93,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
                   ),
                 ),
                 //----------------
-                // FRONT CARD
+                // Front Card
                 //----------------
                 Transform.translate(
                   offset: Offset(-800 * _percent, 100 * _percent),
@@ -109,7 +110,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
           ),
           //-----------------------------------------------------
           // VOID PAGE VIEW
-          // -This page view is just for using the page controller
+          // This page view is just for using the page controller
           //-----------------------------------------------------
           PageView.builder(
             controller: _pageController,

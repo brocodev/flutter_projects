@@ -67,7 +67,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
   }
 
   //----------------------------------------
-  // ANIMATION CONTROLLER STATUS LISTENER
+  // Status Listener
   //----------------------------------------
   void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed)
@@ -77,7 +77,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
   }
 
   //-----------------------
-  // BACK BUTTON TAP
+  // On Back Button Tap
   //-----------------------
   void _backButtonTap() async {
     setState(() {
@@ -99,9 +99,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     return Material(
       child: Stack(
         children: [
-          //-----------------------
-          // ANIMATED BACKGROUND
-          //-----------------------
+          //-------------------------
+          // Animated Background
+          //-------------------------
           Positioned.fill(
               child: Hero(
             tag: widget.superhero.heroName + "background",
@@ -127,7 +127,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                 }),
           )),
           //----------------------
-          // ITEMS - BODY
+          // Items Body
           //----------------------
           SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -135,7 +135,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //---------------------
-                // SUPERHERO IMAGE
+                // Superhero Image
                 //---------------------
                 SafeArea(
                   child: Hero(
@@ -153,7 +153,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //--------------------------
-                      // SUPERHERO NAME
+                      // Superhero name
                       //--------------------------
                       Align(
                         heightFactor: .7,
@@ -179,9 +179,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          //--------------------------
-                          // SUPERHERO REAL NAME
-                          //--------------------------
+                          //---------------------------------------
+                          // Superhero Secret Identity Name
+                          //---------------------------------------
                           Hero(
                             tag: widget.superhero.name,
                             child: AnimatedDefaultTextStyle(
@@ -196,7 +196,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             ),
                           ),
                           //--------------------------
-                          // ANIMATED MARVEL LOGO
+                          // Animated Marvel Logo
                           //--------------------------
                           TweenAnimationBuilder(
                             duration: const Duration(milliseconds: 400),
@@ -220,9 +220,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                         ],
                       ),
                       const Divider(height: 30),
-                      //---------------------------
-                      // ANIMATED SUPERHERO DESCRIPTION
-                      //---------------------------
+                      //---------------------------------------
+                      // Animated Superhero Description
+                      //---------------------------------------
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 800),
                         curve: Curves.elasticOut,
@@ -248,7 +248,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                       ),
                       const Divider(height: 30),
                       //----------------------------------
-                      // ANIMATED MOVIES TEXT
+                      // Section Movies Title
                       //----------------------------------
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 800),
@@ -272,7 +272,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                   ),
                 ),
                 //----------------------------
-                // SUPERHERO MOVIES LIST
+                // Superhero movies list
                 //----------------------------
                 SizedBox(
                   height: 240,
@@ -287,7 +287,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                     itemBuilder: (context, index) {
                       final movie = widget.superhero.movies[index];
                       //---------------------------
-                      // ANIMATED MOVIES CARD
+                      // Animated Movie Card
                       //---------------------------
                       return TweenAnimationBuilder<double>(
                         duration: Duration(milliseconds: 1000 + (300 * index)),
@@ -319,7 +319,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
             ),
           ),
           //-------------------------
-          // BACK BUTTON
+          // Back Button
           //-------------------------
           Positioned(
             left: 20,

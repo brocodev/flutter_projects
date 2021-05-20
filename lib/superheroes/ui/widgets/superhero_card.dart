@@ -24,7 +24,7 @@ class SuperheroCard extends StatelessWidget {
       child: Stack(
         children: [
           //--------------------------------------------
-          // COLOR BACKGROUND WITH ROUNDED CORNERS
+          // Color bg with rounded corners
           //--------------------------------------------
           Positioned.fill(
             top: separation,
@@ -39,7 +39,7 @@ class SuperheroCard extends StatelessWidget {
             ),
           ),
           //-----------------------------------
-          // SUPERHERO IMAGE
+          // Superhero image
           //-----------------------------------
           Positioned(
             left: 20,
@@ -65,7 +65,7 @@ class SuperheroCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //----------------------------------
-                // SUPERHERO NAME
+                // Superhero Name
                 //----------------------------------
                 FittedBox(
                   child: Hero(
@@ -77,7 +77,7 @@ class SuperheroCard extends StatelessWidget {
                   ),
                 ),
                 //----------------------------------
-                // SUPERHERO REAL NAME
+                // Superhero Secret Identity Name
                 //----------------------------------
                 Hero(
                   tag: superhero.name,

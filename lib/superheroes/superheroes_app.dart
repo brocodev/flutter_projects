@@ -11,9 +11,9 @@ class SuperheroesApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
-        // -------------------
-        // APP BAR THEME
-        // -------------------
+        //-------------------
+        // App Bar Theme
+        //-------------------
         appBarTheme: AppBarTheme(
           textTheme: TextTheme(
             headline6: GoogleFonts.spartan(
@@ -23,9 +23,9 @@ class SuperheroesApp extends StatelessWidget {
             ),
           ),
         ),
-        // -------------------
-        // TEXT THEME
-        // -------------------
+        //-------------------
+        // Text Theme
+        //-------------------
         textTheme: TextTheme(
           headline2: GoogleFonts.spartan(
             fontWeight: FontWeight.w600,
