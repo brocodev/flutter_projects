@@ -1,9 +1,9 @@
 
 # My Flutter Projects
-Flutter apps with cool design and moderate animations
+Flutter apps with cool design and animations
 
 # Social Media
-#### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="10"/> [Youtube](https://www.youtube.com/channel/UCe2G2ZkcHG9TliZ03L14U7g) _ <img src="https://www.flaticon.es/svg/static/icons/svg/124/124010.svg" height="10"/> [Facebook](https://www.facebook.com/brocodev) _ <img src="https://www.flaticon.com/svg/static/icons/svg/124/124021.svg" height="12"/> [Twitter](https://twitter.com/brocodev1) 
+#### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="10"/>   [Youtube](https://www.youtube.com/channel/UCe2G2ZkcHG9TliZ03L14U7g) <img src="https://www.flaticon.es/svg/static/icons/svg/124/124010.svg" height="10"/>   [Facebook](https://www.facebook.com/brocodev)  <img src="https://www.flaticon.com/svg/static/icons/svg/124/124021.svg" height="12"/>   [Twitter](https://twitter.com/brocodev1) 
 
 ## Getting Started
 This project is a starting point for a Flutter application.
@@ -17,65 +17,82 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ___
-## Superhero Movies App 
-### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="15"/> [Youtube Tutorial](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
-Flutter UI + Animations
-
-### Design
-<img src="https://i.ibb.co/D7ZwT0y/Youtube-Video-1.png" width="800"/>|
-#### [Dribbble design resource](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction)
-
-___
 ## Instagram Redesign App
 Flutter UI + Animations + Slivers + Simple Bloc
-### Design
-<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/e488189eee322da095517bc0c75224d4.png" height="400"/>|
-<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/fbc4301054738e30faa51756e3a6f8de.png" height="400"/>|
-<img src="https://cdn.dribbble.com/users/1612753/screenshots/14188610/media/6a9a09247ba28064324eac088a8fba96.png" height="400"/>|
-
-#### [Dribbble design resource](https://dribbble.com/shots/6690819--Social-App-Design-Photographers)
-
+ | Home Page | Dark Mode |
+ |-----------|-----------|
+ |<img src="https://media3.giphy.com/media/kcWFROSu37gtXpMGv4/giphy.webp" width="250" >|<img src="https://media2.giphy.com/media/Ay2opGqGyWxGXSQRqV/giphy.gif" width="250"> |
+ 
+ | Stories View | Notifications Page |
+ |--------------|--------------------|
+ |<img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+___
+## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
+Flutter UI + Animations 
+ | Slider Page | Detail Page |
+ | ----------------- |-------------|
+ | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
 ## Social App Photographers
-Flutter UI + Clippers
-### Design
-<img src="https://cdn.dribbble.com/users/1612753/screenshots/6690819/app_manuel_rovira_design_lusaxweb_behance_2019_uitrends.png" height="400"/>|
-#### [Dribbble design resource](https://dribbble.com/shots/6690819--Social-App-Design-Photographers)
+Flutter UI + Clippers + Animations
+ | Home Page | Profile Page |
+ | --------- |--------------|
+ | <img src="https://media1.giphy.com/media/9lPSh9Kmkx06njdmt6/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/QVjFJABT8dfXWgfv8G/giphy.webp" width="250">|
+ 
+### [Inspiration](https://dribbble.com/shots/6690819--Social-App-Design-Photographers) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
+___
+## Gaming App
+Flutter UI + Page View Animation 
+ | Home Page | Trending Page |
+ | ----------------- |-------------|
+ | <img src="https://media3.giphy.com/media/7vG0x6xREqBrtAgDh1/giphy.gif" width="250" > | <img src="https://media0.giphy.com/media/rnSIi0c1YJQaz0TV5i/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/14420964-Gaming-App) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
 ## My Medical Appointment
 Flutter UI + Simple Animations
+| Home Page |
+|-----------|
+|<img src="https://media4.giphy.com/media/vEQYseD1YceT4KNKmk/giphy.gif" width="250"/>|
+### [Inspiration](https://www.uplabs.com/posts/my-medical-appoinment) <img src="https://cdn-images-1.medium.com/max/280/1*pWMauDqpatwd-TNnGrB-vg@2x.png" width="16">
 
-### Design
-<img src="https://scontent.faca1-1.fna.fbcdn.net/v/t1.0-9/120007047_144680167329509_7841391971143586735_o.png?_nc_cat=102&ccb=2&_nc_sid=730e14&_nc_eui2=AeE9PehpegExETEchpuRik2j6OLMxEXJjLzo4szERcmMvIaWefR4T80u9SMAyeqzpaB6UbPYvgSX8ZO3E0khYL0T&_nc_ohc=OcuH8vxee1gAX_F_Ztr&_nc_ht=scontent.faca1-1.fna&oh=52c6999c2b4070d8b1e6e755c26a9815&oe=601363DC" height="600"/>|
-#### [Uplabs Design](https://www.uplabs.com/posts/my-medical-appoinment)
+___
+## Music Albums Collection
+Flutter UI + Hero Animations
+ | Albums Grid/List Page   | Player Page  |
+ | ----------------- |-------------|
+ | <img src="https://media0.giphy.com/media/hJvFVeckEgFziFMivt/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/DML1C5bzWDrMJVug1v/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
+___
+## Music Vinyl Animation
+Flutter UI + Animations
+ | Albums List Page | Player Page  |
+ | ----------------- |-------------|
+ | <img src="https://media.giphy.com/media/T4i2qn96gHbfB3OoN7/giphy.gif" width="250" > | <img src="https://media.giphy.com/media/4Jv4R2I0aopCOmhNQg/giphy.gif" width="250">|
+#### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+
 ___
 ## FindOut
 Flutter UI + Simple Animations
-Many thanks to the designer Mao Lop for creating this fantastic design.
-### Design
-<img src="https://cdn.dribbble.com/users/5722038/screenshots/14208274/media/47048aa12baeeb107f8304d6e132ae4d.png" height="400"/>|
-#### Dribble Designer Profile
-### [Mauricio Lopez](https://dribbble.com/m4st3rmiau)
+ | Home Page | City Page |
+ | --------- |-----------|
+ | <img src="https://media4.giphy.com/media/RW2noZZbTWPXLydkJY/giphy.webp" width="250" > | <img src="https://media4.giphy.com/media/BXy9dRcRKqjfGhdLXc/giphy.gif" width="250">|
+ 
+### [Inspiration](https://dribbble.com/m4st3rmiau) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
 
 ___
 ## Movie Selections
 Flutter UI + Animations
-### Design
-<img src="https://media.giphy.com/media/GxS23gwIKMKWKrtojh/giphy.gif" height="400"/>|
-#### [Uplabs design resource](https://www.uplabs.com/posts/movie-selection-screens-animation)
+ | Home Page  | Page flow - Buy Ticket  |
+ | ---------- |-------------------------|
+ | <img src="https://media0.giphy.com/media/6KAleTd3WggPOgc4Rn/giphy.webp" width="250"> | <img src="https://media.giphy.com/media/Jj2yKZQc0B8gZ387ue/giphy.gif" width="250">|
+ 
+### [Inspiration ](https://www.uplabs.com/posts/movie-selection-screens-animation) <img src="https://cdn-images-1.medium.com/max/280/1*pWMauDqpatwd-TNnGrB-vg@2x.png" width="16">
 
-___
-## Music App Concept
-Flutter UI + Hero Animations
-### Design
-<img src="https://media.giphy.com/media/ThgZVsp8B7WfHCARfm/giphy.gif" height="400"/>|
-#### [Dribbble design resource](https://dribbble.com/shots/12033542-Music-Player-Interaction)
 
-___
-## Music App Two
-Flutter UI + Animations
-### Design
-<img src="https://cdn.dribbble.com/users/1960305/screenshots/10123436/media/b3eb0b969bf6e872d93a6cc72b7c95ca.png" height="400"/>|
-#### [Dribbble design resource](https://dribbble.com/shots/10123436-Music-Player-Vinyls)
+
