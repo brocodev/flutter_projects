@@ -26,14 +26,14 @@ Flutter UI + Animations + Slivers + Simple Bloc
  | Stories View | Notifications Page |
  |--------------|--------------------|
  |<img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 ___
 ## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
 Flutter UI + Animations 
  | Slider Page | Detail Page |
  | ----------------- |-------------|
  | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## Social App Photographers
@@ -42,7 +42,7 @@ Flutter UI + Clippers + Animations
  | --------- |--------------|
  | <img src="https://media1.giphy.com/media/9lPSh9Kmkx06njdmt6/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/QVjFJABT8dfXWgfv8G/giphy.webp" width="250">|
  
-### [Inspiration](https://dribbble.com/shots/6690819--Social-App-Design-Photographers) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/shots/6690819--Social-App-Design-Photographers) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## Gaming App
@@ -50,7 +50,7 @@ Flutter UI + Page View Animation
  | Home Page | Trending Page |
  | ----------------- |-------------|
  | <img src="https://media3.giphy.com/media/7vG0x6xREqBrtAgDh1/giphy.gif" width="250" > | <img src="https://media0.giphy.com/media/rnSIi0c1YJQaz0TV5i/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/14420964-Gaming-App) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/shots/14420964-Gaming-App) <img src="hhttps://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## My Medical Appointment
@@ -66,7 +66,7 @@ Flutter UI + Hero Animations
  | Albums Grid/List Page   | Player Page  |
  | ----------------- |-------------|
  | <img src="https://media0.giphy.com/media/hJvFVeckEgFziFMivt/giphy.gif" width="250" > | <img src="https://media4.giphy.com/media/DML1C5bzWDrMJVug1v/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## Music Vinyl Animation
@@ -74,7 +74,7 @@ Flutter UI + Animations
  | Albums List Page | Player Page  |
  | ----------------- |-------------|
  | <img src="https://media.giphy.com/media/T4i2qn96gHbfB3OoN7/giphy.gif" width="250" > | <img src="https://media.giphy.com/media/4Jv4R2I0aopCOmhNQg/giphy.gif" width="250">|
-#### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+#### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## FindOut
@@ -83,7 +83,7 @@ Flutter UI + Simple Animations
  | --------- |-----------|
  | <img src="https://media4.giphy.com/media/RW2noZZbTWPXLydkJY/giphy.webp" width="250" > | <img src="https://media4.giphy.com/media/BXy9dRcRKqjfGhdLXc/giphy.gif" width="250">|
  
-### [Inspiration](https://dribbble.com/m4st3rmiau) <img src="https://img-premium.flaticon.com/png/512/179/179316.png?token=exp=1621186645~hmac=4c4e5ea22a0d0ada4ca97ac4775d6b82" width="16">
+### [Inspiration](https://dribbble.com/m4st3rmiau) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## Movie Selections
