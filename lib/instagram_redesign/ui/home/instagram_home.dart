@@ -82,7 +82,7 @@ class _InstagramHomeState extends State<InstagramHome>
                   ],
                 ),
                 //--------------------------------------------
-                // Friends Stories List View
+                // Friend Stories Horizontal List View
                 //--------------------------------------------
                 SliverToBoxAdapter(
                   child: SizedBox(
@@ -116,7 +116,7 @@ class _InstagramHomeState extends State<InstagramHome>
                 ),
 
                 //----------------------------------
-                // Friends Post List View
+                // Friend Posts List View
                 //---------------------------------
                 SliverToBoxAdapter(
                     child: SizedBox(

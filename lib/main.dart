@@ -9,6 +9,7 @@ import 'package:flutter_projects/music_vinyl_player/music_vinyl_player.dart';
 import 'package:flutter_projects/orix_gaming/orix_gaming_app.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/superheroes/superheroes_app.dart';
+import 'package:flutter_projects/template_gallery/template_gallery_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
         _ProjectModel.orixGaming.route: (context) => OrixGamingApp(),
         _ProjectModel.bookApp.route: (context) => BookApp(),
+        _ProjectModel.templateGallery.route: (context) => TemplateGalleryApp(),
       },
     );
   }
@@ -272,8 +274,14 @@ class _ProjectModel {
       designer: 'Sam',
       pathImage: 'assets/img/book_app.gif',
       route: 'book');
-
+  static const templateGallery = _ProjectModel(
+      title: 'Template Gallery',
+      description: 'Page View + Stack',
+      designer: 'Sergey Valiukh',
+      pathImage: 'assets/img/template_gallery.gif',
+      route: 'template');
   static const listProjects = [
+    templateGallery,
     bookApp,
     orixGaming,
     superheroes,
