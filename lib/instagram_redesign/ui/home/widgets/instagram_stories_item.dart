@@ -27,7 +27,7 @@ class InstagramStoriesItem extends StatelessWidget {
           RoundedGradientBorderImage(height: itemSize, imageUrl: user.photoUrl),
           Text(
             user.name.split(' ').first,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
             ),

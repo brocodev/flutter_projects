@@ -7,9 +7,9 @@ import 'package:flutter_projects/books_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/books_app/ui/widgets/book_readers_row.dart';
 
 class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
-  final Book book;
-
   HeaderBookDelegate(this.book);
+
+  final Book book;
 
   ValueNotifier activeHeroOpenBookAnimation = ValueNotifier(false);
 
@@ -47,7 +47,7 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
                           activeHeroOpenBookAnimation.value = false;
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.arrow_back_ios),
+                        icon: const Icon(Icons.arrow_back_ios),
                       ),
                       ReadersRow(readers: book.readers)
                     ],
@@ -145,7 +145,7 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
       false;
 
-  _openBook(BuildContext context) async {
+  void _openBook(BuildContext context) async {
     activeHeroOpenBookAnimation.value = true;
     await Navigator.push(
         context,
@@ -161,7 +161,7 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
         ));
   }
 
-  _flightShuttleBuilder(
+  Widget _flightShuttleBuilder(
       Animation<double> animation, HeroFlightDirection flightDirection) {
     return Stack(
       fit: StackFit.expand,
@@ -198,8 +198,12 @@ class _CoverPageBook extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 3.0),
-        boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(5, 5))
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 10,
+            offset: Offset(5, 5),
+          )
         ],
         image:
             DecorationImage(image: AssetImage(srcImageBook), fit: BoxFit.cover),
@@ -231,7 +235,7 @@ class _BlurImageBackground extends StatelessWidget {
             BoxShadow(
                 color: Colors.black12,
                 blurRadius: 10 * percent,
-                offset: Offset(0, 0))
+                offset: const Offset(0, 0))
           ]),
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -259,7 +263,7 @@ class _CategoryAndRate extends StatelessWidget {
       children: [
         Text(
           book.category,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white70,
             height: 1.7,
           ),

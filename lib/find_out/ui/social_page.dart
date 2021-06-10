@@ -10,9 +10,9 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/custom_bottom_navigation.dart';
 
 class SocialPage extends StatelessWidget {
-  final Place place;
-
   const SocialPage({Key key, @required this.place}) : super(key: key);
+
+  final Place place;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +41,11 @@ class SocialPage extends StatelessWidget {
                     indexImageBackground: indexImageBackground,
                     infoVisibleNotifier: infoVisibleNotifier,
                   ),
-                  TranslateAnimation(
-                    duration: const Duration(milliseconds: 800),
+                  const TranslateAnimation(
+                    duration: Duration(milliseconds: 800),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: Text(
                         "Fotos de turistas",
                         style: TextStyle(
@@ -63,7 +63,7 @@ class SocialPage extends StatelessWidget {
                       child: ListView.builder(
                         itemExtent: size.width * .25,
                         scrollDirection: Axis.horizontal,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         itemCount: 10,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         itemBuilder: (context, index) {
@@ -82,10 +82,10 @@ class SocialPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  TranslateAnimation(
-                    duration: const Duration(milliseconds: 1000),
+                  const TranslateAnimation(
+                    duration: Duration(milliseconds: 1000),
                     child: Padding(
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 10,
                         ),
@@ -102,7 +102,7 @@ class SocialPage extends StatelessWidget {
                       duration: const Duration(milliseconds: 1000),
                       child: StaggeredGridView.countBuilder(
                         crossAxisCount: 4,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 70),
                         itemCount: listComments.length,
                         itemBuilder: (BuildContext context, int index) {
@@ -123,7 +123,7 @@ class SocialPage extends StatelessWidget {
                     ),
                   )
                 ]),
-            Positioned(
+            const Positioned(
               bottom: 0,
               left: 0,
               right: 0,
@@ -135,7 +135,6 @@ class SocialPage extends StatelessWidget {
               bottom: kToolbarHeight / 2,
               child: Center(
                 child: Container(
-                  child: Icon(Icons.add, color: Colors.white),
                   height: kToolbarHeight,
                   width: kToolbarHeight,
                   decoration: BoxDecoration(
@@ -155,6 +154,7 @@ class SocialPage extends StatelessWidget {
                       )
                     ],
                   ),
+                  child: const Icon(Icons.add, color: Colors.white),
                 ),
               ),
             ),
@@ -200,7 +200,7 @@ class _HeaderSocialPage extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  _CustomAppBar(),
+                  const _CustomAppBar(),
                   SizedBox(
                     height: heightBackPageView * .13,
                   ),
@@ -226,7 +226,7 @@ class _HeaderSocialPage extends StatelessWidget {
                     child: child),
               );
             },
-            child: CardPlaceInformation())
+            child: const CardPlaceInformation())
       ]),
     );
   }
@@ -268,7 +268,7 @@ class _TitleAndHeart extends StatelessWidget {
               elevation: 3,
               mini: true,
               foregroundColor: Colors.pinkAccent,
-              child: Icon(Icons.favorite),
+              child: const Icon(Icons.favorite),
             )),
         const SizedBox(width: 20),
       ],
@@ -316,11 +316,11 @@ class _CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
+    return Row(children: const [
       BackButton(),
-      const Spacer(flex: 2),
+      Spacer(flex: 2),
       FindOutHorizontalLogo(),
-      const Spacer(
+      Spacer(
         flex: 3,
       )
     ]);

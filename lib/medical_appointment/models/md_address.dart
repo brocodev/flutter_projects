@@ -1,9 +1,4 @@
 class MdAddress {
-  final String city;
-  final String state;
-  final String street;
-  final String numberStreet;
-  final String postalCode;
 
   const MdAddress({
     this.state,
@@ -12,6 +7,12 @@ class MdAddress {
     this.numberStreet,
     this.postalCode,
   });
+
+  final String city;
+  final String state;
+  final String street;
+  final String numberStreet;
+  final String postalCode;
 
   String getLongAddress() {
     return "$numberStreet $street, $city $postalCode";

@@ -31,7 +31,7 @@ class AddCommentTextField extends StatelessWidget {
             child: IconButton(
               onPressed: () {},
               color: Theme.of(context).colorScheme.onBackground,
-              icon: Icon(Icons.send),
+              icon: const Icon(Icons.send),
             ),
           )),
     );

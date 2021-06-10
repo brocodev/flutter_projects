@@ -2,15 +2,6 @@ import 'package:flutter_projects/instagram_redesign/models/ig_collection.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_external_platform.dart';
 
 class IgUser {
-  final String name;
-  final String typeUser;
-  final int followers;
-  final int following;
-  final List<IgCollection> collections;
-  final String photoUrl;
-  final List<String> listPhotosUrl;
-  final String username;
-  final List<ExternalPlatform> externalPlatforms;
 
   const IgUser(
       {this.name,
@@ -23,6 +14,16 @@ class IgUser {
       this.listPhotosUrl,
       this.collections});
 
+  final String name;
+  final String typeUser;
+  final int followers;
+  final int following;
+  final List<IgCollection> collections;
+  final String photoUrl;
+  final List<String> listPhotosUrl;
+  final String username;
+  final List<ExternalPlatform> externalPlatforms;
+  
   static const liliana = IgUser(
       name: 'Liliana Mondragon',
       followers: 14320,
@@ -43,7 +44,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1588697362969-bd13ab72070d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
         'https://images.unsplash.com/photo-1581568703422-1a538f9af7c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
       ],
-      typeUser: "Photographer");
+      typeUser: 'Photographer');
   static const julissa = IgUser(
       name: 'Julissa Towers',
       followers: 13320,
@@ -62,7 +63,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1519671282429-b44660ead0a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
         'https://images.unsplash.com/photo-1595877786670-393ef0ac0961?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
       ],
-      typeUser: "Model");
+      typeUser: 'Model');
   static const eduard = IgUser(
     name: 'Eduard Otero',
     followers: 9320,
@@ -81,7 +82,7 @@ class IgUser {
       'https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=757&q=80',
       'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
     ],
-    typeUser: "Designer",
+    typeUser: 'Designer',
   );
   static const karla = IgUser(
       name: 'Karla Smith',
@@ -101,7 +102,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1598602055533-04e934ea2f09?ixlib=rb-1.2.1&auto=format&fit=crop&w=362&q=80',
         'https://images.unsplash.com/photo-1601348435451-8caff6b824ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
-      typeUser: "Photographer");
+      typeUser: 'Photographer');
   static const maria = IgUser(
       name: 'Maria Lopez',
       username: 'maria11lp',
@@ -119,7 +120,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1590607199580-c2edd498520a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
         'https://images.unsplash.com/photo-1598137203988-80de6392fc1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
-      typeUser: "Photographer");
+      typeUser: 'Photographer');
   static const kevin = IgUser(
       name: 'Kevin Melendez',
       followers: 14200,
@@ -151,7 +152,7 @@ class IgUser {
         'https://images.unsplash.com/photo-1575438922952-8ebd22b0bc1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
         'https://images.unsplash.com/photo-1601107487727-4cb5c960cdc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       ],
-      typeUser: "Developer");
+      typeUser: 'Developer');
 
   static const users = [
     liliana,

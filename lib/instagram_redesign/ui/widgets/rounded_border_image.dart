@@ -2,12 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class RoundedBorderImage extends StatelessWidget {
-  final String imageUrl;
-  final double height;
-  final Color borderColor;
-  final double borderWidth;
-  final double borderRadius;
-
   const RoundedBorderImage({
     Key key,
     @required this.imageUrl,
@@ -16,6 +10,12 @@ class RoundedBorderImage extends StatelessWidget {
     this.borderWidth = 3.0,
     this.borderRadius,
   }) : super(key: key);
+
+  final String imageUrl;
+  final double height;
+  final Color borderColor;
+  final double borderWidth;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {

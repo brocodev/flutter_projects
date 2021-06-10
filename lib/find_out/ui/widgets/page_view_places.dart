@@ -11,9 +11,26 @@ class PageViewPlaces extends StatelessWidget {
     this.places,
     @required this.pageController,
   }) : super(key: key);
+
   final List<Place> places;
   final PageController pageController;
 
+
+  void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
+    if (details.primaryDelta < -20) {
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 800),
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return FadeTransition(
+                opacity: animation,
+                child: SocialPage(place: place),
+              );
+            },
+          ));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final pageValueNotifier = ValueNotifier(0.0);
@@ -22,7 +39,7 @@ class PageViewPlaces extends StatelessWidget {
     });
     return PageView.builder(
       allowImplicitScrolling: false,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       controller: pageController,
       itemBuilder: (context, index) {
         final place = places[index % places.length];
@@ -41,7 +58,7 @@ class PageViewPlaces extends StatelessWidget {
             },
             child: Stack(
               children: <Widget>[
-                Positioned.fill(
+                const Positioned.fill(
                     child: DecoratedBox(
                   decoration: BoxDecoration(boxShadow: [
                     BoxShadow(blurRadius: 30, color: Colors.black38)
@@ -100,21 +117,7 @@ class PageViewPlaces extends StatelessWidget {
     );
   }
 
-  _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
-    if (details.primaryDelta < -20) {
-      Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 800),
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return FadeTransition(
-                opacity: animation,
-                child: SocialPage(place: place),
-              );
-            },
-          ));
-    }
-  }
+
 }
 
 class _LikeAndComments extends StatelessWidget {
@@ -130,24 +133,24 @@ class _LikeAndComments extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(
+        const Icon(
           Icons.favorite_border,
           size: 32,
         ),
         Text(
-          " ${place.likes}",
-          style: TextStyle(
+          ' ${place.likes}',
+          style: const TextStyle(
             fontSize: 28,
           ),
         ),
         const SizedBox(width: 40),
-        Icon(
+        const Icon(
           Icons.comment,
           size: 32,
         ),
         Text(
-          " ${place.comments.length}",
-          style: TextStyle(
+          ' ${place.comments.length}',
+          style: const TextStyle(
             fontSize: 28,
           ),
         ),

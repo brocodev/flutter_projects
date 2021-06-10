@@ -27,8 +27,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    _scrollController.removeListener(_scrollListener);
-    _scrollController.dispose();
+    _scrollController
+      ..removeListener(_scrollListener)
+      ..dispose();
     super.dispose();
   }
 
@@ -83,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                 // FILTER BUTTON
                 //------------------------------------
                 InkWell(
-                  onTap: () => _openPage(FilterPage(), context),
+                  onTap: () => _openPage(const FilterPage(), context),
                   child: Hero(
                     tag: 'filter_background',
                     child: Container(
@@ -92,8 +93,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(2.0)),
-                      child:
-                          Icon(Icons.filter_alt_outlined, color: Colors.white),
+                      child: const Icon(Icons.filter_alt_outlined,
+                          color: Colors.white),
                     ),
                   ),
                 ),
@@ -101,16 +102,15 @@ class _HomePageState extends State<HomePage> {
                 // LIST CATEGORIES
                 //----------------------------------
                 Expanded(
-                  child: ListView.builder(
-                            itemCount: Book.bookCategories.length,
-                            scrollDirection: Axis.horizontal,
-                            padding: const EdgeInsets.only(left: 10),
-                            itemBuilder: (context, index) {
-                              final category = Book.bookCategories[index];
-                              return _ChipCategory(category: category);
-                            },
-                          )
-                )
+                    child: ListView.builder(
+                  itemCount: Book.bookCategories.length,
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.only(left: 10),
+                  itemBuilder: (context, index) {
+                    final category = Book.bookCategories[index];
+                    return _ChipCategory(category: category);
+                  },
+                ))
               ],
             ),
           ),
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: const SizedBox(
                     width: 50,
-                    child: const Divider(
+                    child: Divider(
                       thickness: 3,
                       color: Colors.black,
                     ),
@@ -218,7 +218,7 @@ class _HomeBookCard extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(color: Colors.white, width: 3),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Colors.black12,
                           blurRadius: 15,

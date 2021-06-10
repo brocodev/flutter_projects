@@ -1,10 +1,11 @@
 import 'package:flutter_projects/movie_selection/models/movie.dart';
 
 class Billboard {
+  const Billboard(this.hour, this.movieList);
+
   final String hour;
   final List<Movie> movieList;
 
-  Billboard(this.hour, this.movieList);
 
   static final billboardList = [
     Billboard("14:30", Movie.listMovie3),

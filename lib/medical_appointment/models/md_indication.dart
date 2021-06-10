@@ -1,10 +1,10 @@
 
 class MedicalIndication {
+  const MedicalIndication._({this.svgIconPath, this.description, this.title});
+
   final String title;
   final String svgIconPath;
   final String description;
-
-  const MedicalIndication._({this.svgIconPath, this.description, this.title});
 
   static const kNoDrinkAlcohol = MedicalIndication._(
       title: "No alcohol",

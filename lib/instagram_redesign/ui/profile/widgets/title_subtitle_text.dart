@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IgTitleSubtitleText extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final double height;
-  final CrossAxisAlignment crossAxisAlignment;
-
   const IgTitleSubtitleText({
     Key key,
     @required this.title,
@@ -14,6 +9,11 @@ class IgTitleSubtitleText extends StatelessWidget {
     this.height = 1.5,
     this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
+
+  final String title;
+  final String subtitle;
+  final double height;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {

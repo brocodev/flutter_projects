@@ -1,15 +1,17 @@
 import 'package:flutter_projects/instagram_redesign/models/ig_user.dart';
 
 class IgUserStories {
-  final int indexStory;
-  final IgUser instagramUser;
-  final List<StoryModel> listStories;
 
   const IgUserStories({
     this.indexStory,
     this.instagramUser,
     this.listStories,
   });
+
+  final int indexStory;
+  final IgUser instagramUser;
+  final List<StoryModel> listStories;
+
 
   static final List<IgUserStories> listUserStories = List.generate(
     IgUser.users.length,
@@ -30,9 +32,10 @@ class IgUserStories {
 }
 
 class StoryModel {
+  StoryModel({this.imageUrl, this.isViewed, this.duration});
+
   final String imageUrl;
   final Duration duration;
   bool isViewed;
 
-  StoryModel({this.imageUrl, this.isViewed, this.duration});
 }

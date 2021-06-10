@@ -1,13 +1,13 @@
 class Contact {
+  const Contact(this.name, this.role, this.address, this.phone, this.email,
+      this.website);
+
   final String name;
   final String role;
   final String address;
   final String phone;
   final String email;
   final String website;
-
-  const Contact(this.name, this.role, this.address, this.phone, this.email,
-      this.website);
 
   static const contacts = [
     Contact('Bette Gracey', 'Biostatistician IV', '1 Cherokee Parkway',

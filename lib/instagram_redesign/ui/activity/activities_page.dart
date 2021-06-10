@@ -33,7 +33,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        "Activity",
+        'Activity',
         style: GoogleFonts.lato(fontSize: 24),
       )),
       body: Column(
@@ -66,10 +66,10 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                         : _getLengthActivities(
                             IgTypeActivity.values[index - 1]),
                     labelButton: index == 0
-                        ? "All activity"
+                        ? 'All activity'
                         : IgTypeActivity.values[index - 1]
                             .toString()
-                            .split(".")
+                            .split('.')
                             .last,
                   ),
                 );
@@ -83,8 +83,8 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
           Padding(
             padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
             child: Text(
-              "New (${IgActivity.listActivities.length})",
-              style: TextStyle(
+              'New (${IgActivity.listActivities.length})',
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),

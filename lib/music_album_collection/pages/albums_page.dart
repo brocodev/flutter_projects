@@ -55,10 +55,10 @@ class _AlbumsPageState extends State<AlbumsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Albums'),
+        title: const Text('Albums'),
         actions: [
           IconButton(
-            icon: Icon(Icons.widgets_outlined),
+            icon: const Icon(Icons.widgets_outlined),
             onPressed: _onChangeViewMode,
           )
         ],
@@ -127,7 +127,7 @@ class _AlbumsGridView extends StatelessWidget {
       itemCount: AlbumModel.listAlbum.length,
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(top: 40, bottom: 40, left: 20),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 1.03,
         crossAxisSpacing: 10,
         mainAxisSpacing: 30,

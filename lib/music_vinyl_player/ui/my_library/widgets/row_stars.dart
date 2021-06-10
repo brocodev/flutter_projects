@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class RowStars extends StatelessWidget {
-  final double stars;
-  final double size;
-  final Color color;
-
   const RowStars({
     Key key,
     this.stars,
@@ -12,28 +8,31 @@ class RowStars extends StatelessWidget {
     this.color = Colors.cyan,
   }) : super(key: key);
 
+  final double stars;
+  final double size;
+  final Color color;
+
   @override
   Widget build(BuildContext context) {
-    Color colorStars = color;
+    var colorStars = color;
     final _fillStar = Padding(
-      padding: EdgeInsets.only(right: 1.0),
+      padding: const EdgeInsets.only(right: 1.0),
       child: Icon(Icons.star, color: colorStars, size: size),
     );
 
     final _halfStar = Padding(
-      padding: EdgeInsets.only(right: 1.0),
+      padding: const EdgeInsets.only(right: 1.0),
       child: Icon(Icons.star_half, color: colorStars, size: size),
     );
 
     final _voidStar = Padding(
-      padding: EdgeInsets.only(right: 1.0),
-      child:
-          Icon(Icons.star, color: Colors.grey[300], size: size),
+      padding: const EdgeInsets.only(right: 1.0),
+      child: Icon(Icons.star, color: Colors.grey[300], size: size),
     );
 
-    int fillStars = stars.floor();
-    final bool addHalfStar = (stars - fillStars) >= 0.5;
-    List<Widget> listStars = List.generate(fillStars, (i) => _fillStar);
+    var fillStars = stars.floor();
+    final addHalfStar = (stars - fillStars) >= 0.5;
+    var listStars = List<Widget>.generate(fillStars, (i) => _fillStar);
     if (addHalfStar) {
       listStars.add(_halfStar);
       fillStars++;

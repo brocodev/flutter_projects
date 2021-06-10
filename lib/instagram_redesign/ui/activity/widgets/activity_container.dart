@@ -65,10 +65,10 @@ class ActivityContainer extends StatelessWidget {
 
   String _getTextDescription() {
     switch (activity.typeNotification) {
-      case IgTypeActivity.Follows:
-        return "started following you";
-      case IgTypeActivity.Likes:
-        return "liked your photo";
+      case IgTypeActivity.follows:
+        return 'started following you';
+      case IgTypeActivity.likes:
+        return 'liked your photo';
       default:
         return activity.description;
     }
@@ -76,9 +76,9 @@ class ActivityContainer extends StatelessWidget {
 
   Widget _getBottomWidgets() {
     switch (activity.typeNotification) {
-      case IgTypeActivity.Messages:
-      case IgTypeActivity.Comments:
-      case IgTypeActivity.Mention:
+      case IgTypeActivity.messages:
+      case IgTypeActivity.comments:
+      case IgTypeActivity.mention:
         return Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: Row(
@@ -94,19 +94,19 @@ class ActivityContainer extends StatelessWidget {
     }
   }
 
-  _getRightWidget() {
+  Widget _getRightWidget() {
     switch (activity.typeNotification) {
-      case IgTypeActivity.Comments:
-      case IgTypeActivity.Mention:
-      case IgTypeActivity.Likes:
+      case IgTypeActivity.comments:
+      case IgTypeActivity.mention:
+      case IgTypeActivity.likes:
         return RoundedBorderImage(
-          height: activity.typeNotification == IgTypeActivity.Likes ? 80 : 100,
+          height: activity.typeNotification == IgTypeActivity.likes ? 80 : 100,
           borderRadius: 30,
           borderColor: Colors.transparent,
           imageUrl: activity.imageUrl,
         );
-      case IgTypeActivity.Follows:
-      case IgTypeActivity.Messages:
+      case IgTypeActivity.follows:
+      case IgTypeActivity.messages:
         return Container(
           margin: const EdgeInsets.only(top: 10, right: 10, left: 10),
           decoration: BoxDecoration(
@@ -116,17 +116,18 @@ class ActivityContainer extends StatelessWidget {
                 BoxShadow(
                     color: Colors.lightBlueAccent.withOpacity(.3),
                     blurRadius: 10,
-                    offset: Offset(0, 8))
+                    offset: const Offset(0, 8))
               ]),
-          child: FlatButton(
+          child: TextButton(
             onPressed: () {},
-            padding: const EdgeInsets.all(20),
-            textColor: Colors.white,
+            style: TextButton.styleFrom(
+                padding: const EdgeInsets.all(20),
+                textStyle: const TextStyle(color: Colors.white)),
             child: Text(
-              activity.typeNotification == IgTypeActivity.Follows
-                  ? "Follow back"
-                  : "Open message",
-              style: TextStyle(
+              activity.typeNotification == IgTypeActivity.follows
+                  ? 'Follow back'
+                  : 'Open message',
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),

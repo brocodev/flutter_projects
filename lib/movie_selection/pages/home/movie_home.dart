@@ -6,6 +6,8 @@ import 'package:flutter_projects/movie_selection/pages/home/widgets/billboard_li
 import 'widgets/header_option.dart';
 
 class MovieHome extends StatelessWidget {
+  MovieHome({Key key}) : super(key: key);
+
   final resizeNotifier = ValueNotifier(0.0);
   final ScrollController _scrollController = ScrollController();
 
@@ -18,13 +20,14 @@ class MovieHome extends StatelessWidget {
 
     resizeNotifier.value = heightAppBar;
     _scrollController.addListener(() {
-      if (_scrollController.offset < (resizeValue))
+      if (_scrollController.offset < (resizeValue)) {
         resizeNotifier.value = heightAppBar - _scrollController.offset;
+      }
     });
     return Scaffold(
         backgroundColor: kPrimaryColorDark,
         body: Stack(
-          children: <Widget>[
+          children: [
             ListView.builder(
               controller: _scrollController,
               itemCount: billboardList.length,
@@ -34,39 +37,40 @@ class MovieHome extends StatelessWidget {
               },
             ),
             ValueListenableBuilder<double>(
-                valueListenable: resizeNotifier,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: kPrimaryColorHeavy,
-                    boxShadow: [
-                      BoxShadow(
-                        color: kPrimaryColorDark.withOpacity(.4),
-                        blurRadius: 15,
-                      )
-                    ],
-                  ),
-                  child: Row(children: <Widget>[
-                    HeaderOption(
-                      title: "Cinema",
-                      isSelected: false,
-                    ),
-                    HeaderOption(
-                      title: "Movie",
-                      isSelected: true,
-                    ),
-                    HeaderOption(
-                      title: "Time",
-                      isSelected: false,
-                    ),
-                  ]),
+              valueListenable: resizeNotifier,
+              builder: (context, value, child) {
+                return SizedBox(
+                  height: (value),
+                  width: double.infinity,
+                  child: child,
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: kPrimaryColorHeavy,
+                  boxShadow: [
+                    BoxShadow(
+                      color: kPrimaryColorDark.withOpacity(.4),
+                      blurRadius: 15,
+                    )
+                  ],
                 ),
-                builder: (context, value, child) {
-                  return SizedBox(
-                    height: (value),
-                    width: double.infinity,
-                    child: child,
-                  );
-                }),
+                child: Row(children: const [
+                  HeaderOption(
+                    title: "Cinema",
+                    isSelected: false,
+                  ),
+                  HeaderOption(
+                    title: "Movie",
+                    isSelected: true,
+                  ),
+                  HeaderOption(
+                    title: "Time",
+                    isSelected: false,
+                  ),
+                ]),
+              ),
+            ),
           ],
         ));
   }

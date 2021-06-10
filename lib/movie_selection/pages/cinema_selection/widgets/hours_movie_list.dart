@@ -24,7 +24,7 @@ class HoursMovieOptions extends StatelessWidget {
       mainAxisSpacing: 20,
       crossAxisSpacing: 20,
       childAspectRatio: 2 / 4,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 20),
       children: List.generate(listHours.length, (i) {
         return HourContainer(

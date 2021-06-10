@@ -27,13 +27,13 @@ class InstagramPostDetail extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           color: Theme.of(context).colorScheme.onBackground,
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_horiz),
+            icon: const Icon(Icons.more_horiz),
             color: Theme.of(context).colorScheme.onBackground,
             onPressed: () {},
           )
@@ -49,10 +49,7 @@ class InstagramPostDetail extends StatelessWidget {
             right: 0,
             left: 0,
             height: (screenHeight * .7) - 76,
-            child: Hero(
-              tag: post.id,
-              child: postCard
-            ),
+            child: Hero(tag: post.id, child: postCard),
           ),
 
           //-----------------------------------
@@ -73,7 +70,8 @@ class InstagramPostDetail extends StatelessWidget {
             child: Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(50)),
                   color: Theme.of(context).colorScheme.onPrimary,
                   boxShadow: [
                     if (instagramBloc.viewState == ViewState.clean)
@@ -83,7 +81,7 @@ class InstagramPostDetail extends StatelessWidget {
                               .onBackground
                               .withOpacity(.06),
                           blurRadius: 10,
-                          offset: Offset(0, -5))
+                          offset: const Offset(0, -5))
                   ]),
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
@@ -133,15 +131,17 @@ class InstagramPostDetail extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.onPrimary,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
-                  boxShadow: [
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(50),
+                  ),
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 20,
                     )
                   ]),
               child: Row(
-                children: [
+                children: const [
                   Expanded(
                     child: AddCommentTextField(),
                   )

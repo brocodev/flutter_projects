@@ -3,6 +3,8 @@ import 'package:flutter_projects/orix_gaming/ui/orix_gaming_home_page.dart';
 import 'package:flutter_projects/orix_gaming/ui/widgets/orix_navigation_bar.dart';
 
 class OrixGamingApp extends StatelessWidget {
+  const OrixGamingApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +14,7 @@ class OrixGamingApp extends StatelessWidget {
         primaryColorLight: Colors.orange[700],
         primaryColorDark: Colors.deepOrange[700],
       ),
-      home: _MainPage(),
+      home: const _MainPage(),
     );
   }
 }
@@ -33,7 +35,7 @@ class _MainPageState extends State<_MainPage> {
     return Scaffold(
       body: AnimatedSwitcher(
         duration: kThemeChangeDuration,
-        child: [
+        child: const [
           OrixGamingHomePage(),
           Scaffold(body: Center(child: Text('Games'))),
           Scaffold(body: Center(child: Text('Favorites'))),

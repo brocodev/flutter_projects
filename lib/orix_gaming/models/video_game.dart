@@ -1,15 +1,16 @@
 class VideoGame {
-  final String title;
-  final String srcImage;
-  final int nowPlaying;
-  final String genre;
-
   const VideoGame({
     this.title,
     this.srcImage,
     this.nowPlaying,
     this.genre,
   });
+
+  final String title;
+  final String srcImage;
+  final int nowPlaying;
+  final String genre;
+
 
   static const mainGame = VideoGame(
     title: 'League of Legends',
@@ -18,7 +19,7 @@ class VideoGame {
     srcImage: 'assets/img/gaming/lol.jpg',
   );
 
-  static const videoGames = const [
+  static const videoGames =  [
     VideoGame(
       title: 'Animal Crossing',
       genre: 'Simulation',

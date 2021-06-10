@@ -18,7 +18,7 @@ class CardPlaceInformation extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 20,
                 color: Colors.black12,
@@ -50,12 +50,12 @@ class CardPlaceInformation extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Row(
-                children: <Widget>[
+                children: const [
                   _InlineTextSpan(
                     field: 'Telefono',
                     value: '355 655 8898',
                   ),
-                  const Spacer(),
+                  Spacer(),
                   _InlineTextSpan(
                     field: 'Servicion a domicilio',
                     value: 'Si',
@@ -64,12 +64,12 @@ class CardPlaceInformation extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Row(
-                children: <Widget>[
+                children: const [
                   _InlineTextSpan(
                     field: 'Lugar',
                     value: 'Mexico Guerrero',
                   ),
-                  const Spacer(),
+                  Spacer(),
                   _InlineTextSpan(
                     field: 'Horario: ',
                     value: '07:00 a 18:00',
@@ -82,8 +82,9 @@ class CardPlaceInformation extends StatelessWidget {
         FloatingActionButton(
           onPressed: () {},
           elevation: 2,
-          child: Icon(Icons.person_pin_circle, color: Colors.white, size: 35),
           backgroundColor: Colors.pinkAccent,
+          child: const Icon(Icons.person_pin_circle,
+              color: Colors.white, size: 35),
         )
       ],
     );
@@ -91,10 +92,10 @@ class CardPlaceInformation extends StatelessWidget {
 }
 
 class _InlineTextSpan extends StatelessWidget {
+  const _InlineTextSpan({Key key, this.field, this.value}) : super(key: key);
+
   final String field;
   final String value;
-
-  const _InlineTextSpan({Key key, this.field, this.value}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,7 @@ class _InlineTextSpan extends StatelessWidget {
           children: [
             TextSpan(
               text: " $value",
-              style: TextStyle(color: Colors.grey),
+              style: const TextStyle(color: Colors.grey),
             ),
           ]),
     );

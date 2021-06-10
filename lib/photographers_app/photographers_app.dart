@@ -8,12 +8,14 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotographersApp extends StatelessWidget {
+  const PhotographersApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xffF4F3F3),
+        scaffoldBackgroundColor: const Color(0xffF4F3F3),
         //-----------------------------
         // App Bar Theme
         //-----------------------------
@@ -23,7 +25,7 @@ class PhotographersApp extends StatelessWidget {
             brightness: Brightness.light,
             textTheme: GoogleFonts.philosopherTextTheme()
                 .apply(bodyColor: PhotoAppColors.kDarkBlue),
-            iconTheme: IconThemeData(color: PhotoAppColors.kDarkBlue)),
+            iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue)),
         //---------------------------
         // Text Theme
         //---------------------------
@@ -31,7 +33,7 @@ class PhotographersApp extends StatelessWidget {
           bodyColor: PhotoAppColors.kDarkBlue,
           displayColor: PhotoAppColors.kDarkBlue,
         ),
-        iconTheme: IconThemeData(color: PhotoAppColors.kDarkBlue),
+        iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: _NavigationPage(),
@@ -67,11 +69,11 @@ class _NavigationPageState extends State<_NavigationPage> {
           index = val;
         }),
         currentIndex: index,
-        items: [
-          const CurvedNavigationBarItem(iconData: Icons.widgets),
-          const CurvedNavigationBarItem(iconData: FontAwesome.commenting),
-          const CurvedNavigationBarItem(iconData: Icons.favorite),
-          const CurvedNavigationBarItem(iconData: Icons.person),
+        items: const [
+          CurvedNavigationBarItem(iconData: Icons.widgets),
+          CurvedNavigationBarItem(iconData: FontAwesome.commenting),
+          CurvedNavigationBarItem(iconData: Icons.favorite),
+          CurvedNavigationBarItem(iconData: Icons.person),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -86,9 +88,9 @@ class _NavigationPageState extends State<_NavigationPage> {
               BoxShadow(
                   color: Colors.grey.shade200,
                   blurRadius: 10,
-                  offset: Offset(0, 10))
+                  offset: const Offset(0, 10))
             ]),
-        child: Icon(Icons.add, size: 32),
+        child: const Icon(Icons.add, size: 32),
       ),
     );
   }

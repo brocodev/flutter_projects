@@ -37,7 +37,7 @@ class MovieMainDetails extends StatelessWidget {
               children: <Widget>[
                 buildInfoText('Genre:', movie.tags.first, size),
                 buildInfoText('Duration:',
-                    movie.duration.inMinutes.toString() + ' min', size),
+                    '${movie.duration.inMinutes} min', size),
                 buildInfoText('Release year:', movie.year, size),
                 buildInfoText('Director:', movie.director, size),
                 buildInfoText('Writer:', movie.writer, size),
@@ -55,7 +55,7 @@ class MovieMainDetails extends StatelessWidget {
       TextSpan(text: title, children: [
         TextSpan(
             text: '  $subtitle',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ))
       ]),

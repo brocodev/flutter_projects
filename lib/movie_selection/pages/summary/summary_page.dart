@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class SummaryPage extends StatelessWidget {
-  final Movie movie;
+  const SummaryPage({Key key, this.movie}) : super(key: key);
 
-  SummaryPage({Key key, this.movie}) : super(key: key);
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _BodySummary extends StatelessWidget {
                     kPrimaryColorDark.withOpacity(.7),
                     kPrimaryColorDark,
                   ],
-                  stops: [0.08, 0.28, 0.33, 0.48],
+                  stops: const [0.08, 0.28, 0.33, 0.48],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -114,8 +114,8 @@ class _BodySummary extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  TranslateAnimation(
-                    duration: const Duration(milliseconds: 600),
+                  const TranslateAnimation(
+                    duration: Duration(milliseconds: 600),
                     child: _TileInfo(
                         title: 'Cinema',
                         subtitle: 'Gulliver',
@@ -144,10 +144,9 @@ class _BodySummary extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Row(
                     children: List.generate(50, (i) {
-                      return Expanded(
+                      return const Expanded(
                         child: Padding(
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 2.0),
+                          padding: EdgeInsets.symmetric(horizontal: 2.0),
                           child: Divider(
                             color: Colors.white,
                             thickness: 2,

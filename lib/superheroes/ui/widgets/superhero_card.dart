@@ -5,14 +5,14 @@ import 'package:flutter_projects/superheroes/models/superhero.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroCard extends StatelessWidget {
-  final Superhero superhero;
-  final double factorChange;
-
   const SuperheroCard({
     Key key,
     @required this.superhero,
     @required this.factorChange,
   }) : super(key: key);
+
+  final Superhero superhero;
+  final double factorChange;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SuperheroCard extends StatelessWidget {
           Positioned.fill(
             top: separation,
             child: Hero(
-              tag: superhero.heroName + "background",
+              tag: "${superhero.heroName}background",
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: Color(superhero.rawColor),
@@ -88,9 +88,9 @@ class SuperheroCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
                 Text.rich(
-                  TextSpan(
+                  const TextSpan(
                     text: 'learn more',
-                    children: [
+                    children:  [
                       WidgetSpan(
                         alignment: PlaceholderAlignment.middle,
                         child: Icon(

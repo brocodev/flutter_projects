@@ -32,10 +32,10 @@ class ActorsList extends StatelessWidget {
         SizedBox(
           height: 190,
           child: ListView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemCount: listActors.length,
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             itemBuilder: (context, i) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),

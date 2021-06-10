@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class VinylDisk extends StatelessWidget {
-  final String albumImagePath;
-  final double heightDisk;
-
   const VinylDisk({
     Key key,
     @required this.albumImagePath,
     @required this.heightDisk,
   }) : super(key: key);
+
+  final String albumImagePath;
+  final double heightDisk;
 
   @override
   Widget build(BuildContext context) {

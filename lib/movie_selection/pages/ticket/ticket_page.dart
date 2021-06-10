@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketPage extends StatelessWidget {
-  final Movie movie;
-
   const TicketPage({Key key, this.movie}) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class TicketPage extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   iconSize: 30,
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   color: Colors.white,
                 ),
               ),
@@ -60,7 +60,7 @@ class TicketPage extends StatelessWidget {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            TicketDateWidget(),
+                            const TicketDateWidget(),
                             const SizedBox(height: 40),
                             Text(
                               movie.title.toUpperCase(),
@@ -88,8 +88,8 @@ class TicketPage extends StatelessWidget {
                             const SizedBox(height: 40),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                _TileInfo(
+                              children: [
+                                const _TileInfo(
                                     title: 'Cinema',
                                     subtitle: 'Gulliver',
                                     crossAxisAlignment:
@@ -110,9 +110,9 @@ class TicketPage extends StatelessWidget {
                                     const EdgeInsets.symmetric(horizontal: 30),
                                 child: Row(
                                     children: List.generate(50, (i) {
-                                  return Expanded(
+                                  return const Expanded(
                                       child: Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 2.0),
                                           child: Divider(
                                               color: kPrimaryColorDark,

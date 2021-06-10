@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/summary/summary_page.dart
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
 
 class SeatsSelectionPage extends StatelessWidget {
-  final Movie movie;
-
   const SeatsSelectionPage({Key key, this.movie}) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -54,13 +54,13 @@ class SeatsSelectionPage extends StatelessWidget {
                         padding: const EdgeInsets.all(20.0),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              TypeSeatInfo(
-                                color: Colors.blueGrey[200],
+                            children: [
+                              const TypeSeatInfo(
+                                color: Color(0xFFB0BEC5),
                                 quantity: 8,
                                 label: 'Empty',
                               ),
-                              TypeSeatInfo(
+                              const TypeSeatInfo(
                                 color: kPrimaryColor,
                                 quantity: 38,
                                 label: 'Bought',
@@ -124,7 +124,7 @@ class SeatsSelectionPage extends StatelessWidget {
         ));
   }
 
-  _openSummary(BuildContext context, Movie movie) {
+  void _openSummary(BuildContext context, Movie movie) {
     Navigator.pushReplacement(
         context,
         PageRouteBuilder(

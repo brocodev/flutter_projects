@@ -19,8 +19,8 @@ class BackgroundShaderImage extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           fit: BoxFit.cover,
-          placeholder: (context, url) => Center(
-            child: CupertinoActivityIndicator(radius: 40),
+          placeholder: (context, url) => const Center(
+            child:  CupertinoActivityIndicator(radius: 40),
           ),
         ),
         Positioned.fill(
@@ -33,7 +33,7 @@ class BackgroundShaderImage extends StatelessWidget {
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                stops: [0.3, .7],
+                stops: const [0.3, .7],
               ),
             ),
           ),

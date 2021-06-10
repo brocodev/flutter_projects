@@ -6,16 +6,16 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/page_indicators.d
 import 'package:flutter_projects/instagram_redesign/ui/widgets/post_buttons.dart';
 
 class CleanPostCard extends StatefulWidget {
-  final IgPost post;
-  final double height;
-  final VoidCallback onTap;
-
   const CleanPostCard({
     Key key,
     this.post,
     this.height,
     this.onTap,
   }) : super(key: key);
+
+  final IgPost post;
+  final double height;
+  final VoidCallback onTap;
 
   @override
   _CleanPostCardState createState() => _CleanPostCardState();
@@ -28,7 +28,7 @@ class _CleanPostCardState extends State<CleanPostCard>
   Animation _scaleHeart;
   Animation _outScaleHeart;
 
-  _statusListener(AnimationStatus status) {
+  void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) _controller.reset();
   }
 
@@ -37,10 +37,10 @@ class _CleanPostCardState extends State<CleanPostCard>
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 800));
     _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        curve: Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
+        curve: const Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
         parent: _controller));
     _outScaleHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        curve: Interval(0.6, 1.0, curve: Curves.easeInOutQuint),
+        curve: const Interval(0.6, 1.0, curve: Curves.easeInOutQuint),
         parent: _controller));
     _controller.addStatusListener(_statusListener);
     super.initState();
@@ -48,8 +48,9 @@ class _CleanPostCardState extends State<CleanPostCard>
 
   @override
   void dispose() {
-    _controller.removeStatusListener(_statusListener);
-    _controller.dispose();
+    _controller
+      ..removeStatusListener(_statusListener)
+      ..dispose();
     super.dispose();
   }
 
@@ -108,7 +109,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                 //-------------------------------
                 IconButton(
                   iconSize: 30,
-                  icon: Icon(Icons.more_horiz),
+                  icon: const Icon(Icons.more_horiz),
                   onPressed: () {},
                 )
               ],
@@ -130,7 +131,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.onPrimary,
                       borderRadius: BorderRadius.circular(20.0),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.black12,
                             blurRadius: 20,

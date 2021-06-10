@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 
 class TonguePainter extends CustomPainter {
-  final double curveRadius;
-
   TonguePainter({@required this.curveRadius});
+  final double curveRadius;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..shader = LinearGradient(
+      ..shader = const LinearGradient(
         colors: [MdAppColors.kBlue, MdAppColors.kDarkBlue],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -36,8 +35,9 @@ class TonguePainter extends CustomPainter {
           size.width, size.height - curveRadius, size.width, size.height)
       ..lineTo(size.width, 0)
       ..lineTo(0, 0);
-    canvas.drawShadow(path, Colors.black26, 10, false);
-    canvas.drawPath(path, paint);
+    canvas
+      ..drawShadow(path, Colors.black26, 10, false)
+      ..drawPath(path, paint);
   }
 
   @override

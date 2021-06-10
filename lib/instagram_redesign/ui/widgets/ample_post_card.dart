@@ -38,10 +38,10 @@ class _AmplePostCardState extends State<AmplePostCard>
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
     _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        curve: Interval(0.0, 0.75, curve: Curves.fastOutSlowIn),
+        curve: const Interval(0.0, 0.75, curve: Curves.fastOutSlowIn),
         parent: _controller));
     _outOpacityHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+        curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
         parent: _controller));
     _controller.addStatusListener(_statusListener);
     super.initState();
@@ -49,12 +49,13 @@ class _AmplePostCardState extends State<AmplePostCard>
 
   @override
   void dispose() {
-    _controller.removeStatusListener(_statusListener);
-    _controller.dispose();
+    _controller
+      ..removeStatusListener(_statusListener)
+      ..dispose();
     super.dispose();
   }
 
-  _statusListener(AnimationStatus status) {
+  void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) _controller.reset();
   }
 
@@ -90,7 +91,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                       fit: StackFit.expand,
                       children: [
                         DecoratedBox(
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           //-----------------------
                           //-------IMAGES
                           //-----------------------
@@ -98,7 +99,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                             imageUrl: post.photos[index],
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
-                                CupertinoActivityIndicator(radius: 40),
+                                const CupertinoActivityIndicator(radius: 40),
                           ),
                         ),
                         //-----------------------
@@ -115,7 +116,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                                 ],
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                stops: [0.0, 0.12, 0.75, .9]),
+                                stops: const [0.0, 0.12, 0.75, .9]),
                           ),
                         ),
                       ],

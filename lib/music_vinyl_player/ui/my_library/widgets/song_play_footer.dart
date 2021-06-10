@@ -19,12 +19,12 @@ class SongPlayFooter extends StatelessWidget {
           width: 50,
           child: Stack(
             fit: StackFit.expand,
-            children: <Widget>[
+            children: [
               CircleAvatar(
                 backgroundColor: Colors.white,
                 backgroundImage: AssetImage(song.album.pathImage),
               ),
-              CircularProgressIndicator(
+              const CircularProgressIndicator(
                 value: .7,
                 strokeWidth: 5,
                 backgroundColor: Colors.white,
@@ -36,7 +36,7 @@ class SongPlayFooter extends StatelessWidget {
         const SizedBox(width: 20),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Text(
               song.album.author,
               style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
@@ -57,7 +57,7 @@ class SongPlayFooter extends StatelessWidget {
           onPressed: () {},
           iconSize: 38,
           color: Colors.grey[700],
-          icon: Icon(
+          icon: const Icon(
             Icons.play_circle_outline,
           ),
         ),
@@ -65,7 +65,7 @@ class SongPlayFooter extends StatelessWidget {
           onPressed: () {},
           iconSize: 38,
           color: Colors.grey[700],
-          icon: Icon(
+          icon: const Icon(
             Icons.playlist_play,
           ),
         ),

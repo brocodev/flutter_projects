@@ -27,7 +27,7 @@ class TextInputFindOut extends StatelessWidget {
           return TextField(
             keyboardType: textInputType,
             obscureText: isPassword ? value : false,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -44,8 +44,8 @@ class TextInputFindOut extends StatelessWidget {
                 enabledBorder: outlineInputBorder,
                 hintText: label,
                 focusedBorder: outlineInputBorder.copyWith(
-                    borderSide: BorderSide(color: Colors.pink, width: 2)),
-                hintStyle: TextStyle(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.pink, width: 2)),
+                hintStyle: const TextStyle(color: Colors.grey),
                 prefixIcon: Icon(iconData, color: Colors.pinkAccent, size: 18)),
           );
         });

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constants.dart';
 
 class CreditCardSlide extends StatelessWidget {
+  const CreditCardSlide({Key key}):super(key: key);
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -18,7 +19,7 @@ class CreditCardSlide extends StatelessWidget {
         SizedBox(
           height: size.height * .28,
           child: PageView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             onPageChanged: (index) => indexNotifier.value = index,
             itemCount: 3,
             itemBuilder: (context, index) {
@@ -93,7 +94,7 @@ class CreditCardWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.wifi, color: Colors.white, size: 35)
+              const Icon(Icons.wifi, color: Colors.white, size: 35)
             ],
           ),
           const Spacer(),

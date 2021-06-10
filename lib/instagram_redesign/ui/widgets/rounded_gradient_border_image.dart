@@ -19,7 +19,7 @@ class RoundedGradientBorderImage extends StatelessWidget {
         height: height,
         padding: const EdgeInsets.all(2.4),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Colors.purpleAccent,
                 Colors.orangeAccent,

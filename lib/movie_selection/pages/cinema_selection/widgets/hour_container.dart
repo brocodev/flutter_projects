@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class HourContainer extends StatelessWidget {
   const HourContainer({
@@ -34,7 +32,9 @@ class HourContainer extends StatelessWidget {
               decoration: BoxDecoration(
                   color: kPrimaryColor,
                   gradient: isSelected ? kGradientRedOrange : null,
-                  boxShadow: [BoxShadow(blurRadius: 20, color: Colors.black38)],
+                  boxShadow: const [
+                    BoxShadow(blurRadius: 20, color: Colors.black38)
+                  ],
                   borderRadius: BorderRadius.circular(6)),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

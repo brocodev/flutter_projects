@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
 
 class OpenBookPage extends StatefulWidget {
-  final Book book;
-
   const OpenBookPage({
     Key key,
     @required this.book,
   }) : super(key: key);
+
+  final Book book;
 
   @override
   _OpenBookPageState createState() => _OpenBookPageState();
@@ -42,7 +42,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'CHAPTER 1',
                               style: TextStyle(
                                 color: Colors.grey,
@@ -51,7 +51,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
                             ),
                             IconButton(
                               color: Colors.grey,
-                              icon: Icon(Icons.close),
+                              icon: const Icon(Icons.close),
                               onPressed: () async {
                                 // setState(() => animate = !animate);
                                 // await Future.delayed(kThemeChangeDuration);

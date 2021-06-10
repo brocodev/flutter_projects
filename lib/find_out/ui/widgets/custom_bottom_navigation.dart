@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
+  const CustomBottomNavigation({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final color = Colors.grey[400];
@@ -52,9 +54,10 @@ class BottomBarPainter extends CustomPainter {
       ..lineTo(w, h)
       ..lineTo(0, h);
 
-    canvas.drawShadow(path, Colors.black, 40.0, false);
-    canvas.drawShadow(path, Colors.black, 40.0, false);
-    canvas.drawPath(path, Paint()..color = Colors.white);
+    canvas
+      ..drawShadow(path, Colors.black, 40.0, false)
+      ..drawShadow(path, Colors.black, 40.0, false)
+      ..drawPath(path, Paint()..color = Colors.white);
   }
 
   @override

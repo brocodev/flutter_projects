@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
 
 class ReadersRow extends StatelessWidget {
-  final List<UserBook> readers;
-  final double avatarSize;
-
   const ReadersRow({
     Key key,
     @required this.readers,
     this.avatarSize = 30,
   }) : super(key: key);
+
+  final List<UserBook> readers;
+  final double avatarSize;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class ReadersRow extends StatelessWidget {
                       child: Text(
                         '${readers.length - 3}+',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,

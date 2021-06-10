@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/ui/home/widgets/red_dot.dart';
 
 class RoundedNavigationBar extends StatelessWidget {
-  final List<RoundedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
-  final Color unselectedColor;
-  final Color selectedColor;
-  final int currentIndex;
-
   const RoundedNavigationBar({
     Key key,
     @required this.items,
@@ -17,6 +11,12 @@ class RoundedNavigationBar extends StatelessWidget {
     this.currentIndex = 0,
   }) : super(key: key);
 
+  final List<RoundedNavigationBarItem> items;
+  final ValueChanged<int> onTap;
+  final Color unselectedColor;
+  final Color selectedColor;
+  final int currentIndex;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +24,7 @@ class RoundedNavigationBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimary,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(50)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,12 +38,12 @@ class RoundedNavigationBar extends StatelessWidget {
             },
             color: index == currentIndex ? selectedColor : unselectedColor,
             icon: Stack(
-              alignment: Alignment(1,.5),
+              alignment: const Alignment(1, .5),
               children: [
                 Icon(index == currentIndex
                     ? item.selectedIconData ?? item.iconData
                     : item.iconData),
-                if (item.hasNotification) RedDot()
+                if (item.hasNotification) const RedDot()
               ],
             ),
           );
@@ -54,13 +54,14 @@ class RoundedNavigationBar extends StatelessWidget {
 }
 
 class RoundedNavigationBarItem {
-  final IconData iconData;
-  final bool hasNotification;
-  final IconData selectedIconData;
-
-  RoundedNavigationBarItem({
+  const RoundedNavigationBarItem({
     @required this.iconData,
     @required this.hasNotification,
     this.selectedIconData,
   });
+
+  final IconData iconData;
+  final bool hasNotification;
+  final IconData selectedIconData;
+
 }

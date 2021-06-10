@@ -1,13 +1,14 @@
 class IgCollection {
-  final String title;
-  final String iconImage;
-  final List<String> imagesCollection;
-
   const IgCollection({
     this.title,
     this.iconImage,
     this.imagesCollection,
   });
+
+  final String title;
+  final String iconImage;
+  final List<String> imagesCollection;
+
 
   static const listCollection = [
     IgCollection(

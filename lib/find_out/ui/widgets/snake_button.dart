@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class SnakeButton extends StatefulWidget {
+
+  const SnakeButton(
+      {Key key,
+        this.onPressed,
+        this.duration = const Duration(milliseconds: 2500),
+        this.borderColor = Colors.white,
+        this.snakeColor = Colors.pinkAccent,
+        this.borderWidth = 3.0,
+        this.child})
+      : super(key: key);
+
   final Widget child;
   final VoidCallback onPressed;
   final Duration duration;
   final Color borderColor;
   final Color snakeColor;
   final double borderWidth;
-
-  const SnakeButton(
-      {Key key,
-      this.onPressed,
-      this.duration = const Duration(milliseconds: 2500),
-      this.borderColor = Colors.white,
-      this.snakeColor = Colors.pinkAccent,
-      this.borderWidth = 3.0,
-      this.child})
-      : super(key: key);
 
   @override
   _SnakeButtonState createState() => _SnakeButtonState();
@@ -59,11 +60,6 @@ class _SnakeButtonState extends State<SnakeButton>
 }
 
 class _SnakePainter extends CustomPainter {
-  final Animation animation;
-  final Color snakeColor;
-  final Color borderColor;
-  final double borderWidth;
-
   _SnakePainter({
     @required this.animation,
     this.snakeColor = Colors.pinkAccent,
@@ -71,12 +67,16 @@ class _SnakePainter extends CustomPainter {
     this.borderWidth = 3.0,
   }) : super(repaint: animation);
 
+  final Animation animation;
+  final Color snakeColor;
+  final Color borderColor;
+  final double borderWidth;
+
   @override
   void paint(Canvas canvas, Size size) {
-    //==========================
-    //===Draw border button=====
-    //==========================
-
+    //-------------------------------
+    // Draw border button
+    //-------------------------------
     final rectBorder = Offset.zero & size;
     canvas.drawRect(
       rectBorder.deflate(borderWidth / 2),
@@ -86,13 +86,19 @@ class _SnakePainter extends CustomPainter {
         ..style = PaintingStyle.stroke,
     );
 
-    //=======================
-    //======Snake draw=======
-    //=======================
+    //-------------------------------
+    // Snake draw
+    //-------------------------------
     final snakePaint = Paint()
       ..shader = SweepGradient(
-          colors: [Colors.pinkAccent, Colors.transparent],
-          stops: [0.5, 0.5],
+          colors: const [
+            Colors.pinkAccent,
+            Colors.transparent,
+          ],
+          stops: const [
+            0.5,
+            0.5
+          ],
           startAngle: 0.0,
           endAngle: vector.radians(90),
           transform: GradientRotation(

@@ -100,11 +100,11 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
         actions: <Widget>[
           IconButton(
             onPressed: () {},
-            icon: Icon(CupertinoIcons.search),
+            icon: const Icon(CupertinoIcons.search),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(CupertinoIcons.double_music_note),
+            icon: const Icon(CupertinoIcons.double_music_note),
           ),
         ],
       ),
@@ -130,10 +130,11 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                   Expanded(
                     child: PageView.builder(
                         onPageChanged: (value) {
-                          if (!_isAlbumScrolling)
+                          if (!_isAlbumScrolling) {
                             _pageAlbumController.animateToPage(value,
                                 duration: const Duration(milliseconds: 600),
                                 curve: Curves.fastOutSlowIn);
+                          }
                         },
                         physics: const BouncingScrollPhysics(),
                         itemCount: Album.listAlbum.length,
@@ -225,7 +226,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                   BoxShadow(
                       color: Colors.black.withOpacity(.08),
                       blurRadius: 20,
-                      offset: Offset(0, 25))
+                      offset: const Offset(0, 25))
                 ]),
                 child: Container(
                   decoration: BoxDecoration(

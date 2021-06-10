@@ -7,6 +7,23 @@ import 'package:flutter_projects/find_out/ui/widgets/text_input_find_out.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({
+    Key key,
+  }) : super(key: key);
+
+  void _openHomePage(BuildContext context) {
+    final newRoute = PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 1000),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: const HomePageFindOut(),
+        );
+      },
+    );
+    Navigator.pushAndRemoveUntil(context, newRoute, ModalRoute.withName(''));
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -50,7 +67,7 @@ class LoginPage extends StatelessWidget {
                     const Spacer(),
                     Stack(
                       children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.topCenter,
                           child: _DragDownIndication(),
                         ),
@@ -62,25 +79,27 @@ class LoginPage extends StatelessWidget {
                               height: 340,
                               width: double.infinity,
                               color: Colors.white,
-                              padding: const EdgeInsets.symmetric(horizontal: 40),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 40),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   const SizedBox(height: 60),
-                                  TextInputFindOut(
+                                  const TextInputFindOut(
                                     label: 'Nombre de usuario',
                                     iconData: FontAwesome.user,
                                     textInputType: TextInputType.emailAddress,
                                   ),
                                   const SizedBox(height: 20),
-                                  TextInputFindOut(
+                                  const TextInputFindOut(
                                     label: 'Constraseña',
                                     iconData: Icons.lock_outline,
-                                    textInputType: TextInputType.visiblePassword,
+                                    textInputType:
+                                        TextInputType.visiblePassword,
                                   ),
                                   const SizedBox(height: 10),
                                   Text(
-                                    "¿Olvidaste tu contraseña?",
+                                    '¿Olvidaste tu contraseña?',
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.grey[600],
@@ -89,18 +108,21 @@ class LoginPage extends StatelessWidget {
                                   const SizedBox(height: 20),
                                   SizedBox(
                                     width: size.width * .65,
-                                    child: FlatButton(
+                                    child: TextButton(
                                       onPressed: () {
                                         resizeNotifier.value = false;
-                                        return _openHomePage(context);
+                                        _openHomePage(context);
                                       },
-                                      padding: const EdgeInsets.all(12),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                      style: TextButton.styleFrom(
+                                        padding: const EdgeInsets.all(12),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        backgroundColor: Colors.pinkAccent,
                                       ),
-                                      color: Colors.pinkAccent,
-                                      child: Text(
-                                        "Iniciar sesión",
+                                      child: const Text(
+                                        'Iniciar sesion',
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
@@ -124,19 +146,6 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-
-  _openHomePage(BuildContext context) {
-    final newRoute = PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: 1000),
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: HomePageFindOut(),
-        );
-      },
-    );
-    Navigator.pushAndRemoveUntil(context, newRoute, ModalRoute.withName(''));
-  }
 }
 
 class _DragDownIndication extends StatelessWidget {
@@ -148,7 +157,7 @@ class _DragDownIndication extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Inicia sesión',
           style: TextStyle(
             fontSize: 20,

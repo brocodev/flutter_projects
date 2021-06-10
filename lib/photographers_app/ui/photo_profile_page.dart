@@ -6,9 +6,9 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoProfilePage extends StatelessWidget {
-  final PhotoUser user;
-
   const PhotoProfilePage({Key key, @required this.user}) : super(key: key);
+
+  final PhotoUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class PhotoProfilePage extends StatelessWidget {
             padding: const EdgeInsets.only(right: 30),
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.more_horiz, size: 30),
+              icon: const Icon(Icons.more_horiz, size: 30),
             ),
           )
         ],
@@ -40,14 +40,14 @@ class PhotoProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
               ),
               Stack(
-                alignment: Alignment(.7, -.8),
+                alignment: const Alignment(.7, -.8),
                 children: [
                   _ImageProfile(imageUser: imageUser),
                   const _GreenDot(),
                 ],
               ),
               _TitleSubtitleText(
-                title: (user.followers / 1000).toString().substring(0, 4) + "K",
+                title: "${(user.followers / 1000).toString().substring(0, 4)}K",
                 subtitle: "Followers",
                 height: 2,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +71,7 @@ class PhotoProfilePage extends StatelessWidget {
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
                 itemCount: user.listPhotosUrl.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 2 / 3,
                     crossAxisSpacing: 10),
@@ -128,18 +128,13 @@ class _ImageProfile extends StatelessWidget {
             BoxShadow(
                 color: Colors.grey.withOpacity(.26),
                 blurRadius: 20,
-                offset: Offset(0, 10))
+                offset: const Offset(0, 10))
           ]),
     );
   }
 }
 
 class _TitleSubtitleText extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final double height;
-  final CrossAxisAlignment crossAxisAlignment;
-
   const _TitleSubtitleText({
     Key key,
     @required this.title,
@@ -148,6 +143,11 @@ class _TitleSubtitleText extends StatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
 
+  final String title;
+  final String subtitle;
+  final double height;
+  final CrossAxisAlignment crossAxisAlignment;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -155,7 +155,7 @@ class _TitleSubtitleText extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: PhotoAppColors.kDarkBlue,
               fontSize: 17,
@@ -191,10 +191,10 @@ class _GreenDot extends StatelessWidget {
 class _CurveTopClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    final path = Path();
-    path.quadraticBezierTo(size.width * .5, 70, size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
+    final path = Path()
+      ..quadraticBezierTo(size.width * .5, 70, size.width, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height);
     return path;
   }
 

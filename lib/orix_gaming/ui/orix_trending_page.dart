@@ -66,7 +66,7 @@ class OrixTrendingPage extends StatelessWidget {
               },
             ),
           ),
-          Expanded(
+          const Expanded(
             child: _MainTrendingGame(
               game: VideoGame.mainGame,
             ),
@@ -133,7 +133,7 @@ class _MainTrendingGame extends StatelessWidget {
                   Text.rich(
                     TextSpan(text: firstTitleWord, children: [
                       TextSpan(
-                        text: ' ' + titleWithoutFirstWord,
+                        text: ' $titleWithoutFirstWord',
                         style: GoogleFonts.poppins(fontWeight: FontWeight.w300),
                       )
                     ]),
@@ -174,7 +174,7 @@ class _MainTrendingGame extends StatelessWidget {
                     ],
                   ),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.play_arrow_rounded,
                   size: 30.0,
                   color: Colors.white,

@@ -15,10 +15,14 @@ class PhotoHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.scatter_plot),
-        title: Text("Explore",
+        leading: const Icon(Icons.scatter_plot),
+        title: const Text("Explore",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        actions: [const Center(child: const _SearchInput())],
+        actions: const [
+          Center(
+            child: _SearchInput(),
+          )
+        ],
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -62,7 +66,7 @@ class PhotoHomePage extends StatelessWidget {
                         decorationThickness: 2,
                         fontWeight: FontWeight.w600,
                       ),
-                      children: [
+                      children: const [
                         TextSpan(
                           text: "opular Users",
                           style: TextStyle(decoration: TextDecoration.none),
@@ -116,13 +120,13 @@ class _SearchInput extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .4,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.only(left: 10),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.horizontal(left: Radius.circular(25)),
       ),
       child: Row(
         children: [
-          Icon(Icons.search),
+          const Icon(Icons.search),
           Text(
             "Search",
             style: GoogleFonts.lato(

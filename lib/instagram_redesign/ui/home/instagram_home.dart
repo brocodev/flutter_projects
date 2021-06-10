@@ -35,6 +35,43 @@ class _InstagramHomeState extends State<InstagramHome>
     super.dispose();
   }
 
+  void _openStories(BuildContext context, IgUserStories stories) {
+    Navigator.push(context, PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: InstagramStories(
+            stories: stories,
+          ),
+        );
+      },
+    ));
+  }
+
+  void _openDetailsFromAmpleView(
+      BuildContext context, IgPost post, int indexPost) async {
+    setState(() {
+      selectedIndexPost = indexPost;
+    });
+    _controller.forward();
+    await Navigator.push(context, PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: InstagramPostDetail(
+            post: post,
+            postCard: AmplePostCard(
+              post: post,
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
+        );
+      },
+    ));
+    await Future.delayed(const Duration(milliseconds: 300));
+    _controller.reverse();
+  }
+
   @override
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
@@ -55,10 +92,10 @@ class _InstagramHomeState extends State<InstagramHome>
                   pinned: true,
                   toolbarHeight: 70,
                   leading: IconButton(
-                    icon: Icon(Feather.settings),
+                    icon: const Icon(Feather.settings),
                     onPressed: instagramBloc.showSettings,
                   ),
-                  title: Text("Instagram"),
+                  title: const Text("Instagram"),
                   actions: [
                     Padding(
                       padding: const EdgeInsets.only(right: 20),
@@ -69,12 +106,12 @@ class _InstagramHomeState extends State<InstagramHome>
                             onPressed: () {},
                             color:
                                 Theme.of(context).appBarTheme.iconTheme.color,
-                            icon: Icon(Feather.mail),
+                            icon: const Icon(Feather.mail),
                           ),
-                          Positioned(
+                          const Positioned(
                             right: 10,
                             bottom: 20,
-                            child: const RedDot(),
+                            child: RedDot(),
                           )
                         ],
                       ),
@@ -173,8 +210,13 @@ class _InstagramHomeState extends State<InstagramHome>
                                 tag: post.id,
                                 child: AmplePostCard(
                                   post: post,
-                                  onTap: () =>
-                                      _openDetailsFromAmpleView(context, post, index),
+                                  onTap: () {
+                                    _openDetailsFromAmpleView(
+                                      context,
+                                      post,
+                                      index,
+                                    );
+                                  },
                                   height: heightItem,
                                 )),
                           );
@@ -189,39 +231,5 @@ class _InstagramHomeState extends State<InstagramHome>
     );
   }
 
-  _openStories(BuildContext context, IgUserStories stories) {
-    Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: InstagramStories(
-            stories: stories,
-          ),
-        );
-      },
-    ));
-  }
 
-  void _openDetailsFromAmpleView(BuildContext context, IgPost post, int indexPost) async {
-    setState(() {
-      selectedIndexPost = indexPost;
-    });
-    _controller.forward();
-    await Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: InstagramPostDetail(
-            post: post,
-            postCard: AmplePostCard(
-              post: post,
-              borderRadius: BorderRadius.circular(50),
-            ),
-          ),
-        );
-      },
-    ));
-    await Future.delayed(const Duration(milliseconds: 300));
-    _controller.reverse();
-  }
 }

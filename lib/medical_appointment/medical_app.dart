@@ -8,6 +8,8 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalApp extends StatelessWidget {
+  const MedicalApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -39,17 +41,16 @@ class _MainPageState extends State<_MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomPadding: false,
       body: OverflowBox(
         alignment: Alignment.topCenter,
         maxHeight: MediaQuery.of(context).size.height,
         child: AnimatedSwitcher(
           duration: kThemeAnimationDuration,
-          child: [
+          child: const [
             MedicalHomePage(),
             DoctorsPage(),
-            const Scaffold(body: Center(child: Text("History"))),
-            const Scaffold(body: Center(child: Text("Urgency"))),
+            Scaffold(body: Center(child: Text("History"))),
+            Scaffold(body: Center(child: Text("Urgency"))),
           ][indexPage],
         ),
       ),
@@ -58,7 +59,7 @@ class _MainPageState extends State<_MainPage> {
         onTap: (value) => setState(() {
           indexPage = value;
         }),
-        items: [
+        items: const [
           TopRoundedNavigationBarItem(
             label: 'Home',
             selectedIcon: Icons.home_rounded,
@@ -66,7 +67,7 @@ class _MainPageState extends State<_MainPage> {
           TopRoundedNavigationBarItem(
               label: 'Doctors',
               selectedIcon: FontAwesome.user_md,
-              color: Colors.greenAccent[700]),
+              color: Color(0xFF06F884)),
           TopRoundedNavigationBarItem(
               label: 'History',
               selectedIcon: Icons.history,

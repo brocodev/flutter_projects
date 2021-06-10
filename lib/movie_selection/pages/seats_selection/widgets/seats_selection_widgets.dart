@@ -4,12 +4,13 @@ import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TypeSeatInfo extends StatelessWidget {
-  final int quantity;
-  final Color color;
-  final String label;
 
   const TypeSeatInfo({Key key, this.quantity, this.color, this.label})
       : super(key: key);
+
+  final int quantity;
+  final Color color;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class TypeSeatInfo extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: kPrimaryColorDark,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.black38, blurRadius: 50, offset: Offset(0, 10)),
           ],
@@ -100,7 +101,8 @@ class CustomAppBar extends StatelessWidget {
                   child: Text(
                     subtitle.toUpperCase(),
                     style: GoogleFonts.barlowCondensed(
-                        fontSize: size.height * .018, color: kPrimaryColorLight),
+                        fontSize: size.height * .018,
+                        color: kPrimaryColorLight),
                   ),
                 ),
               ],
@@ -113,10 +115,6 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class RowSeats extends StatelessWidget {
-  final int numSeats;
-  final List<int> seatsOccupied;
-  final ValueNotifier<int> seatsSelectedNotifier;
-
   const RowSeats({
     Key key,
     this.numSeats,
@@ -124,9 +122,13 @@ class RowSeats extends StatelessWidget {
     this.seatsSelectedNotifier,
   }) : super(key: key);
 
+  final int numSeats;
+  final List<int> seatsOccupied;
+  final ValueNotifier<int> seatsSelectedNotifier;
+
   @override
   Widget build(BuildContext context) {
-    final sizeItem = 22.0;
+    const  sizeItem = 22.0;
     return Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,

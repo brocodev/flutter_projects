@@ -11,7 +11,7 @@ class AppointmentDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final whiteSectionStyle = TextStyle(
+    const  whiteSectionStyle = TextStyle(
       color: Colors.white,
       fontSize: 18,
       fontWeight: FontWeight.bold,
@@ -19,8 +19,8 @@ class AppointmentDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        const  Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Text(
             'Hospital Address',
             style: whiteSectionStyle,
@@ -37,7 +37,7 @@ class AppointmentDetails extends StatelessWidget {
               color: Colors.white30, borderRadius: BorderRadius.circular(10)),
           child: Row(
             children: <Widget>[
-              Icon(
+              const Icon(
                 Icons.map,
                 size: 40,
                 color: Colors.white,
@@ -46,7 +46,7 @@ class AppointmentDetails extends StatelessWidget {
               Flexible(
                 child: Text(
                   mdAppointment.doctor.mdAddress.getLongAddress(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white70,
                   ),
@@ -55,8 +55,8 @@ class AppointmentDetails extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Text(
             'Medical indications',
             style: whiteSectionStyle,
@@ -96,7 +96,7 @@ class AppointmentDetails extends StatelessWidget {
                       child: Text(
                         mdIndication.description,
                         maxLines: 3,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),

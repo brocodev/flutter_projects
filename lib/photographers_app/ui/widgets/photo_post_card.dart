@@ -9,14 +9,14 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoPostCard extends StatefulWidget {
-  final PhotoPost post;
-  final bool isInverted;
-
   const PhotoPostCard({
     Key key,
     @required this.post,
     @required this.isInverted,
   }) : super(key: key);
+
+  final PhotoPost post;
+  final bool isInverted;
 
   @override
   _PhotoPostCardState createState() => _PhotoPostCardState();
@@ -35,7 +35,7 @@ class _PhotoPostCardState extends State<PhotoPostCard>
     _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(curve: Curves.decelerate, parent: _controller));
     _downOpacity = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        curve: Interval(
+        curve: const Interval(
           0.5,
           1.0,
           curve: Curves.decelerate,
@@ -104,7 +104,7 @@ class _PhotoPostCardState extends State<PhotoPostCard>
                         const SizedBox(width: 10),
                         Text(
                           widget.post.user.name.split(" ").first,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -117,7 +117,7 @@ class _PhotoPostCardState extends State<PhotoPostCard>
                       ..setTranslationRaw(0, widget.isInverted ? -45 : -10, 0),
                     child: Row(
                       children: [
-                        Icon(FontAwesome.commenting, size: 18),
+                        const Icon(FontAwesome.commenting, size: 18),
                         const SizedBox(width: 3),
                         Text(
                           widget.post.comments.toString(),

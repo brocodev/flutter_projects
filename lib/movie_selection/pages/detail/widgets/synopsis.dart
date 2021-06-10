@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class Synopsis extends StatelessWidget {
-  final String description;
-
   const Synopsis({Key key, this.description}) : super(key: key);
+
+  final String description;
 
   @override
   Widget build(BuildContext context) {

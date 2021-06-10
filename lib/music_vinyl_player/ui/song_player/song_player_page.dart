@@ -5,16 +5,16 @@ import 'package:flutter_projects/music_vinyl_player/models/song.dart';
 import 'package:flutter_projects/music_vinyl_player/ui/song_player/widgets/song_player_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const kDuration800ms = const Duration(milliseconds: 800);
-const kDurationTextStyle = const TextStyle(
+const kDuration800ms = Duration(milliseconds: 800);
+const kDurationTextStyle = TextStyle(
   fontFamily: 'Poppins',
   fontWeight: FontWeight.w500,
 );
 
 class SongPlayerPage extends StatefulWidget {
-  final Song song;
-
   const SongPlayerPage({Key key, @required this.song}) : super(key: key);
+
+  final Song song;
 
   @override
   _SongPlayerPageState createState() => _SongPlayerPageState();
@@ -72,7 +72,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
   //---------------------------------------------
   // On Init Drag
   //---------------------------------------------
-  void _onPanDown(details) {
+  void _onPanDown(DragDownDetails details) {
     _controller.stop();
     _controllerSkew.animateTo(
       .55,
@@ -83,9 +83,9 @@ class _SongPlayerPageState extends State<SongPlayerPage>
   //---------------------------------------------
   // On dragging
   //---------------------------------------------
-  void _onPanUpdate(details) {
+  void _onPanUpdate(DragUpdateDetails details) {
     setState(() {
-      if (details.delta.dx > 0) {
+      if (details.delta.dx > 0.0) {
         vinylDragValue += -.007;
         playedSeconds = (playedSeconds - .5).clamp(
           0.0,
@@ -104,7 +104,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
   //---------------------------------------------
   // On finish dragging
   //---------------------------------------------
-  void _onPanEnd(details) {
+  void _onPanEnd(DragEndDetails details) {
     if (isPlaying) {
       _controller.repeat();
     }
@@ -118,7 +118,8 @@ class _SongPlayerPageState extends State<SongPlayerPage>
   String _formatSongDuration(Duration duration) {
     final seconds =
         (duration - Duration(minutes: duration.inMinutes)).inSeconds.toString();
-    return '${duration.inMinutes}:${seconds.length == 1 ? '0' + seconds : seconds}';
+    final sec = seconds.length == 1 ? '0$seconds' : seconds;
+    return "${duration.inMinutes}:$sec";
   }
 
   @override
@@ -162,7 +163,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(sizeVinylDisk),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black54,
                               blurRadius: 100,
@@ -208,7 +209,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
             widget.song.album.author,
             style: GoogleFonts.poppins(
               fontSize: 20,
-              shadows: [
+              shadows: const [
                 Shadow(
                   color: Colors.black26,
                   blurRadius: 20,

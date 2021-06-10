@@ -4,6 +4,8 @@ import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketDateWidget extends StatelessWidget {
+  const TicketDateWidget({Key key}):super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final nowDate = DateTime.now();
@@ -41,14 +43,16 @@ class TicketDateWidget extends StatelessWidget {
         ),
         Text(
           '${nowDate.day} ${_getMonthByNumber(nowDate.month)}',
-          style:
-              GoogleFonts.barlowCondensed(color: kPrimaryColorDark, fontSize: 24),
+          style: GoogleFonts.barlowCondensed(
+            color: kPrimaryColorDark,
+            fontSize: 24,
+          ),
         )
       ],
     );
   }
 
-  _getMonthByNumber(int number) {
+  String _getMonthByNumber(int number) {
     return [
       'January',
       'February',

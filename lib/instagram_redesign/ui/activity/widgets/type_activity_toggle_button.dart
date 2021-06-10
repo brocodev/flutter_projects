@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TypeActivityToggleButton extends StatelessWidget {
   const TypeActivityToggleButton({
     Key key,
@@ -20,29 +19,31 @@ class TypeActivityToggleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final indicatorSize = 35.0;
+    const indicatorSize = 35.0;
     final indicatorColor = Colors.redAccent;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        FlatButton(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          shape: StadiumBorder(),
+        TextButton(
           onPressed: () {
             if (onPressed != null) {
               onPressed(value);
             }
           },
-          color: value == selectValue
-              ? colorScheme.onBackground
-              : colorScheme.primaryVariant,
-          textColor: value == selectValue
-              ? colorScheme.onPrimary
-              : colorScheme.onBackground,
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            shape: const StadiumBorder(),
+            backgroundColor: value == selectValue
+                ? colorScheme.onBackground
+                : colorScheme.primaryVariant,
+          ),
           child: Text(
             labelButton,
             style: TextStyle(
               fontWeight: FontWeight.bold,
+              color: value == selectValue
+                  ? colorScheme.onPrimary
+                  : colorScheme.onBackground,
             ),
           ),
         ),
@@ -61,8 +62,8 @@ class TypeActivityToggleButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(indicatorSize * .4),
               ),
               child: Text(
-                "$notifications",
-                style: TextStyle(
+                '$notifications',
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

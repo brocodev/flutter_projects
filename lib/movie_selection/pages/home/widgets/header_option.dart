@@ -16,8 +16,13 @@ class HeaderOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        alignment: Alignment(0, .5),
+        alignment: const Alignment(0, .5),
         height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: isSelected
+              ? kGradientRedOrange
+              : null,
+        ),
         child: Text(
           title.toUpperCase(),
           style: GoogleFonts.barlowCondensed(
@@ -26,11 +31,6 @@ class HeaderOption extends StatelessWidget {
             letterSpacing: 2,
             fontSize: 28,
           ),
-        ),
-        decoration: BoxDecoration(
-          gradient: isSelected
-              ? kGradientRedOrange
-              : null,
         ),
       ),
     );

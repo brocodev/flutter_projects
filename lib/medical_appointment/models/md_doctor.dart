@@ -2,16 +2,6 @@ import 'package:flutter_projects/medical_appointment/models/md_doctor_category.d
 import 'md_address.dart';
 
 class Doctor {
-  final String name;
-  final DoctorCategory doctorCategory;
-  final int patients;
-  final double rate;
-  final int likes;
-  final int graduationYear;
-  final int comments;
-  final String pngPhotoUrl;
-  final String photoUrl;
-  final MdAddress mdAddress;
 
   const Doctor({
     this.name,
@@ -26,7 +16,19 @@ class Doctor {
     this.photoUrl,
   });
 
-  static final drRichard = Doctor(
+  final String name;
+  final DoctorCategory doctorCategory;
+  final int patients;
+  final double rate;
+  final int likes;
+  final int graduationYear;
+  final int comments;
+  final String pngPhotoUrl;
+  final String photoUrl;
+  final MdAddress mdAddress;
+
+
+  static const  drRichard = Doctor(
     name: 'Richard Smith',
     photoUrl:
         'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',

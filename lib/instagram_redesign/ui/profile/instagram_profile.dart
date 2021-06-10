@@ -22,8 +22,8 @@ class InstagramProfile extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
         leadingWidth: 80,
         leading: IconButton(
-          onPressed: () => instagramBloc.showSettings(),
-          icon: Icon(Feather.settings),
+          onPressed: instagramBloc.showSettings,
+          icon: const Icon(Feather.settings),
         ),
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -34,13 +34,13 @@ class InstagramProfile extends StatelessWidget {
                   fontSize: 16,
                   color: Theme.of(context).appBarTheme.iconTheme.color),
             ),
-            Icon(Icons.keyboard_arrow_down)
+            const Icon(Icons.keyboard_arrow_down)
           ],
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Feather.menu),
+            icon: const Icon(Feather.menu),
           )
         ],
       ),
@@ -62,17 +62,16 @@ class InstagramProfile extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 Stack(
-                  alignment: Alignment(.7, -.8),
+                  alignment: const Alignment(.7, -.8),
                   children: [
                     _ImageProfile(imageProfileUrl: currentUser.photoUrl),
                   ],
                 ),
                 const SizedBox(width: 20),
                 IgTitleSubtitleText(
-                  title: (currentUser.followers / 1000)
+                  title: "${(currentUser.followers / 1000)
                           .toString()
-                          .substring(0, 4) +
-                      "K",
+                          .substring(0, 4)}K",
                   subtitle: "Followers",
                   height: 2,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,10 +126,11 @@ class InstagramProfile extends StatelessWidget {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                    text:
-                        'I like to travel and program different types of applications with Flutter, doctors me in my GitHub or Facebook like',
+                    text: 'I like to travel and program different types of '
+                        'applications with Flutter, doctors me in my GitHub'
+                        ' or Facebook like',
                     style: GoogleFonts.lato(color: Colors.grey),
-                    children: [
+                    children: const [
                       TextSpan(
                           text: " @brocodev",
                           style: TextStyle(
@@ -147,24 +147,26 @@ class InstagramProfile extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(3, (index) {
-                final selectedIndex = 2;
+                const selectedIndex = 2;
                 return Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: FlatButton(
-                      color: index == selectedIndex
-                          ? Colors.lightBlue
-                          : Colors.grey[100],
-                      textColor: index == selectedIndex
-                          ? Colors.white
-                          : Colors.grey[800],
-                      shape: ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.circular(50),
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: index == selectedIndex
+                            ? Colors.lightBlue
+                            : Colors.grey[100],
+                        shape: const StadiumBorder(),
                       ),
                       onPressed: () {},
                       child: Text(
                         ["Edit profile", "Statistics", "Contact"][index],
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: index == selectedIndex
+                              ? Colors.white
+                              : Colors.grey[800],
+                        ),
                       ),
                     ),
                   ),
@@ -187,11 +189,12 @@ class InstagramProfile extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final igCollection = currentUser.collections[index];
-                  if (index == 0)
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 15),
+                  if (index == 0) {
+                    return const Padding(
+                      padding: EdgeInsets.only(right: 15),
                       child: InstagramAddItem(itemSize: 70, label: 'New'),
                     );
+                  }
 
                   return Padding(
                     padding: const EdgeInsets.only(right: 15),
@@ -205,7 +208,7 @@ class InstagramProfile extends StatelessWidget {
                         ),
                         Text(
                           igCollection.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
@@ -253,7 +256,7 @@ class _ImageProfile extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Colors.purpleAccent,
                 Colors.orangeAccent,
@@ -263,7 +266,7 @@ class _ImageProfile extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(8.0),
           ),
-          child: Icon(
+          child: const Icon(
             Icons.add,
             size: 18,
             color: Colors.white,

@@ -15,11 +15,13 @@ class RoundedIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton.icon(
-      shape: StadiumBorder(
-        side: BorderSide(color: Colors.grey[200], width: 1.5),
+    return TextButton.icon(
+      style: TextButton.styleFrom(
+        shape: StadiumBorder(
+          side: BorderSide(color: Colors.grey[200], width: 1.5),
+        ),
+        padding: const EdgeInsets.fromLTRB(5, 5, 8, 5),
       ),
-      padding: const EdgeInsets.fromLTRB(5, 5, 8, 5),
       onPressed: onPressed,
       icon: Container(
         padding: const EdgeInsets.all(6.0),

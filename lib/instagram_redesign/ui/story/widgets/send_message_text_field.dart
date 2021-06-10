@@ -19,9 +19,9 @@ class SendMessageTextField extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
           hintText: 'Send message',
-          hintStyle: TextStyle(color: Colors.white),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 20),
+          hintStyle: const TextStyle(color: Colors.white),
+          suffixIcon: const Padding(
+            padding:  EdgeInsets.only(right: 20),
             child: Text(
               "| 😍",
               style: TextStyle(

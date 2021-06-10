@@ -1,15 +1,5 @@
 class Album {
-  final String title;
-  final String author;
-  final String pathImage;
-  final String description;
-  final int year;
-  final int songsCount;
-  final Duration duration;
-  final double rate;
-  final List<String> genres;
-
-  Album({
+  const Album({
     this.genres = const [
       "Power Pop",
       "Rap rock",
@@ -23,10 +13,29 @@ class Album {
     this.songsCount = 10,
     this.duration = const Duration(minutes: 74),
     this.description =
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting "
+            "industry. Lorem Ipsum has been the industry's standard dumm"
+            "y text ever since the 1500s, when an unknown printer took a"
+            " galley of type and scrambled it to make a type specimen boo"
+            "k. It has survived not only five centuries, but also the lea"
+            "p into electronic typesetting, remaining essentially unchang"
+            "ed. It was popularised in the 1960s with the release of Let"
+            "raset sheets containing Lorem Ipsum passages, and more recen"
+            "tly with desktop publishing software like Aldus PageMaker inc"
+            "luding versions of Lorem Ipsum.",
   });
 
-  static final listAlbum = [
+  final String title;
+  final String author;
+  final String pathImage;
+  final String description;
+  final int year;
+  final int songsCount;
+  final Duration duration;
+  final double rate;
+  final List<String> genres;
+
+  static const listAlbum = [
     Album(
         title: 'Apocalipsis Zombie',
         author: 'Cuarteto de nos',

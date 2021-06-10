@@ -7,19 +7,20 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingsBlurCard extends StatelessWidget {
-  final double height;
-
   const SettingsBlurCard({
     Key key,
     this.height = 0,
   }) : super(key: key);
+
+  final double height;
+
 
   @override
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
 
     return ClipRRect(
-      borderRadius: BorderRadius.vertical(bottom: Radius.circular(50)),
+      borderRadius: const BorderRadius.vertical(bottom: Radius.circular(50)),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaY: 20.0, sigmaX: 20.0),
         child: Container(
@@ -107,8 +108,8 @@ class SettingsBlurCard extends StatelessWidget {
                 const Spacer(),
                 InkWell(
                   onTap: instagramBloc.hideSettings,
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(5.0),
                     child: Icon(
                       Ionicons.ios_arrow_up,
                       color: Colors.white,
@@ -240,7 +241,7 @@ class _SettingsSwitcher extends StatelessWidget {
               child: Container(
                 height: 20,
                 width: 20,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
                 ),

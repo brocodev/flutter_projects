@@ -1,13 +1,19 @@
 import 'package:flutter_projects/photographers_app/models/users.dart';
 
 class PhotoPost {
+  PhotoPost({
+    this.photoPost,
+    this.comments,
+    this.likes,
+    this.isLiked,
+    this.user,
+  });
+
   final String photoPost;
   int comments;
   int likes;
   bool isLiked;
   final PhotoUser user;
-
-  PhotoPost({this.photoPost, this.comments, this.likes, this.isLiked, this.user});
 
   static final listHomePost = [
     PhotoPost(

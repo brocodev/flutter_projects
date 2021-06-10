@@ -19,7 +19,7 @@ class PlayerControls extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .7,
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 40,
@@ -35,14 +35,14 @@ class PlayerControls extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 iconSize: 38,
-                color: Color(0xffd4af70),
-                icon: Icon(Icons.skip_previous),
+                color: const Color(0xffd4af70),
+                icon: const Icon(Icons.skip_previous),
               ),
               IconButton(
                 onPressed: () {},
                 iconSize: 38,
-                color: Color(0xffd4af70),
-                icon: Icon(Icons.skip_next),
+                color: const Color(0xffd4af70),
+                icon: const Icon(Icons.skip_next),
               ),
             ],
           ),
@@ -51,7 +51,7 @@ class PlayerControls extends StatelessWidget {
           onTap: onPausePlay,
           borderRadius: BorderRadius.circular(45),
           child: CircleAvatar(
-            backgroundColor: Color(0xffd4af70),
+            backgroundColor: const Color(0xffd4af70),
             radius: 42,
             foregroundColor: Colors.white,
             child: Icon(

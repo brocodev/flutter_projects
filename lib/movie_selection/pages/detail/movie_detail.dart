@@ -13,12 +13,12 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class MovieDetail extends StatelessWidget {
-  final Movie movie;
-
   const MovieDetail({
     Key key,
     this.movie,
   }) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class MovieDetail extends StatelessWidget {
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            stops: [0.1, 0.25, 0.33, 0.45],
+                            stops: const [0.1, 0.25, 0.33, 0.45],
                           ),
                         ),
                         padding: EdgeInsets.only(top: heightVisiblePoster),
@@ -100,7 +100,7 @@ class MovieDetail extends StatelessWidget {
     );
   }
 
-  _openCinemaSelection(BuildContext context, Movie movie) {
+  void _openCinemaSelection(BuildContext context, Movie movie) {
     Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -137,7 +137,7 @@ class _BodyDetail extends StatelessWidget {
               onPressed: () {},
               backgroundColor: Colors.white38,
               foregroundColor: Colors.white,
-              child: Icon(Icons.play_arrow, size: 30),
+              child: const Icon(Icons.play_arrow, size: 30),
             ),
           ),
         ),

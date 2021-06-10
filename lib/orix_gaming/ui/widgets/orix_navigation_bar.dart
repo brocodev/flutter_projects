@@ -75,13 +75,13 @@ class _NavItemWidget extends StatelessWidget {
         const SizedBox(width: 4.0),
         AnimatedDefaultTextStyle(
           duration: kThemeChangeDuration,
-          child: Text(
-            item.label,
-          ),
           style: GoogleFonts.poppins(
             color: Colors.black,
             fontWeight: FontWeight.w600,
             fontSize: haveFocus ? 14 : 0,
+          ),
+          child: Text(
+            item.label,
           ),
         ),
       ],
@@ -90,13 +90,13 @@ class _NavItemWidget extends StatelessWidget {
 }
 
 class OrixNavigationBarItem {
-  final String label;
-  final IconData iconData;
-  final IconData unselectedIconData;
-
   OrixNavigationBarItem({
     @required this.label,
     @required this.iconData,
     @required this.unselectedIconData,
   });
+
+  final String label;
+  final IconData iconData;
+  final IconData unselectedIconData;
 }

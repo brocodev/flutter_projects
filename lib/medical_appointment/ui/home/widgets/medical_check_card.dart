@@ -24,7 +24,7 @@ class MedicalCheckCard extends StatelessWidget {
               BoxShadow(
                   color: Colors.grey.withOpacity(.1),
                   blurRadius: 10,
-                  offset: Offset(-3, 3)),
+                  offset: const Offset(-3, 3)),
             ],
           ),
           child: Row(
@@ -49,12 +49,11 @@ class MedicalCheckCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      medicalCheck.value.toString() +
-                          ' ' +
-                          medicalCheck.getMeasure(),
+                      '${medicalCheck.value.toString()} '
+                          '${medicalCheck.getMeasure()}',
                       overflow: TextOverflow.fade,
                       softWrap: false,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: MdAppColors.kLightCyan,
                       ),
@@ -73,14 +72,14 @@ class MedicalCheckCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
               color: _getMedicalStateColor(medicalCheck.getMedicalState()),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(10),
                 topLeft: Radius.circular(20),
               ),
             ),
             child: Text(
               medicalCheck.getMedicalState().toString().split(".")[1],
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
@@ -92,11 +91,11 @@ class MedicalCheckCard extends StatelessWidget {
     );
   }
 
-  _getMedicalStateColor(MedicalState medicalState) {
+  Color _getMedicalStateColor(MedicalState medicalState) {
     return {
-      MedicalState.Normal: Colors.lightGreenAccent[700],
-      MedicalState.Alert: Colors.amberAccent[700],
-      MedicalState.Danger: Colors.redAccent[700],
+      MedicalState.normal: Colors.lightGreenAccent[700],
+      MedicalState.alert: Colors.amberAccent[700],
+      MedicalState.danger: Colors.redAccent[700],
     }[medicalState];
   }
 }

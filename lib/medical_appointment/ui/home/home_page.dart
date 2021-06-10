@@ -8,6 +8,8 @@ import 'package:flutter_projects/medical_appointment/ui/home/widgets/home_widget
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalHomePage extends StatefulWidget {
+  const MedicalHomePage({Key key}) : super(key: key);
+
   @override
   _MedicalHomePageState createState() => _MedicalHomePageState();
 }
@@ -19,7 +21,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final expandDuration = const Duration(milliseconds: 400);
+    const expandDuration = Duration(milliseconds: 400);
     final heightCurtain = (size.width * .75).clamp(310.0, 340.0);
     final nextAppointment = MedicalAppointment.nextAppointment;
     return Scaffold(
@@ -52,12 +54,11 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                   //------SEARCH BUTTON AND USER IMAGE
                   //---------------------------------------------
                   const Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: const SearchAppBar(),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    child: SearchAppBar(),
                   ),
                   const Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     child: Text(
                       'Your next appointment',
                       style: TextStyle(
@@ -122,7 +123,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
     );
   }
 
-  _onTapExpandButton(Duration animationDuration) {
+  void _onTapExpandButton(Duration animationDuration) {
     if (expandAppointment) {
       setState(() {
         showAppointmentDetails = !showAppointmentDetails;
@@ -205,7 +206,7 @@ class _BodyHome extends StatelessWidget {
           height: 180,
           child: ListView.builder(
             itemExtent: 320,
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemCount: Doctor.listTopDoctor.length,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 15),

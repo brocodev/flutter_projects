@@ -7,6 +7,7 @@ import 'package:flutter_projects/find_out/ui/widgets/snake_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatelessWidget {
+  WelcomePage({Key key}) : super(key: key);
   final hideNotifier = ValueNotifier(false);
 
   @override
@@ -17,7 +18,7 @@ class WelcomePage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          AnimatedBackground(),
+          const AnimatedBackground(),
           ValueListenableBuilder(
             valueListenable: hideNotifier,
             builder: (context, value, child) {
@@ -37,7 +38,7 @@ class WelcomePage extends StatelessWidget {
               );
             },
             child: Center(
-              child: Container(
+              child: SizedBox(
                 height: size.height * .75,
                 width: double.infinity,
                 child: Padding(
@@ -62,14 +63,16 @@ class WelcomePage extends StatelessWidget {
                       ),
                       Text(
                         'Descubre mas!',
-                        style: GoogleFonts.poppins(fontSize: size.height * .024),
+                        style:
+                            GoogleFonts.poppins(fontSize: size.height * .024),
                       ),
                       const Spacer(flex: 5),
                       Row(
                         children: <Widget>[
                           Expanded(
                             child: SnakeButton(
-                              onPressed: () => _openPage(context, LoginPage()),
+                              onPressed: () =>
+                                  _openPage(context, const LoginPage()),
                               child: Text(
                                 'Iniciar sesión',
                                 style: GoogleFonts.poppins(
@@ -83,7 +86,7 @@ class WelcomePage extends StatelessWidget {
                           Expanded(
                             child: RectangularButton(
                               onPressed: () =>
-                                  _openPage(context, RegisterPage()),
+                                  _openPage(context, const RegisterPage()),
                               label: 'Registro',
                             ),
                           ),
@@ -128,12 +131,12 @@ class RectangularButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .056,
-      child: FlatButton(
+      child: TextButton(
         onPressed: onPressed,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.white, width: 3)),
+        style: TextButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+              side: BorderSide(color: Colors.white, width: 3)),
+        ),
         child: Text(
           label,
           style: GoogleFonts.poppins(

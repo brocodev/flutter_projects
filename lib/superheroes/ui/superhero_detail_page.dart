@@ -4,12 +4,13 @@ import 'package:flutter_projects/superheroes/models/superhero.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroDetailPage extends StatefulWidget {
-  final Superhero superhero;
 
   const SuperheroDetailPage({
     Key key,
     @required this.superhero,
   }) : super(key: key);
+
+  final Superhero superhero;
 
   @override
   _SuperheroDetailPageState createState() => _SuperheroDetailPageState();
@@ -33,13 +34,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
 
     _colorGradientValue = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
-          curve: Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
+          curve: const Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
           parent: _controller),
     );
 
     _whiteGradientValue = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
-          curve: Interval(0.1, 1.0, curve: Curves.fastOutSlowIn),
+          curve: const Interval(0.1, 1.0, curve: Curves.fastOutSlowIn),
           parent: _controller),
     );
 
@@ -61,8 +62,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
 
   @override
   void dispose() {
-    _controller.removeStatusListener(_statusListener);
-    _controller.dispose();
+    _controller
+      ..removeStatusListener(_statusListener)
+      ..dispose();
     super.dispose();
   }
 
@@ -70,10 +72,11 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
   // Status Listener
   //----------------------------------------
   void _statusListener(AnimationStatus status) {
-    if (status == AnimationStatus.completed)
+    if (status == AnimationStatus.completed) {
       setState(() {
         _enableInfoItems = true;
       });
+    }
   }
 
   //-----------------------
@@ -104,7 +107,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
           //-------------------------
           Positioned.fill(
               child: Hero(
-            tag: widget.superhero.heroName + "background",
+            tag: "${widget.superhero.heroName}background",
             child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, __) {
@@ -163,15 +166,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             tag: widget.superhero.heroName,
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
+                              style: textTheme.headline2.copyWith(
+                                  color: _changeToBlack
+                                      ? Colors.black
+                                      : Colors.white),
                               child: Text(
                                 widget.superhero.heroName
                                     .replaceAll(' ', '\n')
                                     .toLowerCase(),
                               ),
-                              style: textTheme.headline2.copyWith(
-                                  color: _changeToBlack
-                                      ? Colors.black
-                                      : Colors.white),
                             ),
                           ),
                         ),
@@ -186,13 +189,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             tag: widget.superhero.name,
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
-                              child: Text(
-                                widget.superhero.name.toLowerCase(),
-                              ),
                               style: textTheme.headline5.copyWith(
                                   color: _changeToBlack
                                       ? Colors.black
                                       : Colors.white),
+                              child: Text(
+                                widget.superhero.name.toLowerCase(),
+                              ),
                             ),
                           ),
                           //--------------------------
@@ -205,17 +208,17 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                               begin: 0.0,
                               end: _enableInfoItems ? 1.0 : 0.0,
                             ),
-                            child: Image.asset(
-                              'assets/img/superheroes/marvel_logo.jpg',
-                              height: 35,
-                              width: 100,
-                            ),
                             builder: (context, value, child) {
                               return Transform.scale(
                                 scale: value,
                                 child: child,
                               );
                             },
+                            child: Image.asset(
+                              'assets/img/superheroes/marvel_logo.jpg',
+                              height: 35,
+                              width: 100,
+                            ),
                           )
                         ],
                       ),
@@ -296,13 +299,6 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           begin: 0.0,
                           end: _enableInfoItems ? 0.0 : 1.0,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: CachedNetworkImage(imageUrl: movie.urlImage),
-                          ),
-                        ),
                         builder: (context, value, child) {
                           return Transform.translate(
                             offset: Offset(0, 50 * value),
@@ -311,6 +307,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                                 child: child),
                           );
                         },
+                        child:  Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: CachedNetworkImage(imageUrl: movie.urlImage),
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -327,7 +330,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
             child: SafeArea(
               child: IconButton(
                 onPressed: _backButtonTap,
-                icon: Icon(Icons.arrow_back_ios),
+                icon: const Icon(Icons.arrow_back_ios),
               ),
             ),
           )

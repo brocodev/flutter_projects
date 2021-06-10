@@ -3,12 +3,6 @@ import 'package:flutter_projects/medical_appointment/utils/md_icons_icons.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class DoctorCategory {
-  final String nameCategory;
-  final int specialists;
-  final int doctors;
-  final int rawColor;
-  final IconData iconData;
-
   const DoctorCategory._({
     this.iconData,
     this.nameCategory,
@@ -16,6 +10,12 @@ class DoctorCategory {
     this.doctors,
     this.rawColor,
   });
+
+  final String nameCategory;
+  final int specialists;
+  final int doctors;
+  final int rawColor;
+  final IconData iconData;
 
   static const kCardiologist = DoctorCategory._(
       nameCategory: 'Cardiologist',

@@ -27,12 +27,12 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
     _sizeAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Interval(0.0, 0.6, curve: Curves.fastOutSlowIn),
+      curve: const Interval(0.0, 0.6, curve: Curves.fastOutSlowIn),
     ));
 
     _itemsAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Interval(0.6, 1.0, curve: Curves.decelerate),
+      curve: const Interval(0.6, 1.0, curve: Curves.decelerate),
     ));
     Future.delayed(const Duration(milliseconds: 300), () {
       _animationController.forward();
@@ -54,7 +54,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
       // Animated Background
       //--------------------------------
       body: DecoratedBox(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -79,8 +79,8 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                         Colors.white,
                       ),
                     ),
-                    icon: Icon(Icons.arrow_back_ios),
-                    label: Text('Back'),
+                    icon: const Icon(Icons.arrow_back_ios),
+                    label: const Text('Back'),
                   )
                 ],
               ),
@@ -136,10 +136,11 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                         opacity: _itemsAnimation,
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.vertical(
+                                            borderRadius:
+                                                const BorderRadius.vertical(
                                               top: Radius.circular(8.0),
                                             ),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: Colors.black26,
                                                   blurRadius: 10,
@@ -166,9 +167,11 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 30),
                                             child: Text(
-                                              '${widget.album.songs.first} by ${widget.album.author} - ${widget.album.title}',
+                                              '${widget.album.songs.first} '
+                                              'by ${widget.album.author} - '
+                                              '${widget.album.title}',
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -224,7 +227,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
               child: Container(
                 width: size.width * .2,
                 height: size.width * .15,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(25),
@@ -288,7 +291,7 @@ class _AnimatedPlayerControls extends StatelessWidget {
                       onPressed: () {},
                       backgroundColor: Colors.white,
                       elevation: 1,
-                      foregroundColor: Color(0xffc21451),
+                      foregroundColor: const Color(0xffc21451),
                       child: Icon(listIcons[i]),
                     ),
                   );

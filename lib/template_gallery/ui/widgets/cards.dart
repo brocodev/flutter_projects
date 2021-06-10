@@ -27,11 +27,11 @@ class ContactCard extends StatelessWidget {
             width: 70,
             decoration: BoxDecoration(
               color: borderColor,
-              borderRadius: BorderRadius.vertical(
+              borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(10),
               ),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.add,
               color: Colors.white,
             ),
@@ -46,7 +46,7 @@ class ContactCard extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: borderColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                   topRight: Radius.circular(20)),
@@ -68,7 +68,7 @@ class ContactCard extends StatelessWidget {
                   //---------------------------
                   Row(
                     children: [
-                      Icon(
+                      const  Icon(
                         Icons.person_outlined,
                         size: 40,
                       ),
@@ -80,14 +80,14 @@ class ContactCard extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: '\n${contact.role}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal,
                                     height: 1.5),
                               )
                             ],
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -98,14 +98,14 @@ class ContactCard extends StatelessWidget {
                   //---------------------------
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.home_outlined,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
                       Text(
                         contact.address,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.deepPurple,
                         ),
@@ -117,14 +117,14 @@ class ContactCard extends StatelessWidget {
                   //---------------------------
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.phone_outlined,
                         size: 40,
                       ),
                       const SizedBox(width: 10),
                       Text(
                         contact.phone,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
                     ],
@@ -134,7 +134,7 @@ class ContactCard extends StatelessWidget {
                   //---------------------------
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.email_outlined,
                         size: 40,
                       ),
@@ -144,14 +144,14 @@ class ContactCard extends StatelessWidget {
                         children: [
                           Text(
                             contact.email,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.deepPurple,
                             ),
                           ),
                           Text(
                             contact.website,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.deepPurple,
                             ),

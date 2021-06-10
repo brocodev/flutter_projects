@@ -1,11 +1,4 @@
 class PhotoUser {
-  final String name;
-  final String typeUser;
-  final int followers;
-  final int following;
-  final String photoUrl;
-  final List<String> listPhotosUrl;
-
   PhotoUser({
     this.name,
     this.typeUser,
@@ -14,6 +7,13 @@ class PhotoUser {
     this.photoUrl,
     this.listPhotosUrl,
   });
+
+  final String name;
+  final String typeUser;
+  final int followers;
+  final int following;
+  final String photoUrl;
+  final List<String> listPhotosUrl;
 
   static final liliana = PhotoUser(
       name: 'Liliana Mondragon',

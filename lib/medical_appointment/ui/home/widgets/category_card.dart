@@ -33,7 +33,7 @@ class CategoryCard extends StatelessWidget {
             child: Container(
               height: 90,
               width: 90,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white12,
                 shape: BoxShape.circle,
               ),
@@ -75,7 +75,7 @@ class CategoryCard extends StatelessWidget {
                     ],
                   ),
                   textAlign: TextAlign.end,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w600,
                   ),

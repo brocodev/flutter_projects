@@ -41,7 +41,7 @@ class TopDoctorCard extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      gradient: LinearGradient(colors: [
+                      gradient: const LinearGradient(colors: [
                         MdAppColors.kLightBlue,
                         MdAppColors.kBlue,
                       ])),
@@ -53,7 +53,7 @@ class TopDoctorCard extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                     ),
                     child: CachedNetworkImage(
@@ -61,7 +61,7 @@ class TopDoctorCard extends StatelessWidget {
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => Center(
+                      placeholder: (context, url) => const Center(
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation(Colors.white60),
                         ),
@@ -102,7 +102,7 @@ class _DoctorInformation extends StatelessWidget {
         //--------------------------------------------
         Text(
           'Dr. ${doctor.name}',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w600,
@@ -110,7 +110,7 @@ class _DoctorInformation extends StatelessWidget {
         ),
         Text(
           doctor.doctorCategory.nameCategory,
-          style: TextStyle(
+          style: const TextStyle(
             height: 1.0,
             color: Colors.white70,
           ),
@@ -159,7 +159,7 @@ class _DoctorInformation extends StatelessWidget {
                       doctor.rate.toString(),
                       style: countTextStyle,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: Colors.yellow,
                       size: 16,
@@ -195,7 +195,7 @@ class _WhiteBackground extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.withOpacity(.2),
             blurRadius: 20,
-            offset: Offset(-5, 5),
+            offset: const Offset(-5, 5),
           )
         ],
       ),
@@ -234,7 +234,7 @@ class _WhiteBackground extends StatelessWidget {
         const SizedBox(width: 3),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w500,
             color: MdAppColors.kDarkTeal,

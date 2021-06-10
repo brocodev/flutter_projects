@@ -30,7 +30,7 @@ class GradientButton extends StatelessWidget {
         height: size.height * .07,
         width: width?? size.width,
         decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow:const  [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 20,

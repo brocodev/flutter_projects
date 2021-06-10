@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LikeButton extends StatelessWidget {
-  final int likes;
-  final bool isLiked;
-  final Color textColor;
-  final VoidCallback onTap;
-  final Color backgroundColor;
-
   const LikeButton({
     Key key,
     @required this.likes,
@@ -18,6 +12,12 @@ class LikeButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.backgroundColor,
   }) : super(key: key);
+
+  final int likes;
+  final bool isLiked;
+  final Color textColor;
+  final VoidCallback onTap;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +58,10 @@ class LikeButton extends StatelessWidget {
     );
   }
 
-  _getFormatLikes() {
+  String _getFormatLikes() {
     if (likes >= 1000) {
       final textLikes = (likes / 1000).toString().split('.');
-      return textLikes.first + "," + textLikes.last.split('').first + 'K';
+      return "${textLikes.first} , ${textLikes.last.split('').first} 'K'";
     }
     return "$likes";
   }

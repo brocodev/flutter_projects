@@ -136,8 +136,8 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
     );
   }
 
-  _openTrendingPage(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => OrixTrendingPage()));
+  void _openTrendingPage(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const OrixTrendingPage()));
   }
 }

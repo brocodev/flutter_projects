@@ -5,12 +5,12 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class BottomTabViewProfile extends StatefulWidget {
-  final IgUser user;
-
   const BottomTabViewProfile({
     Key key,
     @required this.user,
   }) : super(key: key);
+
+  final IgUser user;
 
   @override
   _BottomTabViewProfileState createState() => _BottomTabViewProfileState();
@@ -36,8 +36,8 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
         labelColor: colorScheme.onBackground,
         unselectedLabelColor: colorScheme.onBackground.withOpacity(.3),
         controller: _tabController,
-        indicator: UnderlineTabIndicator(borderSide: BorderSide.none),
-        tabs: [
+        indicator: const UnderlineTabIndicator(borderSide: BorderSide.none),
+        tabs: const [
           Tab(icon: Icon(Icons.widgets)),
           Tab(icon: Icon(Icons.ondemand_video)),
           Tab(icon: Icon(Feather.tv)),
@@ -67,7 +67,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
               StaggeredTile.count(index == 0 ? 2 : 1, index == 0 ? 2 : 1),
         ),
 
-        const Center(child: Text("Videos")),  //---VIDEOS
+        const Center(child: Text("Videos")), //---VIDEOS
         const Center(child: Text("Streams")), //---STREAMS
         const Center(child: Text("Friends")), //---CONTACTS
 
@@ -75,7 +75,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
         //------EXTERNAL PLATFORMS GRID VIEW
         //-------------------------------------
         GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 10 / 2.8,
               crossAxisCount: 2,
               crossAxisSpacing: 15,
@@ -98,7 +98,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
                   color: externalPlatform.haveDarkImage
                       ? Colors.white
                       : Colors.black,
-                  icon: Icon(Icons.launch),
+                  icon: const Icon(Icons.launch),
                 ),
               ),
             );

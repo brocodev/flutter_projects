@@ -48,8 +48,9 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
 
   @override
   void dispose() {
-    _pageController.removeListener(_pageListener);
-    _pageController.dispose();
+    _pageController
+      ..removeListener(_pageListener)
+      ..dispose();
     super.dispose();
   }
 
@@ -160,10 +161,10 @@ class _PerspectiveItems extends StatelessWidget {
           //---------------------------------
           (currentIndex > (generatedItems - 1))
               ? _TransformedItem(
-                  child: children[currentIndex - generatedItems],
                   heightItem: heightItem,
                   factorChange: 1.0,
                   endScale: .5,
+                  child: children[currentIndex - generatedItems],
                 )
               : const SizedBox(),
           //----------------------------------
@@ -174,14 +175,14 @@ class _PerspectiveItems extends StatelessWidget {
                 ? _TransformedItem(
                     heightItem: heightItem,
                     factorChange: pagePercent,
-                    child: children[
-                        currentIndex - (((generatedItems - 2) - index) + 1)],
                     scale: lerpDouble(0.5, 1, (index + 1) / (generatedItems)),
                     translateY:
                         (height - heightItem) * (index + 1) / (generatedItems),
                     endScale: lerpDouble(0.5, 1, index / (generatedItems)),
                     endTranslateY:
                         (height - heightItem) * (index / (generatedItems)),
+                    child: children[
+                        currentIndex - (((generatedItems - 2) - index) + 1)],
                   )
                 : const SizedBox(),
           //---------------------------------
@@ -191,9 +192,9 @@ class _PerspectiveItems extends StatelessWidget {
               ? _TransformedItem(
                   heightItem: heightItem,
                   factorChange: pagePercent,
-                  child: children[currentIndex + 1],
                   translateY: height + 20,
                   endTranslateY: (height - heightItem),
+                  child: children[currentIndex + 1],
                 )
               : const SizedBox()
         ],

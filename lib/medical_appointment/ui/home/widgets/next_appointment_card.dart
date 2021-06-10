@@ -58,7 +58,7 @@ class NextAppointmentCard extends StatelessWidget {
                         mdAppointment.title,
                         textAlign: TextAlign.center,
                         maxLines: 2,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 15,
                           height: 1.2,
                           fontWeight: FontWeight.bold,
@@ -122,13 +122,13 @@ class NextAppointmentCard extends StatelessWidget {
             right: 0,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white60,
                   borderRadius:
                       BorderRadius.only(bottomLeft: Radius.circular(20))),
               child: Text(
                 MdUtils.extractHourDate(mdAppointment.date),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   color: MdAppColors.kDarkBlue,
@@ -144,15 +144,15 @@ class NextAppointmentCard extends StatelessWidget {
   Text _buildTextRich({String title, String subtitle}) {
     return Text.rich(
       TextSpan(
-        text: title + "\n",
+        text: '$title \n',
         children: [
           TextSpan(
             text: subtitle,
-            style: TextStyle(fontWeight: FontWeight.normal),
+            style: const TextStyle(fontWeight: FontWeight.normal),
           ),
         ],
       ),
-      style: TextStyle(
+      style:const  TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.white,
       ),

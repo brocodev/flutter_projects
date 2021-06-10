@@ -5,11 +5,11 @@ class InstagramTheme {
   static final kAppBarThemeLight = AppBarTheme(
       iconTheme: IconThemeData(color: Colors.grey.shade400),
       brightness: Brightness.light,
-      color: Color(0xFFF2F6F9),
+      color: const Color(0xFFF2F6F9),
       elevation: 0,
       centerTitle: true,
       textTheme: TextTheme(
-        title: GoogleFonts.satisfy(
+        headline6: GoogleFonts.satisfy(
           color: Colors.black,
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -17,11 +17,11 @@ class InstagramTheme {
       ));
 
   static final kAppBarThemeDark = kAppBarThemeLight.copyWith(
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.white),
       brightness: Brightness.dark,
       color: Colors.black,
       textTheme: TextTheme(
-        title: GoogleFonts.satisfy(
+        headline6: GoogleFonts.satisfy(
           color: Colors.white,
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -39,9 +39,9 @@ class InstagramTheme {
 
   static final kLightTheme = ThemeData(
     primaryColorBrightness: Brightness.dark,
-    scaffoldBackgroundColor: Color(0xFFF2F6F9),
+    scaffoldBackgroundColor: const Color(0xFFF2F6F9),
     backgroundColor: Colors.grey[100],
-    colorScheme: ColorScheme.light(primaryVariant: Colors.white),
+    colorScheme: const ColorScheme.light(primaryVariant: Colors.white),
     textTheme: GoogleFonts.latoTextTheme(),
     appBarTheme: InstagramTheme.kAppBarThemeLight,
   );

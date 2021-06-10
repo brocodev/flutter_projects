@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 
 class AnimatedLine extends StatelessWidget {
-  final int index;
-  final int selectedIndex;
-  final AnimationController animationController;
-
   const AnimatedLine({
     Key key,
     @required this.index,
     @required this.selectedIndex,
     this.animationController,
   }) : super(key: key);
+
+  final int index;
+  final int selectedIndex;
+  final AnimationController animationController;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class AnimatedLine extends StatelessWidget {
                   : 0.0,
               minHeight: 4,
               backgroundColor: Colors.white54,
-              valueColor: AlwaysStoppedAnimation(Colors.white),
+              valueColor: const AlwaysStoppedAnimation(Colors.white),
             );
           }),
     );

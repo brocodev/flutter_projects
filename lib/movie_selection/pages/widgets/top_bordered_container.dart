@@ -29,7 +29,7 @@ class TopBorderedContainer extends StatelessWidget {
       height: size.height * .11,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
         boxShadow: [
           BoxShadow(
@@ -39,8 +39,7 @@ class TopBorderedContainer extends StatelessWidget {
         ],
         color: kPrimaryColor,
       ),
-      child: child == null
-          ? Row(
+      child: child ?? Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Column(
@@ -61,7 +60,7 @@ class TopBorderedContainer extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TagContainer(
+              const TagContainer(
                 tag: '  IDMB  ',
                 gradient: LinearGradient(
                   colors: [Colors.yellow, Colors.orangeAccent],
@@ -89,8 +88,7 @@ class TopBorderedContainer extends StatelessWidget {
             ],
           )
         ],
-      )
-          : child,
+      ),
     );
   }
 }

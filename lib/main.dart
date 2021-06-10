@@ -14,13 +14,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,31 +38,33 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
-        "/": (context) => MainPage(),
-        _ProjectModel.findOut.route: (context) => FindOutApp(),
-        _ProjectModel.movieSelection.route: (context) => MovieSelectionApp(),
-        _ProjectModel.musicApp.route: (context) => MusicAlbumList(),
-        _ProjectModel.musicAppTwo.route: (context) => MusicVinylPlayer(),
-        _ProjectModel.medicalAppointment.route: (context) => MedicalApp(),
-        _ProjectModel.photographersApp.route: (context) => PhotographersApp(),
-        _ProjectModel.instagram.route: (context) => InstagramApp(),
-        _ProjectModel.superheroes.route: (context) => SuperheroesApp(),
-        _ProjectModel.orixGaming.route: (context) => OrixGamingApp(),
-        _ProjectModel.bookApp.route: (context) => BookApp(),
-        _ProjectModel.templateGallery.route: (context) => TemplateGalleryApp(),
+        "/": (context) => const MainPage(),
+        _ProjectModel.findOut.route: (_) => const FindOutApp(),
+        _ProjectModel.movieSelection.route: (_) => const MovieSelectionApp(),
+        _ProjectModel.musicApp.route: (_) => const MusicAlbumList(),
+        _ProjectModel.musicAppTwo.route: (_) => const MusicVinylPlayer(),
+        _ProjectModel.medicalAppointment.route: (_) => const MedicalApp(),
+        _ProjectModel.photographersApp.route: (_) => const PhotographersApp(),
+        _ProjectModel.instagram.route: (_) => const InstagramApp(),
+        _ProjectModel.superheroes.route: (_) => const SuperheroesApp(),
+        _ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
+        _ProjectModel.bookApp.route: (_) => const BookStoreApp(),
+        _ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
       },
     );
   }
 }
 
 class MainPage extends StatelessWidget {
+  const MainPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[50],
         elevation: 0,
-        leading: Center(child: FlutterLogo(size: 30)),
+        leading: const Center(child: FlutterLogo(size: 30)),
         title: Text(
           "My Flutter Projects",
           style: GoogleFonts.poppins(
@@ -106,7 +110,7 @@ class _ProjectCard extends StatelessWidget {
                   BoxShadow(
                       color: Colors.grey[200],
                       blurRadius: 20,
-                      offset: Offset(-6, 6))
+                      offset: const Offset(-6, 6))
                 ]),
             child: Row(
               children: [
@@ -164,19 +168,21 @@ class _ProjectCard extends StatelessWidget {
                       SizedBox(
                         height: 30,
                         width: double.infinity,
-                        child: FlatButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                        child: TextButton(
                           onPressed: () =>
                               Navigator.pushNamed(context, project.route),
-                          color: Colors.cyan[50],
-                          textColor: Colors.cyan,
+                          style: TextButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            backgroundColor: Colors.cyan[50],
+                          ),
                           child: Text(
                             "See project",
                             maxLines: 1,
                             softWrap: false,
                             style: GoogleFonts.poppins(
                               fontSize: 12,
+                              color: Colors.cyan,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -195,12 +201,6 @@ class _ProjectCard extends StatelessWidget {
 }
 
 class _ProjectModel {
-  final String title;
-  final String description;
-  final String designer;
-  final String pathImage;
-  final String route;
-
   const _ProjectModel({
     this.title,
     this.description,
@@ -208,6 +208,12 @@ class _ProjectModel {
     this.pathImage,
     this.route,
   });
+
+  final String title;
+  final String description;
+  final String designer;
+  final String pathImage;
+  final String route;
 
   static const findOut = _ProjectModel(
       title: "Find Out",

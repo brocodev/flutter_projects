@@ -18,7 +18,7 @@ class DescriptionCard extends StatelessWidget {
     return Container(
       padding: padding,
       margin: const EdgeInsets.only(bottom: 20),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30.0),
@@ -26,7 +26,7 @@ class DescriptionCard extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
-              offset: Offset(-10,10),
+              offset: Offset(-10, 10),
               blurRadius: 10,
             )
           ]),
@@ -41,13 +41,13 @@ class DescriptionCard extends StatelessWidget {
               Text(
                 "Album",
                 style: GoogleFonts.spectral(
-                    color: Color(0xffd4af90),
+                    color: const Color(0xffd4af90),
                     fontWeight: FontWeight.w800,
                     fontSize: 16),
               ),
               const Spacer(),
               RowStars(
-                color: Color(0xffd4af90),
+                color: const Color(0xffd4af90),
                 size: 14,
                 stars: album.rate,
               ),
@@ -98,8 +98,10 @@ class DescriptionCard extends StatelessWidget {
                 TextSpan(text: '${album.songsCount} songs'),
                 _buildDotSpan(),
                 TextSpan(
-                    text:
-                        '${album.duration.inHours} hr ${(album.duration - Duration(hours: 1)).inMinutes} min'),
+                    text: '${album.duration.inHours} hr '
+                        // ignore: lines_longer_than_80_chars
+                        '${(album.duration - const Duration(hours: 1)).inMinutes}'
+                        ' min'),
               ],
             ),
             style: GoogleFonts.poppins(

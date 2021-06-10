@@ -10,9 +10,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class PaymentPage extends StatelessWidget {
-  final Movie movie;
-
   const PaymentPage({Key key, this.movie}) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +36,15 @@ class PaymentPage extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                Padding(
-                    padding: const EdgeInsets.only(right: 20, top: 10),
+                const Padding(
+                    padding: EdgeInsets.only(right: 20, top: 10),
                     child: CustomAppBar(
                       title: 'Payment details',
                       subtitle: 'Amount to be paid : 60 MXN',
                     )),
                 const SizedBox(height: 20),
-                TranslateAnimation(
-                    duration: const Duration(milliseconds: 550),
+                const TranslateAnimation(
+                    duration:  Duration(milliseconds: 550),
                     child: CreditCardSlide()),
                 const SizedBox(height: 70),
                 TranslateAnimation(

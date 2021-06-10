@@ -4,12 +4,6 @@ import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TopRoundedNavigationBar extends StatelessWidget {
-  final List<TopRoundedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
-  final int currentIndex;
-  final Color selectedColor;
-  final Color unselectedColor;
-
   const TopRoundedNavigationBar({
     Key key,
     @required this.items,
@@ -19,13 +13,19 @@ class TopRoundedNavigationBar extends StatelessWidget {
     this.unselectedColor = Colors.grey,
   }) : super(key: key);
 
+  final List<TopRoundedNavigationBarItem> items;
+  final ValueChanged<int> onTap;
+  final int currentIndex;
+  final Color selectedColor;
+  final Color unselectedColor;
+
   @override
   Widget build(BuildContext context) {
     assert(items.length > 1);
     return Container(
       height: kToolbarHeight,
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -58,26 +58,20 @@ class TopRoundedNavigationBar extends StatelessWidget {
 }
 
 class TopRoundedNavigationBarItem {
-  final String label;
-  final IconData selectedIcon;
-  final IconData unselectedIcon;
-  final Color color;
-
   const TopRoundedNavigationBarItem({
     @required this.label,
     @required this.selectedIcon,
     this.unselectedIcon,
     this.color,
   });
+
+  final String label;
+  final IconData selectedIcon;
+  final IconData unselectedIcon;
+  final Color color;
 }
 
 class _TopRoundedNavigationBarButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final TopRoundedNavigationBarItem item;
-  final bool isSelected;
-  final Color selectedColor;
-  final Color unselectedColor;
-
   const _TopRoundedNavigationBarButton({
     Key key,
     this.onPressed,
@@ -86,6 +80,12 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
     this.selectedColor = MdAppColors.kBlue,
     this.unselectedColor = Colors.grey,
   }) : super(key: key);
+
+  final VoidCallback onPressed;
+  final TopRoundedNavigationBarItem item;
+  final bool isSelected;
+  final Color selectedColor;
+  final Color unselectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -107,13 +107,13 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
             ),
             const SizedBox(width: 5),
             AnimatedDefaultTextStyle(
-              child: Text(item.label),
               curve: Curves.fastOutSlowIn,
               duration: kThemeAnimationDuration,
               style: GoogleFonts.poppins(
                   fontSize: isSelected ? 14 : 0,
                   color: color,
                   fontWeight: FontWeight.w600),
+              child: Text(item.label),
             )
           ],
         ),

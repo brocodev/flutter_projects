@@ -12,13 +12,13 @@ class NowPlayingAppBar extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
           color: Colors.grey[100],
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(60),
           )),
       child: SafeArea(
         child: Row(
           children: <Widget>[
-            BackButton(),
+            const BackButton(),
             const Spacer(),
             Text(
               "NOW PLAYING",

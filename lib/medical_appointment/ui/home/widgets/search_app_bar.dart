@@ -9,7 +9,7 @@ class SearchAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = 45.0;
+    const height = 45.0;
     return SafeArea(
       child: Row(
         children: <Widget>[
@@ -22,11 +22,11 @@ class SearchAppBar extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.white38,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-                  suffixIcon: Icon(Icons.search, color: Colors.white70),
+                  suffixIcon: const Icon(Icons.search, color: Colors.white70),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: BorderSide.none),
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Colors.white70,
                       fontWeight: FontWeight.w700,
                       fontSize: 14),

@@ -7,7 +7,7 @@ const Color kPrimaryColorDark = Color(0xff303043);
 const Color kPrimaryColor = Color(0xff454561);
 const Color kPrimaryColorLight = Color(0xffa0a0bf);
 
-const kDuration400ms = const Duration(milliseconds: 400);
+const kDuration400ms = Duration(milliseconds: 400);
 
 const kGradientRedOrange = LinearGradient(
     colors: [kAccentColor, kAccentSecondaryColor],

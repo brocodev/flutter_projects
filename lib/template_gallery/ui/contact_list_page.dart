@@ -12,22 +12,22 @@ class ContactListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
+            bottom:  Radius.circular(20),
           ),
         ),
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
-        title: Text('TEMPLATE GALLERY'),
+        title: const Text('TEMPLATE GALLERY'),
       ),
       body: PerspectiveListView(
         visualizedItems: 8,
@@ -36,9 +36,7 @@ class ContactListPage extends StatelessWidget {
         enableBackItemsShadow: true,
         backItemsShadowColor: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.all(10),
-        onTapFrontItem: (value) {
-          print(Contact.contacts[value].name);
-        },
+        onTapFrontItem: (value) {},
         children: List.generate(Contact.contacts.length, (index) {
           final borderColor = Colors.accents[index % Colors.accents.length];
           final contact = Contact.contacts[index];

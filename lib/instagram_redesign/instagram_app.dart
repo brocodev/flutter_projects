@@ -11,11 +11,13 @@ import 'package:flutter_projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramApp extends StatelessWidget {
+  const InstagramApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return InstagramBlocProvider(
       instagramBloc: InstagramBloc(),
-      child: _MateApp(),
+      child: const _MateApp(),
     );
   }
 }
@@ -67,15 +69,15 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
               duration: kThemeAnimationDuration,
               child: [
                 const InstagramHome(),
-                const Scaffold(body: Center(child: Text("Explore"))),
-                const Scaffold(body: Center(child: Text("Add"))),
+                const Scaffold(body: Center(child: Text('Explore'))),
+                const Scaffold(body: Center(child: Text('Add'))),
                 const ActivitiesPage(),
                 const InstagramProfile(),
               ][index],
             ),
 
             //------------------------------
-            //----SETTINGS BLUR CARD
+            // SETTINGS BLUR CARD
             //------------------------------
             AnimatedBuilder(
               animation: instagramBloc,
@@ -92,7 +94,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                     child: Stack(
                       children: [
                         //--------------------------
-                        //----HIDE SETTINGS ZONE
+                        // HIDE SETTINGS ZONE
                         //--------------------------
                         instagramBloc.settingState == SettingsSate.visible
                             ? Positioned.fill(
@@ -104,7 +106,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                       ],
                     ));
               },
-              child: SettingsBlurCard(height: 200),
+              child: const SettingsBlurCard(height: 200),
             ),
           ],
         ),
@@ -117,7 +119,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
           });
         },
         currentIndex: index,
-        items: [
+        items: const [
           RoundedNavigationBarItem(
             selectedIconData: Icons.home_rounded,
             iconData: Icons.home_outlined,

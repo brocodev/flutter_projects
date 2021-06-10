@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TranslateAnimation extends StatelessWidget {
-  final Widget child;
-  final Duration duration;
-  final double offset;
-  final Curve curve;
-  final Axis offsetDirection;
 
   const TranslateAnimation({
     Key key,
@@ -16,13 +11,16 @@ class TranslateAnimation extends StatelessWidget {
     this.offsetDirection = Axis.vertical,
   }) : super(key: key);
 
+  final Widget child;
+  final Duration duration;
+  final double offset;
+  final Curve curve;
+  final Axis offsetDirection;
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
+    return TweenAnimationBuilder<double>(
       duration: duration,
-      child: child,
       curve: curve,
-
       tween: Tween(begin: 1.0, end: 0.0),
       builder: (context, value, child) {
         return Transform.translate(
@@ -31,17 +29,13 @@ class TranslateAnimation extends StatelessWidget {
                 : Offset(0, value * offset),
             child: child);
       },
+      child: child,
     );
   }
 }
 
 
 class OpacityAnimation extends StatelessWidget {
-  final Widget child;
-  final Duration duration;
-  final Curve curve;
-  final double begin;
-  final double end;
 
   const OpacityAnimation({
     Key key,
@@ -52,11 +46,16 @@ class OpacityAnimation extends StatelessWidget {
     this.end = 1.0,
   }) : super(key: key);
 
+  final Widget child;
+  final Duration duration;
+  final Curve curve;
+  final double begin;
+  final double end;
+
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
+    return TweenAnimationBuilder<double>(
       duration: duration,
-      child: child,
       curve: curve,
       tween: Tween(begin: begin, end: end),
       builder: (context, value, child) {
@@ -65,17 +64,13 @@ class OpacityAnimation extends StatelessWidget {
           child: child,
         );
       },
+      child: child,
     );
   }
 }
 
 
 class ScaleAnimation extends StatelessWidget {
-  final Widget child;
-  final Duration duration;
-  final double initScale;
-  final double finalScale;
-  final Curve curve;
 
   const ScaleAnimation({
     Key key,
@@ -86,11 +81,16 @@ class ScaleAnimation extends StatelessWidget {
     this.finalScale = 1.0,
   }) : super(key: key);
 
+  final Widget child;
+  final Duration duration;
+  final double initScale;
+  final double finalScale;
+  final Curve curve;
+
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
+    return TweenAnimationBuilder<double>(
       duration: duration,
-      child: child,
       curve: curve,
       tween: Tween(begin: initScale, end: finalScale),
       builder: (context, value, child) {
@@ -99,6 +99,7 @@ class ScaleAnimation extends StatelessWidget {
           child: child,
         );
       },
+      child: child,
     );
   }
 }

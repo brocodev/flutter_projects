@@ -50,15 +50,17 @@ class FooterPost extends StatelessWidget {
         ..add(const SizedBox(width: 5))
         ..add(SizedBox(
           height: 30,
-          child: FlatButton(
-            color: colorMoreButton ?? Colors.white,
-            textColor: colorMoreText ?? colorDescription,
-            shape: StadiumBorder(),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: colorMoreButton ?? Colors.white,
+              shape: const StadiumBorder(),
+            ),
             onPressed: () {},
             child: Text(
               "More",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                color: colorMoreText ?? colorDescription,
               ),
             ),
           ),

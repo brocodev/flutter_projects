@@ -1,10 +1,11 @@
 class SeatsRowData {
+  const SeatsRowData({this.seats, this.occupiedSeats});
+
   final int seats;
   final List<int> occupiedSeats;
 
-  SeatsRowData({this.seats, this.occupiedSeats});
 
-  static final seatsList = [
+  static const seatsList = [
     SeatsRowData(seats: 8, occupiedSeats: [5]),
     SeatsRowData(seats: 10, occupiedSeats: []),
     SeatsRowData(seats: 10, occupiedSeats: [6]),
@@ -15,7 +16,7 @@ class SeatsRowData {
     SeatsRowData(seats: 12, occupiedSeats: [12]),
   ];
 
-  static final firstSeatsList = [
+  static const firstSeatsList = [
     SeatsRowData(seats: 2, occupiedSeats: []),
     SeatsRowData(seats: 2, occupiedSeats: []),
     SeatsRowData(seats: 2, occupiedSeats: []),

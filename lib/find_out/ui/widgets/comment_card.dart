@@ -79,8 +79,8 @@ class CommentCard extends StatelessWidget {
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
+            children: [
+              const Icon(
                 Icons.favorite,
                 color: Colors.pinkAccent,
               ),

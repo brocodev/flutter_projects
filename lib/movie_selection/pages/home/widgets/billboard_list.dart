@@ -38,13 +38,15 @@ class BillboardList extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemExtent: heightBillboard * .65,
             itemCount: billboard.movieList.length,
             itemBuilder: (context, index) {
               final movie = billboard.movieList[index];
-              movie.uniqueId = movie.title + billboard.hour;
-              movie.billboardHour = billboard.hour;
+
+              movie
+                ..uniqueId = movie.title + billboard.hour
+                ..billboardHour = billboard.hour;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -116,7 +118,7 @@ class BillboardList extends StatelessWidget {
     );
   }
 
-  _openMovieDetail(BuildContext context, Movie movie) {
+  void _openMovieDetail(BuildContext context, Movie movie) {
     Navigator.push(
         context,
         PageRouteBuilder(

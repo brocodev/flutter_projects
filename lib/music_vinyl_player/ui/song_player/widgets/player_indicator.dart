@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PlayerIndicator extends StatelessWidget {
-  final String songTitle;
-  final double percentIndicator;
-
   const PlayerIndicator({
     Key key,
     @required this.songTitle,
     @required this.percentIndicator,
   }) : super(key: key);
+
+  final String songTitle;
+  final double percentIndicator;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class PlayerIndicator extends StatelessWidget {
             style: GoogleFonts.spectral(
               fontSize: 50,
               fontWeight: FontWeight.w800,
-              shadows: [
+              shadows: const [
                 Shadow(
                   color: Colors.black26,
                   blurRadius: 40,
@@ -57,9 +57,8 @@ class PlayerIndicator extends StatelessWidget {
 }
 
 class _LineIndicator extends CustomPainter {
-  final double percent;
-
   _LineIndicator(this.percent);
+  final double percent;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -78,9 +77,9 @@ class _LineIndicator extends CustomPainter {
 }
 
 class _TextClipper extends CustomClipper<Path> {
-  final double percent;
-
   _TextClipper(this.percent);
+
+  final double percent;
 
   @override
   Path getClip(Size size) {

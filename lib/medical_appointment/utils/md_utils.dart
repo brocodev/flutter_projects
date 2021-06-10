@@ -4,7 +4,9 @@ class MdUtils {
   }
 
   static String extractHourDate(DateTime date) {
-    return "${date.hour < 10 ? 0 : ''}${date.hour}:${date.minute < 10 ? 0 : ''}${date.minute} hr";
+    final auxHour = date.hour < 10 ? 0 : '';
+    final auxMinute = date.minute < 10 ? 0 : '';
+    return "$auxHour${date.hour}:$auxMinute${date.minute} hr";
   }
 
   static const months = {

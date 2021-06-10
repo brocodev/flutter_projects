@@ -5,11 +5,6 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PostButtons extends StatelessWidget {
-  final IgPost post;
-  final Color colorItems;
-  final VoidCallback onTapLike;
-  final Color likeBackgroundColor;
-
   const PostButtons({
     Key key,
     @required this.post,
@@ -17,6 +12,12 @@ class PostButtons extends StatelessWidget {
     this.colorItems = Colors.white,
     this.likeBackgroundColor,
   }) : super(key: key);
+
+  final IgPost post;
+  final Color colorItems;
+  final VoidCallback onTapLike;
+  final Color likeBackgroundColor;
+
 
   @override
   Widget build(BuildContext context) {

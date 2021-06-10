@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
 class BookRateStars extends StatelessWidget {
-  final double rate;
-  final Color starsColor;
-  final Color voidStarsColor;
-  final double iconSize;
-  final double fontSize;
-  final String heroTag;
-
   const BookRateStars({
     @required this.rate,
     @required this.heroTag,
@@ -22,10 +15,17 @@ class BookRateStars extends StatelessWidget {
         ),
         super(key: key);
 
+  final double rate;
+  final Color starsColor;
+  final Color voidStarsColor;
+  final double iconSize;
+  final double fontSize;
+  final String heroTag;
+
   @override
   Widget build(BuildContext context) {
-    bool _showHalfStar = (rate - rate.floor() >= .4);
-    final List<Widget> listStars = List.generate(
+    var _showHalfStar = (rate - rate.floor() >= .4);
+    final listStars = List<Widget>.generate(
         rate.floor(),
         (index) => Hero(
               tag: 'star$index$heroTag',
@@ -36,7 +36,7 @@ class BookRateStars extends StatelessWidget {
               ),
             ));
 
-    if (_showHalfStar)
+    if (_showHalfStar) {
       listStars.add(
         Hero(
           tag: 'star${rate.floor()}$heroTag',
@@ -47,6 +47,7 @@ class BookRateStars extends StatelessWidget {
           ),
         ),
       );
+    }
 
     listStars.addAll(
         List.generate(5 - rate.floor() - (_showHalfStar ? 1 : 0), (index) {

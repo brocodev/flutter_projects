@@ -19,20 +19,21 @@ class InstagramAddItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-            width: itemSize,
-            height: itemSize,
-            child: Icon(FontAwesome.plus),
-            decoration: BoxDecoration(
-              color: Theme.of(context).backgroundColor,
-              border: Border.all(
-                color: Colors.grey[200],
-                width: 3,
-              ),
-              borderRadius: BorderRadius.circular(itemSize * .4),
-            )),
+          width: itemSize,
+          height: itemSize,
+          decoration: BoxDecoration(
+            color: Theme.of(context).backgroundColor,
+            border: Border.all(
+              color: Colors.grey[200],
+              width: 3,
+            ),
+            borderRadius: BorderRadius.circular(itemSize * .4),
+          ),
+          child: const Icon(FontAwesome.plus),
+        ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,
           ),

@@ -16,6 +16,8 @@ class TagContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(3), gradient: gradient),
       child: Text(
         tag.toUpperCase(),
         style: GoogleFonts.barlowCondensed(
@@ -23,8 +25,6 @@ class TagContainer extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(3), gradient: gradient),
     );
   }
 }

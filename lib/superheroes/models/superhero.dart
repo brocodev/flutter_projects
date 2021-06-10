@@ -1,11 +1,4 @@
 class Superhero {
-  final String name;
-  final String heroName;
-  final String description;
-  final String pathImage;
-  final List<HeroMovie> movies;
-  final int rawColor;
-
   const Superhero({
     this.name,
     this.description,
@@ -15,14 +8,24 @@ class Superhero {
     this.rawColor,
   });
 
+  final String name;
+  final String heroName;
+  final String description;
+  final String pathImage;
+  final List<HeroMovie> movies;
+  final int rawColor;
+
   static const marvelHeroes = [
     Superhero(
         heroName: 'Spider Man',
         name: 'Peter Parker',
         description:
-            'Spider-Man has spider-like abilities including superhuman strength and the ability to cling to most surfaces. '
-            'He is also extremely agile and has amazing reflexes. Spider-Man also has a “spider sense,” that warns him of '
-            'impending danger. Spider-Man has supplemented his powers with technology',
+            'Spider-Man has spider-like abilities including superhuman streng'
+            'th and the ability to cling to most surfaces. '
+            'He is also extremely agile and has amazing reflexes. Spider-Man'
+            ' also has a “spider sense,” that warns him of '
+            'impending danger. Spider-Man has supplemented his powers with t'
+            'echnology',
         pathImage: 'assets/img/superheroes/spiderman-a.png',
         movies: HeroMovie.spidermanMovies,
         rawColor: 0xffA41209),
@@ -30,9 +33,12 @@ class Superhero {
         heroName: 'Iron Man',
         name: 'Tony Stark',
         description:
-            'He is the Armored Avenger - driven by a heart that is part machine, but all hero! He is the '
-            'INVINCIBLE IRON MAN! Iron Man\'s Powers and Abilities: Wears modular arc reactor-powered Iron Man armor, '
-            'granting superhuman strength & durability, the ability to fly & project Repulsor blasts',
+            'He is the Armored Avenger - driven by a heart that is part machin'
+            'e, but all hero! He is the '
+            'INVINCIBLE IRON MAN! Iron Man\'s Powers and Abilities: Wears modu'
+            'lar arc reactor-powered Iron Man armor, '
+            'granting superhuman strength & durability, the ability to fly &'
+            ' project Repulsor blasts',
         pathImage: 'assets/img/superheroes/ironman-a.png',
         movies: HeroMovie.ironManMovies,
         rawColor: 0xffB3790F),
@@ -40,9 +46,12 @@ class Superhero {
         heroName: 'Thor',
         name: 'Thor Odinson',
         description:
-            'Thor Odinson is the Asgardian God of Thunder, superhero, self-proclaimed protector of Earth and the king of '
-            'Asgard. Thor made a name for himself as the mightiest warrior on his homeworld and subsequently became well '
-            'known for his actions on Earth, which included acting as a founding member of the Avengers.',
+            'Thor Odinson is the Asgardian God of Thunder, superhero, self-pro'
+            'claimed protector of Earth and the king of '
+            'Asgard. Thor made a name for himself as the mightiest warrior on '
+            'his homeworld and subsequently became well '
+            'known for his actions on Earth, which included acting as a found'
+            'ing member of the Avengers.',
         pathImage: 'assets/img/superheroes/thor-c.png',
         movies: HeroMovie.thorMovies,
         rawColor: 0xff3E4953),
@@ -50,8 +59,10 @@ class Superhero {
         heroName: 'Ant Man',
         name: 'Scott Lang',
         description:
-            'Armed with the astonishing ability to shrink in scale but increase in strength, con-man Scott Lang must embrace '
-            'his inner-hero and help his mentor, Dr. Hank Pym, protect the secret behind his spectacular Ant-Man suit '
+            'Armed with the astonishing ability to shrink in scale but increas'
+            'e in strength, con-man Scott Lang must embrace '
+            'his inner-hero and help his mentor, Dr. Hank Pym, protect the se'
+            'cret behind his spectacular Ant-Man suit '
             'from a new generation of towering threats.',
         pathImage: 'assets/img/superheroes/antman-a.png',
         movies: HeroMovie.antmanMovies,
@@ -60,9 +71,12 @@ class Superhero {
         heroName: 'Black Widow',
         name: 'Natasha Romanova',
         description:
-            'The first and best-known Black Widow is a Russian agent trained as a spy, martial artist, and sniper, '
-            'and outfitted with an arsenal of high-tech weaponry, including a pair of wrist-mounted energy weapons '
-            'dubbed her "Widow\'s Bite". She wears no costume during her first few appearances but simply evening wear and a veil.',
+            'The first and best-known Black Widow is a Russian agent trained'
+            ' as a spy, martial artist, and sniper, '
+            'and outfitted with an arsenal of high-tech weaponry, including a'
+            ' pair of wrist-mounted energy weapons '
+            'dubbed her "Widow\'s Bite". She wears no costume during her firs'
+            't few appearances but simply evening wear and a veil.',
         pathImage: 'assets/img/superheroes/blackwidow-a.png',
         movies: HeroMovie.blackWidowMovies,
         rawColor: 0xff011535),
@@ -70,9 +84,12 @@ class Superhero {
         heroName: 'Captain America',
         name: 'Steve Rogers',
         description:
-            'Captain America is the alter ego of Steve Rogers, a frail young man enhanced to the peak of human perfection '
-            'by an experimental serum to aid the United States government\'s efforts in World War II. Near the end of the war, '
-            'he was trapped in ice and survived in suspended animation until he was revived in modern times.',
+            'Captain America is the alter ego of Steve Rogers, a frail young '
+            'man enhanced to the peak of human perfection '
+            'by an experimental serum to aid the United States government\'s'
+            ' efforts in World War II. Near the end of the war, '
+            'he was trapped in ice and survived in suspended animation until'
+            ' he was revived in modern times.',
         pathImage: 'assets/img/superheroes/captain-b.png',
         movies: HeroMovie.captainAmericaMovies,
         rawColor: 0xff0232CB),
@@ -80,8 +97,10 @@ class Superhero {
         heroName: 'Hawk eye',
         name: 'Clint Barton',
         description:
-            'An expert marksman and fighter, Clint Barton puts his talents to good use by working for S.H.I.E.L.D.'
-            ' as a special agent. The archer known as Hawkeye also boasts a strong moral compass that at times leads '
+            'An expert marksman and fighter, Clint Barton puts his talents to '
+            'good use by working for S.H.I.E.L.D.'
+            ' as a special agent. The archer known as Hawkeye also boasts a '
+            'strong moral compass that at times leads '
             'him astray from his direct orders',
         pathImage: 'assets/img/superheroes/hawkeye.png',
         movies: [],
@@ -90,9 +109,12 @@ class Superhero {
         heroName: 'Hulk',
         name: 'Bruce Banner',
         description:
-            'In his comic book appearances, the character is both the Hulk, a green-skinned, hulking and muscular '
-            'humanoid possessing a vast degree of physical strength, and his alter ego Dr. Robert Bruce Banner, a '
-            'physically weak, socially withdrawn, and emotionally reserved physicist',
+            'In his comic book appearances, the character is both the Hulk, a '
+            'green-skinned, hulking and muscular '
+            'humanoid possessing a vast degree of physical strength, and his '
+            'alter ego Dr. Robert Bruce Banner, a '
+            'physically weak, socially withdrawn, and emotionally reserved '
+            'physicist',
         pathImage: 'assets/img/superheroes/hulk-b.png',
         movies: HeroMovie.hulkMovies,
         rawColor: 0xff047A3B),
@@ -100,15 +122,16 @@ class Superhero {
 }
 
 class HeroMovie {
+  const HeroMovie(
+      this.title,
+      this.rate,
+      this.urlImage,
+      );
+
   final String title;
   final double rate;
   final String urlImage;
 
-  const HeroMovie(
-    this.title,
-    this.rate,
-    this.urlImage,
-  );
 
   static const antmanMovies = [
     HeroMovie('Ant-Man', 7.6,

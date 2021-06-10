@@ -1,60 +1,60 @@
 enum TypeCheck {
-  Weight,
-  Hemoglobin,
-  Blood_Pressure,
-  Electrocardiogram,
-  Cholesterol,
-  Glucose,
-  Height
+  weight,
+  hemoglobin,
+  bloodPressure,
+  electrocardiogram,
+  cholesterol,
+  glucose,
+  height
 }
-enum MedicalState { Normal, Alert, Danger }
+enum MedicalState { normal, alert, danger }
 
 class MedicalCheck {
+  const MedicalCheck({this.check, this.value});
+
   final TypeCheck check;
   final double value;
 
-  const MedicalCheck({this.check, this.value});
-
   String getSvgPath() {
     return {
-      TypeCheck.Glucose: 'assets/svg/medical/mc-glucose.svg',
-      TypeCheck.Weight: 'assets/svg/medical/mc-weight.svg',
-      TypeCheck.Hemoglobin: 'assets/svg/medical/mc-hemoglobin.svg',
-      TypeCheck.Blood_Pressure: 'assets/svg/medical/mc-blood-pressure.svg',
-      TypeCheck.Electrocardiogram: 'assets/svg/medical/mc-cardiogram.svg',
-      TypeCheck.Cholesterol: 'assets/svg/medical/mc-cholesterol.svg',
-      TypeCheck.Height: 'assets/svg/medical/mc-height.svg',
+      TypeCheck.glucose: 'assets/svg/medical/mc-glucose.svg',
+      TypeCheck.weight: 'assets/svg/medical/mc-weight.svg',
+      TypeCheck.hemoglobin: 'assets/svg/medical/mc-hemoglobin.svg',
+      TypeCheck.bloodPressure: 'assets/svg/medical/mc-blood-pressure.svg',
+      TypeCheck.electrocardiogram: 'assets/svg/medical/mc-cardiogram.svg',
+      TypeCheck.cholesterol: 'assets/svg/medical/mc-cholesterol.svg',
+      TypeCheck.height: 'assets/svg/medical/mc-height.svg',
     }[check];
   }
 
   String getMeasure() {
     return {
-      TypeCheck.Glucose: 'g/dL',
-      TypeCheck.Weight: 'kg',
-      TypeCheck.Hemoglobin: 'g/dL',
-      TypeCheck.Blood_Pressure: 'mmHg',
-      TypeCheck.Electrocardiogram: 'hz',
-      TypeCheck.Cholesterol: 'mg/dL',
-      TypeCheck.Height: 'cm'
+      TypeCheck.glucose: 'g/dL',
+      TypeCheck.weight: 'kg',
+      TypeCheck.hemoglobin: 'g/dL',
+      TypeCheck.bloodPressure: 'mmHg',
+      TypeCheck.electrocardiogram: 'hz',
+      TypeCheck.cholesterol: 'mg/dL',
+      TypeCheck.height: 'cm'
     }[check];
   }
 
   MedicalState getMedicalState() {
     switch (check) {
-      case TypeCheck.Weight:
-        return MedicalState.Alert;
-      case TypeCheck.Glucose:
-        return MedicalState.Normal;
-      case TypeCheck.Hemoglobin:
-        return MedicalState.Alert;
-      case TypeCheck.Blood_Pressure:
-        return MedicalState.Normal;
-      case TypeCheck.Electrocardiogram:
-        return MedicalState.Normal;
-      case TypeCheck.Cholesterol:
-        return MedicalState.Danger;
+      case TypeCheck.weight:
+        return MedicalState.alert;
+      case TypeCheck.glucose:
+        return MedicalState.normal;
+      case TypeCheck.hemoglobin:
+        return MedicalState.alert;
+      case TypeCheck.bloodPressure:
+        return MedicalState.normal;
+      case TypeCheck.electrocardiogram:
+        return MedicalState.normal;
+      case TypeCheck.cholesterol:
+        return MedicalState.danger;
       default:
-        return MedicalState.Normal;
+        return MedicalState.normal;
     }
   }
 }

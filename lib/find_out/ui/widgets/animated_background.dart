@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class AnimatedBackground extends StatefulWidget {
+  const AnimatedBackground({Key key}) : super(key: key);
+
   @override
   _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
 }
@@ -18,7 +20,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       timerSlide =
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
-        pageController.nextPage(
+         pageController.nextPage(
             duration: const Duration(milliseconds: 1400),
             curve: Curves.fastOutSlowIn);
       });
@@ -64,7 +66,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> {
               top: topPosition,
               child: Text(
                 'Photography by ${authorsList[i]}\non Unsplash',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                 ),
               ),

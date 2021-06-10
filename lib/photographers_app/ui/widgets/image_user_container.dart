@@ -4,16 +4,16 @@ import 'package:flutter_projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
 class PhotoUserCard extends StatelessWidget {
-  final PhotoUser user;
-  final double size;
-  final VoidCallback onTap;
-
   const PhotoUserCard({
     Key key,
     @required this.user,
     this.size = 100.0,
     this.onTap,
   }) : super(key: key);
+
+  final PhotoUser user;
+  final double size;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class PhotoUserCard extends StatelessWidget {
                     BoxShadow(
                         color: Colors.grey.shade300,
                         blurRadius: 20,
-                        offset: Offset(-10, 10))
+                        offset: const Offset(-10, 10))
                   ],
                   borderRadius: BorderRadius.circular(size * .35),
                   image: DecorationImage(
@@ -45,7 +45,7 @@ class PhotoUserCard extends StatelessWidget {
             FittedBox(
               child: Text(
                 user.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: PhotoAppColors.kDarkBlue,

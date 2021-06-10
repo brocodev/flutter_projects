@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
 class CurvedNavigationBar extends StatelessWidget {
-  final List<CurvedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
-  final Color unselectedColor;
-  final Color selectedColor;
-  final int currentIndex;
-
   const CurvedNavigationBar({
     Key key,
     @required this.items,
@@ -17,16 +11,23 @@ class CurvedNavigationBar extends StatelessWidget {
     this.currentIndex = 0,
   }) : super(key: key);
 
+  final List<CurvedNavigationBarItem> items;
+  final ValueChanged<int> onTap;
+  final Color unselectedColor;
+  final Color selectedColor;
+  final int currentIndex;
+
+
   @override
   Widget build(BuildContext context) {
     assert(items.length == 4);
     return ClipPath(
       clipper: _CurvedClipper(),
       child: Container(
-        alignment: Alignment(0, 1.6),
+        alignment: const Alignment(0, 1.6),
         height: kToolbarHeight * 1.5,
         color: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         //----------------------------------
         // Generate Navigation Items
         //----------------------------------
@@ -58,13 +59,13 @@ class CurvedNavigationBar extends StatelessWidget {
 }
 
 class CurvedNavigationBarItem {
-  final IconData iconData;
-  final IconData selectedIconData;
-
   const CurvedNavigationBarItem({
     @required this.iconData,
     this.selectedIconData,
   });
+
+  final IconData iconData;
+  final IconData selectedIconData;
 }
 
 class _CurvedClipper extends CustomClipper<Path> {

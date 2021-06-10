@@ -6,6 +6,8 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/text_input_find_out.dart';
 
 class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -49,7 +51,7 @@ class RegisterPage extends StatelessWidget {
                     const Spacer(),
                     Stack(
                       children: [
-                        Center(child: _DragDownIndication()),
+                        const Center(child: _DragDownIndication()),
                         Padding(
                           padding: const EdgeInsets.only(top: 55),
                           child: ClipPath(
@@ -64,37 +66,40 @@ class RegisterPage extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   const SizedBox(height: 60),
-                                  TextInputFindOut(
+                                  const TextInputFindOut(
                                     label: 'Nombre de usuario',
                                     iconData: FontAwesome.user,
                                     textInputType: TextInputType.text,
                                   ),
                                   const SizedBox(height: 20),
-                                  TextInputFindOut(
+                                  const TextInputFindOut(
                                     label: 'Correo electronico',
                                     iconData: Icons.alternate_email,
                                     textInputType: TextInputType.emailAddress,
                                   ),
                                   const SizedBox(height: 20),
-                                  TextInputFindOut(
+                                  const TextInputFindOut(
                                     label: 'Constraseña',
                                     iconData: Icons.lock_outline,
                                     textInputType:
                                         TextInputType.visiblePassword,
                                   ),
                                   const SizedBox(height: 5),
-                                  _AcceptTerms(),
+                                  const _AcceptTerms(),
                                   const SizedBox(height: 10),
                                   SizedBox(
                                     width: size.width * .65,
-                                    child: FlatButton(
+                                    child: TextButton(
                                       onPressed: () {},
-                                      padding: const EdgeInsets.all(12),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                      style: TextButton.styleFrom(
+                                        padding: const EdgeInsets.all(12),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        backgroundColor: Colors.pinkAccent,
                                       ),
-                                      color: Colors.pinkAccent,
-                                      child: Text(
+                                      child: const Text(
                                         "Crear cuenta",
                                         style: TextStyle(
                                           fontSize: 16,
@@ -130,7 +135,7 @@ class _DragDownIndication extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Registro',
           style: TextStyle(
             fontSize: 20,
@@ -184,7 +189,7 @@ class _AcceptTerms extends StatelessWidget {
               color: Colors.grey[600],
             ),
           ),
-          Text(
+          const Text(
             " terminos y condiciones",
             style: TextStyle(
               fontSize: 12,

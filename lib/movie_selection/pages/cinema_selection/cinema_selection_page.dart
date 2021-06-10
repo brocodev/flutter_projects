@@ -11,11 +11,10 @@ import 'package:flutter_projects/movie_selection/pages/seats_selection/seats_sel
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class CinemaSelectionPage extends StatelessWidget {
-  final Movie movie;
-
   const CinemaSelectionPage({Key key, this.movie}) : super(key: key);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +82,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                   kPrimaryColorDark.withOpacity(.7),
                   kPrimaryColorDark,
                 ],
-                stops: [0.1, 0.3, 0.38, 0.55],
+                stops: const [0.1, 0.3, 0.38, 0.55],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -121,13 +120,13 @@ class _BodyCinemaSelection extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               )),
                           const SizedBox(height: 10),
-                          TagContainer(tag: 'PREMIERE')
+                          const TagContainer(tag: 'PREMIERE')
                         ]),
                   ),
                 ),
                 const SizedBox(height: 40),
-                TranslateAnimation(
-                    duration: const Duration(milliseconds: 700),
+                const TranslateAnimation(
+                    duration: Duration(milliseconds: 700),
                     child: SelectCinema()),
                 const SizedBox(height: 30),
                 TranslateAnimation(
@@ -150,7 +149,11 @@ class _BodyCinemaSelection extends StatelessWidget {
           },
           label: 'CONTINUE',
         ),
-        Positioned(top: 25, left: 0, child: BackButton(color: Colors.white)),
+        const Positioned(
+          top: 25,
+          left: 0,
+          child: BackButton(color: Colors.white),
+        ),
       ],
     );
   }

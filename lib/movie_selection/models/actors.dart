@@ -1,13 +1,14 @@
 class Actor {
-  final String name;
-  final String pathImage;
 
-  Actor({
+  const Actor({
     this.name,
     this.pathImage,
   });
 
-  static final List<Actor> listActors = [
+  final String name;
+  final String pathImage;
+
+  static const listActors = [
     Actor(name: 'Josh Mike', pathImage: 'assets/img/movie/actor1.jpg'),
     Actor(name: 'Antony Mendez', pathImage: 'assets/img/movie/actor2.jpg'),
     Actor(name: 'Katy Pearce', pathImage: 'assets/img/movie/actor3.jpg'),

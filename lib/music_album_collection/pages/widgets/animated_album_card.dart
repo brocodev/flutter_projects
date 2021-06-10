@@ -56,7 +56,7 @@ class AlbumListViewCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
-                        tag: album.title + 'vinyl',
+                        tag: '${album.title}vinyl',
                         child: Image.asset('assets/img/music/vinyl.png')),
                   ),
                 ),
@@ -68,7 +68,7 @@ class AlbumListViewCard extends StatelessWidget {
                   child: Stack(
                     children: [
                       Hero(
-                        tag: album.title + 'cover',
+                        tag: '${album.title}cover',
                         child: Stack(
                           children: [
                             //----------------------------
@@ -76,7 +76,7 @@ class AlbumListViewCard extends StatelessWidget {
                             //----------------------------
                             Container(
                               decoration: BoxDecoration(
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                       color: Colors.black26,
                                       blurRadius: 10,
@@ -95,7 +95,7 @@ class AlbumListViewCard extends StatelessWidget {
                                   gradient: LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
-                                      colors: [
+                                      colors: const [
                                         Colors.black12,
                                         Colors.black12,
                                         Colors.black54,
@@ -108,21 +108,21 @@ class AlbumListViewCard extends StatelessWidget {
                         ),
                       ),
                       Align(
-                        alignment: Alignment(-.3, .9),
+                        alignment: const Alignment(-.3, .9),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             _AlbumCardText(
-                              heroTag: album.title + 'song',
+                              heroTag: '${album.title}song',
                               text: album.title,
                               colorText: Colors.white,
                               textSize: textSize,
                             ),
                             _AlbumCardText(
-                              heroTag: album.title + 'title',
+                              heroTag: '${album.title}title',
                               text: 'By ${album.author}',
-                              colorText: Color(0xfffc5b5b),
+                              colorText: const Color(0xfffc5b5b),
                               textSize: textSize,
                             ),
                           ],
@@ -193,7 +193,7 @@ class AlbumGridViewCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
-                        tag: album.title + 'vinyl',
+                        tag: '${album.title}vinyl',
                         child: Image.asset('assets/img/music/vinyl.png')),
                   ),
                 ),
@@ -206,10 +206,10 @@ class AlbumGridViewCard extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: Hero(
-                    tag: album.title + 'cover',
+                    tag: '${album.title}cover',
                     child: Container(
                       decoration: BoxDecoration(
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               blurRadius: 10,
@@ -234,7 +234,7 @@ class AlbumGridViewCard extends StatelessWidget {
         const SizedBox(height: 5),
 
         _AlbumCardText(
-          heroTag: album.title + 'song',
+          heroTag: '${album.title}song',
           text: album.title,
           colorText: Colors.grey[800],
           textSize: textSize,
@@ -244,9 +244,9 @@ class AlbumGridViewCard extends StatelessWidget {
         //---------------------------------
 
         _AlbumCardText(
-          heroTag: album.title + 'title',
+          heroTag: '${album.title}title',
           text: 'By ${album.author}',
-          colorText: Color(0xfffc5b5b),
+          colorText: const Color(0xfffc5b5b),
           textSize: textSize,
         ),
       ],

@@ -56,7 +56,7 @@ class _ShaderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    return const DecoratedBox(
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [
@@ -123,7 +123,7 @@ class _TitleAndPlayButton extends StatelessWidget {
               ],
             ),
           ),
-          child: Icon(
+          child: const Icon(
             Icons.play_arrow_rounded,
             size: 30.0,
             color: Colors.white,

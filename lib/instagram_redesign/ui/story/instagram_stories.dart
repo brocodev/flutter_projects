@@ -5,8 +5,9 @@ import 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart'
 import 'package:flutter_projects/instagram_redesign/ui/story/widgets/stories_widgets.dart';
 
 class InstagramStories extends StatefulWidget {
-  final IgUserStories stories;
   const InstagramStories({Key key, this.stories}) : super(key: key);
+
+  final IgUserStories stories;
 
   @override
   _InstagramStoriesState createState() => _InstagramStoriesState();
@@ -32,8 +33,9 @@ class _InstagramStoriesState extends State<InstagramStories>
 
   @override
   void dispose() {
-    _animationController.removeStatusListener(_statusListener);
-    _animationController.dispose();
+    _animationController
+      ..removeStatusListener(_statusListener)
+      ..dispose();
     _pageController.dispose();
     super.dispose();
   }
@@ -41,7 +43,7 @@ class _InstagramStoriesState extends State<InstagramStories>
   //-----------------------------
   //-----STATUS LISTENER
   //-----------------------------
-  _statusListener(AnimationStatus status) {
+  void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
       _nextStory();
     }
@@ -50,16 +52,17 @@ class _InstagramStoriesState extends State<InstagramStories>
   //----------------------------------
   //-----SHOW NEW STORY
   //----------------------------------
-  _showStory(StoryModel story) {
-    _animationController.reset();
-    _animationController.duration = story.duration;
-    _animationController.forward();
+  void _showStory(StoryModel story) {
+    _animationController
+      ..reset()
+      ..duration = story.duration
+      ..forward();
   }
 
   //--------------------------------
   //-----OPEN STORY
   //--------------------------------
-  _openUserStories(int index) {
+  void _openUserStories(int index) {
     Navigator.pushReplacement(context, PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
@@ -200,7 +203,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                       Expanded(
                         child: Text(
                           user.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -226,7 +229,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                           child: BackdropFilter(
                             filter:
                                 ImageFilter.blur(sigmaY: 10.0, sigmaX: 10.0),
-                            child: SendMessageTextField(),
+                            child: const SendMessageTextField(),
                           ),
                         ),
                       ),

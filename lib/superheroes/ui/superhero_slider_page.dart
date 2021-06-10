@@ -35,10 +35,12 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
 
   @override
   void dispose() {
-    _pageController.removeListener(_pageListener);
-    _pageController.dispose();
+    _pageController
+      ..removeListener(_pageListener)
+      ..dispose();
     super.dispose();
   }
+
   //--------------------------
   // Page View Listener
   //--------------------------
@@ -54,19 +56,19 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
 
   @override
   Widget build(BuildContext context) {
-    final heroes = Superhero.marvelHeroes;
-    final angleRotate = (-pi * .5);
+    const heroes = Superhero.marvelHeroes;
+    const  angleRotate = (-pi * .5);
     return Scaffold(
       //---------------
       // App Bar
       //---------------
       appBar: AppBar(
-        title: Text("movies"),
+        title:const  Text("movies"),
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: Stack(
@@ -127,7 +129,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     );
   }
 
-  _openDetail(BuildContext context, Superhero superhero) {
+  void _openDetail(BuildContext context, Superhero superhero) {
     Navigator.push(context, PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(

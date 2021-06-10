@@ -5,10 +5,11 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/page_view_places.dart';
 
 class HomePageFindOut extends StatelessWidget {
-  final pageController = PageController(viewportFraction: .999);
+  const HomePageFindOut({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageController = PageController(viewportFraction: .999);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -27,7 +28,7 @@ class HomePageFindOut extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
+                    children: const [
                       CircleAvatar(
                           backgroundColor: Colors.black12,
                           child: Icon(
@@ -43,15 +44,15 @@ class HomePageFindOut extends StatelessWidget {
                           ))
                     ],
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: const [
                       DropDownWidget(
                         labels: ['Mexico', 'Colombia', 'Brasil', 'Argentina'],
                       ),
-                      const SizedBox(width: 50),
+                      SizedBox(width: 50),
                       DropDownWidget(
                         labels: ['Playas', 'Pueblos', 'Ciudades'],
                       ),
@@ -70,7 +71,7 @@ class HomePageFindOut extends StatelessWidget {
                   curve: Curves.easeInOutQuint,
                 ),
                 iconSize: 50,
-                icon: Icon(Icons.arrow_back_ios),
+                icon: const Icon(Icons.arrow_back_ios),
               ),
               IconButton(
                 onPressed: () => pageController.nextPage(
@@ -78,7 +79,7 @@ class HomePageFindOut extends StatelessWidget {
                   curve: Curves.easeInOutQuint,
                 ),
                 iconSize: 50,
-                icon: Icon(Icons.arrow_forward_ios),
+                icon: const Icon(Icons.arrow_forward_ios),
               )
             ],
           ),

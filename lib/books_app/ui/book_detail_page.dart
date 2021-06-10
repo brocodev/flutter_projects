@@ -1,15 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
 import 'package:flutter_projects/books_app/ui/widgets/header_book_delegate.dart';
 
 class BookDetailPage extends StatelessWidget {
-  final Book book;
-
   const BookDetailPage({
     Key key,
     @required this.book,
   }) : super(key: key);
+
+  final Book book;
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +144,7 @@ class _SimilarBookCard extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: Colors.black12,
                       blurRadius: 10,
@@ -195,7 +194,7 @@ class _ReviewContainer extends StatelessWidget {
               children: [
                 Text(
                   review.authorReview.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -203,7 +202,7 @@ class _ReviewContainer extends StatelessWidget {
                 Text(
                   review.review,
                   maxLines: 2,
-                  style: TextStyle(
+                  style: const TextStyle(
                     height: 1.5,
                   ),
                 ),
@@ -212,33 +211,33 @@ class _ReviewContainer extends StatelessWidget {
                   children: [
                     Text(
                       review.date.toString().substring(0, 16),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                       ),
                     ),
                     const Spacer(),
-                    Icon(
+                    const Icon(
                       Icons.favorite_border,
                       size: 14,
                       color: Colors.grey,
                     ),
                     Text(
                       '${review.likes}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                       ),
                     ),
                     const SizedBox(width: 5),
-                    Icon(
+                    const Icon(
                       Icons.comment_outlined,
                       size: 14,
                       color: Colors.grey,
                     ),
                     Text(
                       '${review.replies}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                       ),

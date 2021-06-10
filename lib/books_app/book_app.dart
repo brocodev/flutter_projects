@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/theme/theme.dart';
 import 'package:flutter_projects/books_app/ui/home_page.dart';
 
-class BookApp extends StatelessWidget {
+class BookStoreApp extends StatelessWidget {
+  const BookStoreApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: BookAppTheme.themeData,
-        home: _BookNavigationPage(),
-
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: BookAppTheme.themeData,
+      home: const _BookNavigationPage(),
     );
   }
 }
@@ -33,8 +34,10 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
         duration: kThemeChangeDuration,
         child: [
           const HomePage(),
-          Scaffold(key: UniqueKey(), body: Center(child: Text('Discover'))),
-          Scaffold(key: UniqueKey(), body: Center(child: Text('Profile'))),
+          Scaffold(
+              key: UniqueKey(), body: const Center(child: Text('Discover'))),
+          Scaffold(
+              key: UniqueKey(), body: const Center(child: Text('Profile'))),
         ][indexPage],
       ),
       bottomNavigationBar: SizedBox(
@@ -47,7 +50,7 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
           unselectedItemColor: Colors.grey[400],
           backgroundColor: Colors.white,
           currentIndex: indexPage,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.radio_button_on),
               label: 'For you',

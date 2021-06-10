@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
 
 class FilterPage extends StatelessWidget {
+  const FilterPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final favorites = UserBook.currentUser.favoriteCategories;
@@ -44,8 +46,8 @@ class FilterPage extends StatelessWidget {
                     transitionBuilder: (child, animation) {
                       return SlideTransition(
                         position: Tween(
-                          begin: Offset(0, .1),
-                          end: Offset(0, 0),
+                          begin: const Offset(0, .1),
+                          end: const Offset(0, 0),
                         ).animate(animation),
                         child: FadeTransition(
                           opacity: animation,

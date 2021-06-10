@@ -4,12 +4,13 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindOutLogo extends StatelessWidget {
-  final double fontSize;
-
   const FindOutLogo({
     Key key,
     this.fontSize = 60.0,
   }) : super(key: key);
+
+  final double fontSize;
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,32 +64,31 @@ class FindOutLogo extends StatelessWidget {
 }
 
 class FindOutHorizontalLogo extends StatelessWidget {
-  final double fontSize;
-
   const FindOutHorizontalLogo({
     Key key,
     this.fontSize = 28.0,
   }) : super(key: key);
 
+  final double fontSize;
+
   @override
   Widget build(BuildContext context) {
-    final style =
-        GoogleFonts.poppins(fontWeight: FontWeight.w700, fontSize: fontSize, shadows: [
-      Shadow(
-        color: Colors.black12,
-        blurRadius: 10,
-      )
-    ]);
+    final style = GoogleFonts.poppins(
+        fontWeight: FontWeight.w700,
+        fontSize: fontSize,
+        shadows: const [
+          Shadow(
+            color: Colors.black12,
+            blurRadius: 10,
+          )
+        ]);
     return Hero(
       tag: 'horizontal_logo',
       child: Material(
         color: Colors.transparent,
         child: Row(
           children: <Widget>[
-            Text(
-              'find',
-              style: style
-            ),
+            Text('find', style: style),
             Icon(
               FontAwesome.search,
               size: fontSize * .8,
@@ -130,7 +130,7 @@ class TitlePlace extends StatelessWidget {
               ),
               children: [
                 TextSpan(
-                    text: '\n' + place.title,
+                    text: '\n${place.title}',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w700,
                         height: 1.2,
