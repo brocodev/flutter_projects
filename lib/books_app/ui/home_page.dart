@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
       // APP BAR
       //----------------------------
       appBar: AppBar(
-        toolbarHeight: kToolbarHeight * 2,
+        toolbarHeight: kToolbarHeight * 1.6,
         title: const _HomeAppBar(),
         actions: [
           const SizedBox(width: 20),
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const SizedBox(width: 16),
                 //------------------------------------
-                // FILTER BUTTON
+                // Category Filter Button
                 //------------------------------------
                 InkWell(
                   onTap: () => _openPage(const FilterPage(), context),
@@ -93,13 +93,13 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(2.0)),
-                      child: const Icon(Icons.filter_alt_outlined,
+                      child: const Icon(Icons.tune,
                           color: Colors.white),
                     ),
                   ),
                 ),
                 //----------------------------------
-                // LIST CATEGORIES
+                // Book Categories List View
                 //----------------------------------
                 Expanded(
                     child: ListView.builder(
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(left: 10),
                   itemBuilder: (context, index) {
                     final category = Book.bookCategories[index];
-                    return _ChipCategory(category: category);
+                    return _CategoryChip(category: category);
                   },
                 ))
               ],
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 20),
           //------------------------------
-          // LIST HOME BOOKS
+          // Books List View
           //------------------------------
           Expanded(
             child: ListView.builder(
@@ -205,26 +205,24 @@ class _HomeBookCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Hero(
-            tag: book.title,
-            child: AspectRatio(
-              aspectRatio: 10 / 14,
-              child: Container(
-                margin: const EdgeInsets.only(right: 40, bottom: 20),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(book.srcImage),
-                      fit: BoxFit.cover,
-                    ),
-                    border: Border.all(color: Colors.white, width: 3),
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 15,
-                          offset: Offset(10, 10))
-                    ]),
-              ),
+        Hero(
+          tag: book.title,
+          child: AspectRatio(
+            aspectRatio: .7,
+            child: Container(
+              margin: const EdgeInsets.only(right: 40, bottom: 20),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(book.srcImage),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border.all(color: Colors.white, width: 3),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 15,
+                        offset: Offset(10, 10))
+                  ]),
             ),
           ),
         ),
@@ -251,8 +249,8 @@ class _HomeBookCard extends StatelessWidget {
   }
 }
 
-class _ChipCategory extends StatelessWidget {
-  const _ChipCategory({
+class _CategoryChip extends StatelessWidget {
+  const _CategoryChip({
     Key key,
     @required this.category,
   }) : super(key: key);

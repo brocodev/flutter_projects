@@ -1,38 +1,91 @@
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
 import 'package:flutter_projects/books_app/ui/open_book_page.dart';
 import 'package:flutter_projects/books_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/books_app/ui/widgets/book_readers_row.dart';
 
-class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
-  HeaderBookDelegate(this.book);
+class BookDetailHeader extends StatelessWidget {
+  BookDetailHeader({Key key, this.percent, this.book}) : super(key: key);
 
+  final double percent;
   final Book book;
 
-  ValueNotifier activeHeroOpenBookAnimation = ValueNotifier(false);
+  // [enableOpenBookAnimation]
+  // Validation to not apply the custom hero when going to the home screen
+  final ValueNotifier<bool> enableOpenBookAnimation = ValueNotifier(false);
+
+  //----------------------------------------
+  // Open book reading
+  //----------------------------------------
+  void _openBook(BuildContext context) async {
+    enableOpenBookAnimation.value = true;
+    await Navigator.push(
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 600),
+          reverseTransitionDuration: const Duration(milliseconds: 600),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+              opacity: animation,
+              child: OpenBookPage(book: book),
+            );
+          },
+        ));
+  }
+
+  //---------------------------------------------------
+  // Customized Flight Hero
+  // Modify the hero animation during the transition.
+  //---------------------------------------------------
+  Widget _customFlightShuttleBuilder(
+    BuildContext flightContext,
+    Animation<double> animation,
+    HeroFlightDirection direction,
+    BuildContext fromHeroContext,
+    BuildContext toHeroContext,
+  ) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        HeroFlightDirection.push == direction
+            ? OpenBookPage(book: book)
+            : Container(color: Colors.white),
+        AnimatedBuilder(
+            animation: animation,
+            builder: (_, __) {
+              return Transform(
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.001)
+                  ..rotateY(1.6 * animation.value),
+                alignment: Alignment.centerLeft,
+                child: _CoverPageBook(srcImageBook: book.srcImage),
+              );
+            }),
+      ],
+    );
+  }
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final percent = shrinkOffset / maxExtent;
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         //-------------------------------
-        // BLUR BOOK BACKGROUND
+        // Blur background
         //-------------------------------
         Positioned.fill(
           bottom: 50,
-          child: _BlurImageBackground(book: book, percent: percent),
+          child: _BlurBackground(book: book, percent: percent),
         ),
-        //--------------------------
-        // CUSTOM APP BAR
-        //--------------------------
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
+              //--------------------------
+              // Custom AppBar
+              //--------------------------
               SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 10),
@@ -44,7 +97,7 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
                             ColorTween(begin: Colors.white, end: Colors.black)
                                 .transform(percent),
                         onPressed: () {
-                          activeHeroOpenBookAnimation.value = false;
+                          enableOpenBookAnimation.value = false;
                           Navigator.pop(context);
                         },
                         icon: const Icon(Icons.arrow_back_ios),
@@ -59,31 +112,27 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
                 child: Row(
                   children: [
                     //---------------------------
-                    // BOOK IMAGE
+                    // Cover book image
                     //---------------------------
                     InkWell(
                       onTap: () => _openBook(context),
-                      child: ValueListenableBuilder(
-                        valueListenable: activeHeroOpenBookAnimation,
+                      child: ValueListenableBuilder<bool>(
+                        valueListenable: enableOpenBookAnimation,
                         builder: (context, value, child) {
                           return Hero(
                               tag: book.title,
-                              flightShuttleBuilder: value
-                                  ? (_, animation, flightDirection, ___, ____) {
-                                      return _flightShuttleBuilder(
-                                          animation, flightDirection);
-                                    }
-                                  : null,
+                              flightShuttleBuilder:
+                                  value ? _customFlightShuttleBuilder : null,
                               child: child);
                         },
                         child: AspectRatio(
-                          aspectRatio: 10 / 16,
+                          aspectRatio: .68,
                           child: _CoverPageBook(srcImageBook: book.srcImage),
                         ),
                       ),
                     ),
                     //--------------------------
-                    // BOOK INFORMATION
+                    // Book details
                     //--------------------------
                     const SizedBox(width: 20),
                     Flexible(
@@ -134,55 +183,6 @@ class HeaderBookDelegate extends SliverPersistentHeaderDelegate {
       ],
     );
   }
-
-  @override
-  double get maxExtent => kToolbarHeight * 5.5;
-
-  @override
-  double get minExtent => kToolbarHeight * 4;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      false;
-
-  void _openBook(BuildContext context) async {
-    activeHeroOpenBookAnimation.value = true;
-    await Navigator.push(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 600),
-          reverseTransitionDuration: const Duration(milliseconds: 600),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: OpenBookPage(book: book),
-            );
-          },
-        ));
-  }
-
-  Widget _flightShuttleBuilder(
-      Animation<double> animation, HeroFlightDirection flightDirection) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        HeroFlightDirection.push == flightDirection
-            ? OpenBookPage(book: book)
-            : Container(color: Colors.white),
-        AnimatedBuilder(
-            animation: animation,
-            builder: (_, __) {
-              return Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(1.6 * animation.value),
-                alignment: Alignment.centerLeft,
-                child: _CoverPageBook(srcImageBook: book.srcImage),
-              );
-            }),
-      ],
-    );
-  }
 }
 
 class _CoverPageBook extends StatelessWidget {
@@ -212,8 +212,9 @@ class _CoverPageBook extends StatelessWidget {
   }
 }
 
-class _BlurImageBackground extends StatelessWidget {
-  const _BlurImageBackground({
+// Blur
+class _BlurBackground extends StatelessWidget {
+  const _BlurBackground({
     Key key,
     @required this.book,
     @required this.percent,
@@ -279,4 +280,38 @@ class _CategoryAndRate extends StatelessWidget {
       ],
     );
   }
+}
+
+//----------------------------------------------------------------
+// Custom Sliver Persistent Header
+//----------------------------------------------------------------
+typedef _BookDetailDelegateChildBuilder = Widget Function(double percent);
+
+class BookDetailHeaderDelegate extends SliverPersistentHeaderDelegate {
+  BookDetailHeaderDelegate({
+    this.maximumExtent = kToolbarHeight * 2,
+    this.minimumExtent = kToolbarHeight,
+    @required this.childBuilder,
+  });
+
+  final _BookDetailDelegateChildBuilder childBuilder;
+  final double maximumExtent;
+  final double minimumExtent;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final percent = shrinkOffset / maxExtent;
+    return childBuilder(percent);
+  }
+
+  @override
+  double get maxExtent => maximumExtent;
+
+  @override
+  double get minExtent => minimumExtent;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      false;
 }

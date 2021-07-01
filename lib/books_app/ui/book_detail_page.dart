@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/books_app/models/book.dart';
-import 'package:flutter_projects/books_app/ui/widgets/header_book_delegate.dart';
+import 'package:flutter_projects/books_app/ui/widgets/book_detail_header.dart';
 
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({
@@ -17,8 +17,17 @@ class BookDetailPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverPersistentHeader(
-            delegate: HeaderBookDelegate(book),
             pinned: true,
+            delegate: BookDetailHeaderDelegate(
+              maximumExtent: kToolbarHeight * 5.5,
+              minimumExtent: kToolbarHeight * 4,
+              childBuilder: (percent) {
+                return BookDetailHeader(
+                  book: book,
+                  percent: percent,
+                );
+              },
+            ),
           ),
           SliverToBoxAdapter(
             child: Padding(

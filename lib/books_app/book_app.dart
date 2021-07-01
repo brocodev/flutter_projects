@@ -25,31 +25,48 @@ class _BookNavigationPage extends StatefulWidget {
 }
 
 class _BookNavigationPageState extends State<_BookNavigationPage> {
-  int indexPage = 0;
+  PageController _pageController;
+  int _indexPage;
+
+  @override
+  void initState() {
+    _pageController = PageController();
+    _indexPage = 0;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedSwitcher(
-        duration: kThemeChangeDuration,
-        child: [
-          const HomePage(),
-          Scaffold(
-              key: UniqueKey(), body: const Center(child: Text('Discover'))),
-          Scaffold(
-              key: UniqueKey(), body: const Center(child: Text('Profile'))),
-        ][indexPage],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (value) => setState(() {
+          _indexPage = value;
+        }),
+        children: const [
+          HomePage(),
+          Scaffold(body: Center(child: Text('Discover'))),
+          Scaffold(body: Center(child: Text('Profile'))),
+        ],
       ),
       bottomNavigationBar: SizedBox(
-        height: kToolbarHeight + 10,
+        height: kToolbarHeight,
         child: BottomNavigationBar(
-          onTap: (value) {
-            if (value != indexPage) setState(() => indexPage = value);
-          },
+          onTap: (value) => setState(() {
+            _pageController.animateToPage(value,
+                duration: kThemeChangeDuration, curve: Curves.decelerate);
+            _indexPage = value;
+          }),
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.grey[400],
           backgroundColor: Colors.white,
-          currentIndex: indexPage,
+          currentIndex: _indexPage,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.radio_button_on),
