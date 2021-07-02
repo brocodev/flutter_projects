@@ -56,9 +56,10 @@ Flutter UI + Animations + Slivers + Simple Bloc
  |--------------|--------------------|
  |<img src="https://media3.giphy.com/media/kFCmUoyx5QXRzQgIen/giphy.gif" width="250" > |  <img src="https://media3.giphy.com/media/066yx2JbrILzbtZUHP/giphy.gif" width="250">|
 ### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
+
 ___
-## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
-Flutter UI + Animations 
+## [Superhero Movies App]
+ [Superhero Movies App - Flutter Speed Code UI](https://www.youtube.com/watch?v=heimVhqr48M&t=459s) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Slider Page | Detail Page |
  | ----------------- |-------------|
  | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
