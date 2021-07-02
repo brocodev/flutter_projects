@@ -20,7 +20,7 @@ ___
 Flutter UI + Hero Animations + Simple Bloc
  | Home Page & Filter Page | Book Detail Page |
  |-----------|-----------|
- |<img src="https://media.giphy.com/media/oGzOS97FzEZip6o6n7/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/deHDFnQ92f5TEOuK1z/giphy.gif" width="250"> |
+ |<img src="https://media.giphy.com/media/Cm4iOYXAs5UnfgMwJt/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/deHDFnQ92f5TEOuK1z/giphy.gif" width="250"> |
  
  | Open Book Page | 
  |--------------|
