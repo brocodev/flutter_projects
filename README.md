@@ -15,6 +15,24 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+___
+## Bookstore App
+Flutter UI + Hero Animations + Simple Bloc
+ | Home Page & Filter Page | Book Detail Page |
+ |-----------|-----------|
+ |<img src="https://media.giphy.com/media/Cm4iOYXAs5UnfgMwJt/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/deHDFnQ92f5TEOuK1z/giphy.gif" width="250"> |
+ 
+ | Open Book Page | 
+ |--------------|
+ |<img src="https://media.giphy.com/media/BBWnhh0JYme8lOEjgs/giphy.gif" width="250" > |
+### [Inspiration](https://dribbble.com/shots/14070372-Custom-Your-Book-List) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
+___
+## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
+Flutter UI + Animations 
+ | Slider Page | Detail Page |
+ | ----------------- |-------------|
+ | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
+### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
 ## Instagram Redesign App
