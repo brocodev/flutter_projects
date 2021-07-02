@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 ___
 ## Template Gallery App
  [Flutter Card Template Animation | Stacked Cards | Speed Code](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
- | Perspective List View| Cuztomizable Demo |
+ | Perspective List View| Settings Drawer |
  |-----------|-----------|
  |<img src="https://media.giphy.com/media/eZjCCjKneC0Us572ry/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/L1PIR41QveWiVy7on3/giphy.gif" width="250"> |
 
