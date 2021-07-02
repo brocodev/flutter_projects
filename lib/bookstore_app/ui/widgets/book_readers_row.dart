@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/books_app/models/book.dart';
+import 'package:flutter_projects/bookstore_app/models/book.dart';
 
 class ReadersRow extends StatelessWidget {
   const ReadersRow({

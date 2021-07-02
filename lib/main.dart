@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_projects/books_app/book_app.dart';
+import 'package:flutter_projects/bookstore_app/book_app.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';

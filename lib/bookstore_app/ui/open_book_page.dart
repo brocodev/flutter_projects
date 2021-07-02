@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/books_app/models/book.dart';
+import 'package:flutter_projects/bookstore_app/models/book.dart';
+import 'package:flutter_projects/bookstore_app/ui/widgets/cover_page_book.dart';
 
 class OpenBookPage extends StatefulWidget {
   const OpenBookPage({
@@ -26,11 +27,44 @@ class _OpenBookPageState extends State<OpenBookPage> {
     super.initState();
   }
 
+  //---------------------------------------------------
+  // Customized Flight Hero
+  // Modify the hero animation during the transition.
+  //---------------------------------------------------
+  Widget _customFlightShuttleBuilder(
+    BuildContext flightContext,
+    Animation<double> animation,
+    HeroFlightDirection direction,
+    BuildContext fromHeroContext,
+    BuildContext toHeroContext,
+  ) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        HeroFlightDirection.push == direction
+            ? OpenBookPage(book: widget.book)
+            : Container(color: Colors.white),
+        AnimatedBuilder(
+            animation: animation,
+            builder: (_, __) {
+              return Transform(
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.001)
+                  ..rotateY(1.6 * animation.value),
+                alignment: Alignment.centerLeft,
+                child: CoverPageBook(srcImageBook: widget.book.srcImage),
+              );
+            }),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Hero(
         tag: widget.book.title,
+        flightShuttleBuilder: _customFlightShuttleBuilder,
         child: SafeArea(
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),

@@ -4,3 +4,4 @@ linter:
     public_member_api_docs: false
     prefer_single_quotes: false
     unawaited_futures: false
+    cascade_invocations: false

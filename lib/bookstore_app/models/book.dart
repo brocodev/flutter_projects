@@ -1,6 +1,6 @@
 import 'dart:math' show Random;
-import 'package:flutter_projects/books_app/models/user_book.dart';
-export 'package:flutter_projects/books_app/models/user_book.dart';
+import 'package:flutter_projects/bookstore_app/models/user_book.dart';
+export 'package:flutter_projects/bookstore_app/models/user_book.dart';
 
 class Book {
   Book({

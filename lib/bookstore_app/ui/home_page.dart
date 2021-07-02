@@ -1,10 +1,12 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/books_app/models/book.dart';
-import 'package:flutter_projects/books_app/ui/book_detail_page.dart';
-import 'package:flutter_projects/books_app/ui/filter_page.dart';
-import 'package:flutter_projects/books_app/ui/widgets/book_rate_stars.dart';
-import 'package:flutter_projects/books_app/ui/widgets/book_readers_row.dart';
+import 'package:flutter_projects/bookstore_app/bloc/categories_bloc.dart';
+import 'package:flutter_projects/bookstore_app/bloc/categories_bloc_provider.dart';
+import 'package:flutter_projects/bookstore_app/models/book.dart';
+import 'package:flutter_projects/bookstore_app/ui/book_detail_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/filter_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/widgets/book_rate_stars.dart';
+import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -16,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ScrollController _scrollController;
   ValueNotifier<double> _scrollPercentNotifier;
+  CategoriesBloc _categoriesBloc;
 
   @override
   void initState() {
@@ -30,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     _scrollController
       ..removeListener(_scrollListener)
       ..dispose();
+    _categoriesBloc.dispose();
     super.dispose();
   }
 
@@ -39,10 +43,12 @@ class _HomePageState extends State<HomePage> {
         .clamp(0.0, 1.0);
   }
 
+  // Open the detail page of a book in the list.
   void _openPage(Widget page, BuildContext context, {bool opaque = false}) {
     final route = PageRouteBuilder(
       opaque: opaque,
       transitionDuration: const Duration(milliseconds: 600),
+      reverseTransitionDuration: const Duration(milliseconds: 600),
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,
@@ -55,9 +61,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _categoriesBloc = CategoriesBlocProvider.of(context).categoriesBloc;
+    _categoriesBloc.eventsSink.add(null);
+
     return Scaffold(
       //----------------------------
-      // APP BAR
+      // Home App Bar
       //----------------------------
       appBar: AppBar(
         toolbarHeight: kToolbarHeight * 1.6,
@@ -81,20 +90,19 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const SizedBox(width: 16),
                 //------------------------------------
-                // Category Filter Button
+                // Categories Filter Button
                 //------------------------------------
                 InkWell(
                   onTap: () => _openPage(const FilterPage(), context),
                   child: Hero(
-                    tag: 'filter_background',
+                    tag: 'filter-background',
                     child: Container(
                       height: 40,
                       width: 40,
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(2.0)),
-                      child: const Icon(Icons.tune,
-                          color: Colors.white),
+                      child: const Icon(Icons.tune, color: Colors.white),
                     ),
                   ),
                 ),
@@ -102,15 +110,23 @@ class _HomePageState extends State<HomePage> {
                 // Book Categories List View
                 //----------------------------------
                 Expanded(
-                    child: ListView.builder(
-                  itemCount: Book.bookCategories.length,
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.only(left: 10),
-                  itemBuilder: (context, index) {
-                    final category = Book.bookCategories[index];
-                    return _CategoryChip(category: category);
-                  },
-                ))
+                  child: StreamBuilder<List<String>>(
+                      stream: _categoriesBloc.categoriesStream,
+                      builder: (context, snapshot) {
+                        return snapshot.connectionState !=
+                                ConnectionState.waiting
+                            ? ListView.builder(
+                                itemCount: snapshot.data.length,
+                                scrollDirection: Axis.horizontal,
+                                padding: const EdgeInsets.only(left: 10),
+                                itemBuilder: (context, index) {
+                                  final category = snapshot.data[index];
+                                  return _CategoryChip(category: category);
+                                },
+                              )
+                            : const SizedBox();
+                      }),
+                )
               ],
             ),
           ),
@@ -259,19 +275,35 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(2.0),
-        border: Border.all(color: Colors.grey[200]),
-      ),
-      child: Text(
-        category,
-        style: TextStyle(
-          fontSize: 12,
-          color: Colors.grey[600],
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: Hero(
+        tag: 'chip-$category',
+        child: Material(
+          color: Colors.transparent,
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.grey[50],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(1.0),
+                    side: BorderSide(
+                      color: Colors.grey[200],
+                    )),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 20,
+                )),
+            child: FittedBox(
+              child: Text(
+                category,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey[500],
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

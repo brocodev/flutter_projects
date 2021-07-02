@@ -2,10 +2,12 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/books_app/models/book.dart';
-import 'package:flutter_projects/books_app/ui/open_book_page.dart';
-import 'package:flutter_projects/books_app/ui/widgets/book_rate_stars.dart';
-import 'package:flutter_projects/books_app/ui/widgets/book_readers_row.dart';
+import 'package:flutter_projects/bookstore_app/models/book.dart';
+import 'package:flutter_projects/bookstore_app/ui/open_book_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/widgets/book_rate_stars.dart';
+import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart';
+
+import 'cover_page_book.dart';
 
 class BookDetailHeader extends StatelessWidget {
   BookDetailHeader({Key key, this.percent, this.book}) : super(key: key);
@@ -36,37 +38,7 @@ class BookDetailHeader extends StatelessWidget {
         ));
   }
 
-  //---------------------------------------------------
-  // Customized Flight Hero
-  // Modify the hero animation during the transition.
-  //---------------------------------------------------
-  Widget _customFlightShuttleBuilder(
-    BuildContext flightContext,
-    Animation<double> animation,
-    HeroFlightDirection direction,
-    BuildContext fromHeroContext,
-    BuildContext toHeroContext,
-  ) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        HeroFlightDirection.push == direction
-            ? OpenBookPage(book: book)
-            : Container(color: Colors.white),
-        AnimatedBuilder(
-            animation: animation,
-            builder: (_, __) {
-              return Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(1.6 * animation.value),
-                alignment: Alignment.centerLeft,
-                child: _CoverPageBook(srcImageBook: book.srcImage),
-              );
-            }),
-      ],
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -116,18 +88,11 @@ class BookDetailHeader extends StatelessWidget {
                     //---------------------------
                     InkWell(
                       onTap: () => _openBook(context),
-                      child: ValueListenableBuilder<bool>(
-                        valueListenable: enableOpenBookAnimation,
-                        builder: (context, value, child) {
-                          return Hero(
-                              tag: book.title,
-                              flightShuttleBuilder:
-                                  value ? _customFlightShuttleBuilder : null,
-                              child: child);
-                        },
+                      child: Hero(
+                        tag: book.title,
                         child: AspectRatio(
                           aspectRatio: .68,
-                          child: _CoverPageBook(srcImageBook: book.srcImage),
+                          child: CoverPageBook(srcImageBook: book.srcImage),
                         ),
                       ),
                     ),
@@ -181,33 +146,6 @@ class BookDetailHeader extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-}
-
-class _CoverPageBook extends StatelessWidget {
-  const _CoverPageBook({
-    Key key,
-    @required this.srcImageBook,
-  }) : super(key: key);
-
-  final String srcImageBook;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white, width: 3.0),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            offset: Offset(5, 5),
-          )
-        ],
-        image:
-            DecorationImage(image: AssetImage(srcImageBook), fit: BoxFit.cover),
-      ),
     );
   }
 }

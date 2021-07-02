@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/books_app/theme/theme.dart';
-import 'package:flutter_projects/books_app/ui/home_page.dart';
+import 'package:flutter_projects/bookstore_app/bloc/categories_bloc.dart';
+import 'package:flutter_projects/bookstore_app/bloc/categories_bloc_provider.dart';
+import 'package:flutter_projects/bookstore_app/theme/theme.dart';
+import 'package:flutter_projects/bookstore_app/ui/home_page.dart';
+
 
 class BookStoreApp extends StatelessWidget {
   const BookStoreApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: BookAppTheme.themeData,
-      home: const _BookNavigationPage(),
+    return CategoriesBlocProvider(
+      categoriesBloc: CategoriesBloc(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: BookAppTheme.themeData,
+        home: const _BookNavigationPage(),
+      ),
     );
   }
 }
