@@ -15,6 +15,16 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+___
+## Template Gallery App
+ [Flutter Card Template Animation | Stacked Cards | Speed Code](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
+ | Perspective List View| Cuztomizable Demo |
+ |-----------|-----------|
+ |<img src="https://media.giphy.com/media/eZjCCjKneC0Us572ry/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/L1PIR41QveWiVy7on3/giphy.gif" width="250"> |
+
+### [Inspiration]() <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
+
 ___
 ## Bookstore App
 Flutter UI + Hero Animations + Simple Bloc
@@ -26,6 +36,7 @@ Flutter UI + Hero Animations + Simple Bloc
  |--------------|
  |<img src="https://media.giphy.com/media/BBWnhh0JYme8lOEjgs/giphy.gif" width="250" > |
 ### [Inspiration](https://dribbble.com/shots/14070372-Custom-Your-Book-List) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
+
 ___
 ## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
 Flutter UI + Animations 
