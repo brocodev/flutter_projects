@@ -17,7 +17,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ___
-## Template Gallery App
+## 11 - Template Gallery App
  [Flutter Card Template Animation | Stacked Cards | Speed Code](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Perspective List View| Settings Drawer |
  |-----------|-----------|
@@ -26,7 +26,7 @@ ___
 ### [Inspiration]() <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## Bookstore App
+## 10 - Bookstore App
 Flutter UI + Hero Animations + Simple Bloc
  | Home Page & Filter Page | Book Detail Page |
  |-----------|-----------|
@@ -38,15 +38,7 @@ Flutter UI + Hero Animations + Simple Bloc
 ### [Inspiration](https://dribbble.com/shots/14070372-Custom-Your-Book-List) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## [Superhero Movies App](https://www.youtube.com/watch?v=heimVhqr48M&t=459s)
-Flutter UI + Animations 
- | Slider Page | Detail Page |
- | ----------------- |-------------|
- | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
-### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
-
-___
-## Instagram Redesign App
+## 9 - Instagram Redesign App
 Flutter UI + Animations + Slivers + Simple Bloc
  | Home Page | Dark Mode |
  |-----------|-----------|
@@ -58,7 +50,7 @@ Flutter UI + Animations + Slivers + Simple Bloc
 ### [Inspiration](https://dribbble.com/shots/14188610-Instagram-Redesign-2020) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## [Superhero Movies App]
+## 8 - Superhero Movies App
  [Superhero Movies App - Flutter Speed Code UI](https://www.youtube.com/watch?v=heimVhqr48M&t=459s) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Slider Page | Detail Page |
  | ----------------- |-------------|
@@ -66,7 +58,7 @@ ___
 ### [Inspiration](https://dribbble.com/shots/5935613-Marvel-Movies-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## Social App Photographers
+## 7 - Social App Photographers
 Flutter UI + Clippers + Animations
  | Home Page | Profile Page |
  | --------- |--------------|
@@ -75,7 +67,7 @@ Flutter UI + Clippers + Animations
 ### [Inspiration](https://dribbble.com/shots/6690819--Social-App-Design-Photographers) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## Gaming App
+## 6 - Gaming App
 Flutter UI + Page View Animation 
  | Home Page | Trending Page |
  | ----------------- |-------------|
@@ -83,7 +75,7 @@ Flutter UI + Page View Animation
 ### [Inspiration](https://dribbble.com/shots/14420964-Gaming-App) <img src="hhttps://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## My Medical Appointment
+## 5 - My Medical Appointment
 Flutter UI + Simple Animations
 | Home Page |
 |-----------|
@@ -91,7 +83,7 @@ Flutter UI + Simple Animations
 ### [Inspiration](https://www.uplabs.com/posts/my-medical-appoinment) <img src="https://cdn-images-1.medium.com/max/280/1*pWMauDqpatwd-TNnGrB-vg@2x.png" width="16">
 
 ___
-## Music Albums Collection
+## 4 - Music Albums Collection
 Flutter UI + Hero Animations
  | Albums Grid/List Page   | Player Page  |
  | ----------------- |-------------|
@@ -99,7 +91,7 @@ Flutter UI + Hero Animations
 ### [Inspiration](https://dribbble.com/shots/12033542-Music-Player-Interaction) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## Music Vinyl Animation
+## 3 - Music Vinyl Animation
 Flutter UI + Animations
  | Albums List Page | Player Page  |
  | ----------------- |-------------|
@@ -107,7 +99,7 @@ Flutter UI + Animations
 #### [Inspiration](https://dribbble.com/shots/10123436-Music-Player-Vinyls) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## FindOut
+## 2 - FindOut
 Flutter UI + Simple Animations
  | Home Page | City Page |
  | --------- |-----------|
@@ -116,7 +108,7 @@ Flutter UI + Simple Animations
 ### [Inspiration](https://dribbble.com/m4st3rmiau) <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
 
 ___
-## Movie Selections
+## 1 - Movie Selections
 Flutter UI + Animations
  | Home Page  | Page flow - Buy Ticket  |
  | ---------- |-------------------------|
