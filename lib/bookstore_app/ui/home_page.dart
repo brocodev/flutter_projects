@@ -139,8 +139,8 @@ class _HomePageState extends State<HomePage> {
               controller: _scrollController,
               physics: const BouncingScrollPhysics(),
               itemCount: Book.books.length,
-              itemExtent: MediaQuery.of(context).size.width * .65,
               scrollDirection: Axis.horizontal,
+              // itemExtent: MediaQuery.of(context).size.width * .65,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               itemBuilder: (context, index) {
                 final book = Book.books[index];
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             //---------------------------
-            // LIST SCROLL INDICATOR
+            // List Scroll Indicator
             //---------------------------
             child: Stack(
               children: [
@@ -221,36 +221,47 @@ class _HomeBookCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Hero(
-          tag: book.title,
-          child: AspectRatio(
-            aspectRatio: .7,
-            child: Container(
-              margin: const EdgeInsets.only(right: 40, bottom: 20),
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(book.srcImage),
-                    fit: BoxFit.cover,
-                  ),
-                  border: Border.all(color: Colors.white, width: 3),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 15,
-                        offset: Offset(10, 10))
-                  ]),
+        Expanded(
+          child: Hero(
+            tag: book.title,
+            child: AspectRatio(
+              aspectRatio: .7,
+              child: Container(
+                margin: const EdgeInsets.only(right: 40, bottom: 20),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(book.srcImage),
+                      fit: BoxFit.cover,
+                    ),
+                    border: Border.all(color: Colors.white, width: 3),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 15,
+                          offset: Offset(10, 10))
+                    ]),
+              ),
             ),
           ),
         ),
-        Text(
-          book.title,
-          style: Theme.of(context).textTheme.subtitle1,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        Text(
-          'By ${book.author}',
-          style: Theme.of(context).textTheme.subtitle2.copyWith(height: 1.7),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * .6,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                book.title,
+                style: Theme.of(context).textTheme.subtitle1,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                'By ${book.author}',
+                style:
+                    Theme.of(context).textTheme.subtitle2.copyWith(height: 1.7),
+              ),
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5),
