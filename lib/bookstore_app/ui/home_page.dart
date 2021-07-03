@@ -140,7 +140,6 @@ class _HomePageState extends State<HomePage> {
               physics: const BouncingScrollPhysics(),
               itemCount: Book.books.length,
               scrollDirection: Axis.horizontal,
-              // itemExtent: MediaQuery.of(context).size.width * .65,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               itemBuilder: (context, index) {
                 final book = Book.books[index];
