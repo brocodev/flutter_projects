@@ -1,0 +1,11 @@
+<svg id="Grupo_16546" data-name="Grupo 16546" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.346" height="27.425" viewBox="0 0 23.346 27.425">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3affe1"/>
+      <stop offset="1" stop-color="#8199ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_16548" data-name="Grupo 16548">
+    <path id="Trazado_78415" data-name="Trazado 78415" d="M202,122.032l-14.907,4.219a1.056,1.056,0,0,0-.765,1.015v14.3a4.171,4.171,0,0,0-2.11-.587,4.219,4.219,0,1,0,4.219,4.219V132.281l12.8-3.616v8.681a4.17,4.17,0,0,0-2.11-.587,4.219,4.219,0,1,0,4.219,4.219V123.047A1.056,1.056,0,0,0,202,122.032Z" transform="translate(-180 -121.991)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

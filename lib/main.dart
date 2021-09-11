@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
         _ProjectModel.bookApp.route: (_) => const BookStoreApp(),
         _ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
+        _ProjectModel.streamingApp.route: (_) => const TemplateGalleryApp(),
       },
     );
   }
@@ -286,7 +287,14 @@ class _ProjectModel {
       designer: 'Sergey Valiukh',
       pathImage: 'assets/img/template_gallery.gif',
       route: 'template');
+  static const streamingApp = _ProjectModel(
+      title: 'Streaming App',
+      description: 'Advanced UI',
+      designer: 'Mao Lop',
+      pathImage: 'assets/img/streaming_app.png',
+      route: 'streaming');
   static const listProjects = [
+    streamingApp,
     templateGallery,
     bookApp,
     orixGaming,

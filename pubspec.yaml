@@ -36,6 +36,7 @@ flutter:
   assets:
     - assets/img/
     - assets/img/findout/
+    - assets/img/streaming/
     - assets/img/movie/
     - assets/img/music/
     - assets/img/superheroes/
@@ -43,6 +44,7 @@ flutter:
     - assets/img/gaming/
     - assets/svg/instagram/
     - assets/svg/medical/
+    - assets/svg/streaming/
     - assets/img/books/
   fonts:
     - family: MDIcons

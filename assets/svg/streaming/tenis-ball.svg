@@ -1,0 +1,13 @@
+<svg id="pelota-deportiva" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.978" height="23.975" viewBox="0 0 23.978 23.975">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd93a"/>
+      <stop offset="1" stop-color="#ffad81"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_16545" data-name="Grupo 16545">
+    <path id="Trazado_78411" data-name="Trazado 78411" d="M0,59.4a11.911,11.911,0,0,1,2.4-7.17,11.913,11.913,0,0,1,2.4,7.17A11.912,11.912,0,0,1,2.4,66.57,11.909,11.909,0,0,1,0,59.4Z" transform="translate(0 -47.413)" fill="url(#linear-gradient)"/>
+    <path id="Trazado_78412" data-name="Trazado 78412" d="M54.27,23.994a11.931,11.931,0,0,1-7.69-2.8,14.651,14.651,0,0,0,0-18.371,11.931,11.931,0,0,1,14.654-.554A14.628,14.628,0,0,0,62.4,20.795,11.935,11.935,0,0,1,54.27,23.994Z" transform="translate(-42.281 -0.019)" fill="url(#linear-gradient)"/>
+    <path id="Trazado_78413" data-name="Trazado 78413" d="M208.048,58.9a11.939,11.939,0,0,1-.935-14.616,11.939,11.939,0,0,1,.935,14.616Z" transform="translate(-186.131 -40.201)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
