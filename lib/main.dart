@@ -8,6 +8,7 @@ import 'package:flutter_projects/music_album_collection/music_album_collection.d
 import 'package:flutter_projects/music_vinyl_player/music_vinyl_player.dart';
 import 'package:flutter_projects/orix_gaming/orix_gaming_app.dart';
 import 'package:flutter_projects/photographers_app/photographers_app.dart';
+import 'package:flutter_projects/streaming_app/streaming_app.dart';
 import 'package:flutter_projects/superheroes/superheroes_app.dart';
 import 'package:flutter_projects/template_gallery/template_gallery_app.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
         _ProjectModel.bookApp.route: (_) => const BookStoreApp(),
         _ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
-        _ProjectModel.streamingApp.route: (_) => const TemplateGalleryApp(),
+        _ProjectModel.streamingApp.route: (_) => const StreamingApp(),
       },
     );
   }
