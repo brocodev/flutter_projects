@@ -6,7 +6,7 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoProfilePage extends StatelessWidget {
-  const PhotoProfilePage({Key key, @required this.user}) : super(key: key);
+  const PhotoProfilePage({Key? key, required this.user}) : super(key: key);
 
   final PhotoUser user;
 
@@ -47,7 +47,7 @@ class PhotoProfilePage extends StatelessWidget {
                 ],
               ),
               _TitleSubtitleText(
-                title: "${(user.followers / 1000).toString().substring(0, 4)}K",
+                title: "${(user.followers! / 1000).toString().substring(0, 4)}K",
                 subtitle: "Followers",
                 height: 2,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,13 +70,13 @@ class PhotoProfilePage extends StatelessWidget {
               clipper: _CurveTopClipper(),
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: user.listPhotosUrl.length,
+                itemCount: user.listPhotosUrl!.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 2 / 3,
                     crossAxisSpacing: 10),
                 itemBuilder: (context, index) {
-                  final imageUrl = user.listPhotosUrl[index];
+                  final imageUrl = user.listPhotosUrl![index];
                   return Center(
                     child: LayoutBuilder(
                       builder: (context, constraints) {
@@ -107,10 +107,10 @@ class PhotoProfilePage extends StatelessWidget {
 
 class _ImageProfile extends StatelessWidget {
   const _ImageProfile({
-    Key key,
-    @required this.imageUser,
+    Key? key,
+    required this.imageUser,
   }) : super(key: key);
-  final String imageUser;
+  final String? imageUser;
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,7 @@ class _ImageProfile extends StatelessWidget {
       width: 90,
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: CachedNetworkImageProvider(imageUser),
+            image: CachedNetworkImageProvider(imageUser!),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(35),
@@ -136,15 +136,15 @@ class _ImageProfile extends StatelessWidget {
 
 class _TitleSubtitleText extends StatelessWidget {
   const _TitleSubtitleText({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
+    Key? key,
+    required this.title,
+    required this.subtitle,
     this.height = 1.5,
     this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
 
-  final String title;
-  final String subtitle;
+  final String? title;
+  final String? subtitle;
   final double height;
   final CrossAxisAlignment crossAxisAlignment;
 
@@ -154,14 +154,14 @@ class _TitleSubtitleText extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title,
+        Text(title!,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: PhotoAppColors.kDarkBlue,
               fontSize: 17,
             )),
         Text(
-          subtitle,
+          subtitle!,
           style: GoogleFonts.lato(
               height: height,
               color: PhotoAppColors.kGrey,
@@ -173,7 +173,7 @@ class _TitleSubtitleText extends StatelessWidget {
 }
 
 class _GreenDot extends StatelessWidget {
-  const _GreenDot({Key key}) : super(key: key);
+  const _GreenDot({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -10,13 +10,13 @@ class Place {
       this.likes,
       this.comments});
 
-  final String id;
-  final String title;
-  final String description;
-  final List<String> imageUrl;
-  final int likes;
-  final String typePlace;
-  final List<Comment> comments;
+  final String? id;
+  final String? title;
+  final String? description;
+  final List<String>? imageUrl;
+  final int? likes;
+  final String? typePlace;
+  final List<Comment>? comments;
 
   static final dumpListData = [
     Place(

@@ -8,7 +8,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   void _openHomePage(BuildContext context) {
@@ -28,14 +28,14 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final resizeNotifier = ValueNotifier(false);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       if (!resizeNotifier.value) resizeNotifier.value = true;
     });
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
         onVerticalDragUpdate: (details) {
-          if (details.primaryDelta > 10) {
+          if (details.primaryDelta! > 10) {
             resizeNotifier.value = false;
             Navigator.pop(context);
           }
@@ -44,14 +44,14 @@ class LoginPage extends StatelessWidget {
           children: <Widget>[
             ValueListenableBuilder(
               valueListenable: resizeNotifier,
-              builder: (context, value, child) {
+              builder: (context, dynamic value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,
                   bottom: value ? 0 : -size.height * .5,
                   left: 0,
                   right: 0,
-                  child: child,
+                  child: child!,
                 );
               },
               child: SizedBox(
@@ -150,7 +150,7 @@ class LoginPage extends StatelessWidget {
 
 class _DragDownIndication extends StatelessWidget {
   const _DragDownIndication({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

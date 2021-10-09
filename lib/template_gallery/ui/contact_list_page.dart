@@ -5,7 +5,7 @@ import 'package:flutter_projects/template_gallery/ui/widgets/perspective_list_vi
 
 class ContactListPage extends StatefulWidget {
   const ContactListPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -13,8 +13,8 @@ class ContactListPage extends StatefulWidget {
 }
 
 class _ContactListPageState extends State<ContactListPage> {
-  int _visibleItems;
-  double _itemExtent;
+  int? _visibleItems;
+  double? _itemExtent;
 
   @override
   void initState() {
@@ -106,7 +106,7 @@ class _ContactListPageState extends State<ContactListPage> {
                       ),
                       Expanded(
                         child: Slider(
-                          value: _visibleItems.toDouble(),
+                          value: _visibleItems!.toDouble(),
                           min: 2,
                           max: 15,
                           divisions: 15,
@@ -139,7 +139,7 @@ class _ContactListPageState extends State<ContactListPage> {
                       ),
                       Expanded(
                         child: Slider(
-                          value: _itemExtent,
+                          value: _itemExtent!,
                           min: 270.0,
                           max: MediaQuery.of(context).size.height * .8,
                           label: '$_itemExtent',

@@ -9,22 +9,22 @@ import 'package:flutter_projects/bookstore_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _scrollController;
-  ValueNotifier<double> _scrollPercentNotifier;
-  CategoriesBloc _categoriesBloc;
+  late final ScrollController _scrollController;
+  late final ValueNotifier<double> _scrollPercentNotifier;
+  late final CategoriesBloc _categoriesBloc;
 
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollPercentNotifier = ValueNotifier(0.0);
-    _scrollController.addListener(_scrollListener);
+    _scrollPercentNotifier = ValueNotifier(0);
+    _scrollController!.addListener(_scrollListener);
     super.initState();
   }
 
@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _scrollListener() {
-    _scrollPercentNotifier.value = (_scrollController.position.pixels /
-            _scrollController.position.maxScrollExtent)
+    _scrollPercentNotifier.value = (_scrollController!.position.pixels /
+            _scrollController!.position.maxScrollExtent)
         .clamp(0.0, 1.0);
   }
 
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _categoriesBloc = CategoriesBlocProvider.of(context).categoriesBloc;
+    _categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
     _categoriesBloc.eventsSink.add(null);
 
     return Scaffold(
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: CircleAvatar(
               radius: 25,
-              backgroundImage: NetworkImage(UserBook.currentUser.photoUrl),
+              backgroundImage: NetworkImage(UserBook.currentUser.photoUrl!),
             ),
           ),
           const SizedBox(width: 16)
@@ -116,11 +116,11 @@ class _HomePageState extends State<HomePage> {
                         return snapshot.connectionState !=
                                 ConnectionState.waiting
                             ? ListView.builder(
-                                itemCount: snapshot.data.length,
+                                itemCount: snapshot.data!.length,
                                 scrollDirection: Axis.horizontal,
                                 padding: const EdgeInsets.only(left: 10),
                                 itemBuilder: (context, index) {
-                                  final category = snapshot.data[index];
+                                  final category = snapshot.data![index];
                                   return _CategoryChip(category: category);
                                 },
                               )
@@ -160,9 +160,9 @@ class _HomePageState extends State<HomePage> {
                 const Divider(color: Color(0xFFeaeaea)),
                 ValueListenableBuilder(
                   valueListenable: _scrollPercentNotifier,
-                  builder: (context, value, child) {
+                  builder: (context, dynamic value, child) {
                     return Align(
-                      alignment: Alignment(ui.lerpDouble(-1.0, 1.0, value), 0),
+                      alignment: Alignment(ui.lerpDouble(-1.0, 1.0, value)!, 0),
                       child: child,
                     );
                   },
@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
 
 class _HomeAppBar extends StatelessWidget {
   const _HomeAppBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -209,8 +209,8 @@ class _HomeAppBar extends StatelessWidget {
 
 class _HomeBookCard extends StatelessWidget {
   const _HomeBookCard({
-    Key key,
-    @required this.book,
+    Key? key,
+    required this.book,
   }) : super(key: key);
 
   final Book book;
@@ -222,14 +222,14 @@ class _HomeBookCard extends StatelessWidget {
       children: [
         Expanded(
           child: Hero(
-            tag: book.title,
+            tag: book.title!,
             child: AspectRatio(
               aspectRatio: .7,
               child: Container(
                 margin: const EdgeInsets.only(right: 40, bottom: 20),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(book.srcImage),
+                      image: AssetImage(book.srcImage!),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(color: Colors.white, width: 3),
@@ -249,15 +249,17 @@ class _HomeBookCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                book.title,
+                book.title!,
                 style: Theme.of(context).textTheme.subtitle1,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
                 'By ${book.author}',
-                style:
-                    Theme.of(context).textTheme.subtitle2.copyWith(height: 1.7),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(height: 1.7),
               ),
             ],
           ),
@@ -265,7 +267,7 @@ class _HomeBookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: BookRateStars(
-            rate: book.rate,
+            rate: book.rate!,
             heroTag: book.title,
           ),
         ),
@@ -277,8 +279,8 @@ class _HomeBookCard extends StatelessWidget {
 
 class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
   }) : super(key: key);
 
   final String category;
@@ -298,7 +300,7 @@ class _CategoryChip extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(1.0),
                     side: BorderSide(
-                      color: Colors.grey[200],
+                      color: Colors.grey[200]!,
                     )),
                 padding: const EdgeInsets.symmetric(
                   vertical: 12,

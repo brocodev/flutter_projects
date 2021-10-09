@@ -1,26 +1,26 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart' show CupertinoActivityIndicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/footer_post.dart';
-import 'package:flutter_projects/instagram_redesign/ui/widgets/post_buttons.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/page_indicators.dart';
+import 'package:flutter_projects/instagram_redesign/ui/widgets/post_buttons.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AmplePostCard extends StatefulWidget {
   const AmplePostCard({
-    Key key,
-    @required this.post,
+    Key? key,
+    required this.post,
     this.borderRadius = const BorderRadius.vertical(top: Radius.circular(50)),
     this.height,
     this.onTap,
   }) : super(key: key);
   final IgPost post;
   final BorderRadiusGeometry borderRadius;
-  final double height;
-  final VoidCallback onTap;
+  final double? height;
+  final VoidCallback? onTap;
 
   @override
   _AmplePostCardState createState() => _AmplePostCardState();
@@ -28,41 +28,41 @@ class AmplePostCard extends StatefulWidget {
 
 class _AmplePostCardState extends State<AmplePostCard>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation _scaleHeart;
-  Animation _outOpacityHeart;
+  AnimationController? _controller;
+  late Animation _scaleHeart;
+  late Animation _outOpacityHeart;
   final _indexNotifier = ValueNotifier(0);
 
   @override
   void initState() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
-    _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        curve: const Interval(0.0, 0.75, curve: Curves.fastOutSlowIn),
-        parent: _controller));
-    _outOpacityHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-        parent: _controller));
-    _controller.addStatusListener(_statusListener);
+    _scaleHeart = Tween(begin: 0, end: 1.0).animate(CurvedAnimation(
+        curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
+        parent: _controller!));
+    _outOpacityHeart = Tween(begin: 1, end: 0.0).animate(CurvedAnimation(
+        curve: const Interval(0.5, 1, curve: Curves.fastOutSlowIn),
+        parent: _controller!));
+    _controller!.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller
+    _controller!
       ..removeStatusListener(_statusListener)
       ..dispose();
     super.dispose();
   }
 
   void _statusListener(AnimationStatus status) {
-    if (status == AnimationStatus.completed) _controller.reset();
+    if (status == AnimationStatus.completed) _controller!.reset();
   }
 
   @override
   Widget build(BuildContext context) {
     final post = widget.post;
-    final user = post.userPost;
+    final user = post.userPost!;
 
     return Material(
       color: Colors.transparent,
@@ -71,9 +71,9 @@ class _AmplePostCardState extends State<AmplePostCard>
         child: GestureDetector(
           onTap: widget.onTap,
           onDoubleTap: () {
-            _controller.forward();
+            _controller!.forward();
             setState(() {
-              post.isLiked = !post.isLiked;
+              post.isLiked = !post.isLiked!;
             });
           },
           child: Stack(
@@ -82,10 +82,10 @@ class _AmplePostCardState extends State<AmplePostCard>
               //------PAGE VIEW IMAGES POST
               //-------------------------------------
               ClipRRect(
-                borderRadius: widget.borderRadius,
+                borderRadius: widget.borderRadius as BorderRadius?,
                 child: PageView.builder(
                   onPageChanged: (value) => _indexNotifier.value = value,
-                  itemCount: post.photos.length,
+                  itemCount: post.photos!.length,
                   itemBuilder: (context, index) {
                     return Stack(
                       fit: StackFit.expand,
@@ -96,7 +96,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                           //-------IMAGES
                           //-----------------------
                           child: CachedNetworkImage(
-                            imageUrl: post.photos[index],
+                            imageUrl: post.photos![index],
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
                                 const CupertinoActivityIndicator(radius: 40),
@@ -146,7 +146,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          user.username,
+                          user.username!,
                           style: GoogleFonts.lato(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
@@ -160,10 +160,10 @@ class _AmplePostCardState extends State<AmplePostCard>
                           padding: const EdgeInsets.only(bottom: 10),
                           child: ValueListenableBuilder(
                             valueListenable: _indexNotifier,
-                            builder: (context, value, child) {
+                            builder: (context, dynamic value, child) {
                               return PageIndicators(
                                 currentIndex: value,
-                                numberIndicators: post.photos.length,
+                                numberIndicators: post.photos!.length,
                               );
                             },
                           ),
@@ -178,7 +178,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                         post: post,
                         onTapLike: () {
                           setState(() {
-                            post.isLiked = !post.isLiked;
+                            post.isLiked = !post.isLiked!;
                           });
                         }),
                     //------------------------------------------
@@ -200,13 +200,13 @@ class _AmplePostCardState extends State<AmplePostCard>
               Align(
                 alignment: Alignment.center,
                 child: AnimatedBuilder(
-                    animation: _controller,
+                    animation: _controller!,
                     builder: (context, _) {
                       return Opacity(
                         opacity: _outOpacityHeart.value,
                         child: SvgPicture.asset(
                           'assets/svg/instagram/heart_colored.svg',
-                          height: 150 * _scaleHeart.value,
+                          height: 150 * _scaleHeart.value as double?,
                           fit: BoxFit.cover,
                         ),
                       );

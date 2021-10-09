@@ -5,28 +5,28 @@ import 'package:flutter_projects/movie_selection/pages/detail/widgets/gradient_b
 
 class GradientAnimationButton extends StatelessWidget {
   const GradientAnimationButton({
-    Key key,
-    @required this.hideWidgets,
+    Key? key,
+    required this.hideWidgets,
     this.label,
     this.onPressed,
   }) : super(key: key);
 
   final ValueNotifier<bool> hideWidgets;
-  final String label;
-  final VoidCallback onPressed;
+  final String? label;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: hideWidgets,
-      builder: (context, value, child) {
+      builder: (context, dynamic value, child) {
         return AnimatedPositioned(
           curve: Curves.fastOutSlowIn,
           duration: kDuration400ms,
           bottom: value ? -150 : 20,
           left: 20,
           right: 20,
-          child: child,
+          child: child!,
         );
       },
       child: TranslateAnimation(
@@ -35,7 +35,7 @@ class GradientAnimationButton extends StatelessWidget {
             child: GradientButton(
               onTap: () {
                 hideWidgets.value = true;
-                onPressed();
+                onPressed!();
               },
               text: label,
             ),

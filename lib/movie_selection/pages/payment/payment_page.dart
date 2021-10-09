@@ -10,9 +10,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class PaymentPage extends StatelessWidget {
-  const PaymentPage({Key key, this.movie}) : super(key: key);
+  const PaymentPage({Key? key, this.movie}) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class PaymentPage extends StatelessWidget {
       backgroundColor: kPrimaryColorDark,
       body: ValueListenableBuilder(
         valueListenable: hideWidgets,
-        builder: (context, value, child) {
+        builder: (context, dynamic value, child) {
           return AnimatedContainer(
             curve: Curves.fastOutSlowIn,
             duration: kDuration400ms,

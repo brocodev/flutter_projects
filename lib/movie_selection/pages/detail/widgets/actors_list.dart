@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ActorsList extends StatelessWidget {
   const ActorsList({
-    Key key,
+    Key? key,
     this.listActors,
   }) : super(key: key);
 
-  final List<Actor> listActors;
+  final List<Actor>? listActors;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ActorsList extends StatelessWidget {
           height: 190,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: listActors.length,
+            itemCount: listActors!.length,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             itemBuilder: (context, i) {
@@ -45,7 +45,7 @@ class ActorsList extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.asset(
-                        listActors[i].pathImage,
+                        listActors![i].pathImage!,
                         height: 120,
                         width: 120,
                         fit: BoxFit.cover,
@@ -55,7 +55,7 @@ class ActorsList extends StatelessWidget {
                     SizedBox(
                       width: 120,
                       child: Text(
-                        listActors[i].name,
+                        listActors![i].name!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.barlowCondensed(

@@ -4,7 +4,7 @@ import 'package:flutter_projects/medical_appointment/models/md_patient.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -46,7 +46,7 @@ class SearchAppBar extends StatelessWidget {
                 color: Colors.white,
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(
-                      MedicalPatient.currentPatient.photoUrl),
+                      MedicalPatient.currentPatient.photoUrl!),
                   fit: BoxFit.cover,
                 )),
           ),

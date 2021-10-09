@@ -10,7 +10,7 @@ import 'orix_trending_page.dart';
 
 class OrixGamingHomePage extends StatefulWidget {
   const OrixGamingHomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -18,27 +18,27 @@ class OrixGamingHomePage extends StatefulWidget {
 }
 
 class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
-  PageController _pageController;
-  int _gameIndex;
-  double _page;
+  PageController? _pageController;
+  int? _gameIndex;
+  double? _page;
 
   @override
   void initState() {
     _pageController = PageController(viewportFraction: .7, initialPage: 1);
     _gameIndex = 1;
     _page = 1.0;
-    _pageController.addListener(_pageListener);
+    _pageController!.addListener(_pageListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _pageController.removeListener(_pageListener);
+    _pageController!.removeListener(_pageListener);
     super.dispose();
   }
 
   void _pageListener() {
-    _page = _pageController.page;
+    _page = _pageController!.page;
     setState(() {});
   }
 
@@ -125,7 +125,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
                   child: GamePlayCard(
                     videoGame: videoGame,
                     haveFocus: index == _gameIndex,
-                    factorChange: (_page - index).abs(),
+                    factorChange: (_page! - index).abs(),
                   ),
                 );
               },

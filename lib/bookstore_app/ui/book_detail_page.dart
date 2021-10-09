@@ -4,8 +4,8 @@ import 'package:flutter_projects/bookstore_app/ui/widgets/book_detail_header.dar
 
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({
-    Key key,
-    @required this.book,
+    Key? key,
+    required this.book,
   }) : super(key: key);
 
   final Book book;
@@ -43,7 +43,7 @@ class BookDetailPage extends StatelessWidget {
                         color: Colors.grey[800]),
                   ),
                   const SizedBox(height: 10),
-                  Text(book.description,
+                  Text(book.description!,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -78,7 +78,7 @@ class BookDetailPage extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(
-                        '${book.reviews.length} Reviews',
+                        '${book.reviews!.length} Reviews',
                         style: TextStyle(color: Colors.grey[500]),
                       ),
                       Icon(
@@ -90,9 +90,9 @@ class BookDetailPage extends StatelessWidget {
                   ),
                   Column(
                     children: List.generate(
-                        (book.reviews.length > 4) ? 5 : book.reviews.length,
+                        (book.reviews!.length > 4) ? 5 : book.reviews!.length,
                         (index) {
-                      final review = book.reviews[index];
+                      final review = book.reviews![index];
                       return _ReviewContainer(review: review);
                     }),
                   )
@@ -137,8 +137,8 @@ class BookDetailPage extends StatelessWidget {
 
 class _SimilarBookCard extends StatelessWidget {
   const _SimilarBookCard({
-    Key key,
-    @required this.book,
+    Key? key,
+    required this.book,
   }) : super(key: key);
 
   final Book book;
@@ -160,7 +160,7 @@ class _SimilarBookCard extends StatelessWidget {
                       offset: Offset(5, 5))
                 ],
                 image: DecorationImage(
-                    image: AssetImage(book.srcImage), fit: BoxFit.cover),
+                    image: AssetImage(book.srcImage!), fit: BoxFit.cover),
               ),
             ),
           ),
@@ -168,7 +168,7 @@ class _SimilarBookCard extends StatelessWidget {
           SizedBox(
             height: 36,
             child: Text(
-              book.title,
+              book.title!,
               maxLines: 2,
             ),
           )
@@ -180,8 +180,8 @@ class _SimilarBookCard extends StatelessWidget {
 
 class _ReviewContainer extends StatelessWidget {
   const _ReviewContainer({
-    Key key,
-    @required this.review,
+    Key? key,
+    required this.review,
   }) : super(key: key);
 
   final Review review;
@@ -194,7 +194,7 @@ class _ReviewContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(review.authorReview.photoUrl),
+            backgroundImage: NetworkImage(review.authorReview!.photoUrl!),
           ),
           const SizedBox(width: 10),
           Flexible(
@@ -202,14 +202,14 @@ class _ReviewContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  review.authorReview.name,
+                  review.authorReview!.name!,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
                 Text(
-                  review.review,
+                  review.review!,
                   maxLines: 2,
                   style: const TextStyle(
                     height: 1.5,

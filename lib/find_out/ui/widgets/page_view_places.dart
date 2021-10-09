@@ -7,17 +7,17 @@ import 'common_widgets.dart';
 
 class PageViewPlaces extends StatelessWidget {
   const PageViewPlaces({
-    Key key,
+    Key? key,
     this.places,
-    @required this.pageController,
+    required this.pageController,
   }) : super(key: key);
 
-  final List<Place> places;
+  final List<Place>? places;
   final PageController pageController;
 
 
   void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
-    if (details.primaryDelta < -20) {
+    if (details.primaryDelta! < -20) {
       Navigator.push(
           context,
           PageRouteBuilder(
@@ -35,20 +35,20 @@ class PageViewPlaces extends StatelessWidget {
   Widget build(BuildContext context) {
     final pageValueNotifier = ValueNotifier(0.0);
     pageController.addListener(() {
-      pageValueNotifier.value = pageController.page;
+      pageValueNotifier.value = pageController.page!;
     });
     return PageView.builder(
       allowImplicitScrolling: false,
       physics: const NeverScrollableScrollPhysics(),
       controller: pageController,
       itemBuilder: (context, index) {
-        final place = places[index % places.length];
+        final place = places![index % places!.length];
         return GestureDetector(
           onVerticalDragUpdate: (details) =>
               _onDragVerticalUpdate(details, context, place),
           child: ValueListenableBuilder(
             valueListenable: pageValueNotifier,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               final percent = index - value;
               return Transform(
                   transform: Matrix4.identity()
@@ -65,9 +65,9 @@ class PageViewPlaces extends StatelessWidget {
                   ]),
                 )),
                 Hero(
-                    tag: place.id,
+                    tag: place.id!,
                     child: BackgroundShaderImage(
-                      imageUrl: place.imageUrl.first,
+                      imageUrl: place.imageUrl!.first,
                     )),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -86,7 +86,7 @@ class PageViewPlaces extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        place.description,
+                        place.description!,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                             fontSize: 16, color: Colors.white.withOpacity(.8)),
@@ -122,8 +122,8 @@ class PageViewPlaces extends StatelessWidget {
 
 class _LikeAndComments extends StatelessWidget {
   const _LikeAndComments({
-    Key key,
-    @required this.place,
+    Key? key,
+    required this.place,
   }) : super(key: key);
 
   final Place place;
@@ -149,7 +149,7 @@ class _LikeAndComments extends StatelessWidget {
           size: 32,
         ),
         Text(
-          ' ${place.comments.length}',
+          ' ${place.comments!.length}',
           style: const TextStyle(
             fontSize: 28,
           ),

@@ -14,14 +14,14 @@ class IgUser {
       this.listPhotosUrl,
       this.collections});
 
-  final String name;
-  final String typeUser;
-  final int followers;
-  final int following;
-  final List<IgCollection> collections;
-  final String photoUrl;
-  final List<String> listPhotosUrl;
-  final String username;
+  final String? name;
+  final String? typeUser;
+  final int? followers;
+  final int? following;
+  final List<IgCollection>? collections;
+  final String? photoUrl;
+  final List<String>? listPhotosUrl;
+  final String? username;
   final List<ExternalPlatform> externalPlatforms;
   
   static const liliana = IgUser(

@@ -6,20 +6,20 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/text_input_find_out.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key key}) : super(key: key);
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final resizeNotifier = ValueNotifier(false);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       if (!resizeNotifier.value) resizeNotifier.value = true;
     });
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
         onVerticalDragUpdate: (details) {
-          if (details.primaryDelta > 10) {
+          if (details.primaryDelta! > 10) {
             resizeNotifier.value = false;
             Navigator.pop(context);
           }
@@ -28,14 +28,14 @@ class RegisterPage extends StatelessWidget {
           children: <Widget>[
             ValueListenableBuilder(
               valueListenable: resizeNotifier,
-              builder: (context, value, child) {
+              builder: (context, dynamic value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,
                   bottom: value ? 0 : -size.height * .5,
                   left: 0,
                   right: 0,
-                  child: child,
+                  child: child!,
                 );
               },
               child: SizedBox(
@@ -128,7 +128,7 @@ class RegisterPage extends StatelessWidget {
 
 class _DragDownIndication extends StatelessWidget {
   const _DragDownIndication({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -159,7 +159,7 @@ class _DragDownIndication extends StatelessWidget {
 
 class _AcceptTerms extends StatelessWidget {
   const _AcceptTerms({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -172,7 +172,7 @@ class _AcceptTerms extends StatelessWidget {
         children: <Widget>[
           ValueListenableBuilder(
             valueListenable: valueNotifier,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return Checkbox(
                 value: value,
                 onChanged: (val) {},

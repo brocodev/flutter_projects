@@ -4,19 +4,19 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_gradient_
 
 class InstagramStoriesItem extends StatelessWidget {
   const InstagramStoriesItem({
-    Key key,
+    Key? key,
     this.itemSize,
-    @required this.onTap,
-    @required this.stories,
+    required this.onTap,
+    required this.stories,
   }) : super(key: key);
 
-  final double itemSize;
+  final double? itemSize;
   final VoidCallback onTap;
   final IgUserStories stories;
 
   @override
   Widget build(BuildContext context) {
-    final user = stories.instagramUser;
+    final user = stories.instagramUser!;
     return InkWell(
       onTap: onTap,
       splashColor: Colors.transparent,
@@ -26,7 +26,7 @@ class InstagramStoriesItem extends StatelessWidget {
         children: [
           RoundedGradientBorderImage(height: itemSize, imageUrl: user.photoUrl),
           Text(
-            user.name.split(' ').first,
+            user.name!.split(' ').first,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,

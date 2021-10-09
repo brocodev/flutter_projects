@@ -6,8 +6,8 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class BottomTabViewProfile extends StatefulWidget {
   const BottomTabViewProfile({
-    Key key,
-    @required this.user,
+    Key? key,
+    required this.user,
   }) : super(key: key);
 
   final IgUser user;
@@ -18,7 +18,7 @@ class BottomTabViewProfile extends StatefulWidget {
 
 class _BottomTabViewProfileState extends State<BottomTabViewProfile>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
@@ -53,13 +53,13 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
         StaggeredGridView.countBuilder(
           crossAxisCount: 3,
           physics: const BouncingScrollPhysics(),
-          itemCount: user.listPhotosUrl.length,
+          itemCount: user.listPhotosUrl!.length,
           padding: const EdgeInsets.only(bottom: 76),
           mainAxisSpacing: 5.0,
           crossAxisSpacing: 5.0,
           itemBuilder: (BuildContext context, int index) {
             return CachedNetworkImage(
-              imageUrl: user.listPhotosUrl[index],
+              imageUrl: user.listPhotosUrl![index],
               fit: BoxFit.cover,
             );
           },
@@ -90,12 +90,12 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(externalPlatform.imagePath))),
+                      image: AssetImage(externalPlatform.imagePath!))),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: IconButton(
                   onPressed: () {},
-                  color: externalPlatform.haveDarkImage
+                  color: externalPlatform.haveDarkImage!
                       ? Colors.white
                       : Colors.black,
                   icon: const Icon(Icons.launch),

@@ -5,11 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TagContainer extends StatelessWidget {
   const TagContainer({
-    Key key,
+    Key? key,
     this.tag,
     this.gradient = kGradientRedOrange,
   }) : super(key: key);
-  final String tag;
+  final String? tag;
   final Gradient gradient;
 
   @override
@@ -19,7 +19,7 @@ class TagContainer extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3), gradient: gradient),
       child: Text(
-        tag.toUpperCase(),
+        tag!.toUpperCase(),
         style: GoogleFonts.barlowCondensed(
           fontSize: 15,
           fontWeight: FontWeight.w500,

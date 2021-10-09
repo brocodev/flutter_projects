@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixTrendingPage extends StatelessWidget {
   const OrixTrendingPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -79,17 +79,17 @@ class OrixTrendingPage extends StatelessWidget {
 
 class _MainTrendingGame extends StatelessWidget {
   const _MainTrendingGame({
-    Key key,
-    @required this.game,
+    Key? key,
+    required this.game,
   }) : super(key: key);
 
   final VideoGame game;
 
   @override
   Widget build(BuildContext context) {
-    final firstTitleWord = game.title.split(' ').first;
+    final firstTitleWord = game.title!.split(' ').first;
     final titleWithoutFirstWord =
-        game.title.replaceRange(0, firstTitleWord.length, '').trim();
+        game.title!.replaceRange(0, firstTitleWord.length, '').trim();
     return Container(
       margin: const EdgeInsets.all(10.0),
       padding: const EdgeInsets.all(15.0),
@@ -106,7 +106,7 @@ class _MainTrendingGame extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: Image.asset(
-                game.srcImage,
+                game.srcImage!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -120,7 +120,7 @@ class _MainTrendingGame extends StatelessWidget {
               //-------------------------------
               CircleAvatar(
                 radius: 25.0,
-                backgroundImage: AssetImage(game.srcImage),
+                backgroundImage: AssetImage(game.srcImage!),
               ),
               const SizedBox(width: 6.0),
               //------------------------------
@@ -150,7 +150,7 @@ class _MainTrendingGame extends StatelessWidget {
                         color: Colors.yellow.withOpacity(.8),
                         borderRadius: BorderRadius.circular(6.0)),
                     child: Text(
-                      game.genre,
+                      game.genre!,
                       style: GoogleFonts.poppins(
                         color: Colors.orange[900],
                         fontWeight: FontWeight.w600,
@@ -190,9 +190,9 @@ class _MainTrendingGame extends StatelessWidget {
 
 class _OrixTrendingGameCard extends StatelessWidget {
   const _OrixTrendingGameCard({
-    Key key,
-    @required this.game,
-    @required this.materialColor,
+    Key? key,
+    required this.game,
+    required this.materialColor,
   }) : super(key: key);
 
   final VideoGame game;
@@ -217,7 +217,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Image.asset(
-                game.srcImage,
+                game.srcImage!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -234,7 +234,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
                     color: materialColor.shade100,
                   ),
                   child: Text(
-                    game.genre,
+                    game.genre!,
                     style: GoogleFonts.poppins(
                         color: materialColor.shade700,
                         fontSize: 12,
@@ -244,7 +244,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      game.title,
+                      game.title!,
                       style: GoogleFonts.poppins(
                         fontSize: 20.0,
                         fontWeight: FontWeight.w500,

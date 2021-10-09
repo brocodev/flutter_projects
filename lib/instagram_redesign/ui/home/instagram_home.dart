@@ -7,7 +7,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramHome extends StatefulWidget {
   const InstagramHome({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -16,8 +16,8 @@ class InstagramHome extends StatefulWidget {
 
 class _InstagramHomeState extends State<InstagramHome>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _heightFactor;
+  late AnimationController _controller;
+  late Animation<double> _heightFactor;
   int selectedIndexPost = -1;
 
   @override
@@ -74,7 +74,7 @@ class _InstagramHomeState extends State<InstagramHome>
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -105,7 +105,7 @@ class _InstagramHomeState extends State<InstagramHome>
                           IconButton(
                             onPressed: () {},
                             color:
-                                Theme.of(context).appBarTheme.iconTheme.color,
+                                Theme.of(context).appBarTheme.iconTheme!.color,
                             icon: const Icon(Feather.mail),
                           ),
                           const Positioned(
@@ -165,7 +165,7 @@ class _InstagramHomeState extends State<InstagramHome>
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
                       final post = IgPost.listPosts[index];
-                      final heightItem =
+                      final num heightItem =
                           (screenHeight * .6).clamp(450.0, 550.0);
                       switch (instagramBloc.viewState) {
                         case ViewState.clean:
@@ -173,10 +173,10 @@ class _InstagramHomeState extends State<InstagramHome>
                           // Clean Post Card
                           //-------------------------------
                           return Hero(
-                            tag: post.id,
+                            tag: post.id!,
                             child: CleanPostCard(
                               post: post,
-                              height: heightItem,
+                              height: heightItem as double?,
                               onTap: () {
                                 Navigator.push(context, PageRouteBuilder(
                                   pageBuilder:
@@ -207,7 +207,7 @@ class _InstagramHomeState extends State<InstagramHome>
                               child: child,
                             ),
                             child: Hero(
-                                tag: post.id,
+                                tag: post.id!,
                                 child: AmplePostCard(
                                   post: post,
                                   onTap: () {
@@ -217,7 +217,7 @@ class _InstagramHomeState extends State<InstagramHome>
                                       index,
                                     );
                                   },
-                                  height: heightItem,
+                                  height: heightItem as double?,
                                 )),
                           );
                       }

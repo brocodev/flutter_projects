@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyLibraryPage extends StatefulWidget {
   const MyLibraryPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -16,12 +16,12 @@ class MyLibraryPage extends StatefulWidget {
 }
 
 class _MyLibraryPageState extends State<MyLibraryPage> {
-  PageController _pageAlbumController;
-  PageController _pageDescriptionController;
-  double _pageDescription;
-  double _pageAlbum;
-  int _pageAlbumIndex;
-  ScrollDirection _scrollDirection;
+  PageController? _pageAlbumController;
+  PageController? _pageDescriptionController;
+  double? _pageDescription;
+  double? _pageAlbum;
+  int? _pageAlbumIndex;
+  ScrollDirection? _scrollDirection;
   bool _isAlbumScrolling = false;
 
   @override
@@ -36,17 +36,17 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
     _pageDescriptionController = PageController(
       initialPage: 1,
     );
-    _pageAlbumController.addListener(_pageAlbumListener);
-    _pageDescriptionController.addListener(_pageDescriptionListener);
+    _pageAlbumController!.addListener(_pageAlbumListener);
+    _pageDescriptionController!.addListener(_pageDescriptionListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _pageAlbumController.removeListener(_pageAlbumListener);
-    _pageDescriptionController.removeListener(_pageDescriptionListener);
-    _pageAlbumController.dispose();
-    _pageDescriptionController.dispose();
+    _pageAlbumController!.removeListener(_pageAlbumListener);
+    _pageDescriptionController!.removeListener(_pageDescriptionListener);
+    _pageAlbumController!.dispose();
+    _pageDescriptionController!.dispose();
     super.dispose();
   }
 
@@ -55,9 +55,9 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   //--------------------------------
   void _pageDescriptionListener() {
     setState(() {
-      _pageDescription = _pageDescriptionController.page;
+      _pageDescription = _pageDescriptionController!.page;
       _scrollDirection =
-          _pageDescriptionController.position.userScrollDirection;
+          _pageDescriptionController!.position.userScrollDirection;
     });
   }
 
@@ -66,15 +66,15 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   //--------------------------------
   void _pageAlbumListener() {
     if (_isAlbumScrolling) {
-      _pageDescriptionController.position.jumpTo(
-          _pageAlbumController.page * MediaQuery.of(context).size.width);
+      _pageDescriptionController!.position.jumpTo(
+          _pageAlbumController!.page! * MediaQuery.of(context).size.width);
       setState(() {
-        _scrollDirection = _pageAlbumController.position.userScrollDirection;
-        _pageAlbum = _pageAlbumController.page;
+        _scrollDirection = _pageAlbumController!.position.userScrollDirection;
+        _pageAlbum = _pageAlbumController!.page;
       });
     } else {
       setState(() {
-        _pageAlbum = _pageAlbumController.page;
+        _pageAlbum = _pageAlbumController!.page;
       });
     }
   }
@@ -131,7 +131,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                     child: PageView.builder(
                         onPageChanged: (value) {
                           if (!_isAlbumScrolling) {
-                            _pageAlbumController.animateToPage(value,
+                            _pageAlbumController!.animateToPage(value,
                                 duration: const Duration(milliseconds: 600),
                                 curve: Curves.fastOutSlowIn);
                           }
@@ -142,7 +142,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                         itemBuilder: (context, index) {
                           final album = Album.listAlbum[index];
                           final percentDescription =
-                              (_pageDescription - index).abs();
+                              (_pageDescription! - index).abs();
                           final scrollDirectionFactor =
                               _scrollDirection == ScrollDirection.forward
                                   ? 1
@@ -231,7 +231,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                 child: Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                    colors: [Colors.grey[100], Colors.white],
+                    colors: [Colors.grey[100]!, Colors.white],
                     begin: Alignment.center,
                     end: Alignment.bottomCenter,
                   )),
@@ -254,8 +254,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                       itemBuilder: (context, index) {
                         final album = Album.listAlbum[index];
                         final percentDescription =
-                            (_pageDescription - index).abs();
-                        final percentAlbum = (_pageAlbum - index).abs();
+                            (_pageDescription! - index).abs();
+                        final percentAlbum = (_pageAlbum! - index).abs();
 
                         return Transform.scale(
                           scale:

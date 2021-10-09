@@ -5,15 +5,15 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
 class PhotoUserCard extends StatelessWidget {
   const PhotoUserCard({
-    Key key,
-    @required this.user,
+    Key? key,
+    required this.user,
     this.size = 100.0,
     this.onTap,
   }) : super(key: key);
 
   final PhotoUser user;
   final double size;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +38,13 @@ class PhotoUserCard extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(size * .35),
                   image: DecorationImage(
-                      image: CachedNetworkImageProvider(user.photoUrl),
+                      image: CachedNetworkImageProvider(user.photoUrl!),
                       fit: BoxFit.cover)),
             ),
             const SizedBox(height: 10),
             FittedBox(
               child: Text(
-                user.name,
+                user.name!,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

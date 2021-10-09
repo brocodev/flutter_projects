@@ -6,15 +6,15 @@ import 'hour_container.dart';
 
 class HoursMovieOptions extends StatelessWidget {
   const HoursMovieOptions({
-    Key key,
-    @required this.listHours,
-    @required this.selectedHourNotifier,
-    @required this.movie,
+    Key? key,
+    required this.listHours,
+    required this.selectedHourNotifier,
+    required this.movie,
   }) : super(key: key);
 
   final List<String> listHours;
   final ValueNotifier<int> selectedHourNotifier;
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class HoursMovieOptions extends StatelessWidget {
         return HourContainer(
           hour: listHours[i],
           selectedHourNotifier: selectedHourNotifier,
-          onTap: () => movie.billboardHour = listHours[i],
+          onTap: () => movie!.billboardHour = listHours[i],
           id: i,
         );
       }),

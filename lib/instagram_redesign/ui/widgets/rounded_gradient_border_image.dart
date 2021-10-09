@@ -4,13 +4,13 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_im
 
 class RoundedGradientBorderImage extends StatelessWidget {
   const RoundedGradientBorderImage({
-    Key key,
-    @required this.height,
-    @required this.imageUrl,
+    Key? key,
+    required this.height,
+    required this.imageUrl,
   }) : super(key: key);
 
-  final double height;
-  final String imageUrl;
+  final double? height;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class RoundedGradientBorderImage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
-            borderRadius: BorderRadius.circular(height * .4)),
+            borderRadius: BorderRadius.circular(height! * .4)),
         child: RoundedBorderImage(
           height: height,
           imageUrl: imageUrl,

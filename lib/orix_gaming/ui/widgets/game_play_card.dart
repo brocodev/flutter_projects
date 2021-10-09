@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GamePlayCard extends StatelessWidget {
   const GamePlayCard({
-    Key key,
-    @required this.videoGame,
-    @required this.haveFocus,
-    @required this.factorChange,
+    Key? key,
+    required this.videoGame,
+    required this.haveFocus,
+    required this.factorChange,
   }) : super(key: key);
 
   final VideoGame videoGame;
@@ -24,7 +24,7 @@ class GamePlayCard extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            videoGame.srcImage,
+            videoGame.srcImage!,
             fit: BoxFit.cover,
           ),
           const _ShaderCard(),
@@ -51,7 +51,7 @@ class GamePlayCard extends StatelessWidget {
 
 class _ShaderCard extends StatelessWidget {
   const _ShaderCard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -73,17 +73,17 @@ class _ShaderCard extends StatelessWidget {
 
 class _TitleAndPlayButton extends StatelessWidget {
   const _TitleAndPlayButton({
-    Key key,
-    @required this.videoGame,
+    Key? key,
+    required this.videoGame,
   }) : super(key: key);
 
   final VideoGame videoGame;
 
   @override
   Widget build(BuildContext context) {
-    final firstTitleWord = videoGame.title.split(' ').first;
+    final firstTitleWord = videoGame.title!.split(' ').first;
     final titleWithoutFirstWord =
-        videoGame.title.replaceRange(0, firstTitleWord.length, '').trim();
+        videoGame.title!.replaceRange(0, firstTitleWord.length, '').trim();
     return Row(
       children: [
         Expanded(
@@ -136,8 +136,8 @@ class _TitleAndPlayButton extends StatelessWidget {
 
 class _StatusGame extends StatelessWidget {
   const _StatusGame({
-    Key key,
-    @required this.videoGame,
+    Key? key,
+    required this.videoGame,
   }) : super(key: key);
 
   final VideoGame videoGame;
@@ -179,7 +179,7 @@ class _StatusGame extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Text(
-            '${(videoGame.nowPlaying / 1000).toStringAsFixed(1)}k Playing',
+            '${(videoGame.nowPlaying! / 1000).toStringAsFixed(1)}k Playing',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
               fontSize: 12,

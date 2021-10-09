@@ -9,18 +9,18 @@ import 'package:flutter_projects/bookstore_app/models/book.dart';
 final kFavorites = UserBook.currentUser.favoriteCategories;
 
 final kAllCategories = Book.bookCategories.where((element) {
-  return !kFavorites.contains(element);
+  return !kFavorites!.contains(element);
 }).toList();
 
 class FilterPage extends StatefulWidget {
-  const FilterPage({Key key}) : super(key: key);
+  const FilterPage({Key? key}) : super(key: key);
 
   @override
   _FilterPageState createState() => _FilterPageState();
 }
 
 class _FilterPageState extends State<FilterPage> {
-  CategoriesBloc _categoriesBloc;
+  late CategoriesBloc _categoriesBloc;
   bool _enableShowAnimation = false;
 
   @override
@@ -45,7 +45,7 @@ class _FilterPageState extends State<FilterPage> {
 
   @override
   Widget build(BuildContext context) {
-    _categoriesBloc = CategoriesBlocProvider.of(context).categoriesBloc;
+    _categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
     _categoriesBloc.eventsSink.add(null);
 
     return Material(
@@ -57,7 +57,7 @@ class _FilterPageState extends State<FilterPage> {
             child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                 child: Container(
-                  color: Colors.blue[800].withOpacity(.7),
+                  color: Colors.blue[800]!.withOpacity(.7),
                 )),
           ),
           Positioned.fill(
@@ -108,11 +108,11 @@ class _FilterPageState extends State<FilterPage> {
                               spacing: 12,
                               runSpacing: 0,
                               children:
-                                  List.generate(kFavorites.length, (index) {
-                                final category = kFavorites[index];
+                                  List.generate(kFavorites!.length, (index) {
+                                final category = kFavorites![index];
                                 return _CategoryChip(
                                   category: category,
-                                  isSelected: list.contains(category),
+                                  isSelected: list!.contains(category),
                                 );
                               }),
                             );
@@ -142,7 +142,7 @@ class _FilterPageState extends State<FilterPage> {
                                 final category = kAllCategories[index];
                                 return _CategoryChip(
                                   category: category,
-                                  isSelected: list.contains(category),
+                                  isSelected: list!.contains(category),
                                 );
                               }),
                             );
@@ -163,13 +163,13 @@ class _FilterPageState extends State<FilterPage> {
 
 class _FadeAndSlideTransition extends StatelessWidget {
   const _FadeAndSlideTransition({
-    Key key,
+    Key? key,
     this.child,
     this.enableAnimation,
   }) : super(key: key);
 
-  final Widget child;
-  final bool enableAnimation;
+  final Widget? child;
+  final bool? enableAnimation;
 
   @override
   Widget build(BuildContext context) {
@@ -189,36 +189,36 @@ class _FadeAndSlideTransition extends StatelessWidget {
           ),
         );
       },
-      child: enableAnimation ? child : const SizedBox(),
+      child: enableAnimation! ? child : const SizedBox(),
     );
   }
 }
 
 class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
     this.isSelected,
   }) : super(key: key);
 
   final String category;
-  final bool isSelected;
+  final bool? isSelected;
 
   @override
   Widget build(BuildContext context) {
     final isSelectedNotifier = ValueNotifier(isSelected);
-    final bloc = CategoriesBlocProvider.of(context).categoriesBloc;
+    final bloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
     return Hero(
       tag: 'chip-$category',
       child: ValueListenableBuilder(
           valueListenable: isSelectedNotifier,
-          builder: (context, value, _) {
+          builder: (context, dynamic value, _) {
             return Material(
               color: Colors.transparent,
               child: TextButton(
                 onPressed: () {
-                  isSelectedNotifier.value = !isSelectedNotifier.value;
-                  if (isSelectedNotifier.value) {
+                  isSelectedNotifier.value = !isSelectedNotifier.value!;
+                  if (isSelectedNotifier.value!) {
                     bloc.eventsSink.add(AddCategoryEvent(category));
                   } else {
                     bloc.eventsSink.add(RemoveCategoryEvent(category));

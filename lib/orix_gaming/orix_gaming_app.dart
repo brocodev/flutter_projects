@@ -3,7 +3,7 @@ import 'package:flutter_projects/orix_gaming/ui/orix_gaming_home_page.dart';
 import 'package:flutter_projects/orix_gaming/ui/widgets/orix_navigation_bar.dart';
 
 class OrixGamingApp extends StatelessWidget {
-  const OrixGamingApp({Key key}) : super(key: key);
+  const OrixGamingApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class OrixGamingApp extends StatelessWidget {
 
 class _MainPage extends StatefulWidget {
   const _MainPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

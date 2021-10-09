@@ -4,23 +4,23 @@ import 'package:flutter_projects/bookstore_app/ui/widgets/cover_page_book.dart';
 
 class OpenBookPage extends StatefulWidget {
   const OpenBookPage({
-    Key key,
-    @required this.book,
+    Key? key,
+    required this.book,
   }) : super(key: key);
 
-  final Book book;
+  final Book? book;
 
   @override
   _OpenBookPageState createState() => _OpenBookPageState();
 }
 
 class _OpenBookPageState extends State<OpenBookPage> {
-  bool animate;
+  late bool animate;
 
   @override
   void initState() {
     animate = false;
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
       await Future.delayed(kThemeChangeDuration);
       setState(() => animate = !animate);
     });
@@ -52,7 +52,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
                   ..setEntry(3, 2, 0.001)
                   ..rotateY(1.6 * animation.value),
                 alignment: Alignment.centerLeft,
-                child: CoverPageBook(srcImageBook: widget.book.srcImage),
+                child: CoverPageBook(srcImageBook: widget.book!.srcImage),
               );
             }),
       ],
@@ -63,7 +63,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
   Widget build(BuildContext context) {
     return Material(
       child: Hero(
-        tag: widget.book.title,
+        tag: widget.book!.title!,
         flightShuttleBuilder: _customFlightShuttleBuilder,
         child: SafeArea(
           child: AnimatedSwitcher(
@@ -95,7 +95,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
                           ],
                         ),
                         Text(
-                          widget.book.title,
+                          widget.book!.title!,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -111,7 +111,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 8),
                                 child: Text(
-                                  widget.book.description,
+                                  widget.book!.description!,
                                   style: TextStyle(
                                     color: Colors.grey[800],
                                     height: 1.5,

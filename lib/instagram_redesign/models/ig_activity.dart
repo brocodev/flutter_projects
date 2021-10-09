@@ -18,12 +18,12 @@ class IgActivity {
     this.user,
   });
 
-  final String description;
-  final String imageUrl;
-  final IgUser user;
-  final DateTime date;
-  bool isViewed;
-  final IgTypeActivity typeNotification;
+  final String? description;
+  final String? imageUrl;
+  final IgUser? user;
+  final DateTime? date;
+  bool? isViewed;
+  final IgTypeActivity? typeNotification;
 
 
   static final listActivities = List.generate(
@@ -32,7 +32,7 @@ class IgActivity {
         user: _users[index % _users.length],
         typeNotification:
             IgTypeActivity.values[index % IgTypeActivity.values.length],
-        imageUrl: _listImagesUrl[index % _listImagesUrl.length],
+        imageUrl: _listImagesUrl![index % _listImagesUrl!.length],
         date: _dates[index % _dates.length],
         description:
             'Lorem Ipsum ha sido el texto de relleno estándar de las industrias'

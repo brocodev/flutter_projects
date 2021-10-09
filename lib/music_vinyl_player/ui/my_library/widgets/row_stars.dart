@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class RowStars extends StatelessWidget {
   const RowStars({
-    Key key,
+    Key? key,
     this.stars,
     this.size,
     this.color = Colors.cyan,
   }) : super(key: key);
 
-  final double stars;
-  final double size;
+  final double? stars;
+  final double? size;
   final Color color;
 
   @override
@@ -30,8 +30,8 @@ class RowStars extends StatelessWidget {
       child: Icon(Icons.star, color: Colors.grey[300], size: size),
     );
 
-    var fillStars = stars.floor();
-    final addHalfStar = (stars - fillStars) >= 0.5;
+    var fillStars = stars!.floor();
+    final addHalfStar = (stars! - fillStars) >= 0.5;
     var listStars = List<Widget>.generate(fillStars, (i) => _fillStar);
     if (addHalfStar) {
       listStars.add(_halfStar);

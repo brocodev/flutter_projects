@@ -6,7 +6,7 @@ import 'package:flutter_projects/movie_selection/pages/home/widgets/billboard_li
 import 'widgets/header_option.dart';
 
 class MovieHome extends StatelessWidget {
-  MovieHome({Key key}) : super(key: key);
+  MovieHome({Key? key}) : super(key: key);
 
   final resizeNotifier = ValueNotifier(0.0);
   final ScrollController _scrollController = ScrollController();

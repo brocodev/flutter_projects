@@ -5,9 +5,9 @@ import 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart'
 import 'package:flutter_projects/instagram_redesign/ui/story/widgets/stories_widgets.dart';
 
 class InstagramStories extends StatefulWidget {
-  const InstagramStories({Key key, this.stories}) : super(key: key);
+  const InstagramStories({Key? key, this.stories}) : super(key: key);
 
-  final IgUserStories stories;
+  final IgUserStories? stories;
 
   @override
   _InstagramStoriesState createState() => _InstagramStoriesState();
@@ -15,8 +15,8 @@ class InstagramStories extends StatefulWidget {
 
 class _InstagramStoriesState extends State<InstagramStories>
     with SingleTickerProviderStateMixin {
-  PageController _pageController;
-  AnimationController _animationController;
+  PageController? _pageController;
+  AnimationController? _animationController;
   int _currentStory = 0;
 
   @override
@@ -26,17 +26,17 @@ class _InstagramStoriesState extends State<InstagramStories>
     //-----------------------------
     //---SHOW FIRST USER STORY
     //-----------------------------
-    _showStory(widget.stories.listStories[_currentStory]);
-    _animationController.addStatusListener(_statusListener);
+    _showStory(widget.stories!.listStories![_currentStory]);
+    _animationController!.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _animationController
+    _animationController!
       ..removeStatusListener(_statusListener)
       ..dispose();
-    _pageController.dispose();
+    _pageController!.dispose();
     super.dispose();
   }
 
@@ -53,7 +53,7 @@ class _InstagramStoriesState extends State<InstagramStories>
   //-----SHOW NEW STORY
   //----------------------------------
   void _showStory(StoryModel story) {
-    _animationController
+    _animationController!
       ..reset()
       ..duration = story.duration
       ..forward();
@@ -83,13 +83,13 @@ class _InstagramStoriesState extends State<InstagramStories>
       setState(() {
         _currentStory--;
       });
-      _pageController.previousPage(
+      _pageController!.previousPage(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOutQuint);
-      _showStory(widget.stories.listStories[_currentStory]);
+      _showStory(widget.stories!.listStories![_currentStory]);
     } else {
-      if (widget.stories.indexStory > 0) {
-        _openUserStories(widget.stories.indexStory - 1);
+      if (widget.stories!.indexStory! > 0) {
+        _openUserStories(widget.stories!.indexStory! - 1);
       }
     }
   }
@@ -98,18 +98,18 @@ class _InstagramStoriesState extends State<InstagramStories>
   //----NEXT STORY
   //---------------------------------
   void _nextStory() {
-    if (_currentStory < (widget.stories.listStories.length - 1)) {
+    if (_currentStory < (widget.stories!.listStories!.length - 1)) {
       setState(() {
         _currentStory++;
       });
-      _pageController.nextPage(
+      _pageController!.nextPage(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOutQuint);
-      _showStory(widget.stories.listStories[_currentStory]);
+      _showStory(widget.stories!.listStories![_currentStory]);
     } else {
-      if (widget.stories.indexStory <
+      if (widget.stories!.indexStory! <
           (IgUserStories.listUserStories.length - 1)) {
-        _openUserStories(widget.stories.indexStory + 1);
+        _openUserStories(widget.stories!.indexStory! + 1);
       } else {
         Navigator.pop(context);
       }
@@ -119,8 +119,8 @@ class _InstagramStoriesState extends State<InstagramStories>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final listStories = widget.stories.listStories;
-    final user = widget.stories.instagramUser;
+    final listStories = widget.stories!.listStories!;
+    final user = widget.stories!.instagramUser!;
 
     return Scaffold(
       appBar: AppBar(
@@ -155,7 +155,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                 itemBuilder: (context, index) {
                   final storyModel = listStories[index];
                   return CachedNetworkImage(
-                    imageUrl: storyModel.imageUrl,
+                    imageUrl: storyModel.imageUrl!,
                     fit: BoxFit.cover,
                   );
                 },
@@ -202,7 +202,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                       //------NAME
                       Expanded(
                         child: Text(
-                          user.name,
+                          user.name!,
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

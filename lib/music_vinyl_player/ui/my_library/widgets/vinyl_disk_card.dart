@@ -5,23 +5,23 @@ import '../../widgets/vinyl_disk.dart';
 
 class VinylAlbumCover extends StatelessWidget {
   const VinylAlbumCover({
-    Key key,
-    @required this.album,
-    @required this.factorChange,
+    Key? key,
+    required this.album,
+    required this.factorChange,
     this.height,
     this.currentIndex,
     this.index,
   }) : super(key: key);
   final Album album;
   final double factorChange;
-  final double height;
-  final int currentIndex;
-  final int index;
+  final double? height;
+  final int? currentIndex;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final val = currentIndex >= index;
+    final val = currentIndex! >= index!;
     return Stack(
       fit: StackFit.expand,
       alignment: Alignment.center,
@@ -55,12 +55,12 @@ class VinylAlbumCover extends StatelessWidget {
 
 class _AlbumImage extends StatelessWidget {
   const _AlbumImage({
-    Key key,
-    @required this.albumImageHeight,
-    @required this.album,
+    Key? key,
+    required this.albumImageHeight,
+    required this.album,
   }) : super(key: key);
 
-  final double albumImageHeight;
+  final double? albumImageHeight;
   final Album album;
 
   @override
@@ -71,7 +71,7 @@ class _AlbumImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         image: DecorationImage(
-            image: AssetImage(album.pathImage), fit: BoxFit.cover),
+            image: AssetImage(album.pathImage!), fit: BoxFit.cover),
       ),
     );
   }

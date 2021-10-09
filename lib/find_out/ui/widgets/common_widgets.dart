@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class FindOutLogo extends StatelessWidget {
   const FindOutLogo({
-    Key key,
+    Key? key,
     this.fontSize = 60.0,
   }) : super(key: key);
 
@@ -65,7 +65,7 @@ class FindOutLogo extends StatelessWidget {
 
 class FindOutHorizontalLogo extends StatelessWidget {
   const FindOutHorizontalLogo({
-    Key key,
+    Key? key,
     this.fontSize = 28.0,
   }) : super(key: key);
 
@@ -107,8 +107,8 @@ class FindOutHorizontalLogo extends StatelessWidget {
 
 class TitlePlace extends StatelessWidget {
   const TitlePlace({
-    Key key,
-    @required this.place,
+    Key? key,
+    required this.place,
     this.baseFontSize = 40,
   }) : super(key: key);
 
@@ -118,7 +118,7 @@ class TitlePlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: place.title,
+      tag: place.title!,
       child: Material(
         color: Colors.transparent,
         child: RichText(

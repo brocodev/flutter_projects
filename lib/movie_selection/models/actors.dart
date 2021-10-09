@@ -5,8 +5,8 @@ class Actor {
     this.pathImage,
   });
 
-  final String name;
-  final String pathImage;
+  final String? name;
+  final String? pathImage;
 
   static const listActors = [
     Actor(name: 'Josh Mike', pathImage: 'assets/img/movie/actor1.jpg'),

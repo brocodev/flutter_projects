@@ -6,7 +6,7 @@ import 'package:flutter_projects/bookstore_app/ui/home_page.dart';
 
 
 class BookStoreApp extends StatelessWidget {
-  const BookStoreApp({Key key}) : super(key: key);
+  const BookStoreApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class BookStoreApp extends StatelessWidget {
 
 class _BookNavigationPage extends StatefulWidget {
   const _BookNavigationPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -31,8 +31,8 @@ class _BookNavigationPage extends StatefulWidget {
 }
 
 class _BookNavigationPageState extends State<_BookNavigationPage> {
-  PageController _pageController;
-  int _indexPage;
+  PageController? _pageController;
+  late int _indexPage;
 
   @override
   void initState() {
@@ -43,7 +43,7 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController!.dispose();
     super.dispose();
   }
 
@@ -65,7 +65,7 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
         height: kToolbarHeight,
         child: BottomNavigationBar(
           onTap: (value) => setState(() {
-            _pageController.animateToPage(value,
+            _pageController!.animateToPage(value,
                 duration: kThemeChangeDuration, curve: Curves.decelerate);
             _indexPage = value;
           }),

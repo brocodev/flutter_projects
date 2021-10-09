@@ -3,10 +3,10 @@ class ExternalPlatform {
   const ExternalPlatform._(
       {this.name, this.urlLauncher, this.imagePath, this.haveDarkImage});
 
-  final String name;
-  final String urlLauncher;
-  final String imagePath;
-  final bool haveDarkImage;
+  final String? name;
+  final String? urlLauncher;
+  final String? imagePath;
+  final bool? haveDarkImage;
 
 
   static const kDiscord = ExternalPlatform._(

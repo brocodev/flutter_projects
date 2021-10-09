@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class TypeActivityToggleButton extends StatelessWidget {
   const TypeActivityToggleButton({
-    Key key,
-    @required this.value,
-    @required this.selectValue,
-    @required this.labelButton,
+    Key? key,
+    required this.value,
+    required this.selectValue,
+    required this.labelButton,
     this.notifications,
     this.onPressed,
   }) : super(key: key);
@@ -13,8 +13,8 @@ class TypeActivityToggleButton extends StatelessWidget {
   final int value;
   final int selectValue;
   final String labelButton;
-  final int notifications;
-  final ValueChanged<int> onPressed;
+  final int? notifications;
+  final ValueChanged<int>? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class TypeActivityToggleButton extends StatelessWidget {
         TextButton(
           onPressed: () {
             if (onPressed != null) {
-              onPressed(value);
+              onPressed!(value);
             }
           },
           style: TextButton.styleFrom(
@@ -47,7 +47,7 @@ class TypeActivityToggleButton extends StatelessWidget {
             ),
           ),
         ),
-        if (notifications > 0)
+        if (notifications! > 0)
           Align(
             alignment: Alignment.topCenter,
             child: Container(

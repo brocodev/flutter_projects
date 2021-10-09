@@ -19,14 +19,14 @@ class CategoriesBloc {
   final StreamController<List<String>> _categoriesStreamCtrl =
       StreamController<List<String>>.broadcast();
 
-  final StreamController<CategoriesEvent> _eventsStreamCtrl =
-      StreamController<CategoriesEvent>.broadcast();
+  final StreamController<CategoriesEvent?> _eventsStreamCtrl =
+      StreamController<CategoriesEvent?>.broadcast();
 
   Stream<List<String>> get categoriesStream => _categoriesStreamCtrl.stream;
 
-  Sink<CategoriesEvent> get eventsSink => _eventsStreamCtrl.sink;
+  Sink<CategoriesEvent?> get eventsSink => _eventsStreamCtrl.sink;
 
-  void mapEventToState(CategoriesEvent event) async {
+  void mapEventToState(CategoriesEvent? event) async {
     if (event is AddCategoryEvent) {
       _listCategories.add(event.category);
     }

@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 class SuperheroDetailPage extends StatefulWidget {
 
   const SuperheroDetailPage({
-    Key key,
-    @required this.superhero,
+    Key? key,
+    required this.superhero,
   }) : super(key: key);
 
   final Superhero superhero;
@@ -18,12 +18,12 @@ class SuperheroDetailPage extends StatefulWidget {
 
 class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _colorGradientValue;
-  Animation<double> _whiteGradientValue;
+  AnimationController? _controller;
+  late Animation<double> _colorGradientValue;
+  late Animation<double> _whiteGradientValue;
 
-  bool _changeToBlack;
-  bool _enableInfoItems;
+  late bool _changeToBlack;
+  late bool _enableInfoItems;
 
   @override
   void initState() {
@@ -35,20 +35,20 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     _colorGradientValue = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
           curve: const Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
-          parent: _controller),
+          parent: _controller!),
     );
 
     _whiteGradientValue = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
           curve: const Interval(0.1, 1.0, curve: Curves.fastOutSlowIn),
-          parent: _controller),
+          parent: _controller!),
     );
 
     _changeToBlack = false;
     _enableInfoItems = false;
 
     Future.delayed(const Duration(milliseconds: 600), () {
-      _controller.forward();
+      _controller!.forward();
       Future.delayed(const Duration(milliseconds: 300), () {
         setState(() {
           _changeToBlack = true;
@@ -56,13 +56,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
       });
     });
 
-    _controller.addStatusListener(_statusListener);
+    _controller!.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller
+    _controller!
       ..removeStatusListener(_statusListener)
       ..dispose();
     super.dispose();
@@ -91,7 +91,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
         _changeToBlack = false;
       });
     });
-    await _controller.reverse();
+    await _controller!.reverse();
     Navigator.pop(context);
   }
 
@@ -109,13 +109,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
               child: Hero(
             tag: "${widget.superhero.heroName}background",
             child: AnimatedBuilder(
-                animation: _controller,
+                animation: _controller!,
                 builder: (_, __) {
                   return DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color(widget.superhero.rawColor),
+                          Color(widget.superhero.rawColor!),
                           Colors.white
                         ],
                         begin: Alignment.topCenter,
@@ -142,9 +142,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                 //---------------------
                 SafeArea(
                   child: Hero(
-                    tag: widget.superhero.pathImage,
+                    tag: widget.superhero.pathImage!,
                     child: Image.asset(
-                      widget.superhero.pathImage,
+                      widget.superhero.pathImage!,
                       height: size.height * .55,
                       width: size.width,
                     ),
@@ -163,15 +163,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                         alignment: Alignment.bottomLeft,
                         child: FittedBox(
                           child: Hero(
-                            tag: widget.superhero.heroName,
+                            tag: widget.superhero.heroName!,
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
-                              style: textTheme.headline2.copyWith(
+                              style: textTheme.headline2!.copyWith(
                                   color: _changeToBlack
                                       ? Colors.black
                                       : Colors.white),
                               child: Text(
-                                widget.superhero.heroName
+                                widget.superhero.heroName!
                                     .replaceAll(' ', '\n')
                                     .toLowerCase(),
                               ),
@@ -186,15 +186,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           // Superhero Secret Identity Name
                           //---------------------------------------
                           Hero(
-                            tag: widget.superhero.name,
+                            tag: widget.superhero.name!,
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
-                              style: textTheme.headline5.copyWith(
+                              style: textTheme.headline5!.copyWith(
                                   color: _changeToBlack
                                       ? Colors.black
                                       : Colors.white),
                               child: Text(
-                                widget.superhero.name.toLowerCase(),
+                                widget.superhero.name!.toLowerCase(),
                               ),
                             ),
                           ),
@@ -208,7 +208,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                               begin: 0.0,
                               end: _enableInfoItems ? 1.0 : 0.0,
                             ),
-                            builder: (context, value, child) {
+                            builder: (context, dynamic value, child) {
                               return Transform.scale(
                                 scale: value,
                                 child: child,
@@ -238,7 +238,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           duration: const Duration(milliseconds: 200),
                           opacity: _enableInfoItems ? 1.0 : 0.0,
                           child: Text(
-                            widget.superhero.description,
+                            widget.superhero.description!,
                             style: GoogleFonts.spartan(
                               color: Colors.grey[500],
                               height: 1.5,
@@ -266,7 +266,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           opacity: _enableInfoItems ? 1.0 : 0.0,
                           child: Text(
                             'movies',
-                            style: textTheme.headline5
+                            style: textTheme.headline5!
                                 .copyWith(color: Colors.black),
                           ),
                         ),
@@ -280,7 +280,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                 SizedBox(
                   height: 240,
                   child: ListView.builder(
-                    itemCount: widget.superhero.movies.length,
+                    itemCount: widget.superhero.movies!.length,
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
@@ -288,7 +288,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                     ),
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
-                      final movie = widget.superhero.movies[index];
+                      final movie = widget.superhero.movies![index];
                       //---------------------------
                       // Animated Movie Card
                       //---------------------------

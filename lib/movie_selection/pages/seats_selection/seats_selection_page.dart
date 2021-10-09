@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/summary/summary_page.dart
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
 
 class SeatsSelectionPage extends StatelessWidget {
-  const SeatsSelectionPage({Key key, this.movie}) : super(key: key);
+  const SeatsSelectionPage({Key? key, this.movie}) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SeatsSelectionPage extends StatelessWidget {
         backgroundColor: kPrimaryColorDark,
         body: ValueListenableBuilder(
           valueListenable: hideWidgets,
-          builder: (context, value, child) {
+          builder: (context, dynamic value, child) {
             return AnimatedContainer(
               duration: kDuration400ms,
               curve: Curves.fastOutSlowIn,
@@ -39,8 +39,8 @@ class SeatsSelectionPage extends StatelessWidget {
                       padding:
                           const EdgeInsets.only(right: 20, bottom: 30, top: 10),
                       child: CustomAppBar(
-                        title: movie.title,
-                        subtitle: 'Today ${movie.billboardHour}',
+                        title: movie!.title,
+                        subtitle: 'Today ${movie!.billboardHour}',
                         onPressedBack: () {
                           hideWidgets.value = true;
                           Navigator.pop(context);
@@ -124,7 +124,7 @@ class SeatsSelectionPage extends StatelessWidget {
         ));
   }
 
-  void _openSummary(BuildContext context, Movie movie) {
+  void _openSummary(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
         context,
         PageRouteBuilder(

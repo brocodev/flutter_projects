@@ -4,28 +4,28 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HourContainer extends StatelessWidget {
   const HourContainer({
-    Key key,
+    Key? key,
     this.hour,
     this.id,
     this.selectedHourNotifier,
     this.onTap,
   }) : super(key: key);
-  final String hour;
-  final ValueNotifier<int> selectedHourNotifier;
-  final int id;
-  final VoidCallback onTap;
+  final String? hour;
+  final ValueNotifier<int?>? selectedHourNotifier;
+  final int? id;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return ValueListenableBuilder<int>(
-        valueListenable: selectedHourNotifier,
+    return ValueListenableBuilder<int?>(
+        valueListenable: selectedHourNotifier!,
         builder: (context, value, child) {
           final isSelected = value == id;
           return InkWell(
             onTap: () {
-              selectedHourNotifier.value = id;
-              onTap();
+              selectedHourNotifier!.value = id;
+              onTap!();
             },
             child: Container(
               alignment: Alignment.center,
@@ -40,7 +40,7 @@ class HourContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    hour,
+                    hour!,
                     style: GoogleFonts.barlowCondensed(
                       fontWeight: FontWeight.w500,
                       fontSize: size.height * .024,

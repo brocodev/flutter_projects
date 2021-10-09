@@ -7,19 +7,19 @@ import 'package:flutter_projects/medical_appointment/utils/md_utils.dart';
 
 class NextAppointmentCard extends StatelessWidget {
   const NextAppointmentCard({
-    Key key,
-    @required this.height,
-    @required this.mdAppointment,
+    Key? key,
+    required this.height,
+    required this.mdAppointment,
     this.margin,
   }) : super(key: key);
 
   final double height;
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
   final MedicalAppointment mdAppointment;
 
   @override
   Widget build(BuildContext context) {
-    final doctor = mdAppointment.doctor;
+    final doctor = mdAppointment.doctor!;
     return Container(
       width: double.infinity,
       height: height,
@@ -49,13 +49,13 @@ class NextAppointmentCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        doctor.doctorCategory.iconData,
+                        doctor.doctorCategory!.iconData,
                         size: height * .4,
                         color: Colors.white,
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        mdAppointment.title,
+                        mdAppointment.title!,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                         style: const TextStyle(
@@ -80,7 +80,7 @@ class NextAppointmentCard extends StatelessWidget {
                     const SizedBox(height: 10),
                     _buildTextRich(
                       title: "Date",
-                      subtitle: MdUtils.formatToTextDate(mdAppointment.date),
+                      subtitle: MdUtils.formatToTextDate(mdAppointment.date!),
                     ),
                     const Spacer(),
                     //-------------------------------
@@ -90,7 +90,7 @@ class NextAppointmentCard extends StatelessWidget {
                       children: [
                         _buildTextRich(
                           title: "Dr. ${doctor.name}",
-                          subtitle: doctor.doctorCategory.nameCategory,
+                          subtitle: doctor.doctorCategory!.nameCategory,
                         ),
                         const Spacer(),
                         Container(
@@ -102,7 +102,7 @@ class NextAppointmentCard extends StatelessWidget {
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
                             backgroundImage:
-                                CachedNetworkImageProvider(doctor.photoUrl),
+                                CachedNetworkImageProvider(doctor.photoUrl!),
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -127,7 +127,7 @@ class NextAppointmentCard extends StatelessWidget {
                   borderRadius:
                       BorderRadius.only(bottomLeft: Radius.circular(20))),
               child: Text(
-                MdUtils.extractHourDate(mdAppointment.date),
+                MdUtils.extractHourDate(mdAppointment.date!),
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -141,7 +141,7 @@ class NextAppointmentCard extends StatelessWidget {
     );
   }
 
-  Text _buildTextRich({String title, String subtitle}) {
+  Text _buildTextRich({String? title, String? subtitle}) {
     return Text.rich(
       TextSpan(
         text: '$title \n',

@@ -16,16 +16,16 @@ class Doctor {
     this.photoUrl,
   });
 
-  final String name;
-  final DoctorCategory doctorCategory;
-  final int patients;
-  final double rate;
-  final int likes;
-  final int graduationYear;
-  final int comments;
-  final String pngPhotoUrl;
-  final String photoUrl;
-  final MdAddress mdAddress;
+  final String? name;
+  final DoctorCategory? doctorCategory;
+  final int? patients;
+  final double? rate;
+  final int? likes;
+  final int? graduationYear;
+  final int? comments;
+  final String? pngPhotoUrl;
+  final String? photoUrl;
+  final MdAddress? mdAddress;
 
 
   static const  drRichard = Doctor(

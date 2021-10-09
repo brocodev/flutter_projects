@@ -1,8 +1,8 @@
 class SeatsRowData {
   const SeatsRowData({this.seats, this.occupiedSeats});
 
-  final int seats;
-  final List<int> occupiedSeats;
+  final int? seats;
+  final List<int>? occupiedSeats;
 
 
   static const seatsList = [

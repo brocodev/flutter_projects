@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MovieMainDetails extends StatelessWidget {
   const MovieMainDetails({
-    Key key,
-    @required this.movie,
+    Key? key,
+    required this.movie,
   }) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MovieMainDetails extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              movie.imageUrl,
+              movie!.imageUrl!,
               fit: BoxFit.cover,
             ),
           ),
@@ -35,12 +35,12 @@ class MovieMainDetails extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                buildInfoText('Genre:', movie.tags.first, size),
+                buildInfoText('Genre:', movie!.tags!.first, size),
                 buildInfoText('Duration:',
-                    '${movie.duration.inMinutes} min', size),
-                buildInfoText('Release year:', movie.year, size),
-                buildInfoText('Director:', movie.director, size),
-                buildInfoText('Writer:', movie.writer, size),
+                    '${movie!.duration!.inMinutes} min', size),
+                buildInfoText('Release year:', movie!.year, size),
+                buildInfoText('Director:', movie!.director, size),
+                buildInfoText('Writer:', movie!.writer, size),
                 const SizedBox(),
               ],
             ),

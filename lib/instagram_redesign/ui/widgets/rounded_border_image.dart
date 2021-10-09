@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 class RoundedBorderImage extends StatelessWidget {
   const RoundedBorderImage({
-    Key key,
-    @required this.imageUrl,
-    @required this.height,
+    Key? key,
+    required this.imageUrl,
+    required this.height,
     this.borderColor,
     this.borderWidth = 3.0,
     this.borderRadius,
   }) : super(key: key);
 
-  final String imageUrl;
-  final double height;
-  final Color borderColor;
+  final String? imageUrl;
+  final double? height;
+  final Color? borderColor;
   final double borderWidth;
-  final double borderRadius;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class RoundedBorderImage extends StatelessWidget {
             color: borderColor ?? Theme.of(context).backgroundColor,
             width: borderWidth,
           ),
-          borderRadius: BorderRadius.circular(borderRadius ?? height * .4),
+          borderRadius: BorderRadius.circular(borderRadius ?? height! * .4),
           image: DecorationImage(
-              image: CachedNetworkImageProvider(imageUrl), fit: BoxFit.cover)),
+              image: CachedNetworkImageProvider(imageUrl!), fit: BoxFit.cover)),
     );
   }
 }

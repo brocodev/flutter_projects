@@ -4,7 +4,7 @@ class WavePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint =  Paint()
-      ..color = Colors.grey[300]
+      ..color = Colors.grey[300]!
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
 

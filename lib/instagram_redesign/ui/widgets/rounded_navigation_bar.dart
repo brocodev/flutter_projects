@@ -3,8 +3,8 @@ import 'package:flutter_projects/instagram_redesign/ui/home/widgets/red_dot.dart
 
 class RoundedNavigationBar extends StatelessWidget {
   const RoundedNavigationBar({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
     this.onTap,
     this.unselectedColor = const Color(0xffa9a9a9),
     this.selectedColor = const Color(0xff000000),
@@ -12,7 +12,7 @@ class RoundedNavigationBar extends StatelessWidget {
   }) : super(key: key);
 
   final List<RoundedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
   final Color unselectedColor;
   final Color selectedColor;
   final int currentIndex;
@@ -33,7 +33,7 @@ class RoundedNavigationBar extends StatelessWidget {
           return IconButton(
             onPressed: () {
               if (onTap != null) {
-                onTap(index);
+                onTap!(index);
               }
             },
             color: index == currentIndex ? selectedColor : unselectedColor,
@@ -55,13 +55,13 @@ class RoundedNavigationBar extends StatelessWidget {
 
 class RoundedNavigationBarItem {
   const RoundedNavigationBarItem({
-    @required this.iconData,
-    @required this.hasNotification,
+    required this.iconData,
+    required this.hasNotification,
     this.selectedIconData,
   });
 
   final IconData iconData;
   final bool hasNotification;
-  final IconData selectedIconData;
+  final IconData? selectedIconData;
 
 }

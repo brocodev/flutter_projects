@@ -1,9 +1,9 @@
 class UserBook {
   const UserBook({this.name, this.photoUrl, this.favoriteCategories});
 
-  final String name;
-  final String photoUrl;
-  final List<String> favoriteCategories;
+  final String? name;
+  final String? photoUrl;
+  final List<String>? favoriteCategories;
 
   static const currentUser = UserBook(
       name: 'Kevin',
@@ -98,9 +98,9 @@ class Review {
     this.replies,
   });
 
-  final String review;
-  final DateTime date;
-  final int likes;
-  final int replies;
-  final UserBook authorReview;
+  final String? review;
+  final DateTime? date;
+  final int? likes;
+  final int? replies;
+  final UserBook? authorReview;
 }

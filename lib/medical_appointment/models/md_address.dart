@@ -8,11 +8,11 @@ class MdAddress {
     this.postalCode,
   });
 
-  final String city;
-  final String state;
-  final String street;
-  final String numberStreet;
-  final String postalCode;
+  final String? city;
+  final String? state;
+  final String? street;
+  final String? numberStreet;
+  final String? postalCode;
 
   String getLongAddress() {
     return "$numberStreet $street, $city $postalCode";

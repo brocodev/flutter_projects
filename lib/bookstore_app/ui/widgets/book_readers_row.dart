@@ -5,21 +5,21 @@ import 'package:flutter_projects/bookstore_app/models/book.dart';
 
 class ReadersRow extends StatelessWidget {
   const ReadersRow({
-    Key key,
-    @required this.readers,
+    Key? key,
+    required this.readers,
     this.avatarSize = 30,
   }) : super(key: key);
 
-  final List<UserBook> readers;
+  final List<UserBook>? readers;
   final double avatarSize;
 
   @override
   Widget build(BuildContext context) {
-    final hasUserExcess = readers.length > 4;
+    final hasUserExcess = readers!.length > 4;
 
     return Row(
-      children: List.generate(hasUserExcess ? 4 : readers.length, (index) {
-        final user = readers[index];
+      children: List.generate(hasUserExcess ? 4 : readers!.length, (index) {
+        final user = readers![index];
         return Align(
           alignment: Alignment.centerLeft,
           widthFactor: .7,
@@ -30,7 +30,7 @@ class ReadersRow extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 1.5),
               image: DecorationImage(
-                image: NetworkImage(user.photoUrl),
+                image: NetworkImage(user.photoUrl!),
                 fit: BoxFit.cover,
               ),
             ),
@@ -47,7 +47,7 @@ class ReadersRow extends StatelessWidget {
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaY: 3, sigmaX: 3),
                       child: Text(
-                        '${readers.length - 3}+',
+                        '${readers!.length - 3}+',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           color: Colors.white,

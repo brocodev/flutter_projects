@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constants.dart';
 
 class CreditCardSlide extends StatelessWidget {
-  const CreditCardSlide({Key key}):super(key: key);
+  const CreditCardSlide({Key? key}):super(key: key);
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,10 +56,10 @@ class CreditCardSlide extends StatelessWidget {
 
 class CreditCardWidget extends StatelessWidget {
   const CreditCardWidget({
-    Key key,
+    Key? key,
     this.colors,
   }) : super(key: key);
-  final List<Color> colors;
+  final List<Color?>? colors;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class CreditCardWidget extends StatelessWidget {
           color: Colors.red,
           borderRadius: BorderRadius.circular(30.0),
           gradient: LinearGradient(
-              colors: colors,
+              colors: colors as List<Color>,
               begin: Alignment.topLeft,
               end: Alignment.bottomRight)),
       child: Column(

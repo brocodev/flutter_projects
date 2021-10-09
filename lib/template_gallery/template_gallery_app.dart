@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'ui/contact_list_page.dart';
 
 class TemplateGalleryApp extends StatelessWidget {
-  const TemplateGalleryApp({Key key}) : super(key: key);
+  const TemplateGalleryApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

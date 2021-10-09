@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class CoverPageBook extends StatelessWidget {
   const CoverPageBook({
-    Key key,
-    @required this.srcImageBook,
+    Key? key,
+    required this.srcImageBook,
   }) : super(key: key);
 
-  final String srcImageBook;
+  final String? srcImageBook;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CoverPageBook extends StatelessWidget {
           )
         ],
         image:
-        DecorationImage(image: AssetImage(srcImageBook), fit: BoxFit.cover),
+        DecorationImage(image: AssetImage(srcImageBook!), fit: BoxFit.cover),
       ),
     );
   }

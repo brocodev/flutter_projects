@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class BookRateStars extends StatelessWidget {
   const BookRateStars({
-    @required this.rate,
-    @required this.heroTag,
+    required this.rate,
+    required this.heroTag,
     this.starsColor = Colors.yellow,
     this.voidStarsColor = const Color(0xFFFFDAAE),
-    Key key,
+    Key? key,
     this.iconSize = 18,
     this.fontSize = 14,
   })  : assert(
@@ -20,7 +20,7 @@ class BookRateStars extends StatelessWidget {
   final Color voidStarsColor;
   final double iconSize;
   final double fontSize;
-  final String heroTag;
+  final String? heroTag;
 
   @override
   Widget build(BuildContext context) {

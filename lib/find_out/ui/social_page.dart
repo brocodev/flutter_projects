@@ -10,7 +10,7 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/custom_bottom_navigation.dart';
 
 class SocialPage extends StatelessWidget {
-  const SocialPage({Key key, @required this.place}) : super(key: key);
+  const SocialPage({Key? key, required this.place}) : super(key: key);
 
   final Place place;
 
@@ -21,7 +21,7 @@ class SocialPage extends StatelessWidget {
     final heightBackPageView = size.height * .33;
     final infoVisibleNotifier = ValueNotifier(false);
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       Future.delayed(const Duration(milliseconds: 800), () {
         infoVisibleNotifier.value = true;
       });
@@ -142,7 +142,7 @@ class SocialPage extends StatelessWidget {
                     gradient: LinearGradient(
                       colors: [
                         Colors.pinkAccent,
-                        Colors.pinkAccent[100],
+                        Colors.pinkAccent[100]!,
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomCenter,
@@ -165,11 +165,11 @@ class SocialPage extends StatelessWidget {
 
 class _HeaderSocialPage extends StatelessWidget {
   const _HeaderSocialPage({
-    Key key,
-    @required this.heightBackPageView,
-    @required this.place,
-    @required this.indexImageBackground,
-    @required this.infoVisibleNotifier,
+    Key? key,
+    required this.heightBackPageView,
+    required this.place,
+    required this.indexImageBackground,
+    required this.infoVisibleNotifier,
   }) : super(key: key);
 
   final double heightBackPageView;
@@ -185,7 +185,7 @@ class _HeaderSocialPage extends StatelessWidget {
         SizedBox(
           height: heightBackPageView,
           child: Hero(
-            tag: place.id,
+            tag: place.id!,
             child: _BackImagesPageView(
               place: place,
               indexNotifier: indexImageBackground,
@@ -209,13 +209,13 @@ class _HeaderSocialPage extends StatelessWidget {
                     infoVisibleNotifier: infoVisibleNotifier,
                   ),
                   _PageViewIndicators(
-                      maxIndex: place.imageUrl.length,
+                      maxIndex: place.imageUrl!.length,
                       indexImageBackground: indexImageBackground),
                   const Spacer()
                 ])),
         ValueListenableBuilder(
             valueListenable: infoVisibleNotifier,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return Positioned(
                 bottom: 0,
                 left: 20,
@@ -234,9 +234,9 @@ class _HeaderSocialPage extends StatelessWidget {
 
 class _TitleAndHeart extends StatelessWidget {
   const _TitleAndHeart({
-    Key key,
-    @required this.place,
-    @required this.infoVisibleNotifier,
+    Key? key,
+    required this.place,
+    required this.infoVisibleNotifier,
   }) : super(key: key);
 
   final Place place;
@@ -255,7 +255,7 @@ class _TitleAndHeart extends StatelessWidget {
         const Spacer(),
         ValueListenableBuilder(
             valueListenable: infoVisibleNotifier,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return AnimatedOpacity(
                   duration: const Duration(milliseconds: 400),
                   opacity: value ? 1.0 : 0.0,
@@ -278,9 +278,9 @@ class _TitleAndHeart extends StatelessWidget {
 
 class _PageViewIndicators extends StatelessWidget {
   const _PageViewIndicators({
-    Key key,
-    @required this.maxIndex,
-    @required this.indexImageBackground,
+    Key? key,
+    required this.maxIndex,
+    required this.indexImageBackground,
   }) : super(key: key);
 
   final int maxIndex;
@@ -294,7 +294,7 @@ class _PageViewIndicators extends StatelessWidget {
             children: List.generate(maxIndex, (index) {
           return ValueListenableBuilder(
             valueListenable: indexImageBackground,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return Padding(
                 padding: const EdgeInsets.only(right: 10, top: 10),
                 child: CircleAvatar(
@@ -311,7 +311,7 @@ class _PageViewIndicators extends StatelessWidget {
 
 class _CustomAppBar extends StatelessWidget {
   const _CustomAppBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -329,28 +329,28 @@ class _CustomAppBar extends StatelessWidget {
 
 class _BackImagesPageView extends StatelessWidget {
   const _BackImagesPageView({
-    Key key,
-    @required this.place,
+    Key? key,
+    required this.place,
     this.indexNotifier,
   }) : super(key: key);
 
   final Place place;
-  final ValueNotifier indexNotifier;
+  final ValueNotifier? indexNotifier;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
-        if (details.primaryDelta > 20) {
+        if (details.primaryDelta! > 20) {
           Navigator.pop(context);
         }
       },
       child: SizedBox(
         child: PageView.builder(
-          onPageChanged: (value) => indexNotifier.value = value,
-          itemCount: place.imageUrl.length,
+          onPageChanged: (value) => indexNotifier!.value = value,
+          itemCount: place.imageUrl!.length,
           itemBuilder: (context, index) {
-            return BackgroundShaderImage(imageUrl: place.imageUrl[index]);
+            return BackgroundShaderImage(imageUrl: place.imageUrl![index]);
           },
         ),
       ),

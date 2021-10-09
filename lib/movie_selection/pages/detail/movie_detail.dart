@@ -14,11 +14,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MovieDetail extends StatelessWidget {
   const MovieDetail({
-    Key key,
+    Key? key,
     this.movie,
   }) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class MovieDetail extends StatelessWidget {
       backgroundColor: kPrimaryColorDark,
       body: ValueListenableBuilder(
         valueListenable: hideWidgets,
-        builder: (context, value, child) {
+        builder: (context, dynamic value, child) {
           return AnimatedContainer(
             duration: kDuration400ms,
             curve: Curves.fastOutSlowIn,
@@ -47,9 +47,9 @@ class MovieDetail extends StatelessWidget {
                     flightShuttleBuilder: (_, __, ___, ____, _____) {
                       return MovieDetail(movie: movie);
                     },
-                    tag: movie.uniqueId,
+                    tag: movie!.uniqueId!,
                     child: Image.asset(
-                      movie.imageUrl,
+                      movie!.imageUrl!,
                       fit: BoxFit.cover,
                       height: size.height,
                     ),
@@ -100,7 +100,7 @@ class MovieDetail extends StatelessWidget {
     );
   }
 
-  void _openCinemaSelection(BuildContext context, Movie movie) {
+  void _openCinemaSelection(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -117,10 +117,10 @@ class MovieDetail extends StatelessWidget {
 
 class _BodyDetail extends StatelessWidget {
   const _BodyDetail({
-    Key key,
-    @required this.movie,
+    Key? key,
+    required this.movie,
   }) : super(key: key);
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +147,7 @@ class _BodyDetail extends StatelessWidget {
           child: TranslateAnimation(
             duration: const Duration(milliseconds: 700),
             child: Text(
-              movie.title.toUpperCase(),
+              movie!.title!.toUpperCase(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.barlowCondensed(
@@ -164,11 +164,11 @@ class _BodyDetail extends StatelessWidget {
             duration: const Duration(milliseconds: 800),
             child: Wrap(
               runSpacing: 10,
-              children: List.generate(movie.tags.length, (i) {
+              children: List.generate(movie!.tags!.length, (i) {
                 return Padding(
                   padding: const EdgeInsets.only(right: 10),
                   child: TagContainer(
-                    tag: movie.tags[i],
+                    tag: movie!.tags![i],
                   ),
                 );
               }),
@@ -191,10 +191,10 @@ class _BodyDetail extends StatelessWidget {
         const SizedBox(height: 40),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Synopsis(description: movie.description)),
+            child: Synopsis(description: movie!.description)),
         const SizedBox(height: 40),
         ActorsList(
-          listActors: movie.actors,
+          listActors: movie!.actors,
         ),
         SizedBox(height: size.height * .1),
       ],

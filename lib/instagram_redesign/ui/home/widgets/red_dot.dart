@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class RedDot extends StatelessWidget {
   const RedDot({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

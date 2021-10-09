@@ -3,7 +3,7 @@ import 'package:flutter_projects/superheroes/ui/superhero_slider_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroesApp extends StatelessWidget {
-  const SuperheroesApp({Key key}) : super(key: key);
+  const SuperheroesApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

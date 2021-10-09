@@ -9,8 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BillboardList extends StatelessWidget {
   const BillboardList({
-    Key key,
-    @required this.billboard,
+    Key? key,
+    required this.billboard,
   }) : super(key: key);
 
   final Billboard billboard;
@@ -45,7 +45,7 @@ class BillboardList extends StatelessWidget {
               final movie = billboard.movieList[index];
 
               movie
-                ..uniqueId = movie.title + billboard.hour
+                ..uniqueId = movie.title! + billboard.hour
                 ..billboardHour = billboard.hour;
 
               return Padding(
@@ -61,13 +61,13 @@ class BillboardList extends StatelessWidget {
                           child: Hero(
                             flightShuttleBuilder: (_, __, ___, ____, _____) {
                               return Image.asset(
-                                movie.imageUrl,
+                                movie.imageUrl!,
                                 fit: BoxFit.cover,
                               );
                             },
-                            tag: movie.uniqueId,
+                            tag: movie.uniqueId!,
                             child: Image.asset(
-                              movie.imageUrl,
+                              movie.imageUrl!,
                               height: heightBillboard * .88,
                               fit: BoxFit.cover,
                             ),
@@ -75,7 +75,7 @@ class BillboardList extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        movie.title,
+                        movie.title!,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.barlowCondensed(

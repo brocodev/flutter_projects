@@ -15,14 +15,14 @@ class MedicalPatient {
     this.nextAppointment,
   });
 
-  final String name;
-  final String lastName;
-  final String email;
-  final String photoUrl;
-  final String phone;
-  final List<MedicalCheck> medicalChecks;
-  final List<MedicalAppointment> appointmentHistory;
-  final MedicalAppointment nextAppointment;
+  final String? name;
+  final String? lastName;
+  final String? email;
+  final String? photoUrl;
+  final String? phone;
+  final List<MedicalCheck>? medicalChecks;
+  final List<MedicalAppointment>? appointmentHistory;
+  final MedicalAppointment? nextAppointment;
 
   static final currentPatient = MedicalPatient(
     name: 'Kevin',

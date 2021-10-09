@@ -10,10 +10,10 @@ import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart'
 import 'cover_page_book.dart';
 
 class BookDetailHeader extends StatelessWidget {
-  BookDetailHeader({Key key, this.percent, this.book}) : super(key: key);
+  BookDetailHeader({Key? key, this.percent, this.book}) : super(key: key);
 
-  final double percent;
-  final Book book;
+  final double? percent;
+  final Book? book;
 
   // [enableOpenBookAnimation]
   // Validation to not apply the custom hero when going to the home screen
@@ -67,14 +67,14 @@ class BookDetailHeader extends StatelessWidget {
                       IconButton(
                         color:
                             ColorTween(begin: Colors.white, end: Colors.black)
-                                .transform(percent),
+                                .transform(percent!),
                         onPressed: () {
                           enableOpenBookAnimation.value = false;
                           Navigator.pop(context);
                         },
                         icon: const Icon(Icons.arrow_back_ios),
                       ),
-                      ReadersRow(readers: book.readers)
+                      ReadersRow(readers: book!.readers)
                     ],
                   ),
                 ),
@@ -89,10 +89,10 @@ class BookDetailHeader extends StatelessWidget {
                     InkWell(
                       onTap: () => _openBook(context),
                       child: Hero(
-                        tag: book.title,
+                        tag: book!.title!,
                         child: AspectRatio(
                           aspectRatio: .68,
-                          child: CoverPageBook(srcImageBook: book.srcImage),
+                          child: CoverPageBook(srcImageBook: book!.srcImage),
                         ),
                       ),
                     ),
@@ -106,34 +106,34 @@ class BookDetailHeader extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            book.title,
+                            book!.title!,
                             style:
-                                Theme.of(context).textTheme.headline5.copyWith(
+                                Theme.of(context).textTheme.headline5!.copyWith(
                                       color: ColorTween(
                                         begin: Colors.white,
                                         end: Colors.black,
-                                      ).transform(percent),
-                                      fontSize: ui.lerpDouble(22, 18, percent),
+                                      ).transform(percent!),
+                                      fontSize: ui.lerpDouble(22, 18, percent!),
                                     ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            'By ${book.author}',
+                            'By ${book!.author}',
                             style: TextStyle(
                                 color: ColorTween(
                                   begin: Colors.white70,
                                   end: Colors.grey,
-                                ).transform(percent),
-                                fontSize: ui.lerpDouble(16, 14, percent),
+                                ).transform(percent!),
+                                fontSize: ui.lerpDouble(16, 14, percent!),
                                 height: 1.7),
                             maxLines: 1,
                           ),
                           AnimatedSwitcher(
                             duration: const Duration(milliseconds: 50),
-                            child: (percent <= 0.0)
+                            child: (percent! <= 0.0)
                                 ? _CategoryAndRate(book: book)
-                                : SizedBox(height: 65 * (1 - percent)),
+                                : SizedBox(height: 65 * (1 - percent!)),
                           )
                         ],
                       ),
@@ -141,7 +141,7 @@ class BookDetailHeader extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 50 * percent)
+              SizedBox(height: 50 * percent!)
             ],
           ),
         )
@@ -153,13 +153,13 @@ class BookDetailHeader extends StatelessWidget {
 // Blur
 class _BlurBackground extends StatelessWidget {
   const _BlurBackground({
-    Key key,
-    @required this.book,
-    @required this.percent,
+    Key? key,
+    required this.book,
+    required this.percent,
   }) : super(key: key);
 
-  final Book book;
-  final double percent;
+  final Book? book;
+  final double? percent;
 
   @override
   Widget build(BuildContext context) {
@@ -167,20 +167,20 @@ class _BlurBackground extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(book.srcImage),
+            image: AssetImage(book!.srcImage!),
             fit: BoxFit.cover,
           ),
           boxShadow: [
             BoxShadow(
                 color: Colors.black12,
-                blurRadius: 10 * percent,
+                blurRadius: 10 * percent!,
                 offset: const Offset(0, 0))
           ]),
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
           color: ColorTween(begin: Colors.black26, end: Colors.white)
-              .transform(percent),
+              .transform(percent!),
         ),
       ),
     );
@@ -189,11 +189,11 @@ class _BlurBackground extends StatelessWidget {
 
 class _CategoryAndRate extends StatelessWidget {
   const _CategoryAndRate({
-    Key key,
-    @required this.book,
+    Key? key,
+    required this.book,
   }) : super(key: key);
 
-  final Book book;
+  final Book? book;
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +201,7 @@ class _CategoryAndRate extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          book.category,
+          book!.category!,
           style: const TextStyle(
             color: Colors.white70,
             height: 1.7,
@@ -211,8 +211,8 @@ class _CategoryAndRate extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: BookRateStars(
-            rate: book.rate,
-            heroTag: book.title,
+            rate: book!.rate!,
+            heroTag: book!.title,
           ),
         ),
       ],
@@ -229,7 +229,7 @@ class BookDetailHeaderDelegate extends SliverPersistentHeaderDelegate {
   BookDetailHeaderDelegate({
     this.maximumExtent = kToolbarHeight * 2,
     this.minimumExtent = kToolbarHeight,
-    @required this.childBuilder,
+    required this.childBuilder,
   });
 
   final _BookDetailDelegateChildBuilder childBuilder;

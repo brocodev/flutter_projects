@@ -5,3 +5,8 @@ linter:
     prefer_single_quotes: false
     unawaited_futures: false
     cascade_invocations: false
+
+analyzer:
+  strong-mode:
+    implicit-casts: true
+    implicit-dynamic: true

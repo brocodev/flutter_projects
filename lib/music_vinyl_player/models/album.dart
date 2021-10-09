@@ -25,14 +25,14 @@ class Album {
             "luding versions of Lorem Ipsum.",
   });
 
-  final String title;
-  final String author;
-  final String pathImage;
+  final String? title;
+  final String? author;
+  final String? pathImage;
   final String description;
-  final int year;
+  final int? year;
   final int songsCount;
   final Duration duration;
-  final double rate;
+  final double? rate;
   final List<String> genres;
 
   static const listAlbum = [

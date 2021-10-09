@@ -5,13 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionCard extends StatelessWidget {
   const DescriptionCard({
-    Key key,
-    @required this.album,
+    Key? key,
+    required this.album,
     this.padding,
   }) : super(key: key);
 
   final Album album;
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class DescriptionCard extends StatelessWidget {
           // Title text
           //-------------------------------
           Text(
-            album.title,
+            album.title!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.spectral(
@@ -177,12 +177,12 @@ class DescriptionCard extends StatelessWidget {
 
 class _Dot extends StatelessWidget {
   const _Dot({
-    Key key,
+    Key? key,
     this.sizeDot,
     this.color,
   }) : super(key: key);
-  final double sizeDot;
-  final Color color;
+  final double? sizeDot;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +190,7 @@ class _Dot extends StatelessWidget {
       width: sizeDot,
       height: sizeDot,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(sizeDot),
+        borderRadius: BorderRadius.circular(sizeDot!),
         color: color,
       ),
     );

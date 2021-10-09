@@ -6,9 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PostButtons extends StatelessWidget {
   const PostButtons({
-    Key key,
-    @required this.post,
-    @required this.onTapLike,
+    Key? key,
+    required this.post,
+    required this.onTapLike,
     this.colorItems = Colors.white,
     this.likeBackgroundColor,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class PostButtons extends StatelessWidget {
   final IgPost post;
   final Color colorItems;
   final VoidCallback onTapLike;
-  final Color likeBackgroundColor;
+  final Color? likeBackgroundColor;
 
 
   @override
@@ -34,7 +34,7 @@ class PostButtons extends StatelessWidget {
         Icon(FontAwesome5Solid.comment_dots, color: colorItems),
         const SizedBox(width: 5),
         Text(
-          post.comments.length.toString(),
+          post.comments!.length.toString(),
           style: GoogleFonts.lato(
             color: colorItems,
             fontWeight: FontWeight.w900,

@@ -4,17 +4,17 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_im
 
 class FooterPost extends StatelessWidget {
   const FooterPost({
-    Key key,
-    @required this.post,
+    Key? key,
+    required this.post,
     this.colorDescription,
     this.colorMoreButton,
     this.colorMoreText,
   }) : super(key: key);
 
   final IgPost post;
-  final Color colorMoreButton;
-  final Color colorMoreText;
-  final Color colorDescription;
+  final Color? colorMoreButton;
+  final Color? colorMoreText;
+  final Color? colorDescription;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class FooterPost extends StatelessWidget {
         return Align(
           widthFactor: .8,
           child: RoundedBorderImage(
-            imageUrl: post.comments[index].user.photoUrl,
+            imageUrl: post.comments![index].user!.photoUrl,
             height: 30,
             borderWidth: 1.5,
           ),

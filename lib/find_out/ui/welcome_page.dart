@@ -7,7 +7,7 @@ import 'package:flutter_projects/find_out/ui/widgets/snake_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatelessWidget {
-  WelcomePage({Key key}) : super(key: key);
+  WelcomePage({Key? key}) : super(key: key);
   final hideNotifier = ValueNotifier(false);
 
   @override
@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
           const AnimatedBackground(),
           ValueListenableBuilder(
             valueListenable: hideNotifier,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
@@ -120,9 +120,9 @@ class WelcomePage extends StatelessWidget {
 
 class RectangularButton extends StatelessWidget {
   const RectangularButton({
-    Key key,
-    @required this.label,
-    @required this.onPressed,
+    Key? key,
+    required this.label,
+    required this.onPressed,
   }) : super(key: key);
   final String label;
   final VoidCallback onPressed;

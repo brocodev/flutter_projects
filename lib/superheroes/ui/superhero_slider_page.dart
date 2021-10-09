@@ -6,7 +6,7 @@ import 'package:flutter_projects/superheroes/ui/widgets/superhero_card.dart';
 
 class SuperheroSliderPage extends StatefulWidget {
   const SuperheroSliderPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -14,12 +14,12 @@ class SuperheroSliderPage extends StatefulWidget {
 }
 
 class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
-  PageController _pageController;
-  int _index;
-  int _auxIndex;
-  double _percent;
-  double _auxPercent;
-  bool _isScrolling;
+  PageController? _pageController;
+  late int _index;
+  late int _auxIndex;
+  double? _percent;
+  double? _auxPercent;
+  late bool _isScrolling;
 
   @override
   void initState() {
@@ -27,15 +27,15 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     _index = 0;
     _auxIndex = _index + 1;
     _percent = 0.0;
-    _auxPercent = 1.0 - _percent;
+    _auxPercent = 1.0 - _percent!;
     _isScrolling = false;
-    _pageController.addListener(_pageListener);
+    _pageController!.addListener(_pageListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _pageController
+    _pageController!
       ..removeListener(_pageListener)
       ..dispose();
     super.dispose();
@@ -45,12 +45,12 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
   // Page View Listener
   //--------------------------
   void _pageListener() {
-    _index = _pageController.page.floor();
+    _index = _pageController!.page!.floor();
     _auxIndex = _index + 1;
-    _percent = (_pageController.page - _index).abs();
-    _auxPercent = 1.0 - _percent;
+    _percent = (_pageController!.page! - _index).abs();
+    _auxPercent = 1.0 - _percent!;
 
-    _isScrolling = (_pageController.page % 1.0 != 0);
+    _isScrolling = (_pageController!.page! % 1.0 != 0);
     setState(() {});
   }
 
@@ -88,7 +88,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
                 // Back Card
                 //----------------
                 Transform.translate(
-                  offset: Offset(0, 50 * _auxPercent),
+                  offset: Offset(0, 50 * _auxPercent!),
                   child: SuperheroCard(
                     superhero: heroes[_auxIndex.clamp(0, heroes.length - 1)],
                     factorChange: _auxPercent,
@@ -98,9 +98,9 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
                 // Front Card
                 //----------------
                 Transform.translate(
-                  offset: Offset(-800 * _percent, 100 * _percent),
+                  offset: Offset(-800 * _percent!, 100 * _percent!),
                   child: Transform.rotate(
-                    angle: angleRotate * _percent,
+                    angle: angleRotate * _percent!,
                     child: SuperheroCard(
                       superhero: heroes[_index],
                       factorChange: _percent,

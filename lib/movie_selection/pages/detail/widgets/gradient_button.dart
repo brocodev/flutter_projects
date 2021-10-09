@@ -6,16 +6,16 @@ import '../../../constants.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
-    Key key,
+    Key? key,
     this.text,
     this.onTap,
     this.width,
   }) : super(key: key);
 
-  final String text;
-  final double width;
+  final String? text;
+  final double? width;
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class GradientButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             gradient: kGradientRedOrange),
         child: Text(
-          text,
+          text!,
           style: GoogleFonts.barlowCondensed(
               fontSize: size.height * .027,
               fontWeight: FontWeight.w500,

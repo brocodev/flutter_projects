@@ -6,13 +6,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroCard extends StatelessWidget {
   const SuperheroCard({
-    Key key,
-    @required this.superhero,
-    @required this.factorChange,
+    Key? key,
+    required this.superhero,
+    required this.factorChange,
   }) : super(key: key);
 
   final Superhero superhero;
-  final double factorChange;
+  final double? factorChange;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class SuperheroCard extends StatelessWidget {
               tag: "${superhero.heroName}background",
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Color(superhero.rawColor),
+                  color: Color(superhero.rawColor!),
                   borderRadius: BorderRadius.circular(40),
                 ),
               ),
@@ -44,15 +44,15 @@ class SuperheroCard extends StatelessWidget {
           Positioned(
             left: 20,
             right: 20,
-            top: separation * factorChange,
+            top: separation * factorChange!,
             bottom: size.height * .35,
             child: Opacity(
-              opacity: 1.0 - factorChange,
+              opacity: 1.0 - factorChange!,
               child: Transform.scale(
-                scale: lerpDouble(1, .4, factorChange),
+                scale: lerpDouble(1, .4, factorChange!)!,
                 child: Hero(
-                  tag: superhero.pathImage,
-                  child: Image.asset(superhero.pathImage),
+                  tag: superhero.pathImage!,
+                  child: Image.asset(superhero.pathImage!),
                 ),
               ),
             ),
@@ -69,9 +69,9 @@ class SuperheroCard extends StatelessWidget {
                 //----------------------------------
                 FittedBox(
                   child: Hero(
-                    tag: superhero.heroName,
+                    tag: superhero.heroName!,
                     child: Text(
-                      superhero.heroName.replaceAll(' ', '\n').toLowerCase(),
+                      superhero.heroName!.replaceAll(' ', '\n').toLowerCase(),
                       style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
@@ -80,9 +80,9 @@ class SuperheroCard extends StatelessWidget {
                 // Superhero Secret Identity Name
                 //----------------------------------
                 Hero(
-                  tag: superhero.name,
+                  tag: superhero.name!,
                   child: Text(
-                    superhero.name.toLowerCase(),
+                    superhero.name!.toLowerCase(),
                     style: Theme.of(context).textTheme.headline5,
                   ),
                 ),

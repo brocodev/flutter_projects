@@ -3,7 +3,7 @@ import 'package:flutter_projects/find_out/ui/welcome_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindOutApp extends StatelessWidget {
-  const FindOutApp({Key key}) : super(key: key);
+  const FindOutApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

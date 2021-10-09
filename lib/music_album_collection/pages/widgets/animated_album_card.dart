@@ -6,9 +6,9 @@ import 'package:flutter_projects/music_album_collection/pages/music_player_page.
 
 class AlbumListViewCard extends StatelessWidget {
   const AlbumListViewCard({
-    Key key,
-    @required this.album,
-    @required this.hideDisk,
+    Key? key,
+    required this.album,
+    required this.hideDisk,
     this.textSize = 14.0,
   }) : super(key: key);
 
@@ -42,7 +42,7 @@ class AlbumListViewCard extends StatelessWidget {
                 tween: Tween(begin: 0.0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
-                builder: (context, value, child) {
+                builder: (context, dynamic value, child) {
                   return Align(
                     alignment: Alignment(-1.0 + value, 0),
                     child: Transform.rotate(
@@ -83,7 +83,7 @@ class AlbumListViewCard extends StatelessWidget {
                                       offset: Offset(-3, 5))
                                 ],
                                 image: DecorationImage(
-                                  image: AssetImage(album.pathImage),
+                                  image: AssetImage(album.pathImage!),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -143,9 +143,9 @@ class AlbumListViewCard extends StatelessWidget {
 
 class AlbumGridViewCard extends StatelessWidget {
   const AlbumGridViewCard({
-    Key key,
-    @required this.album,
-    @required this.hideDisk,
+    Key? key,
+    required this.album,
+    required this.hideDisk,
     this.textSize = 14.0,
   }) : super(key: key);
 
@@ -179,7 +179,7 @@ class AlbumGridViewCard extends StatelessWidget {
                 tween: Tween(begin: 0.0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
-                builder: (context, value, child) {
+                builder: (context, dynamic value, child) {
                   return Align(
                     alignment: Alignment(-1.0 + value, 0),
                     child: Transform.rotate(
@@ -216,7 +216,7 @@ class AlbumGridViewCard extends StatelessWidget {
                               offset: Offset(-3, 5))
                         ],
                         image: DecorationImage(
-                          image: AssetImage(album.pathImage),
+                          image: AssetImage(album.pathImage!),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -256,17 +256,17 @@ class AlbumGridViewCard extends StatelessWidget {
 
 class _AlbumCardText extends StatelessWidget {
   const _AlbumCardText({
-    Key key,
-    @required this.textSize,
-    @required this.heroTag,
+    Key? key,
+    required this.textSize,
+    required this.heroTag,
     this.text,
     this.colorText,
   }) : super(key: key);
 
   final double textSize;
   final String heroTag;
-  final String text;
-  final Color colorText;
+  final String? text;
+  final Color? colorText;
 
   @override
   Widget build(BuildContext context) {
@@ -276,7 +276,7 @@ class _AlbumCardText extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: Text(
-            text,
+            text!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(

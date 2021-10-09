@@ -12,10 +12,10 @@ enum MedicalState { normal, alert, danger }
 class MedicalCheck {
   const MedicalCheck({this.check, this.value});
 
-  final TypeCheck check;
-  final double value;
+  final TypeCheck? check;
+  final double? value;
 
-  String getSvgPath() {
+  String? getSvgPath() {
     return {
       TypeCheck.glucose: 'assets/svg/medical/mc-glucose.svg',
       TypeCheck.weight: 'assets/svg/medical/mc-weight.svg',
@@ -24,10 +24,10 @@ class MedicalCheck {
       TypeCheck.electrocardiogram: 'assets/svg/medical/mc-cardiogram.svg',
       TypeCheck.cholesterol: 'assets/svg/medical/mc-cholesterol.svg',
       TypeCheck.height: 'assets/svg/medical/mc-height.svg',
-    }[check];
+    }[check!];
   }
 
-  String getMeasure() {
+  String? getMeasure() {
     return {
       TypeCheck.glucose: 'g/dL',
       TypeCheck.weight: 'kg',
@@ -36,7 +36,7 @@ class MedicalCheck {
       TypeCheck.electrocardiogram: 'hz',
       TypeCheck.cholesterol: 'mg/dL',
       TypeCheck.height: 'cm'
-    }[check];
+    }[check!];
   }
 
   MedicalState getMedicalState() {

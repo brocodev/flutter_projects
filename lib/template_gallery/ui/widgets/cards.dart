@@ -3,9 +3,9 @@ import 'package:flutter_projects/template_gallery/models/contact.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({
-    Key key,
-    @required this.borderColor,
-    @required this.contact,
+    Key? key,
+    required this.borderColor,
+    required this.contact,
   }) : super(key: key);
 
   final Color borderColor;
@@ -171,7 +171,7 @@ class ContactCard extends StatelessWidget {
 }
 
 class SuperHeroCard extends StatelessWidget {
-  const SuperHeroCard({Key  key}) : super(key: key);
+  const SuperHeroCard({Key?  key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

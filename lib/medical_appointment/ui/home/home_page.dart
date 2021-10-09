@@ -8,7 +8,7 @@ import 'package:flutter_projects/medical_appointment/ui/home/widgets/home_widget
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalHomePage extends StatefulWidget {
-  const MedicalHomePage({Key key}) : super(key: key);
+  const MedicalHomePage({Key? key}) : super(key: key);
 
   @override
   _MedicalHomePageState createState() => _MedicalHomePageState();
@@ -22,7 +22,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     const expandDuration = Duration(milliseconds: 400);
-    final heightCurtain = (size.width * .75).clamp(310.0, 340.0);
+    final num heightCurtain = (size.width * .75).clamp(310.0, 340.0);
     final nextAppointment = MedicalAppointment.nextAppointment;
     return Scaffold(
       body: Stack(
@@ -43,7 +43,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
             top: 0,
             left: 0,
             right: 0,
-            height: expandAppointment ? heightCurtain + 280 : heightCurtain,
+            height: expandAppointment ? heightCurtain + 280 : heightCurtain as double?,
             child: CustomPaint(
               painter: TonguePainter(curveRadius: 30.0),
               child: Column(
@@ -84,7 +84,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
                     child: showAppointmentDetails
                         ? GestureDetector(
                             onVerticalDragUpdate: (details) {
-                              if (details.primaryDelta < -7) {
+                              if (details.primaryDelta! < -7) {
                                 setState(() {
                                   showAppointmentDetails = false;
                                 });
@@ -148,10 +148,10 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
 
 class _BodyHome extends StatelessWidget {
   const _BodyHome({
-    Key key,
+    Key? key,
     this.contentPadding,
   }) : super(key: key);
-  final EdgeInsetsGeometry contentPadding;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -248,9 +248,9 @@ class _BodyHome extends StatelessWidget {
               childAspectRatio: 10 / 4.5,
             ),
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            itemCount: currentPatient.medicalChecks.length,
+            itemCount: currentPatient.medicalChecks!.length,
             itemBuilder: (context, index) {
-              final medicalCheck = currentPatient.medicalChecks[index];
+              final medicalCheck = currentPatient.medicalChecks![index];
               return MedicalCheckCard(medicalCheck: medicalCheck);
             },
           ),

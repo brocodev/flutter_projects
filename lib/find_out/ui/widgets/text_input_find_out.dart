@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class TextInputFindOut extends StatelessWidget {
   const TextInputFindOut({
-    Key key,
-    @required this.label,
-    @required this.iconData,
+    Key? key,
+    required this.label,
+    required this.iconData,
     this.textInputType,
   }) : super(key: key);
   final String label;
   final IconData iconData;
-  final TextInputType textInputType;
+  final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,12 @@ class TextInputFindOut extends StatelessWidget {
     final outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
       borderSide: BorderSide(
-          color: Colors.grey[100], width: 2, style: BorderStyle.solid),
+          color: Colors.grey[100]!, width: 2, style: BorderStyle.solid),
     );
     final hidePasswordNotifier = ValueNotifier(true);
     return ValueListenableBuilder(
         valueListenable: hidePasswordNotifier,
-        builder: (context, value, child) {
+        builder: (context, dynamic value, child) {
           return TextField(
             keyboardType: textInputType,
             obscureText: isPassword ? value : false,

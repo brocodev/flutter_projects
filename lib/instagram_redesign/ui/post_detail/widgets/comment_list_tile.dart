@@ -5,20 +5,20 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_border_im
 
 class CommentListTile extends StatelessWidget {
   const CommentListTile({
-    Key key,
-    @required this.comment,
+    Key? key,
+    required this.comment,
   }) : super(key: key);
 
   final Comment comment;
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
     return Row(
       children: [
         RoundedBorderImage(
           height: 40,
-          imageUrl: comment.user.photoUrl,
+          imageUrl: comment.user!.photoUrl,
         ),
         const SizedBox(width: 10),
         Expanded(
@@ -27,12 +27,12 @@ class CommentListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                comment.user.username,
+                comment.user!.username!,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.grey),
               ),
               Text(
-                comment.comment,
+                comment.comment!,
                 maxLines: 1,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

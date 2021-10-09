@@ -9,7 +9,7 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoHomePage extends StatelessWidget {
-  const PhotoHomePage({Key key}) : super(key: key);
+  const PhotoHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +110,7 @@ class PhotoHomePage extends StatelessWidget {
 
 class _SearchInput extends StatelessWidget {
   const _SearchInput({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

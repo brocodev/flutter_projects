@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ActivityContainer extends StatelessWidget {
   const ActivityContainer({
-    Key key,
-    @required this.activity,
+    Key? key,
+    required this.activity,
   }) : super(key: key);
 
   final IgActivity activity;
@@ -27,7 +27,7 @@ class ActivityContainer extends StatelessWidget {
         children: [
           RoundedGradientBorderImage(
             height: 80,
-            imageUrl: activity.user.photoUrl,
+            imageUrl: activity.user!.photoUrl,
           ),
           const SizedBox(width: 10),
           Expanded(
@@ -36,7 +36,7 @@ class ActivityContainer extends StatelessWidget {
               children: [
                 const SizedBox(height: 12),
                 Text(
-                  activity.user.username,
+                  activity.user!.username!,
                   style: GoogleFonts.lato(
                     fontWeight: FontWeight.w900,
                     fontSize: 18,
@@ -44,7 +44,7 @@ class ActivityContainer extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  _getTextDescription(),
+                  _getTextDescription()!,
                   maxLines: 4,
                   style: GoogleFonts.lato(
                     height: 1.4,
@@ -63,7 +63,7 @@ class ActivityContainer extends StatelessWidget {
     );
   }
 
-  String _getTextDescription() {
+  String? _getTextDescription() {
     switch (activity.typeNotification) {
       case IgTypeActivity.follows:
         return 'started following you';

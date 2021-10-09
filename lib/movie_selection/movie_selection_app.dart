@@ -4,7 +4,7 @@ import 'package:flutter_projects/movie_selection/pages/home/movie_home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MovieSelectionApp extends StatelessWidget {
-  const MovieSelectionApp({Key key}) : super(key: key);
+  const MovieSelectionApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

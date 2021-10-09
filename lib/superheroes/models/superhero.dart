@@ -8,12 +8,12 @@ class Superhero {
     this.rawColor,
   });
 
-  final String name;
-  final String heroName;
-  final String description;
-  final String pathImage;
-  final List<HeroMovie> movies;
-  final int rawColor;
+  final String? name;
+  final String? heroName;
+  final String? description;
+  final String? pathImage;
+  final List<HeroMovie>? movies;
+  final int? rawColor;
 
   static const marvelHeroes = [
     Superhero(

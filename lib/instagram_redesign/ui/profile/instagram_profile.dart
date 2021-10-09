@@ -6,12 +6,12 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InstagramProfile extends StatelessWidget {
-  const InstagramProfile({Key key}) : super(key: key);
+  const InstagramProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final currentUser = IgUser.kevin;
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -29,10 +29,10 @@ class InstagramProfile extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              currentUser.username,
+              currentUser.username!,
               style: GoogleFonts.lato(
                   fontSize: 16,
-                  color: Theme.of(context).appBarTheme.iconTheme.color),
+                  color: Theme.of(context).appBarTheme.iconTheme!.color),
             ),
             const Icon(Icons.keyboard_arrow_down)
           ],
@@ -69,7 +69,7 @@ class InstagramProfile extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 IgTitleSubtitleText(
-                  title: "${(currentUser.followers / 1000)
+                  title: "${(currentUser.followers! / 1000)
                           .toString()
                           .substring(0, 4)}K",
                   subtitle: "Followers",
@@ -86,7 +86,7 @@ class InstagramProfile extends StatelessWidget {
               children: [
                 Expanded(
                     child: Text(
-                  currentUser.name,
+                  currentUser.name!,
                   textAlign: TextAlign.right,
                   style: GoogleFonts.lato(
                     fontSize: 18,
@@ -108,7 +108,7 @@ class InstagramProfile extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(
                     child: Text(
-                  currentUser.typeUser,
+                  currentUser.typeUser!,
                   textAlign: TextAlign.left,
                   style: GoogleFonts.lato(
                     fontSize: 18,
@@ -183,12 +183,12 @@ class InstagramProfile extends StatelessWidget {
             SizedBox(
               height: 95,
               child: ListView.builder(
-                itemCount: currentUser.collections.length,
+                itemCount: currentUser.collections!.length,
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.only(left: 20),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  final igCollection = currentUser.collections[index];
+                  final igCollection = currentUser.collections![index];
                   if (index == 0) {
                     return const Padding(
                       padding: EdgeInsets.only(right: 15),
@@ -207,7 +207,7 @@ class InstagramProfile extends StatelessWidget {
                           height: 70,
                         ),
                         Text(
-                          igCollection.title,
+                          igCollection.title!,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -237,11 +237,11 @@ class InstagramProfile extends StatelessWidget {
 
 class _ImageProfile extends StatelessWidget {
   const _ImageProfile({
-    Key key,
-    @required this.imageProfileUrl,
+    Key? key,
+    required this.imageProfileUrl,
   }) : super(key: key);
 
-  final String imageProfileUrl;
+  final String? imageProfileUrl;
 
   @override
   Widget build(BuildContext context) {

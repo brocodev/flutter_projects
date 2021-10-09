@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class Synopsis extends StatelessWidget {
-  const Synopsis({Key key, this.description}) : super(key: key);
+  const Synopsis({Key? key, this.description}) : super(key: key);
 
-  final String description;
+  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class Synopsis extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          description,
+          description!,
           textAlign: TextAlign.justify,
           style: GoogleFonts.barlowCondensed(
               fontSize: size.height * .02,

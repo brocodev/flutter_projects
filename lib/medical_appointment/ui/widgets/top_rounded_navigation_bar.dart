@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TopRoundedNavigationBar extends StatelessWidget {
   const TopRoundedNavigationBar({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
     this.onTap,
     this.currentIndex = 0,
     this.selectedColor = MdAppColors.kBlue,
@@ -14,7 +14,7 @@ class TopRoundedNavigationBar extends StatelessWidget {
   }) : super(key: key);
 
   final List<TopRoundedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
   final int currentIndex;
   final Color selectedColor;
   final Color unselectedColor;
@@ -47,7 +47,7 @@ class TopRoundedNavigationBar extends StatelessWidget {
             isSelected: index == currentIndex,
             onPressed: () {
               if (onTap != null) {
-                onTap(index);
+                onTap!(index);
               }
             },
           );
@@ -59,21 +59,21 @@ class TopRoundedNavigationBar extends StatelessWidget {
 
 class TopRoundedNavigationBarItem {
   const TopRoundedNavigationBarItem({
-    @required this.label,
-    @required this.selectedIcon,
+    required this.label,
+    required this.selectedIcon,
     this.unselectedIcon,
     this.color,
   });
 
   final String label;
   final IconData selectedIcon;
-  final IconData unselectedIcon;
-  final Color color;
+  final IconData? unselectedIcon;
+  final Color? color;
 }
 
 class _TopRoundedNavigationBarButton extends StatelessWidget {
   const _TopRoundedNavigationBarButton({
-    Key key,
+    Key? key,
     this.onPressed,
     this.item,
     this.isSelected,
@@ -81,15 +81,15 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
     this.unselectedColor = Colors.grey,
   }) : super(key: key);
 
-  final VoidCallback onPressed;
-  final TopRoundedNavigationBarItem item;
-  final bool isSelected;
+  final VoidCallback? onPressed;
+  final TopRoundedNavigationBarItem? item;
+  final bool? isSelected;
   final Color selectedColor;
   final Color unselectedColor;
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? selectedColor : unselectedColor;
+    final color = isSelected! ? selectedColor : unselectedColor;
     return InkWell(
       onTap: onPressed,
       child: AnimatedContainer(
@@ -97,12 +97,12 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
         duration: kThemeAnimationDuration,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-            color: isSelected ? color.withOpacity(.2) : Colors.transparent,
+            color: isSelected! ? color.withOpacity(.2) : Colors.transparent,
             borderRadius: BorderRadius.circular(10)),
         child: Row(
           children: [
             Icon(
-              item.selectedIcon,
+              item!.selectedIcon,
               color: color,
             ),
             const SizedBox(width: 5),
@@ -110,10 +110,10 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
               curve: Curves.fastOutSlowIn,
               duration: kThemeAnimationDuration,
               style: GoogleFonts.poppins(
-                  fontSize: isSelected ? 14 : 0,
+                  fontSize: isSelected! ? 14 : 0,
                   color: color,
                   fontWeight: FontWeight.w600),
-              child: Text(item.label),
+              child: Text(item!.label),
             )
           ],
         ),

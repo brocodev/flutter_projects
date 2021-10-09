@@ -6,10 +6,10 @@ class VideoGame {
     this.genre,
   });
 
-  final String title;
-  final String srcImage;
-  final int nowPlaying;
-  final String genre;
+  final String? title;
+  final String? srcImage;
+  final int? nowPlaying;
+  final String? genre;
 
 
   static const mainGame = VideoGame(

@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SongPlayFooter extends StatelessWidget {
   const SongPlayFooter({
-    Key key,
-    @required this.song,
+    Key? key,
+    required this.song,
   }) : super(key: key);
 
   final Song song;
@@ -22,7 +22,7 @@ class SongPlayFooter extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: AssetImage(song.album.pathImage),
+                backgroundImage: AssetImage(song.album.pathImage!),
               ),
               const CircularProgressIndicator(
                 value: .7,
@@ -38,7 +38,7 @@ class SongPlayFooter extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              song.album.author,
+              song.album.author!,
               style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
             ),
             Text(

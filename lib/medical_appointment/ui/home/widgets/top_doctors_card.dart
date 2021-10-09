@@ -6,8 +6,8 @@ import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 
 class TopDoctorCard extends StatelessWidget {
   const TopDoctorCard({
-    Key key,
-    @required this.doctor,
+    Key? key,
+    required this.doctor,
   }) : super(key: key);
 
   final Doctor doctor;
@@ -57,7 +57,7 @@ class TopDoctorCard extends StatelessWidget {
                       bottomLeft: Radius.circular(10),
                     ),
                     child: CachedNetworkImage(
-                      imageUrl: doctor.pngPhotoUrl,
+                      imageUrl: doctor.pngPhotoUrl!,
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
@@ -80,8 +80,8 @@ class TopDoctorCard extends StatelessWidget {
 
 class _DoctorInformation extends StatelessWidget {
   const _DoctorInformation({
-    Key key,
-    @required this.doctor,
+    Key? key,
+    required this.doctor,
   }) : super(key: key);
 
   final Doctor doctor;
@@ -109,7 +109,7 @@ class _DoctorInformation extends StatelessWidget {
           ),
         ),
         Text(
-          doctor.doctorCategory.nameCategory,
+          doctor.doctorCategory!.nameCategory!,
           style: const TextStyle(
             height: 1.0,
             color: Colors.white70,
@@ -177,8 +177,8 @@ class _DoctorInformation extends StatelessWidget {
 
 class _WhiteBackground extends StatelessWidget {
   const _WhiteBackground({
-    Key key,
-    @required this.doctor,
+    Key? key,
+    required this.doctor,
   }) : super(key: key);
   final Doctor doctor;
 
@@ -221,9 +221,9 @@ class _WhiteBackground extends StatelessWidget {
   }
 
   Widget _buildIconButton(
-      {@required String label,
-      @required IconData iconData,
-      VoidCallback onTap}) {
+      {required String label,
+      required IconData iconData,
+      VoidCallback? onTap}) {
     return Row(
       children: [
         Icon(

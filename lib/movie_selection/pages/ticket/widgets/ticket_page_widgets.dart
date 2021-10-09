@@ -4,7 +4,7 @@ import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketDateWidget extends StatelessWidget {
-  const TicketDateWidget({Key key}):super(key: key);
+  const TicketDateWidget({Key? key}):super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,16 +72,16 @@ class TicketDateWidget extends StatelessWidget {
 
 class TileInfo extends StatelessWidget {
   const TileInfo({
-    Key key,
+    Key? key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
     this.colorTitle = Colors.white,
     this.colorSubtitle = kPrimaryColorLight,
   }) : super(key: key);
-  final String title;
-  final String subtitle;
-  final CrossAxisAlignment crossAxisAlignment;
+  final String? title;
+  final String? subtitle;
+  final CrossAxisAlignment? crossAxisAlignment;
   final Color colorTitle;
   final Color colorSubtitle;
 
@@ -91,14 +91,14 @@ class TileInfo extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          title,
+          title!,
           style: GoogleFonts.barlowCondensed(
             fontWeight: FontWeight.w500,
             color: colorTitle,
           ),
         ),
         Text(
-          subtitle,
+          subtitle!,
           style: GoogleFonts.barlowCondensed(
             color: colorSubtitle,
             height: 1.5,

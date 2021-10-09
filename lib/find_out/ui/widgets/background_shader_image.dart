@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class BackgroundShaderImage extends StatelessWidget {
   const BackgroundShaderImage({
-    Key key,
-    @required this.imageUrl,
+    Key? key,
+    required this.imageUrl,
   }) : super(key: key);
 
   final String imageUrl;

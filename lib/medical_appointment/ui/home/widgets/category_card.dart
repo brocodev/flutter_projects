@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
   }) : super(key: key);
 
   final DoctorCategory category;
@@ -18,8 +18,8 @@ class CategoryCard extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           gradient: LinearGradient(colors: [
-            Color(category.rawColor),
-            Color(category.rawColor).withAlpha(1000),
+            Color(category.rawColor!),
+            Color(category.rawColor!).withAlpha(1000),
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Stack(
         fit: StackFit.expand,
@@ -53,7 +53,7 @@ class CategoryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Text(
-                  category.nameCategory,
+                  category.nameCategory!,
                   maxLines: 1,
                   overflow: TextOverflow.fade,
                   softWrap: false,

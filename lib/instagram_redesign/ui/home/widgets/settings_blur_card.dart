@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SettingsBlurCard extends StatelessWidget {
   const SettingsBlurCard({
-    Key key,
+    Key? key,
     this.height = 0,
   }) : super(key: key);
 
@@ -17,7 +17,7 @@ class SettingsBlurCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
 
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(bottom: Radius.circular(50)),
@@ -26,7 +26,7 @@ class SettingsBlurCard extends StatelessWidget {
         child: Container(
           height: height,
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          color: Colors.blueGrey[300].withOpacity(.7),
+          color: Colors.blueGrey[300]!.withOpacity(.7),
           child: SafeArea(
             child: Column(
               children: [
@@ -127,10 +127,10 @@ class SettingsBlurCard extends StatelessWidget {
 
 class _ViewModeItem extends StatelessWidget {
   const _ViewModeItem({
-    Key key,
-    @required this.viewState,
-    @required this.modeNumber,
-    @required this.nameMode,
+    Key? key,
+    required this.viewState,
+    required this.modeNumber,
+    required this.nameMode,
   }) : super(key: key);
 
   final ViewState viewState;
@@ -140,7 +140,7 @@ class _ViewModeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
     return Expanded(
       child: Column(
         children: [
@@ -191,10 +191,10 @@ class _ViewModeItem extends StatelessWidget {
 
 class _SettingsSwitcher extends StatelessWidget {
   const _SettingsSwitcher({
-    Key key,
-    @required this.label,
-    @required this.value,
-    @required this.onChanged,
+    Key? key,
+    required this.label,
+    required this.value,
+    required this.onChanged,
   }) : super(key: key);
 
   final String label;

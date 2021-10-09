@@ -3,8 +3,8 @@ import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';
 
 class CurvedNavigationBar extends StatelessWidget {
   const CurvedNavigationBar({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
     this.onTap,
     this.unselectedColor = PhotoAppColors.kGrey,
     this.selectedColor = PhotoAppColors.kDarkBlue,
@@ -12,7 +12,7 @@ class CurvedNavigationBar extends StatelessWidget {
   }) : super(key: key);
 
   final List<CurvedNavigationBarItem> items;
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
   final Color unselectedColor;
   final Color selectedColor;
   final int currentIndex;
@@ -41,7 +41,7 @@ class CurvedNavigationBar extends StatelessWidget {
               child: IconButton(
                 onPressed: () {
                   if (onTap != null) {
-                    onTap(index);
+                    onTap!(index);
                   }
                 },
                 color: index == currentIndex ? selectedColor : unselectedColor,
@@ -60,12 +60,12 @@ class CurvedNavigationBar extends StatelessWidget {
 
 class CurvedNavigationBarItem {
   const CurvedNavigationBarItem({
-    @required this.iconData,
+    required this.iconData,
     this.selectedIconData,
   });
 
   final IconData iconData;
-  final IconData selectedIconData;
+  final IconData? selectedIconData;
 }
 
 class _CurvedClipper extends CustomClipper<Path> {

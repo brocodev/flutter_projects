@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class RoundedIconButton extends StatelessWidget {
   const RoundedIconButton({
-    Key key,
-    @required this.iconData,
-    @required this.label,
-    @required this.onPressed,
+    Key? key,
+    required this.iconData,
+    required this.label,
+    required this.onPressed,
   }) : super(key: key);
 
   final IconData iconData;
@@ -18,7 +18,7 @@ class RoundedIconButton extends StatelessWidget {
     return TextButton.icon(
       style: TextButton.styleFrom(
         shape: StadiumBorder(
-          side: BorderSide(color: Colors.grey[200], width: 1.5),
+          side: BorderSide(color: Colors.grey[200]!, width: 1.5),
         ),
         padding: const EdgeInsets.fromLTRB(5, 5, 8, 5),
       ),

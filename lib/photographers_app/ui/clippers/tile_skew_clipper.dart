@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TileSkewClipper extends CustomClipper<Path> {
-  TileSkewClipper({@required this.inverted, this.curveSize = 35.0});
+  TileSkewClipper({required this.inverted, this.curveSize = 35.0});
 
   final bool inverted;
   final double curveSize;

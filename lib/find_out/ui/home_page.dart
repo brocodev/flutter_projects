@@ -5,7 +5,7 @@ import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/page_view_places.dart';
 
 class HomePageFindOut extends StatelessWidget {
-  const HomePageFindOut({Key key}) : super(key: key);
+  const HomePageFindOut({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

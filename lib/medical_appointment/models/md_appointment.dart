@@ -9,10 +9,10 @@ class MedicalAppointment {
     this.medicalIndications,
   });
 
-  final String title;
-  DateTime date;
-  final Doctor doctor;
-  final List<MedicalIndication> medicalIndications;
+  final String? title;
+  DateTime? date;
+  final Doctor? doctor;
+  final List<MedicalIndication>? medicalIndications;
 
   static final _listIndications = [
     MedicalIndication.kDrinkWater,

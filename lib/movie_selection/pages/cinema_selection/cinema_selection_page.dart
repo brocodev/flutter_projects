@@ -12,9 +12,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class CinemaSelectionPage extends StatelessWidget {
-  const CinemaSelectionPage({Key key, this.movie}) : super(key: key);
+  const CinemaSelectionPage({Key? key, this.movie}) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CinemaSelectionPage extends StatelessWidget {
       backgroundColor: kPrimaryColorDark,
       body: ValueListenableBuilder(
           valueListenable: hideWidgets,
-          builder: (context, value, child) {
+          builder: (context, dynamic value, child) {
             return AnimatedContainer(
               duration: kDuration400ms,
               margin: EdgeInsets.only(top: value ? 100 : 0),
@@ -38,12 +38,12 @@ class CinemaSelectionPage extends StatelessWidget {
 
 class _BodyCinemaSelection extends StatelessWidget {
   const _BodyCinemaSelection({
-    Key key,
-    @required this.movie,
-    @required this.hideWidgets,
+    Key? key,
+    required this.movie,
+    required this.hideWidgets,
   }) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
   final ValueNotifier<bool> hideWidgets;
 
   @override
@@ -65,7 +65,7 @@ class _BodyCinemaSelection extends StatelessWidget {
         ScaleAnimation(
           initScale: .95,
           child: Image.asset(
-            movie.imageUrl,
+            movie!.imageUrl!,
             height: size.height,
             fit: BoxFit.cover,
           ),
@@ -94,7 +94,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      movie.title.toUpperCase(),
+                      movie!.title!.toUpperCase(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.barlowCondensed(
@@ -158,7 +158,7 @@ class _BodyCinemaSelection extends StatelessWidget {
     );
   }
 
-  void _openChooseSeats(BuildContext context, Movie movie) {
+  void _openChooseSeats(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
         context,
         PageRouteBuilder(

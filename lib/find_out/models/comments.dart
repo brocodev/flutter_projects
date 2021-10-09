@@ -8,12 +8,12 @@ class Comment {
     this.commentResponses,
   });
 
-  final String comment;
-  final String user;
-  final String photoUserUrl;
-  final int commentLikes;
-  final int commentResponses;
-  final String photoCommentUrl;
+  final String? comment;
+  final String? user;
+  final String? photoUserUrl;
+  final int? commentLikes;
+  final int? commentResponses;
+  final String? photoCommentUrl;
 
   static const _comment = 'Lorem Ipsum is simply dummy text of the printing'
       ' and typesett ing industry. Lorem Ipsum has been the industrys sta'

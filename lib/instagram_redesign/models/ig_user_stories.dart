@@ -8,9 +8,9 @@ class IgUserStories {
     this.listStories,
   });
 
-  final int indexStory;
-  final IgUser instagramUser;
-  final List<StoryModel> listStories;
+  final int? indexStory;
+  final IgUser? instagramUser;
+  final List<StoryModel>? listStories;
 
 
   static final List<IgUserStories> listUserStories = List.generate(
@@ -22,7 +22,7 @@ class IgUserStories {
           instagramUser: user,
           listStories: List.generate(3, (i) {
             return StoryModel(
-              imageUrl: user.listPhotosUrl[i],
+              imageUrl: user.listPhotosUrl![i],
               isViewed: false,
               duration: const Duration(seconds: 3),
             );
@@ -34,8 +34,8 @@ class IgUserStories {
 class StoryModel {
   StoryModel({this.imageUrl, this.isViewed, this.duration});
 
-  final String imageUrl;
-  final Duration duration;
-  bool isViewed;
+  final String? imageUrl;
+  final Duration? duration;
+  bool? isViewed;
 
 }

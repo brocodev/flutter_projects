@@ -4,7 +4,7 @@ import 'package:flutter_projects/music_vinyl_player/ui/my_library/my_library_pag
 import 'package:google_fonts/google_fonts.dart';
 
 class MusicVinylPlayer extends StatelessWidget {
-  const MusicVinylPlayer({Key key}) : super(key: key);
+  const MusicVinylPlayer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

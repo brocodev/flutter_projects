@@ -10,9 +10,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PhotoPostCard extends StatefulWidget {
   const PhotoPostCard({
-    Key key,
-    @required this.post,
-    @required this.isInverted,
+    Key? key,
+    required this.post,
+    required this.isInverted,
   }) : super(key: key);
 
   final PhotoPost post;
@@ -24,9 +24,9 @@ class PhotoPostCard extends StatefulWidget {
 
 class _PhotoPostCardState extends State<PhotoPostCard>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _scaleHeart;
-  Animation<double> _downOpacity;
+  late AnimationController _controller;
+  late Animation<double> _scaleHeart;
+  late Animation<double> _downOpacity;
 
   @override
   void initState() {
@@ -76,7 +76,7 @@ class _PhotoPostCardState extends State<PhotoPostCard>
                 child: ClipPath(
                   clipper: TileClipper(inverted: widget.isInverted),
                   child: CachedNetworkImage(
-                    imageUrl: widget.post.photoPost,
+                    imageUrl: widget.post.photoPost!,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -99,11 +99,11 @@ class _PhotoPostCardState extends State<PhotoPostCard>
                           radius: 15,
                           backgroundColor: Colors.white,
                           backgroundImage: CachedNetworkImageProvider(
-                              widget.post.user.photoUrl),
+                              widget.post.user!.photoUrl!),
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          widget.post.user.name.split(" ").first,
+                          widget.post.user!.name!.split(" ").first,
                           style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -137,11 +137,11 @@ class _PhotoPostCardState extends State<PhotoPostCard>
                     child: Row(
                       children: [
                         Icon(
-                          widget.post.isLiked
+                          widget.post.isLiked!
                               ? FontAwesome.heart
                               : FontAwesome.heart_o,
                           size: 18,
-                          color: widget.post.isLiked
+                          color: widget.post.isLiked!
                               ? Colors.redAccent[700]
                               : PhotoAppColors.kDarkBlue,
                         ),

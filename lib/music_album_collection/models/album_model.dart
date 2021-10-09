@@ -1,10 +1,10 @@
 class AlbumModel {
   AlbumModel({this.title, this.author, this.pathImage, this.songs});
 
-  final String title;
-  final String author;
-  final String pathImage;
-  final List<String> songs;
+  final String? title;
+  final String? author;
+  final String? pathImage;
+  final List<String>? songs;
 
 
   static final listAlbum = [

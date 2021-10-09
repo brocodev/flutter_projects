@@ -4,14 +4,14 @@ export 'package:flutter_projects/instagram_redesign/bloc/instagram_bloc.dart';
 
 class InstagramBlocProvider extends InheritedWidget {
   const InstagramBlocProvider({
-    Key key,
-    @required this.instagramBloc,
-    @required  Widget child,
+    Key? key,
+    required this.instagramBloc,
+    required  Widget child,
   }) : super(key: key, child: child);
 
   final InstagramBloc instagramBloc;
 
-  static InstagramBlocProvider of(BuildContext context) =>
+  static InstagramBlocProvider? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<InstagramBlocProvider>();
 
   @override

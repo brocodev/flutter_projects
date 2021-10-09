@@ -16,16 +16,16 @@ class Book {
     this.reviews,
   });
 
-  final String title;
-  final String author;
-  final String category;
-  final String description;
-  final double rate;
-  final int views;
-  final int likes;
-  final List<UserBook> readers;
-  final List<Review> reviews;
-  final String srcImage;
+  final String? title;
+  final String? author;
+  final String? category;
+  final String? description;
+  final double? rate;
+  final int? views;
+  final int? likes;
+  final List<UserBook>? readers;
+  final List<Review>? reviews;
+  final String? srcImage;
 
 
   static List<String> get bookCategories => [

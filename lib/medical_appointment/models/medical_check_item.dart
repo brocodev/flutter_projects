@@ -3,10 +3,10 @@ enum MedicalState { danger, normal, alert }
 class MedicalCheckItem {
   const MedicalCheckItem({this.title, this.info, this.pathImage, this.state});
 
-  final String title;
-  final String info;
-  final String pathImage;
-  final MedicalState state;
+  final String? title;
+  final String? info;
+  final String? pathImage;
+  final MedicalState? state;
 
   static const listItemCheck = [
     MedicalCheckItem(

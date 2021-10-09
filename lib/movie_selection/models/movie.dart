@@ -19,21 +19,21 @@ class Movie {
     this.actors,
   });
 
-  final String title;
-  String uniqueId;
-  final List<String> tags;
-  final String imageUrl;
-  final Duration duration;
-  final double rate;
-  final int likes;
-  final int dislikes;
-  final int reviews;
-  final String description;
-  final List<Actor> actors;
+  final String? title;
+  String? uniqueId;
+  final List<String>? tags;
+  final String? imageUrl;
+  final Duration? duration;
+  final double? rate;
+  final int? likes;
+  final int? dislikes;
+  final int? reviews;
+  final String? description;
+  final List<Actor>? actors;
   final String year;
   final String director;
   final String writer;
-  String billboardHour;
+  String? billboardHour;
 
   static final List<Movie> listMovie = [
     Movie(

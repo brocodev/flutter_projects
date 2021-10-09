@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketPage extends StatelessWidget {
-  const TicketPage({Key key, this.movie}) : super(key: key);
+  const TicketPage({Key? key, this.movie}) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class TicketPage extends StatelessWidget {
       backgroundColor: kPrimaryColorDark,
       body: ValueListenableBuilder(
         valueListenable: hideWidgets,
-        builder: (context, value, child) {
+        builder: (context, dynamic value, child) {
           return AnimatedContainer(
               duration: kDuration400ms,
               padding: EdgeInsets.only(top: value ? 100 : 0),
@@ -63,7 +63,7 @@ class TicketPage extends StatelessWidget {
                             const TicketDateWidget(),
                             const SizedBox(height: 40),
                             Text(
-                              movie.title.toUpperCase(),
+                              movie!.title!.toUpperCase(),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: GoogleFonts.barlowCondensed(
@@ -76,11 +76,11 @@ class TicketPage extends StatelessWidget {
                             const SizedBox(height: 25),
                             Wrap(
                               runSpacing: 10,
-                              children: List.generate(movie.tags.length, (i) {
+                              children: List.generate(movie!.tags!.length, (i) {
                                 return Padding(
                                   padding: const EdgeInsets.only(right: 10),
                                   child: TagContainer(
-                                    tag: movie.tags[i],
+                                    tag: movie!.tags![i],
                                   ),
                                 );
                               }),
@@ -96,11 +96,11 @@ class TicketPage extends StatelessWidget {
                                         CrossAxisAlignment.start),
                                 _TileInfo(
                                   title: 'Start time',
-                                  subtitle: movie.billboardHour,
+                                  subtitle: movie!.billboardHour,
                                 ),
                                 _TileInfo(
                                     title: 'Duration',
-                                    subtitle: '${movie.duration.inMinutes} min',
+                                    subtitle: '${movie!.duration!.inMinutes} min',
                                     crossAxisAlignment: CrossAxisAlignment.end),
                               ],
                             ),
@@ -155,14 +155,14 @@ class TicketPage extends StatelessWidget {
 
 class _TileInfo extends StatelessWidget {
   const _TileInfo({
-    Key key,
+    Key? key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
   }) : super(key: key);
-  final String title;
-  final String subtitle;
-  final CrossAxisAlignment crossAxisAlignment;
+  final String? title;
+  final String? subtitle;
+  final CrossAxisAlignment? crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +171,7 @@ class _TileInfo extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          title,
+          title!,
           style: GoogleFonts.barlowCondensed(
             fontWeight: FontWeight.w500,
             color: kPrimaryColorDark,
@@ -179,7 +179,7 @@ class _TileInfo extends StatelessWidget {
           ),
         ),
         Text(
-          subtitle,
+          subtitle!,
           style: GoogleFonts.barlowCondensed(
             color: kPrimaryColorLight,
             height: 1.5,

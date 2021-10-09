@@ -4,7 +4,7 @@ import 'package:flutter_projects/music_album_collection/pages/widgets/animated_a
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({
-    Key key,
+    Key? key,
     this.gridMode = true,
   }) : super(key: key);
 
@@ -79,8 +79,8 @@ class _AlbumsPageState extends State<AlbumsPage> {
 
 class _AlbumsListView extends StatelessWidget {
   const _AlbumsListView({
-    Key key,
-    @required bool hideDisks,
+    Key? key,
+    required bool hideDisks,
   })  : _hideDisks = hideDisks,
         super(key: key);
 
@@ -114,8 +114,8 @@ class _AlbumsListView extends StatelessWidget {
 
 class _AlbumsGridView extends StatelessWidget {
   const _AlbumsGridView({
-    Key key,
-    @required bool hideDisks,
+    Key? key,
+    required bool hideDisks,
   })  : _hideDisk = hideDisks,
         super(key: key);
 

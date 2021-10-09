@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TranslateAnimation extends StatelessWidget {
 
   const TranslateAnimation({
-    Key key,
+    Key? key,
     this.duration = const Duration(milliseconds: 800),
     this.child,
     this.offset = 140.0,
@@ -11,7 +11,7 @@ class TranslateAnimation extends StatelessWidget {
     this.offsetDirection = Axis.vertical,
   }) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
   final Duration duration;
   final double offset;
   final Curve curve;
@@ -38,7 +38,7 @@ class TranslateAnimation extends StatelessWidget {
 class OpacityAnimation extends StatelessWidget {
 
   const OpacityAnimation({
-    Key key,
+    Key? key,
     this.duration = const Duration(milliseconds: 1000),
     this.child,
     this.curve = Curves.ease,
@@ -46,7 +46,7 @@ class OpacityAnimation extends StatelessWidget {
     this.end = 1.0,
   }) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
   final Duration duration;
   final Curve curve;
   final double begin;
@@ -73,7 +73,7 @@ class OpacityAnimation extends StatelessWidget {
 class ScaleAnimation extends StatelessWidget {
 
   const ScaleAnimation({
-    Key key,
+    Key? key,
     this.duration = const Duration(milliseconds: 800),
     this.child,
     this.curve = Curves.fastOutSlowIn,
@@ -81,7 +81,7 @@ class ScaleAnimation extends StatelessWidget {
     this.finalScale = 1.0,
   }) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
   final Duration duration;
   final double initScale;
   final double finalScale;

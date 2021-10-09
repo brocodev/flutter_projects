@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixNavigationBar extends StatelessWidget {
   const OrixNavigationBar({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
     this.currentIndex = 0,
     this.onTapItem,
   }) : super(key: key);
   final List<OrixNavigationBarItem> items;
   final int currentIndex;
-  final ValueChanged<int> onTapItem;
+  final ValueChanged<int>? onTapItem;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class OrixNavigationBar extends StatelessWidget {
           return InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => onTapItem(index),
+            onTap: () => onTapItem!(index),
             child: _NavItemWidget(haveFocus: haveFocus, item: item),
           );
         }),
@@ -36,9 +36,9 @@ class OrixNavigationBar extends StatelessWidget {
 
 class _NavItemWidget extends StatelessWidget {
   const _NavItemWidget({
-    Key key,
-    @required this.haveFocus,
-    @required this.item,
+    Key? key,
+    required this.haveFocus,
+    required this.item,
   }) : super(key: key);
 
   final bool haveFocus;
@@ -91,9 +91,9 @@ class _NavItemWidget extends StatelessWidget {
 
 class OrixNavigationBarItem {
   OrixNavigationBarItem({
-    @required this.label,
-    @required this.iconData,
-    @required this.unselectedIconData,
+    required this.label,
+    required this.iconData,
+    required this.unselectedIconData,
   });
 
   final String label;

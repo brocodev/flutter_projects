@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 
 class AppointmentDetails extends StatelessWidget {
   const AppointmentDetails({
-    Key key,
-    @required this.mdAppointment,
+    Key? key,
+    required this.mdAppointment,
   }) : super(key: key);
   final MedicalAppointment mdAppointment;
 
@@ -45,7 +45,7 @@ class AppointmentDetails extends StatelessWidget {
               const SizedBox(width: 10),
               Flexible(
                 child: Text(
-                  mdAppointment.doctor.mdAddress.getLongAddress(),
+                  mdAppointment.doctor!.mdAddress!.getLongAddress(),
                   style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white70,
@@ -68,12 +68,12 @@ class AppointmentDetails extends StatelessWidget {
         SizedBox(
           height: 90,
           child: ListView.builder(
-            itemCount: mdAppointment.medicalIndications.length,
+            itemCount: mdAppointment.medicalIndications!.length,
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.symmetric(horizontal: 15),
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              final mdIndication = mdAppointment.medicalIndications[index];
+              final mdIndication = mdAppointment.medicalIndications![index];
               return Container(
                 width: 180,
                 padding: const EdgeInsets.all(10),
@@ -87,14 +87,14 @@ class AppointmentDetails extends StatelessWidget {
                   children: [
                     Expanded(
                         child: SvgPicture.asset(
-                      mdIndication.svgIconPath,
+                      mdIndication.svgIconPath!,
                       color: Colors.white,
                     )),
                     const SizedBox(width: 5),
                     Expanded(
                       flex: 2,
                       child: Text(
-                        mdIndication.description,
+                        mdIndication.description!,
                         maxLines: 3,
                         style: const TextStyle(
                             color: Colors.white,

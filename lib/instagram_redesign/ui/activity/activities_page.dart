@@ -6,7 +6,7 @@ import 'package:flutter_projects/instagram_redesign/ui/activity/widgets/type_act
 import 'package:google_fonts/google_fonts.dart';
 
 class ActivitiesPage extends StatefulWidget {
-  const ActivitiesPage({Key key}) : super(key: key);
+  const ActivitiesPage({Key? key}) : super(key: key);
 
   @override
   _ActivitiesPageState createState() => _ActivitiesPageState();
@@ -14,7 +14,7 @@ class ActivitiesPage extends StatefulWidget {
 
 class _ActivitiesPageState extends State<ActivitiesPage> {
   int selectedIndex = 0;
-  PageController _pageController;
+  PageController? _pageController;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController!.dispose();
     super.dispose();
   }
 
@@ -58,7 +58,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                       setState(() {
                         selectedIndex = value;
                       });
-                      _pageController.jumpToPage(value);
+                      _pageController!.jumpToPage(value);
                     },
                     selectValue: selectedIndex,
                     notifications: index == 0

@@ -9,9 +9,9 @@ import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animatio
 import 'package:google_fonts/google_fonts.dart';
 
 class SummaryPage extends StatelessWidget {
-  const SummaryPage({Key key, this.movie}) : super(key: key);
+  const SummaryPage({Key? key, this.movie}) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +35,12 @@ class SummaryPage extends StatelessWidget {
 
 class _BodySummary extends StatelessWidget {
   const _BodySummary({
-    Key key,
-    @required this.movie,
-    @required this.hideWidgets,
+    Key? key,
+    required this.movie,
+    required this.hideWidgets,
   }) : super(key: key);
 
-  final Movie movie;
+  final Movie? movie;
   final ValueNotifier<bool> hideWidgets;
 
   @override
@@ -53,7 +53,7 @@ class _BodySummary extends StatelessWidget {
         ScaleAnimation(
           initScale: .95,
           child: Image.asset(
-            movie.imageUrl,
+            movie!.imageUrl!,
             fit: BoxFit.cover,
           ),
         ),
@@ -87,7 +87,7 @@ class _BodySummary extends StatelessWidget {
             children: <Widget>[
               TranslateAnimation(
                 duration: const Duration(milliseconds: 400),
-                child: Text(movie.title.toUpperCase(),
+                child: Text(movie!.title!.toUpperCase(),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.barlowCondensed(
@@ -100,11 +100,11 @@ class _BodySummary extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 child: Wrap(
                   runSpacing: 10,
-                  children: List.generate(movie.tags.length, (i) {
+                  children: List.generate(movie!.tags!.length, (i) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: TagContainer(
-                        tag: movie.tags[i],
+                        tag: movie!.tags![i],
                       ),
                     );
                   }),
@@ -125,14 +125,14 @@ class _BodySummary extends StatelessWidget {
                     duration: const Duration(milliseconds: 700),
                     child: _TileInfo(
                       title: 'Start time',
-                      subtitle: movie.billboardHour,
+                      subtitle: movie!.billboardHour,
                     ),
                   ),
                   TranslateAnimation(
                     duration: const Duration(milliseconds: 800),
                     child: _TileInfo(
                         title: 'Duration',
-                        subtitle: '${movie.duration.inMinutes} min',
+                        subtitle: '${movie!.duration!.inMinutes} min',
                         crossAxisAlignment: CrossAxisAlignment.end),
                   ),
                 ],
@@ -196,14 +196,14 @@ class _BodySummary extends StatelessWidget {
 
 class _TileInfo extends StatelessWidget {
   const _TileInfo({
-    Key key,
+    Key? key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
   }) : super(key: key);
-  final String title;
-  final String subtitle;
-  final CrossAxisAlignment crossAxisAlignment;
+  final String? title;
+  final String? subtitle;
+  final CrossAxisAlignment? crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -211,13 +211,13 @@ class _TileInfo extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          title,
+          title!,
           style: GoogleFonts.barlowCondensed(
             fontWeight: FontWeight.w500,
           ),
         ),
         Text(
-          subtitle,
+          subtitle!,
           style: GoogleFonts.barlowCondensed(
             color: kPrimaryColorLight,
             height: 1.5,

@@ -9,11 +9,11 @@ class PhotoPost {
     this.user,
   });
 
-  final String photoPost;
-  int comments;
-  int likes;
-  bool isLiked;
-  final PhotoUser user;
+  final String? photoPost;
+  int? comments;
+  int? likes;
+  bool? isLiked;
+  final PhotoUser? user;
 
   static final listHomePost = [
     PhotoPost(
@@ -21,35 +21,35 @@ class PhotoPost {
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: PhotoUser.kevin.listPhotosUrl.first,
+      photoPost: PhotoUser.kevin.listPhotosUrl!.first,
     ),
     PhotoPost(
       user: PhotoUser.maria,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: PhotoUser.maria.listPhotosUrl.first,
+      photoPost: PhotoUser.maria.listPhotosUrl!.first,
     ),
     PhotoPost(
       user: PhotoUser.liliana,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: PhotoUser.liliana.listPhotosUrl.first,
+      photoPost: PhotoUser.liliana.listPhotosUrl!.first,
     ),
     PhotoPost(
       user: PhotoUser.eduard,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: PhotoUser.eduard.listPhotosUrl.first,
+      photoPost: PhotoUser.eduard.listPhotosUrl!.first,
     ),
     PhotoPost(
       user: PhotoUser.kevin,
       likes: 1220,
       comments: 229,
       isLiked: false,
-      photoPost: PhotoUser.kevin.listPhotosUrl[1],
+      photoPost: PhotoUser.kevin.listPhotosUrl![1],
     ),
   ];
 }

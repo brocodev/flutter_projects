@@ -5,9 +5,9 @@ class IgCollection {
     this.imagesCollection,
   });
 
-  final String title;
-  final String iconImage;
-  final List<String> imagesCollection;
+  final String? title;
+  final String? iconImage;
+  final List<String>? imagesCollection;
 
 
   static const listCollection = [

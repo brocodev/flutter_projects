@@ -7,15 +7,15 @@ import 'package:flutter_projects/instagram_redesign/ui/widgets/post_buttons.dart
 
 class CleanPostCard extends StatefulWidget {
   const CleanPostCard({
-    Key key,
+    Key? key,
     this.post,
     this.height,
     this.onTap,
   }) : super(key: key);
 
-  final IgPost post;
-  final double height;
-  final VoidCallback onTap;
+  final IgPost? post;
+  final double? height;
+  final VoidCallback? onTap;
 
   @override
   _CleanPostCardState createState() => _CleanPostCardState();
@@ -24,12 +24,12 @@ class CleanPostCard extends StatefulWidget {
 class _CleanPostCardState extends State<CleanPostCard>
     with SingleTickerProviderStateMixin {
   int indexPageView = 0;
-  AnimationController _controller;
-  Animation _scaleHeart;
-  Animation _outScaleHeart;
+  AnimationController? _controller;
+  late Animation _scaleHeart;
+  late Animation _outScaleHeart;
 
   void _statusListener(AnimationStatus status) {
-    if (status == AnimationStatus.completed) _controller.reset();
+    if (status == AnimationStatus.completed) _controller!.reset();
   }
 
   @override
@@ -38,17 +38,17 @@ class _CleanPostCardState extends State<CleanPostCard>
         vsync: this, duration: const Duration(milliseconds: 800));
     _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         curve: const Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
-        parent: _controller));
+        parent: _controller!));
     _outScaleHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
         curve: const Interval(0.6, 1.0, curve: Curves.easeInOutQuint),
-        parent: _controller));
-    _controller.addStatusListener(_statusListener);
+        parent: _controller!));
+    _controller!.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller
+    _controller!
       ..removeStatusListener(_statusListener)
       ..dispose();
     super.dispose();
@@ -56,8 +56,8 @@ class _CleanPostCardState extends State<CleanPostCard>
 
   @override
   Widget build(BuildContext context) {
-    final post = widget.post;
-    final user = post.userPost;
+    final post = widget.post!;
+    final user = post.userPost!;
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -81,7 +81,7 @@ class _CleanPostCardState extends State<CleanPostCard>
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.white,
-                  backgroundImage: CachedNetworkImageProvider(user.photoUrl),
+                  backgroundImage: CachedNetworkImageProvider(user.photoUrl!),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -125,7 +125,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                   setState(() {
                     post.isLiked = true;
                   });
-                  _controller.forward();
+                  _controller!.forward();
                 },
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -148,10 +148,10 @@ class _CleanPostCardState extends State<CleanPostCard>
                           onPageChanged: (value) => setState(() {
                             indexPageView = value;
                           }),
-                          itemCount: post.photos.length,
+                          itemCount: post.photos!.length,
                           itemBuilder: (context, index) {
                             return CachedNetworkImage(
-                              imageUrl: post.photos[index],
+                              imageUrl: post.photos![index],
                               fit: BoxFit.cover,
                             );
                           },
@@ -164,7 +164,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                           right: 20,
                           child: PageIndicators(
                             currentIndex: indexPageView,
-                            numberIndicators: post.photos.length,
+                            numberIndicators: post.photos!.length,
                           ),
                         ),
                         //-------------------------
@@ -172,14 +172,14 @@ class _CleanPostCardState extends State<CleanPostCard>
                         //-------------------------
                         Center(
                           child: AnimatedBuilder(
-                              animation: _controller,
+                              animation: _controller!,
                               builder: (context, _) {
                                 return Icon(
                                   Icons.favorite,
                                   color: Colors.white,
                                   size: 90 *
                                       _scaleHeart.value *
-                                      _outScaleHeart.value,
+                                      _outScaleHeart.value as double?,
                                 );
                               }),
                         )
@@ -197,7 +197,7 @@ class _CleanPostCardState extends State<CleanPostCard>
               post: post,
               likeBackgroundColor: Theme.of(context).colorScheme.onPrimary,
               onTapLike: () => setState(() {
-                post.isLiked = !post.isLiked;
+                post.isLiked = !post.isLiked!;
               }),
               colorItems:
                   Theme.of(context).colorScheme.onBackground.withOpacity(.8),

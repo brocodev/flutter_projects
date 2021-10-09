@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class VinylDisk extends StatelessWidget {
   const VinylDisk({
-    Key key,
-    @required this.albumImagePath,
-    @required this.heightDisk,
+    Key? key,
+    required this.albumImagePath,
+    required this.heightDisk,
   }) : super(key: key);
 
-  final String albumImagePath;
-  final double heightDisk;
+  final String? albumImagePath;
+  final double? heightDisk;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class VinylDisk extends StatelessWidget {
           height: heightDisk,
         ),
         ClipRRect(
-          borderRadius: BorderRadius.circular(heightDisk * .3),
-          child: Image.asset(albumImagePath, height: heightDisk * .3),
+          borderRadius: BorderRadius.circular(heightDisk! * .3),
+          child: Image.asset(albumImagePath!, height: heightDisk! * .3),
         )
       ],
     );

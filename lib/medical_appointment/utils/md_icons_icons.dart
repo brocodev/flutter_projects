@@ -13,7 +13,7 @@ class MdIcons {
   MdIcons._();
 
   static const _kFontFam = 'MDIcons';
-  static const _kFontPkg = null;
+  static const dynamic _kFontPkg = null;
 
   // ignore_for_file: constant_identifier_names
   static const IconData kidneys =

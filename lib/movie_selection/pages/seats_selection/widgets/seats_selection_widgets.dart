@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TypeSeatInfo extends StatelessWidget {
 
-  const TypeSeatInfo({Key key, this.quantity, this.color, this.label})
+  const TypeSeatInfo({Key? key, this.quantity, this.color, this.label})
       : super(key: key);
 
-  final int quantity;
-  final Color color;
-  final String label;
+  final int? quantity;
+  final Color? color;
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class TypeSeatInfo extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            label,
+            label!,
             style: GoogleFonts.barlowCondensed(fontSize: 14),
           ),
         ],
@@ -55,14 +55,14 @@ class TypeSeatInfo extends StatelessWidget {
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    Key key,
+    Key? key,
     this.onPressedBack,
     this.title,
     this.subtitle,
   }) : super(key: key);
-  final VoidCallback onPressedBack;
-  final String title;
-  final String subtitle;
+  final VoidCallback? onPressedBack;
+  final String? title;
+  final String? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class CustomAppBar extends StatelessWidget {
                 TranslateAnimation(
                   duration: kDuration400ms,
                   child: Text(
-                    title.toUpperCase(),
+                    title!.toUpperCase(),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.barlowCondensed(
@@ -99,7 +99,7 @@ class CustomAppBar extends StatelessWidget {
                 TranslateAnimation(
                   duration: const Duration(milliseconds: 450),
                   child: Text(
-                    subtitle.toUpperCase(),
+                    subtitle!.toUpperCase(),
                     style: GoogleFonts.barlowCondensed(
                         fontSize: size.height * .018,
                         color: kPrimaryColorLight),
@@ -116,15 +116,15 @@ class CustomAppBar extends StatelessWidget {
 
 class RowSeats extends StatelessWidget {
   const RowSeats({
-    Key key,
+    Key? key,
     this.numSeats,
     this.seatsOccupied,
     this.seatsSelectedNotifier,
   }) : super(key: key);
 
-  final int numSeats;
-  final List<int> seatsOccupied;
-  final ValueNotifier<int> seatsSelectedNotifier;
+  final int? numSeats;
+  final List<int>? seatsOccupied;
+  final ValueNotifier<int>? seatsSelectedNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +132,8 @@ class RowSeats extends StatelessWidget {
     return Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: List.generate(numSeats, (i) {
-          if (seatsOccupied.contains(i + 1)) {
+        children: List.generate(numSeats!, (i) {
+          if (seatsOccupied!.contains(i + 1)) {
             return Container(
                 height: sizeItem,
                 width: sizeItem,
@@ -154,9 +154,9 @@ class RowSeats extends StatelessWidget {
                   onTap: () {
                     isActiveNotifier.value = !isActiveNotifier.value;
                     if (value) {
-                      seatsSelectedNotifier.value--;
+                      seatsSelectedNotifier!.value--;
                     } else {
-                      seatsSelectedNotifier.value++;
+                      seatsSelectedNotifier!.value++;
                     }
                   },
                   child: Container(

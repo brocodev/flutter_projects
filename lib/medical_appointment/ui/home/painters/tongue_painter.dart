@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 
 class TonguePainter extends CustomPainter {
-  TonguePainter({@required this.curveRadius});
+  TonguePainter({required this.curveRadius});
   final double curveRadius;
 
   @override

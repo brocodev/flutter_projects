@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 
 class MedicalCheckCard extends StatelessWidget {
   const MedicalCheckCard({
-    Key key,
-    @required this.medicalCheck,
+    Key? key,
+    required this.medicalCheck,
   }) : super(key: key);
 
   final MedicalCheck medicalCheck;
@@ -30,7 +30,7 @@ class MedicalCheckCard extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: SvgPicture.asset(medicalCheck.getSvgPath()),
+                child: SvgPicture.asset(medicalCheck.getSvgPath()!),
               ),
               const SizedBox(width: 5),
               Expanded(
@@ -91,7 +91,7 @@ class MedicalCheckCard extends StatelessWidget {
     );
   }
 
-  Color _getMedicalStateColor(MedicalState medicalState) {
+  Color? _getMedicalStateColor(MedicalState medicalState) {
     return {
       MedicalState.normal: Colors.lightGreenAccent[700],
       MedicalState.alert: Colors.amberAccent[700],

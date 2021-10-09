@@ -6,8 +6,8 @@ import 'package:flutter_projects/music_album_collection/pages/painters/wave_pain
 
 class MusicPlayerPage extends StatefulWidget {
   const MusicPlayerPage({
-    Key key,
-    @required this.album,
+    Key? key,
+    required this.album,
   }) : super(key: key);
   final AlbumModel album;
 
@@ -17,9 +17,9 @@ class MusicPlayerPage extends StatefulWidget {
 
 class _MusicPlayerPageState extends State<MusicPlayerPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _sizeAnimation;
-  Animation _itemsAnimation;
+  late AnimationController _animationController;
+  Animation? _sizeAnimation;
+  Animation? _itemsAnimation;
 
   @override
   void initState() {
@@ -101,7 +101,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                           //-------------------------------------
                           Positioned.fill(
                             top: lerpDouble(
-                                cardHeight, 20, _sizeAnimation.value),
+                                cardHeight, 20, _sizeAnimation!.value),
                             left: size.width * .12,
                             right: size.width * .12,
                             child: Container(
@@ -115,12 +115,12 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                           //--------------------------------------
                           Positioned.fill(
                             top: lerpDouble(
-                                cardHeight, 20, _sizeAnimation.value),
+                                cardHeight, 20, _sizeAnimation!.value),
                             bottom: 15,
                             left: size.width * .09,
                             right: size.width * .09,
                             child: Opacity(
-                              opacity: _sizeAnimation.value,
+                              opacity: _sizeAnimation!.value,
                               child: Container(
                                 decoration: BoxDecoration(
                                     color: Colors.white,
@@ -133,7 +133,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     Expanded(
                                       flex: 4,
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation,
+                                        opacity: _itemsAnimation as Animation<double>,
                                         child: Container(
                                           decoration: BoxDecoration(
                                             borderRadius:
@@ -148,7 +148,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                             ],
                                             image: DecorationImage(
                                               image: AssetImage(
-                                                  widget.album.pathImage),
+                                                  widget.album.pathImage!),
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -160,14 +160,14 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     //----------------------------
                                     Expanded(
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation,
+                                        opacity: _itemsAnimation as Animation<double>,
                                         child: Align(
                                           alignment: Alignment.bottomCenter,
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 30),
                                             child: Text(
-                                              '${widget.album.songs.first} '
+                                              '${widget.album.songs!.first} '
                                               'by ${widget.album.author} - '
                                               '${widget.album.title}',
                                               textAlign: TextAlign.center,
@@ -184,7 +184,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     //-----------------------------
                                     Expanded(
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation,
+                                        opacity: _itemsAnimation as Animation<double>,
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 10.0),
@@ -220,7 +220,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                 return Transform.translate(
                     offset: Offset(
                       0,
-                      lerpDouble(size.width * .1, 0, _itemsAnimation.value),
+                      lerpDouble(size.width * .1, 0, _itemsAnimation!.value)!,
                     ),
                     child: child);
               },
@@ -249,18 +249,18 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
 
 class _AnimatedPlayerControls extends StatelessWidget {
   const _AnimatedPlayerControls({
-    Key key,
-    @required this.animation1,
-    @required this.animation2,
+    Key? key,
+    required this.animation1,
+    required this.animation2,
   }) : super(key: key);
 
-  final Animation animation1;
-  final Animation animation2;
+  final Animation? animation1;
+  final Animation? animation2;
 
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
-      opacity: animation1,
+      opacity: animation1 as Animation<double>,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: Row(
@@ -283,8 +283,8 @@ class _AnimatedPlayerControls extends StatelessWidget {
                     scale: lerpDouble(
                       .5,
                       1,
-                      animation2.value,
-                    ),
+                      animation2!.value,
+                    )!,
                     child: FloatingActionButton(
                       mini: i != 2,
                       heroTag: i.toString(),

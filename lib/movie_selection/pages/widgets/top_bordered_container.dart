@@ -7,13 +7,13 @@ import 'tag_container.dart';
 
 class TopBorderedContainer extends StatelessWidget {
   const TopBorderedContainer({
-    Key key,
-    @required this.movie,
+    Key? key,
+    required this.movie,
     this.child,
   }) : super(key: key);
 
-  final Movie movie;
-  final Widget child;
+  final Movie? movie;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class TopBorderedContainer extends StatelessWidget {
                 color: Colors.white60,
               ),
               Text(
-                movie.likes.toString(),
+                movie!.likes.toString(),
                 style: textStyle,
               ),
             ],
@@ -68,7 +68,7 @@ class TopBorderedContainer extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Text(
-                movie.rate.toString(),
+                movie!.rate.toString(),
                 style: textStyle,
               ),
             ],
@@ -82,7 +82,7 @@ class TopBorderedContainer extends StatelessWidget {
                 color: Colors.white60,
               ),
               Text(
-                movie.dislikes.toString(),
+                movie!.dislikes.toString(),
                 style: textStyle,
               ),
             ],

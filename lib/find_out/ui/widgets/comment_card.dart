@@ -5,8 +5,8 @@ import 'package:flutter_projects/find_out/models/comments.dart';
 
 class CommentCard extends StatelessWidget {
   const CommentCard({
-    Key key,
-    @required this.comment,
+    Key? key,
+    required this.comment,
   }) : super(key: key);
 
   final Comment comment;
@@ -28,7 +28,7 @@ class CommentCard extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: Colors.white,
                 backgroundImage:
-                    CachedNetworkImageProvider(comment.photoUserUrl),
+                    CachedNetworkImageProvider(comment.photoUserUrl!),
               ),
               const SizedBox(width: 5),
               Flexible(
@@ -56,7 +56,7 @@ class CommentCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: CachedNetworkImage(
-                    imageUrl: comment.photoCommentUrl,
+                    imageUrl: comment.photoCommentUrl!,
                     height: 100,
                     width: double.infinity,
                     fit: BoxFit.cover),
@@ -66,7 +66,7 @@ class CommentCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Text(
-                comment.comment,
+                comment.comment!,
                 textAlign: TextAlign.justify,
                 overflow: TextOverflow.fade,
                 style: TextStyle(

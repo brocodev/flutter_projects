@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HeaderOption extends StatelessWidget {
   const HeaderOption({
-    Key key,
+    Key? key,
     this.title,
     this.isSelected,
   }) : super(key: key);
 
-  final String title;
-  final bool isSelected;
+  final String? title;
+  final bool? isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,12 @@ class HeaderOption extends StatelessWidget {
         alignment: const Alignment(0, .5),
         height: double.infinity,
         decoration: BoxDecoration(
-          gradient: isSelected
+          gradient: isSelected!
               ? kGradientRedOrange
               : null,
         ),
         child: Text(
-          title.toUpperCase(),
+          title!.toUpperCase(),
           style: GoogleFonts.barlowCondensed(
             fontWeight: FontWeight.w500,
             color: Colors.white.withOpacity(.85),

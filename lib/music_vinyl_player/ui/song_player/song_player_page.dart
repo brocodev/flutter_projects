@@ -12,7 +12,7 @@ const kDurationTextStyle = TextStyle(
 );
 
 class SongPlayerPage extends StatefulWidget {
-  const SongPlayerPage({Key key, @required this.song}) : super(key: key);
+  const SongPlayerPage({Key? key, required this.song}) : super(key: key);
 
   final Song song;
 
@@ -22,14 +22,14 @@ class SongPlayerPage extends StatefulWidget {
 
 class _SongPlayerPageState extends State<SongPlayerPage>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _controllerSkew;
-  Animation<double> _rotateDisk;
-  Animation<double> _skewDisk;
+  late AnimationController _controller;
+  late AnimationController _controllerSkew;
+  late Animation<double> _rotateDisk;
+  late Animation<double> _skewDisk;
   double playedSeconds = 0.0;
   double vinylDragValue = 0.0;
   bool isPlaying = false;
-  Timer _oneSecondTimer;
+  Timer? _oneSecondTimer;
 
   @override
   void initState() {
@@ -184,11 +184,11 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                     curve: Curves.fastOutSlowIn,
                     duration: const Duration(milliseconds: 800),
                     tween: Tween(begin: 0.0, end: 1.0),
-                    builder: (context, value, child) {
+                    builder: (context, dynamic value, child) {
                       return Transform.scale(
                         scale: 1.5 - (.5 * value),
                         child: Transform.translate(
-                          offset: Offset(0, -200 * (1 - value)),
+                          offset: Offset(0, -200 * (1 - value as double)),
                           child: Opacity(
                             opacity: value,
                             child: child,
@@ -206,7 +206,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
             ),
           ),
           Text(
-            widget.song.album.author,
+            widget.song.album.author!,
             style: GoogleFonts.poppins(
               fontSize: 20,
               shadows: const [

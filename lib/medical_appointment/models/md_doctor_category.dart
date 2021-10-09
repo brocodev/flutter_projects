@@ -11,11 +11,11 @@ class DoctorCategory {
     this.rawColor,
   });
 
-  final String nameCategory;
-  final int specialists;
-  final int doctors;
-  final int rawColor;
-  final IconData iconData;
+  final String? nameCategory;
+  final int? specialists;
+  final int? doctors;
+  final int? rawColor;
+  final IconData? iconData;
 
   static const kCardiologist = DoctorCategory._(
       nameCategory: 'Cardiologist',

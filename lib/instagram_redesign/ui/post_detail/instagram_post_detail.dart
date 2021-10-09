@@ -5,9 +5,9 @@ import 'package:flutter_projects/instagram_redesign/ui/post_detail/widgets/detai
 
 class InstagramPostDetail extends StatelessWidget {
   const InstagramPostDetail({
-    Key key,
-    @required this.post,
-    @required this.postCard,
+    Key? key,
+    required this.post,
+    required this.postCard,
   }) : super(key: key);
 
   final IgPost post;
@@ -17,7 +17,7 @@ class InstagramPostDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final expandComments = ValueNotifier(false);
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
 
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -49,7 +49,7 @@ class InstagramPostDetail extends StatelessWidget {
             right: 0,
             left: 0,
             height: (screenHeight * .7) - 76,
-            child: Hero(tag: post.id, child: postCard),
+            child: Hero(tag: post.id!, child: postCard),
           ),
 
           //-----------------------------------
@@ -57,7 +57,7 @@ class InstagramPostDetail extends StatelessWidget {
           //-----------------------------------
           ValueListenableBuilder(
             valueListenable: expandComments,
-            builder: (context, value, child) {
+            builder: (context, dynamic value, child) {
               return AnimatedPositioned(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.fastOutSlowIn,
@@ -65,7 +65,7 @@ class InstagramPostDetail extends StatelessWidget {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  child: child);
+                  child: child!);
             },
             child: Container(
               clipBehavior: Clip.antiAlias,
@@ -86,10 +86,10 @@ class InstagramPostDetail extends StatelessWidget {
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(20),
-                itemCount: post.comments.length,
+                itemCount: post.comments!.length,
                 itemExtent: 60,
                 itemBuilder: (context, index) {
-                  final comment = post.comments[index];
+                  final comment = post.comments![index];
                   return CommentListTile(comment: comment);
                 },
               ),
@@ -101,7 +101,7 @@ class InstagramPostDetail extends StatelessWidget {
           //-----------------------------------
           ValueListenableBuilder(
             valueListenable: expandComments,
-            builder: (context, value, _) {
+            builder: (context, dynamic value, _) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.fastOutSlowIn,

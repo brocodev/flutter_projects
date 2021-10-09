@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class AnimatedBackground extends StatefulWidget {
-  const AnimatedBackground({Key key}) : super(key: key);
+  const AnimatedBackground({Key? key}) : super(key: key);
 
   @override
   _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
 }
 
 class _AnimatedBackgroundState extends State<AnimatedBackground> {
-  PageController pageController;
-  Timer timerSlide;
+  PageController? pageController;
+  late Timer timerSlide;
 
   @override
   void initState() {
     pageController = PageController(initialPage: 0, viewportFraction: .999);
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       timerSlide =
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
-         pageController.nextPage(
+         pageController!.nextPage(
             duration: const Duration(milliseconds: 1400),
             curve: Curves.fastOutSlowIn);
       });
@@ -31,7 +31,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> {
   @override
   void dispose() {
     timerSlide.cancel();
-    pageController.dispose();
+    pageController!.dispose();
     super.dispose();
   }
 

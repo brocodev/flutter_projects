@@ -3,7 +3,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class CardPlaceInformation extends StatelessWidget {
   const CardPlaceInformation({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -92,10 +92,10 @@ class CardPlaceInformation extends StatelessWidget {
 }
 
 class _InlineTextSpan extends StatelessWidget {
-  const _InlineTextSpan({Key key, this.field, this.value}) : super(key: key);
+  const _InlineTextSpan({Key? key, this.field, this.value}) : super(key: key);
 
-  final String field;
-  final String value;
+  final String? field;
+  final String? value;
 
   @override
   Widget build(BuildContext context) {

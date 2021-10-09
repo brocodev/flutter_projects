@@ -4,7 +4,7 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 class SnakeButton extends StatefulWidget {
 
   const SnakeButton(
-      {Key key,
+      {Key? key,
         this.onPressed,
         this.duration = const Duration(milliseconds: 2500),
         this.borderColor = Colors.white,
@@ -13,8 +13,8 @@ class SnakeButton extends StatefulWidget {
         this.child})
       : super(key: key);
 
-  final Widget child;
-  final VoidCallback onPressed;
+  final Widget? child;
+  final VoidCallback? onPressed;
   final Duration duration;
   final Color borderColor;
   final Color snakeColor;
@@ -26,18 +26,18 @@ class SnakeButton extends StatefulWidget {
 
 class _SnakeButtonState extends State<SnakeButton>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController? _controller;
 
   @override
   void initState() {
     _controller = AnimationController(vsync: this, duration: widget.duration);
-    _controller.repeat();
+    _controller!.repeat();
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -61,13 +61,13 @@ class _SnakeButtonState extends State<SnakeButton>
 
 class _SnakePainter extends CustomPainter {
   _SnakePainter({
-    @required this.animation,
+    required this.animation,
     this.snakeColor = Colors.pinkAccent,
     this.borderColor = Colors.white,
     this.borderWidth = 3.0,
   }) : super(repaint: animation);
 
-  final Animation animation;
+  final Animation? animation;
   final Color snakeColor;
   final Color borderColor;
   final double borderWidth;
@@ -102,7 +102,7 @@ class _SnakePainter extends CustomPainter {
           startAngle: 0.0,
           endAngle: vector.radians(90),
           transform: GradientRotation(
-            vector.radians(360 * animation.value),
+            vector.radians(360 * animation!.value as double),
           )).createShader(rectBorder);
 
     canvas.drawPath(

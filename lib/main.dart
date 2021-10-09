@@ -22,7 +22,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,25 +40,25 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const MainPage(),
-        _ProjectModel.findOut.route: (_) => const FindOutApp(),
-        _ProjectModel.movieSelection.route: (_) => const MovieSelectionApp(),
-        _ProjectModel.musicApp.route: (_) => const MusicAlbumList(),
-        _ProjectModel.musicAppTwo.route: (_) => const MusicVinylPlayer(),
-        _ProjectModel.medicalAppointment.route: (_) => const MedicalApp(),
-        _ProjectModel.photographersApp.route: (_) => const PhotographersApp(),
-        _ProjectModel.instagram.route: (_) => const InstagramApp(),
-        _ProjectModel.superheroes.route: (_) => const SuperheroesApp(),
-        _ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
-        _ProjectModel.bookApp.route: (_) => const BookStoreApp(),
-        _ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
-        _ProjectModel.streamingApp.route: (_) => const StreamingApp(),
+        _ProjectModel.findOut.route!: (_) => const FindOutApp(),
+        _ProjectModel.movieSelection.route!: (_) => const MovieSelectionApp(),
+        _ProjectModel.musicApp.route!: (_) => const MusicAlbumList(),
+        _ProjectModel.musicAppTwo.route!: (_) => const MusicVinylPlayer(),
+        _ProjectModel.medicalAppointment.route!: (_) => const MedicalApp(),
+        _ProjectModel.photographersApp.route!: (_) => const PhotographersApp(),
+        _ProjectModel.instagram.route!: (_) => const InstagramApp(),
+        _ProjectModel.superheroes.route!: (_) => const SuperheroesApp(),
+        _ProjectModel.orixGaming.route!: (_) => const OrixGamingApp(),
+        _ProjectModel.bookApp.route!: (_) => const BookStoreApp(),
+        _ProjectModel.templateGallery.route!: (_) => const TemplateGalleryApp(),
+        _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
       },
     );
   }
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +88,8 @@ class MainPage extends StatelessWidget {
 
 class _ProjectCard extends StatelessWidget {
   const _ProjectCard({
-    Key key,
-    @required this.project,
+    Key? key,
+    required this.project,
   }) : super(key: key);
 
   final _ProjectModel project;
@@ -110,7 +110,7 @@ class _ProjectCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey[200],
+                      color: Colors.grey[200]!,
                       blurRadius: 20,
                       offset: const Offset(-6, 6))
                 ]),
@@ -119,7 +119,7 @@ class _ProjectCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    project.pathImage,
+                    project.pathImage!,
                     height: double.infinity,
                     width: size.width * .3,
                     fit: BoxFit.cover,
@@ -133,7 +133,7 @@ class _ProjectCard extends StatelessWidget {
                     children: [
                       FittedBox(
                         child: Text(
-                          project.title,
+                          project.title!,
                           maxLines: 1,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
@@ -143,7 +143,7 @@ class _ProjectCard extends StatelessWidget {
                       ),
                       FittedBox(
                         child: Text(
-                          project.description,
+                          project.description!,
                           maxLines: 1,
                           style: GoogleFonts.poppins(
                               fontSize: 16,
@@ -161,7 +161,7 @@ class _ProjectCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        project.designer,
+                        project.designer!,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w500,
                         ),
@@ -172,7 +172,7 @@ class _ProjectCard extends StatelessWidget {
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () =>
-                              Navigator.pushNamed(context, project.route),
+                              Navigator.pushNamed(context, project.route!),
                           style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
@@ -211,11 +211,11 @@ class _ProjectModel {
     this.route,
   });
 
-  final String title;
-  final String description;
-  final String designer;
-  final String pathImage;
-  final String route;
+  final String? title;
+  final String? description;
+  final String? designer;
+  final String? pathImage;
+  final String? route;
 
   static const findOut = _ProjectModel(
       title: "Find Out",

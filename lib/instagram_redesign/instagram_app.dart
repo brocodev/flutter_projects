@@ -11,7 +11,7 @@ import 'package:flutter_projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramApp extends StatelessWidget {
-  const InstagramApp({Key key}) : super(key: key);
+  const InstagramApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +24,12 @@ class InstagramApp extends StatelessWidget {
 
 class _MateApp extends StatelessWidget {
   const _MateApp({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
     return AnimatedBuilder(
       animation: instagramBloc,
       builder: (context, child) {
@@ -57,7 +57,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context).instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
 
     return Scaffold(
       body: OverflowBox(
@@ -102,7 +102,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                                 instagramBloc.hideSettings();
                               }))
                             : const SizedBox(),
-                        settingsCard,
+                        settingsCard!,
                       ],
                     ));
               },
