@@ -3,7 +3,7 @@
 Flutter apps with cool design and animations
 
 # Social Media
-#### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="10"/>   [Youtube](https://www.youtube.com/channel/UCe2G2ZkcHG9TliZ03L14U7g) <img src="https://www.flaticon.es/svg/static/icons/svg/124/124010.svg" height="10"/>   [Facebook](https://www.facebook.com/brocodev)  <img src="https://www.flaticon.com/svg/static/icons/svg/124/124021.svg" height="12"/>   [Twitter](https://twitter.com/brocodev1) 
+#### <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" height="10"/>   [Youtube](https://www.youtube.com/channel/UCe2G2ZkcHG9TliZ03L14U7g) <img src="https://i.ibb.co/c8JfWMM/facebook.png" height="10"/>   [Facebook](https://www.facebook.com/brocodev)  <img src="https://i.ibb.co/MSN1F6L/gorjeo.png" height="12"/>   [Twitter](https://twitter.com/brocodev1) 
 
 ## Getting Started
 This project is a starting point for a Flutter application.
