@@ -1,18 +1,18 @@
 
 class ProjectModel {
   const ProjectModel({
-    this.title,
-    this.description,
-    this.designer,
-    this.pathImage,
-    this.route,
+    required this.title,
+    required this.description,
+    required this.designer,
+    required this.pathImage,
+    required this.route,
   });
 
-  final String? title;
-  final String? description;
-  final String? designer;
-  final String? pathImage;
-  final String? route;
+  final String title;
+  final String description;
+  final String designer;
+  final String pathImage;
+  final String route;
 
   static const findOut = ProjectModel(
       title: "Find Out",

@@ -16,17 +16,17 @@ import 'package:flutter_projects/projects/template_gallery/template_gallery_app.
 class ProjectRoutes {
   static Map<String, WidgetBuilder> routes = {
     "/": (context) => const MainPage(),
-    ProjectModel.findOut.route!: (_) => const FindOutApp(),
-    ProjectModel.movieSelection.route!: (_) => const MovieSelectionApp(),
-    ProjectModel.musicApp.route!: (_) => const MusicAlbumList(),
-    ProjectModel.musicAppTwo.route!: (_) => const MusicVinylPlayer(),
-    ProjectModel.medicalAppointment.route!: (_) => const MedicalApp(),
-    ProjectModel.photographersApp.route!: (_) => const PhotographersApp(),
-    ProjectModel.instagram.route!: (_) => const InstagramApp(),
-    ProjectModel.superheroes.route!: (_) => const SuperheroesApp(),
-    ProjectModel.orixGaming.route!: (_) => const OrixGamingApp(),
-    ProjectModel.bookApp.route!: (_) => const BookStoreApp(),
-    ProjectModel.templateGallery.route!: (_) => const TemplateGalleryApp(),
+    ProjectModel.findOut.route: (_) => const FindOutApp(),
+    ProjectModel.movieSelection.route: (_) => const MovieSelectionApp(),
+    ProjectModel.musicApp.route: (_) => const MusicAlbumList(),
+    ProjectModel.musicAppTwo.route: (_) => const MusicVinylPlayer(),
+    ProjectModel.medicalAppointment.route: (_) => const MedicalApp(),
+    ProjectModel.photographersApp.route: (_) => const PhotographersApp(),
+    ProjectModel.instagram.route: (_) => const InstagramApp(),
+    ProjectModel.superheroes.route: (_) => const SuperheroesApp(),
+    ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
+    ProjectModel.bookApp.route: (_) => const BookStoreApp(),
+    ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
     // _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
   };
 }

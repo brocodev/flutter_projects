@@ -6,13 +6,167 @@ class ProjectCard extends StatelessWidget {
   const ProjectCard({
     Key? key,
     required this.project,
+    required this.index,
   }) : super(key: key);
 
   final ProjectModel project;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // return _Option1(project: project, size: size);
+    return Container(
+      height: 220,
+      clipBehavior: Clip.antiAlias,
+      margin: const EdgeInsets.only(bottom: 30),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x06000000),
+            blurRadius: 20,
+            offset: Offset(-10, 10),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              project.pathImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: Colors.black26),
+            ),
+          ),
+          Positioned(
+            bottom: 12,
+            top: 12,
+            right: 12,
+            left: 12,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Opacity(
+                      opacity: .6,
+                      child: Container(
+                        padding: const EdgeInsets.all(14),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          '$index',
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            project.title,
+                            maxLines: 1,
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            project.description,
+                            maxLines: 1,
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Designer',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            project.designer,
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                                fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, project.route),
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        backgroundColor: Colors.cyan[50],
+                      ),
+                      child: Text(
+                        "See project",
+                        maxLines: 1,
+                        softWrap: false,
+                        style: GoogleFonts.poppins(
+                          color: Colors.cyan[600],
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _Option1 extends StatelessWidget {
+  const _Option1({
+    Key? key,
+    required this.project,
+    required this.size,
+  }) : super(key: key);
+
+  final ProjectModel project;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 30),
       child: Stack(
@@ -35,7 +189,7 @@ class ProjectCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    project.pathImage!,
+                    project.pathImage,
                     height: double.infinity,
                     width: size.width * .3,
                     fit: BoxFit.cover,
@@ -49,7 +203,7 @@ class ProjectCard extends StatelessWidget {
                     children: [
                       FittedBox(
                         child: Text(
-                          project.title!,
+                          project.title,
                           maxLines: 1,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
@@ -59,7 +213,7 @@ class ProjectCard extends StatelessWidget {
                       ),
                       FittedBox(
                         child: Text(
-                          project.description!,
+                          project.description,
                           maxLines: 1,
                           style: GoogleFonts.poppins(
                               fontSize: 16,
@@ -77,7 +231,7 @@ class ProjectCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        project.designer!,
+                        project.designer,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w500,
                         ),
@@ -88,10 +242,11 @@ class ProjectCard extends StatelessWidget {
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () =>
-                              Navigator.pushNamed(context, project.route!),
+                              Navigator.pushNamed(context, project.route),
                           style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                             backgroundColor: Colors.cyan[50],
                           ),
                           child: Text(

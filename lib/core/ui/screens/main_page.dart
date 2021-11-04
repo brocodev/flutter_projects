@@ -25,7 +25,10 @@ class MainPage extends StatelessWidget {
         itemCount: ProjectModel.listProjects.length,
         itemBuilder: (context, index) {
           final project = ProjectModel.listProjects[index];
-          return ProjectCard(project: project);
+          return ProjectCard(
+            project: project,
+            index: ProjectModel.listProjects.length - index,
+          );
         },
       ),
     );
