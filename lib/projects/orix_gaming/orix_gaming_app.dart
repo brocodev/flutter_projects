@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/orix_gaming/ui/orix_gaming_home_page.dart';
+import 'package:flutter_projects/projects/orix_gaming/ui/home/orix_gaming_home_page.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/orix_navigation_bar.dart';
 
 class OrixGamingApp extends StatelessWidget {
