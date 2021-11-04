@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/movie_selection/pages/home/movie_home.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/home/movie_home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MovieSelectionApp extends StatelessWidget {

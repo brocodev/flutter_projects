@@ -327,7 +327,7 @@ class Book {
       category: 'Science',
       description:
           'Review One of Science Friday\'s "Best Science Books of 2018""Ill'
-              'uminating... The Professor Pearl who emerges from the pages '
+              'uminating... The Professor Pearl who emerges from the ui '
               'of The Book of Why brims with the joy of discovery and pride'
               ' in his students and colleagues... [it] not only delivers a v'
               'aluable lesson on the history of ideas but provides the conce'
