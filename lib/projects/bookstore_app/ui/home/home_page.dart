@@ -1,4 +1,5 @@
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc_provider.dart';
@@ -12,10 +13,10 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   late final ScrollController _scrollController;
   late final ValueNotifier<double> _scrollPercentNotifier;
   late final CategoriesBloc _categoriesBloc;
@@ -100,8 +101,9 @@ class _HomePageState extends State<HomePage> {
                       height: 40,
                       width: 40,
                       decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(2)),
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
                       child: const Icon(Icons.tune, color: Colors.white),
                     ),
                   ),
@@ -111,21 +113,21 @@ class _HomePageState extends State<HomePage> {
                 //----------------------------------
                 Expanded(
                   child: StreamBuilder<List<String>>(
-                      stream: _categoriesBloc.categoriesStream,
-                      builder: (context, snapshot) {
-                        return snapshot.connectionState !=
-                                ConnectionState.waiting
-                            ? ListView.builder(
-                                itemCount: snapshot.data!.length,
-                                scrollDirection: Axis.horizontal,
-                                padding: const EdgeInsets.only(left: 10),
-                                itemBuilder: (context, index) {
-                                  final category = snapshot.data![index];
-                                  return _CategoryChip(category: category);
-                                },
-                              )
-                            : const SizedBox();
-                      }),
+                    stream: _categoriesBloc.categoriesStream,
+                    builder: (context, snapshot) {
+                      return snapshot.connectionState != ConnectionState.waiting
+                          ? ListView.builder(
+                              itemCount: snapshot.data!.length,
+                              scrollDirection: Axis.horizontal,
+                              padding: const EdgeInsets.only(left: 10),
+                              itemBuilder: (context, index) {
+                                final category = snapshot.data![index];
+                                return _CategoryChip(category: category);
+                              },
+                            )
+                          : const SizedBox();
+                    },
+                  ),
                 )
               ],
             ),
@@ -144,9 +146,13 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 final book = Book.books[index];
                 return InkWell(
-                    onTap: () => _openPage(BookDetailPage(book: book), context,
-                        opaque: true),
-                    child: _HomeBookCard(book: book));
+                  onTap: () => _openPage(
+                    BookDetailPage(book: book),
+                    context,
+                    opaque: true,
+                  ),
+                  child: _HomeBookCard(book: book),
+                );
               },
             ),
           ),
@@ -228,17 +234,19 @@ class _HomeBookCard extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.only(right: 40, bottom: 20),
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(book.srcImage!),
-                      fit: BoxFit.cover,
-                    ),
-                    border: Border.all(color: Colors.white, width: 3),
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 15,
-                          offset: Offset(10, 10))
-                    ]),
+                  image: DecorationImage(
+                    image: AssetImage(book.srcImage!),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border.all(color: Colors.white, width: 3),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 15,
+                      offset: Offset(10, 10),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -296,16 +304,18 @@ class _CategoryChip extends StatelessWidget {
           child: TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
-                backgroundColor: Colors.grey[50],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(1),
-                    side: BorderSide(
-                      color: Colors.grey[200]!,
-                    )),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 20,
-                )),
+              backgroundColor: Colors.grey[50],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(1),
+                side: BorderSide(
+                  color: Colors.grey[200]!,
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(
+                vertical: 12,
+                horizontal: 20,
+              ),
+            ),
             child: FittedBox(
               child: Text(
                 category,

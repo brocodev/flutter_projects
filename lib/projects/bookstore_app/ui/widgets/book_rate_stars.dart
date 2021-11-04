@@ -26,15 +26,16 @@ class BookRateStars extends StatelessWidget {
   Widget build(BuildContext context) {
     final _showHalfStar = rate - rate.floor() >= .4;
     final listStars = List<Widget>.generate(
-        rate.floor(),
-        (index) => Hero(
-              tag: 'star$index$heroTag',
-              child: Icon(
-                Icons.star_rounded,
-                color: starsColor,
-                size: 18,
-              ),
-            ));
+      rate.floor(),
+      (index) => Hero(
+        tag: 'star$index$heroTag',
+        child: Icon(
+          Icons.star_rounded,
+          color: starsColor,
+          size: 18,
+        ),
+      ),
+    );
 
     if (_showHalfStar) {
       listStars.add(
@@ -50,33 +51,36 @@ class BookRateStars extends StatelessWidget {
     }
 
     listStars.addAll(
-        List.generate(5 - rate.floor() - (_showHalfStar ? 1 : 0), (index) {
-      return Hero(
-        tag: 'star${rate.ceil() + index}$heroTag',
-        child: Icon(
-          Icons.star_rounded,
-          color: voidStarsColor,
-          size: 18,
-        ),
-      );
-    }));
+      List.generate(5 - rate.floor() - (_showHalfStar ? 1 : 0), (index) {
+        return Hero(
+          tag: 'star${rate.ceil() + index}$heroTag',
+          child: Icon(
+            Icons.star_rounded,
+            color: voidStarsColor,
+            size: 18,
+          ),
+        );
+      }),
+    );
 
     return Row(
       children: listStars
-        ..add(Hero(
-          tag: 'rate$heroTag',
-          child: Material(
-            color: Colors.transparent,
-            child: Text(
-              ' $rate',
-              style: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.bold,
-                color: starsColor,
+        ..add(
+          Hero(
+            tag: 'rate$heroTag',
+            child: Material(
+              color: Colors.transparent,
+              child: Text(
+                ' $rate',
+                style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold,
+                  color: starsColor,
+                ),
               ),
             ),
           ),
-        )),
+        ),
     );
   }
 }

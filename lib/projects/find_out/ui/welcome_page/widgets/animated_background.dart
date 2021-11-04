@@ -7,10 +7,10 @@ class AnimatedBackground extends StatefulWidget {
   const AnimatedBackground({Key? key}) : super(key: key);
 
   @override
-  _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
+  AnimatedBackgroundState createState() => AnimatedBackgroundState();
 }
 
-class _AnimatedBackgroundState extends State<AnimatedBackground> {
+class AnimatedBackgroundState extends State<AnimatedBackground> {
   PageController? pageController;
   late Timer timerSlide;
 

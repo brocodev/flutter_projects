@@ -41,18 +41,22 @@ class _OpenBookPageState extends State<OpenBookPage> {
     return Stack(
       fit: StackFit.expand,
       children: [
-        if (HeroFlightDirection.push == direction) OpenBookPage(book: widget.book) else Container(color: Colors.white),
+        if (HeroFlightDirection.push == direction)
+          OpenBookPage(book: widget.book)
+        else
+          Container(color: Colors.white),
         AnimatedBuilder(
-            animation: animation,
-            builder: (_, __) {
-              return Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(1.6 * animation.value),
-                alignment: Alignment.centerLeft,
-                child: CoverPageBook(srcImageBook: widget.book!.srcImage),
-              );
-            }),
+          animation: animation,
+          builder: (_, __) {
+            return Transform(
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.001)
+                ..rotateY(1.6 * animation.value),
+              alignment: Alignment.centerLeft,
+              child: CoverPageBook(srcImageBook: widget.book!.srcImage),
+            );
+          },
+        ),
       ],
     );
   }

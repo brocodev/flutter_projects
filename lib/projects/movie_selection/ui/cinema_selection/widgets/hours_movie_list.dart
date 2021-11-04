@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/models/movie.dart';
 
-import 'hour_container.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/cinema_selection/widgets/hour_container.dart';
 
 
 class HoursMovieOptions extends StatelessWidget {

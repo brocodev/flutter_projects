@@ -1,10 +1,11 @@
 import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/post.dart';
-import 'package:flutter_projects/projects/photographers_app/ui/clippers/tile_clipper.dart';
-import 'package:flutter_projects/projects/photographers_app/utils/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/ui/widgets/tile_clipper.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,10 +20,10 @@ class PhotoPostCard extends StatefulWidget {
   final bool isInverted;
 
   @override
-  _PhotoPostCardState createState() => _PhotoPostCardState();
+  PhotoPostCardState createState() => PhotoPostCardState();
 }
 
-class _PhotoPostCardState extends State<PhotoPostCard>
+class PhotoPostCardState extends State<PhotoPostCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleHeart;

@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/orix_gaming/models/video_game.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/home/widgets/game_play_card.dart';
+import 'package:flutter_projects/projects/orix_gaming/ui/trending/orix_trending_page.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/rounded_icon_button.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/user_avatar.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../trending/orix_trending_page.dart';
 
 class OrixGamingHomePage extends StatefulWidget {
   const OrixGamingHomePage({

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/movie.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/widgets/tag_container.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'tag_container.dart';
-
 
 class TopBorderedContainer extends StatelessWidget {
   const TopBorderedContainer({

@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
-import 'package:flutter_projects/projects/photographers_app/ui/photo_profile_page.dart';
-import 'package:flutter_projects/projects/photographers_app/ui/widgets/image_user_container.dart';
+import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/ui/home/widgets/image_user_container.dart';
+import 'package:flutter_projects/projects/photographers_app/ui/profile/photo_profile_page.dart';
 import 'package:flutter_projects/projects/photographers_app/ui/widgets/photo_post_card.dart';
-import 'package:flutter_projects/projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoHomePage extends StatelessWidget {
@@ -16,8 +16,10 @@ class PhotoHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.scatter_plot),
-        title: const Text("Explore",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+        title: const Text(
+          "Explore",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+        ),
         actions: const [
           Center(
             child: _SearchInput(),
@@ -89,10 +91,11 @@ class PhotoHomePage extends StatelessWidget {
                     return PhotoUserCard(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => PhotoProfilePage(user: user),
-                            ));
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PhotoProfilePage(user: user),
+                          ),
+                        );
                       },
                       user: user,
                       size: MediaQuery.of(context).size.height * .12,

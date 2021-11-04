@@ -99,7 +99,6 @@ class _SnakePainter extends CustomPainter {
             0.5,
             0.5
           ],
-          startAngle: 0,
           endAngle: vector.radians(90),
           transform: GradientRotation(
             vector.radians(360 * animation!.value as double),

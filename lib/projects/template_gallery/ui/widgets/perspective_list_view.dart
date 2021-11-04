@@ -161,7 +161,7 @@ class _PerspectiveItems extends StatelessWidget {
           //---------------------------------
           if (currentIndex! > (generatedItems - 1)) _TransformedItem(
                   heightItem: heightItem,
-                  factorChange: 1.0,
+                  factorChange: 1,
                   endScale: .5,
                   child: children[currentIndex! - generatedItems],
                 ) else const SizedBox(),
@@ -190,7 +190,7 @@ class _PerspectiveItems extends StatelessWidget {
                   heightItem: heightItem,
                   factorChange: pagePercent,
                   translateY: height + 20,
-                  endTranslateY: (height - heightItem!),
+                  endTranslateY: height - heightItem!,
                   child: children[currentIndex! + 1],
                 ) else const SizedBox()
         ],

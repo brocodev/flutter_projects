@@ -6,8 +6,7 @@ import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/open_book_page.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_readers_row.dart';
-
-import '../../widgets/cover_page_book.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/widgets/cover_page_book.dart';
 
 class BookDetailHeader extends StatelessWidget {
   BookDetailHeader({Key? key, this.percent, this.book}) : super(key: key);
@@ -22,23 +21,22 @@ class BookDetailHeader extends StatelessWidget {
   //----------------------------------------
   // Open book reading
   //----------------------------------------
-  void _openBook(BuildContext context) async {
+  Future<void> _openBook(BuildContext context) async {
     enableOpenBookAnimation.value = true;
     await Navigator.push(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 600),
-          reverseTransitionDuration: const Duration(milliseconds: 600),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: OpenBookPage(book: book),
-            );
-          },
-        ));
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 600),
+        reverseTransitionDuration: const Duration(milliseconds: 600),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: OpenBookPage(book: book),
+          );
+        },
+      ),
+    );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -121,12 +119,13 @@ class BookDetailHeader extends StatelessWidget {
                           Text(
                             'By ${book!.author}',
                             style: TextStyle(
-                                color: ColorTween(
-                                  begin: Colors.white70,
-                                  end: Colors.grey,
-                                ).transform(percent!),
-                                fontSize: ui.lerpDouble(16, 14, percent!),
-                                height: 1.7),
+                              color: ColorTween(
+                                begin: Colors.white70,
+                                end: Colors.grey,
+                              ).transform(percent!),
+                              fontSize: ui.lerpDouble(16, 14, percent!),
+                              height: 1.7,
+                            ),
                             maxLines: 1,
                           ),
                           AnimatedSwitcher(
@@ -166,15 +165,14 @@ class _BlurBackground extends StatelessWidget {
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(book!.srcImage!),
-            fit: BoxFit.cover,
-          ),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12,
-                blurRadius: 10 * percent!)
-          ]),
+        image: DecorationImage(
+          image: AssetImage(book!.srcImage!),
+          fit: BoxFit.cover,
+        ),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 10 * percent!)
+        ],
+      ),
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
@@ -222,7 +220,6 @@ class _CategoryAndRate extends StatelessWidget {
 //----------------------------------------------------------------
 // Custom Sliver Persistent Header
 //----------------------------------------------------------------
-typedef _BookDetailDelegateChildBuilder = Widget Function(double percent);
 
 class BookDetailHeaderDelegate extends SliverPersistentHeaderDelegate {
   BookDetailHeaderDelegate({
@@ -231,13 +228,16 @@ class BookDetailHeaderDelegate extends SliverPersistentHeaderDelegate {
     required this.childBuilder,
   });
 
-  final _BookDetailDelegateChildBuilder childBuilder;
+  final Widget Function(double) childBuilder;
   final double maximumExtent;
   final double minimumExtent;
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     final percent = shrinkOffset / maxExtent;
     return childBuilder(percent);
   }

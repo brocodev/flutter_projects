@@ -1,4 +1,4 @@
-import 'actors.dart';
+import 'package:flutter_projects/projects/movie_selection/models/actors.dart';
 
 class Movie {
   Movie({

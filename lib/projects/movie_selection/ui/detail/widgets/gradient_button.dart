@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../constants/constants.dart';
-
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
@@ -28,9 +26,9 @@ class GradientButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: size.height * .07,
-        width: width?? size.width,
+        width: width ?? size.width,
         decoration: BoxDecoration(
-            boxShadow:const  [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 20,

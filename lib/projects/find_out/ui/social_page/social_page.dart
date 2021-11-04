@@ -5,8 +5,8 @@ import 'package:flutter_projects/projects/find_out/models/place.dart';
 import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/background_shader_image.dart';
 import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/card_place_information.dart';
 import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/comment_card.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/custom_bottom_navigation.dart';
+import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SocialPage extends StatelessWidget {
@@ -29,135 +29,137 @@ class SocialPage extends StatelessWidget {
     final listComments = Comment.defaultListComment;
 
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: <Widget>[
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _HeaderSocialPage(
-                    heightBackPageView: heightBackPageView,
-                    place: place,
-                    indexImageBackground: indexImageBackground,
-                    infoVisibleNotifier: infoVisibleNotifier,
-                  ),
-                  const TranslateAnimation(
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Text(
-                        "Fotos de turistas",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _HeaderSocialPage(
+                heightBackPageView: heightBackPageView,
+                place: place,
+                indexImageBackground: indexImageBackground,
+                infoVisibleNotifier: infoVisibleNotifier,
+              ),
+              const TranslateAnimation(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  child: Text(
+                    "Fotos de turistas",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  TranslateAnimation(
-                    child: SizedBox(
-                      height: size.height * .12,
-                      child: ListView.builder(
-                        itemExtent: size.width * .25,
-                        scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: 10,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        itemBuilder: (context, index) {
-                          final i = index % 3;
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 7),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                'assets/img/findout/friends${i + 1}.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  const TranslateAnimation(
-                    duration: Duration(milliseconds: 1000),
-                    child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                        child: Text("Comentarios",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              height: 2,
-                              fontWeight: FontWeight.w600,
-                            ))),
-                  ),
-                  Expanded(
-                    child: TranslateAnimation(
-                      duration: const Duration(milliseconds: 1000),
-                      child: StaggeredGridView.countBuilder(
-                        crossAxisCount: 4,
-                        physics: const BouncingScrollPhysics(),
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 70),
-                        itemCount: listComments.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final comment = listComments[index];
-                          return CommentCard(comment: comment);
-                        },
-                        staggeredTileBuilder: (int index) {
-                          return StaggeredTile.count(
-                            2,
-                            listComments[index].photoCommentUrl == null
-                                ? 2.3
-                                : 2.8,
-                          );
-                        },
-                        mainAxisSpacing: 8,
-                        crossAxisSpacing: 8,
-                      ),
-                    ),
-                  )
-                ]),
-            const Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: CustomBottomNavigation(),
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: kToolbarHeight / 2,
-              child: Center(
-                child: Container(
-                  height: kToolbarHeight,
-                  width: kToolbarHeight,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(kToolbarHeight),
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.pinkAccent,
-                        Colors.pinkAccent[100]!,
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomCenter,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.pinkAccent.withOpacity(.6),
-                        blurRadius: 10,
-                      )
-                    ],
-                  ),
-                  child: const Icon(Icons.add, color: Colors.white),
                 ),
               ),
+              TranslateAnimation(
+                child: SizedBox(
+                  height: size.height * .12,
+                  child: ListView.builder(
+                    itemExtent: size.width * .25,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: 10,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemBuilder: (context, index) {
+                      final i = index % 3;
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 7),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            'assets/img/findout/friends${i + 1}.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              const TranslateAnimation(
+                duration: Duration(milliseconds: 1000),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  child: Text(
+                    "Comentarios",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      height: 2,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: TranslateAnimation(
+                  duration: const Duration(milliseconds: 1000),
+                  child: StaggeredGridView.countBuilder(
+                    crossAxisCount: 4,
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 70),
+                    itemCount: listComments.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final comment = listComments[index];
+                      return CommentCard(comment: comment);
+                    },
+                    staggeredTileBuilder: (int index) {
+                      return StaggeredTile.count(
+                        2,
+                        listComments[index].photoCommentUrl == null ? 2.3 : 2.8,
+                      );
+                    },
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                  ),
+                ),
+              )
+            ],
+          ),
+          const Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: CustomBottomNavigation(),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: kToolbarHeight / 2,
+            child: Center(
+              child: Container(
+                height: kToolbarHeight,
+                width: kToolbarHeight,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(kToolbarHeight),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.pinkAccent,
+                      Colors.pinkAccent[100]!,
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomCenter,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.pinkAccent.withOpacity(.6),
+                      blurRadius: 10,
+                    )
+                  ],
+                ),
+                child: const Icon(Icons.add, color: Colors.white),
+              ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -191,41 +193,46 @@ class _HeaderSocialPage extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: 40,
-            left: 20,
-            right: 20,
-            bottom: 0,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const _CustomAppBar(),
-                  SizedBox(
-                    height: heightBackPageView * .13,
-                  ),
-                  _TitleAndHeart(
-                    place: place,
-                    infoVisibleNotifier: infoVisibleNotifier,
-                  ),
-                  _PageViewIndicators(
-                      maxIndex: place.imageUrl!.length,
-                      indexImageBackground: indexImageBackground),
-                  const Spacer()
-                ])),
+          top: 40,
+          left: 20,
+          right: 20,
+          bottom: 0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const _CustomAppBar(),
+              SizedBox(
+                height: heightBackPageView * .13,
+              ),
+              _TitleAndHeart(
+                place: place,
+                infoVisibleNotifier: infoVisibleNotifier,
+              ),
+              _PageViewIndicators(
+                maxIndex: place.imageUrl!.length,
+                indexImageBackground: indexImageBackground,
+              ),
+              const Spacer()
+            ],
+          ),
+        ),
         ValueListenableBuilder(
-            valueListenable: infoVisibleNotifier,
-            builder: (context, dynamic value, child) {
-              return Positioned(
-                bottom: 0,
-                left: 20,
-                right: 20,
-                child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 400),
-                    opacity: value ? 1.0 : 0.0,
-                    child: child),
-              );
-            },
-            child: const CardPlaceInformation())
-      ]),
+          valueListenable: infoVisibleNotifier,
+          builder: (context, dynamic value, child) {
+            return Positioned(
+              bottom: 0,
+              left: 20,
+              right: 20,
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 400),
+                opacity: value ? 1.0 : 0.0,
+                child: child,
+              ),
+            );
+          },
+          child: const CardPlaceInformation(),
+        )
+      ],),
     );
   }
 }
@@ -257,7 +264,7 @@ class _TitleAndHeart extends StatelessWidget {
               return AnimatedOpacity(
                   duration: const Duration(milliseconds: 400),
                   opacity: value ? 1.0 : 0.0,
-                  child: child);
+                  child: child,);
             },
             child: FloatingActionButton(
               onPressed: () {},
@@ -267,7 +274,7 @@ class _TitleAndHeart extends StatelessWidget {
               mini: true,
               foregroundColor: Colors.pinkAccent,
               child: const Icon(Icons.favorite),
-            )),
+            ),),
         const SizedBox(width: 20),
       ],
     );
@@ -303,7 +310,7 @@ class _PageViewIndicators extends StatelessWidget {
               );
             },
           );
-        })));
+        },),),);
   }
 }
 
@@ -321,7 +328,7 @@ class _CustomAppBar extends StatelessWidget {
       Spacer(
         flex: 3,
       )
-    ]);
+    ],);
   }
 }
 

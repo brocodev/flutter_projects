@@ -33,16 +33,17 @@ class _PageViewPlacesState extends State<PageViewPlaces> {
   void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
     if (details.primaryDelta! < -20) {
       Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 800),
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return FadeTransition(
-                opacity: animation,
-                child: SocialPage(place: place),
-              );
-            },
-          ));
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 800),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+              opacity: animation,
+              child: SocialPage(place: place),
+            );
+          },
+        ),
+      );
     }
   }
 
@@ -61,24 +62,29 @@ class _PageViewPlacesState extends State<PageViewPlaces> {
             builder: (context, dynamic value, child) {
               final percent = index - value;
               return Transform(
-                  transform: Matrix4.identity()
-                    ..setEntry(3, 2, 0.001)
-                    ..rotateY(-0.8 * percent),
-                  child: child);
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.001)
+                  ..rotateY(-0.8 * percent),
+                child: child,
+              );
             },
             child: Stack(
               children: <Widget>[
                 const Positioned.fill(
-                    child: DecoratedBox(
-                  decoration: BoxDecoration(boxShadow: [
-                    BoxShadow(blurRadius: 30, color: Colors.black38)
-                  ]),
-                )),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(blurRadius: 30, color: Colors.black38)
+                      ],
+                    ),
+                  ),
+                ),
                 Hero(
-                    tag: place.id!,
-                    child: BackgroundShaderImage(
-                      imageUrl: place.imageUrl!.first,
-                    )),
+                  tag: place.id!,
+                  child: BackgroundShaderImage(
+                    imageUrl: place.imageUrl!.first,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
@@ -90,31 +96,38 @@ class _PageViewPlacesState extends State<PageViewPlaces> {
                       Text(
                         "Información",
                         style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white.withOpacity(.9)),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white.withOpacity(.9),
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Text(
                         place.description!,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
-                            fontSize: 16, color: Colors.white.withOpacity(.8)),
+                          fontSize: 16,
+                          color: Colors.white.withOpacity(.8),
+                        ),
                       ),
                       const SizedBox(height: 50),
                       _LikeAndComments(place: place),
                       const Spacer(),
                       const Center(
-                          child: Icon(
-                        Icons.keyboard_arrow_up,
-                        size: 30,
-                        color: Colors.white70,
-                      )),
+                        child: Icon(
+                          Icons.keyboard_arrow_up,
+                          size: 30,
+                          color: Colors.white70,
+                        ),
+                      ),
                       const Center(
-                          child: Text('Desliza hacia arriba',
-                              style: TextStyle(
-                                color: Colors.white70,
-                              ))),
+                        child: Text(
+                          'Desliza hacia arriba',
+                          style: TextStyle(
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 20),
                     ],
                   ),

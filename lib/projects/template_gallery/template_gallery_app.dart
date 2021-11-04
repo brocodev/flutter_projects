@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'ui/contact_list_page.dart';
+import 'package:flutter_projects/projects/template_gallery/ui/contact_list_page.dart';
 
 class TemplateGalleryApp extends StatelessWidget {
   const TemplateGalleryApp({Key? key}) : super(key: key);

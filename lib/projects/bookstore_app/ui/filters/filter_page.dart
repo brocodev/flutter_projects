@@ -16,10 +16,10 @@ class FilterPage extends StatefulWidget {
   const FilterPage({Key? key}) : super(key: key);
 
   @override
-  _FilterPageState createState() => _FilterPageState();
+  FilterPageState createState() => FilterPageState();
 }
 
-class _FilterPageState extends State<FilterPage> {
+class FilterPageState extends State<FilterPage> {
   late CategoriesBloc _categoriesBloc;
   bool _enableShowAnimation = false;
 
@@ -55,10 +55,11 @@ class _FilterPageState extends State<FilterPage> {
           Hero(
             tag: 'filters-background',
             child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                child: Container(
-                  color: Colors.blue[800]!.withOpacity(.7),
-                )),
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: Container(
+                color: Colors.blue[800]!.withOpacity(.7),
+              ),
+            ),
           ),
           Positioned.fill(
             left: 20,
@@ -100,25 +101,26 @@ class _FilterPageState extends State<FilterPage> {
                     ),
                     const SizedBox(height: 15),
                     StreamBuilder<List<String>>(
-                        stream: _categoriesBloc.categoriesStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            final list = snapshot.data;
-                            return Wrap(
-                              spacing: 12,
-                              children:
-                                  List.generate(kFavorites!.length, (index) {
-                                final category = kFavorites![index];
-                                return _CategoryChip(
-                                  category: category,
-                                  isSelected: list!.contains(category),
-                                );
-                              }),
-                            );
-                          } else {
-                            return const SizedBox();
-                          }
-                        }),
+                      stream: _categoriesBloc.categoriesStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final list = snapshot.data;
+                          return Wrap(
+                            spacing: 12,
+                            children:
+                                List.generate(kFavorites!.length, (index) {
+                              final category = kFavorites![index];
+                              return _CategoryChip(
+                                category: category,
+                                isSelected: list!.contains(category),
+                              );
+                            }),
+                          );
+                        } else {
+                          return const SizedBox();
+                        }
+                      },
+                    ),
                     const SizedBox(height: 20),
                     //---------------------------------------
                     // ALL CATEGORIES CHIPS
@@ -129,25 +131,26 @@ class _FilterPageState extends State<FilterPage> {
                     ),
                     const SizedBox(height: 15),
                     StreamBuilder<List<String>>(
-                        stream: _categoriesBloc.categoriesStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            final list = snapshot.data;
-                            return Wrap(
-                              spacing: 12,
-                              children: List.generate(kAllCategories.length,
-                                  (index) {
-                                final category = kAllCategories[index];
-                                return _CategoryChip(
-                                  category: category,
-                                  isSelected: list!.contains(category),
-                                );
-                              }),
-                            );
-                          } else {
-                            return const SizedBox();
-                          }
-                        }),
+                      stream: _categoriesBloc.categoriesStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final list = snapshot.data;
+                          return Wrap(
+                            spacing: 12,
+                            children:
+                                List.generate(kAllCategories.length, (index) {
+                              final category = kAllCategories[index];
+                              return _CategoryChip(
+                                category: category,
+                                isSelected: list!.contains(category),
+                              );
+                            }),
+                          );
+                        } else {
+                          return const SizedBox();
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -209,37 +212,40 @@ class _CategoryChip extends StatelessWidget {
     return Hero(
       tag: 'chip-$category',
       child: ValueListenableBuilder(
-          valueListenable: isSelectedNotifier,
-          builder: (context, dynamic value, _) {
-            return Material(
-              color: Colors.transparent,
-              child: TextButton(
-                onPressed: () {
-                  isSelectedNotifier.value = !isSelectedNotifier.value!;
-                  if (isSelectedNotifier.value!) {
-                    bloc.eventsSink.add(AddCategoryEvent(category));
-                  } else {
-                    bloc.eventsSink.add(RemoveCategoryEvent(category));
-                  }
-                },
-                style: TextButton.styleFrom(
-                    backgroundColor: value ? Colors.white : Colors.white12,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(1)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 20,
-                    )),
-                child: Text(
-                  category,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: value ? Colors.blue[700] : Colors.white,
-                  ),
+        valueListenable: isSelectedNotifier,
+        builder: (context, dynamic value, _) {
+          return Material(
+            color: Colors.transparent,
+            child: TextButton(
+              onPressed: () {
+                isSelectedNotifier.value = !isSelectedNotifier.value!;
+                if (isSelectedNotifier.value!) {
+                  bloc.eventsSink.add(AddCategoryEvent(category));
+                } else {
+                  bloc.eventsSink.add(RemoveCategoryEvent(category));
+                }
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: value ? Colors.white : Colors.white12,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(1),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 20,
                 ),
               ),
-            );
-          }),
+              child: Text(
+                category,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: value ? Colors.blue[700] : Colors.white,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

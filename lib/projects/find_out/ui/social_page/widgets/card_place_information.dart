@@ -106,7 +106,7 @@ class _InlineTextSpan extends StatelessWidget {
               fontFamily: 'Poppins',
               fontSize: MediaQuery.of(context).size.height * .014,
               color: Colors.black,
-              fontWeight: FontWeight.w500),
+              fontWeight: FontWeight.w500,),
           children: [
             TextSpan(
               text: " $value",

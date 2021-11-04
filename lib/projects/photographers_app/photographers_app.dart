@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
-import 'package:flutter_projects/projects/photographers_app/ui/photo_home_page.dart';
-import 'package:flutter_projects/projects/photographers_app/ui/photo_profile_page.dart';
+import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/ui/home/photo_home_page.dart';
+import 'package:flutter_projects/projects/photographers_app/ui/profile/photo_profile_page.dart';
 import 'package:flutter_projects/projects/photographers_app/ui/widgets/curved_navigation_bar.dart';
-import 'package:flutter_projects/projects/photographers_app/utils/photo_app_colors.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 

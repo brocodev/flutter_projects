@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/photographers_app/utils/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
 
 class CurvedNavigationBar extends StatelessWidget {
   const CurvedNavigationBar({
@@ -9,7 +9,12 @@ class CurvedNavigationBar extends StatelessWidget {
     this.unselectedColor = PhotoAppColors.kGrey,
     this.selectedColor = PhotoAppColors.kDarkBlue,
     this.currentIndex = 0,
-  }) : super(key: key);
+  })  : assert(
+          items.length == 4,
+          'The correct functioning of this widget '
+          'depends on its items being exactly 4',
+        ),
+        super(key: key);
 
   final List<CurvedNavigationBarItem> items;
   final ValueChanged<int>? onTap;
@@ -17,10 +22,8 @@ class CurvedNavigationBar extends StatelessWidget {
   final Color selectedColor;
   final int currentIndex;
 
-
   @override
   Widget build(BuildContext context) {
-    assert(items.length == 4);
     return ClipPath(
       clipper: _CurvedClipper(),
       child: Container(
@@ -39,15 +42,13 @@ class CurvedNavigationBar extends StatelessWidget {
               padding: EdgeInsets.only(
                   bottom: (index == 0 || index == 3) ? 20.0 : 0),
               child: IconButton(
-                onPressed: () {
-                  if (onTap != null) {
-                    onTap!(index);
-                  }
-                },
+                onPressed: () => onTap?.call(index),
                 color: index == currentIndex ? selectedColor : unselectedColor,
-                icon: Icon(index == currentIndex
-                    ? item.selectedIconData ?? item.iconData
-                    : item.iconData),
+                icon: Icon(
+                  index == currentIndex
+                      ? item.selectedIconData ?? item.iconData
+                      : item.iconData,
+                ),
               ),
             );
           })

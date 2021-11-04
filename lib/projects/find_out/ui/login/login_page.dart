@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_border_clipper.dart';
 import 'package:flutter_projects/projects/find_out/ui/home/home_page.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
+import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_border_clipper.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/text_input_find_out.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
@@ -74,7 +74,9 @@ class LoginPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 55),
                           child: ClipPath(
-                            clipper: InvertedTopBorderClipper(circularRadius: 40),
+                            clipper: InvertedTopBorderClipper(
+                              circularRadius: 40,
+                            ),
                             child: Container(
                               height: 340,
                               width: double.infinity,
@@ -167,7 +169,10 @@ class _DragDownIndication extends StatelessWidget {
         Text(
           'Desliza para ir hacia atras',
           style: TextStyle(
-              height: 2, fontSize: 14, color: Colors.white.withOpacity(.9)),
+            height: 2,
+            fontSize: 14,
+            color: Colors.white.withOpacity(.9),
+          ),
         ),
         Icon(
           Icons.keyboard_arrow_down,

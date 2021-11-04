@@ -1,5 +1,7 @@
 import 'dart:math' show Random;
+
 import 'package:flutter_projects/projects/bookstore_app/models/user_book.dart';
+
 export 'package:flutter_projects/projects/bookstore_app/models/user_book.dart';
 
 class Book {
@@ -305,16 +307,17 @@ class Book {
     ),
     Book(
       title:
-          'The Ultimate Hitchhiker\'s Guide to the Galaxy: Five Novels in '
-              'One Outrageous',
+          'The Ultimate Hitchhiker\'s Guide to the Galaxy: Five Novels in One '
+          'Outrageous',
       author: 'Douglas Adams',
       category: 'Science',
       description:
           'Seconds before the Earth is demolished for a galactic freeway, Ar'
-              'thur Dent is saved by Ford Prefect, a researcher for the revis'
-              'ed Guide. Together they stick out their thumbs to the stars a'
-              'nd begin a wild journey through time and space',
-      srcImage: 'assets/img/books/the ultimate hitchhikers guide to the galaxy.jpg',
+          'thur Dent is saved by Ford Prefect, a researcher for the revis'
+          'ed Guide. Together they stick out their thumbs to the stars a'
+          'nd begin a wild journey through time and space',
+      srcImage:
+          'assets/img/books/the ultimate hitchhikers guide to the galaxy.jpg',
       likes: 3002,
       rate: 4.7,
       views: 3891,
@@ -326,15 +329,15 @@ class Book {
       author: 'Judea Pearl',
       category: 'Science',
       description:
-          'Review One of Science Friday\'s "Best Science Books of 2018""Ill'
-              'uminating... The Professor Pearl who emerges from the ui '
-              'of The Book of Why brims with the joy of discovery and pride'
-              ' in his students and colleagues... [it] not only delivers a v'
-              'aluable lesson on the history of ideas but provides the conce'
-              'ptual tools needed to judge just what big data can and cannot '
-              'deliver."―New York Times "Cause and effect is one of the most he'
-              'avily debated, difficult-to-prove things in science and medicine'
-              '. This book',
+      'Review One of Science Friday\'s "Best Science Books of 2018""Ill'
+          'uminating... The Professor Pearl who emerges from the ui '
+          'of The Book of Why brims with the joy of discovery and pride'
+          ' in his students and colleagues... [it] not only delivers a v'
+          'aluable lesson on the history of ideas but provides the conce'
+          'ptual tools needed to judge just what big models can and cannot '
+          'deliver."―New York Times "Cause and effect is one of the most he'
+          'avily debated, difficult-to-prove things in science and medicine'
+          '. This book',
       srcImage: 'assets/img/books/the book of why.jpg',
       likes: 4200,
       rate: 4.1,
@@ -440,7 +443,7 @@ class Book {
   }
 
   //--------------------------------------------------------
-  // Aux method for generate the reviews data of the book.
+  // Aux method for generate the reviews models of the book.
   //--------------------------------------------------------
   static List<Review> _generateReviews() {
     final users = UserBook.users1;

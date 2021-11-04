@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
-import 'package:flutter_projects/projects/photographers_app/utils/photo_app_colors.dart';
+import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
 
 class PhotoUserCard extends StatelessWidget {
   const PhotoUserCard({
