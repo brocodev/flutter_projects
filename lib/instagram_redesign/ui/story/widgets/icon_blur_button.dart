@@ -26,7 +26,7 @@ class IconBlurButton extends StatelessWidget {
         borderRadius: BorderRadius.circular((size ?? 35) * .4),
       ),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: IconButton(
           padding: const EdgeInsets.all(0),
           color: Colors.white,

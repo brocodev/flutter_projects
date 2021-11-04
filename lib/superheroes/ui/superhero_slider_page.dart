@@ -1,7 +1,8 @@
 import 'dart:math';
-import 'package:flutter_projects/superheroes/ui/superhero_detail_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/superheroes/models/superhero.dart';
+import 'package:flutter_projects/superheroes/ui/superhero_detail_page.dart';
 import 'package:flutter_projects/superheroes/ui/widgets/superhero_card.dart';
 
 class SuperheroSliderPage extends StatefulWidget {
@@ -50,14 +51,14 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
     _percent = (_pageController!.page! - _index).abs();
     _auxPercent = 1.0 - _percent!;
 
-    _isScrolling = (_pageController!.page! % 1.0 != 0);
+    _isScrolling = _pageController!.page! % 1.0 != 0;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     const heroes = Superhero.marvelHeroes;
-    const  angleRotate = (-pi * .5);
+    const  angleRotate = -pi * .5;
     return Scaffold(
       //---------------
       // App Bar

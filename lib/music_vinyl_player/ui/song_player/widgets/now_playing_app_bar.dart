@@ -26,7 +26,7 @@ class NowPlayingAppBar extends StatelessWidget {
                   color: Colors.grey,
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
-                  letterSpacing: 3.0),
+                  letterSpacing: 3),
             ),
             const Spacer(),
           ],

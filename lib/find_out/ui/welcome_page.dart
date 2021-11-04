@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/find_out/ui/widgets/animated_background.dart';
 import 'package:flutter_projects/find_out/ui/login_page.dart';
 import 'package:flutter_projects/find_out/ui/register_page.dart';
+import 'package:flutter_projects/find_out/ui/widgets/animated_background.dart';
 import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/snake_button.dart';
 import 'package:google_fonts/google_fonts.dart';

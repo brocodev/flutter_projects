@@ -56,7 +56,7 @@ class Movie {
         title: 'Superman Red Son',
         duration: const Duration(hours: 1, minutes: 40),
         tags: ['Action', 'Animation', 'Heroes'],
-        rate: 8.0,
+        rate: 8,
         likes: 135,
         dislikes: 17,
         actors: Actor.listActors,

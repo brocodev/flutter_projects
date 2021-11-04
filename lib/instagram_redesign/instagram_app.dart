@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/instagram_redesign/bloc/instagram_bloc.dart';
+import 'package:flutter_projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_projects/instagram_redesign/ui/activity/activities_page.dart';
 import 'package:flutter_projects/instagram_redesign/ui/home/instagram_home.dart';
 import 'package:flutter_projects/instagram_redesign/ui/home/widgets/settings_blur_card.dart';
 import 'package:flutter_projects/instagram_redesign/ui/profile/instagram_profile.dart';
 import 'package:flutter_projects/instagram_redesign/ui/widgets/rounded_navigation_bar.dart';
-import 'package:flutter_projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramApp extends StatelessWidget {
@@ -96,12 +96,10 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
                         //--------------------------
                         // HIDE SETTINGS ZONE
                         //--------------------------
-                        instagramBloc.settingState == SettingsSate.visible
-                            ? Positioned.fill(
+                        if (instagramBloc.settingState == SettingsSate.visible) Positioned.fill(
                                 child: GestureDetector(onPanDown: (details) {
                                 instagramBloc.hideSettings();
-                              }))
-                            : const SizedBox(),
+                              })) else const SizedBox(),
                         settingsCard!,
                       ],
                     ));

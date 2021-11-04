@@ -24,7 +24,7 @@ class RoundedIconButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: Container(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -42,7 +42,7 @@ class RoundedIconButton extends StatelessWidget {
         label,
         softWrap: false,
         style: GoogleFonts.poppins(
-          fontSize: 18.0,
+          fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
       ),

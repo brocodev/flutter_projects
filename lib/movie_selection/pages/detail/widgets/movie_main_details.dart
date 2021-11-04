@@ -19,7 +19,6 @@ class MovieMainDetails extends StatelessWidget {
       height: size.height * .22,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(10),

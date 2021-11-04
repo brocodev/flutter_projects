@@ -28,7 +28,7 @@ class LikeButton extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 10.0),
+          filter: ImageFilter.blur(sigmaX: 4, sigmaY: 10),
           child: AnimatedContainer(
             duration: kThemeAnimationDuration,
             height: 45,

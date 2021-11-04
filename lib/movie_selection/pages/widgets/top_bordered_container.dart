@@ -28,7 +28,7 @@ class TopBorderedContainer extends StatelessWidget {
       width: double.infinity,
       height: size.height * .11,
       alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
         boxShadow: [
@@ -58,7 +58,6 @@ class TopBorderedContainer extends StatelessWidget {
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const TagContainer(
                 tag: '  IDMB  ',

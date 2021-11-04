@@ -55,8 +55,8 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
           physics: const BouncingScrollPhysics(),
           itemCount: user.listPhotosUrl!.length,
           padding: const EdgeInsets.only(bottom: 76),
-          mainAxisSpacing: 5.0,
-          crossAxisSpacing: 5.0,
+          mainAxisSpacing: 5,
+          crossAxisSpacing: 5,
           itemBuilder: (BuildContext context, int index) {
             return CachedNetworkImage(
               imageUrl: user.listPhotosUrl![index],

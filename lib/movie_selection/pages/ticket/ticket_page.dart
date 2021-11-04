@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
 import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:flutter_projects/movie_selection/models/movie.dart';
-import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
 import 'package:flutter_projects/movie_selection/pages/ticket/widgets/ticket_page_widgets.dart';
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
+import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketPage extends StatelessWidget {
@@ -113,7 +113,7 @@ class TicketPage extends StatelessWidget {
                                   return const Expanded(
                                       child: Padding(
                                           padding: EdgeInsets.symmetric(
-                                              horizontal: 2.0),
+                                              horizontal: 2),
                                           child: Divider(
                                               color: kPrimaryColorDark,
                                               thickness: 2)));

@@ -39,7 +39,7 @@ class AlbumListViewCard extends StatelessWidget {
               // Vinyl Disk
               //----------------------------------------
               TweenAnimationBuilder(
-                tween: Tween(begin: 0.0, end: hideDisk ? 0.0 : 2.0),
+                tween: Tween(begin: 0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
                 builder: (context, dynamic value, child) {
@@ -176,7 +176,7 @@ class AlbumGridViewCard extends StatelessWidget {
               // Vinyl Disk
               //----------------------------------------
               TweenAnimationBuilder(
-                tween: Tween(begin: 0.0, end: hideDisk ? 0.0 : 2.0),
+                tween: Tween(begin: 0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
                 builder: (context, dynamic value, child) {

@@ -21,7 +21,7 @@ class DescriptionCard extends StatelessWidget {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30.0),
+            bottom: Radius.circular(30),
           ),
           boxShadow: [
             BoxShadow(
@@ -51,7 +51,7 @@ class DescriptionCard extends StatelessWidget {
                 size: 14,
                 stars: album.rate,
               ),
-              const SizedBox(width: 5.0),
+              const SizedBox(width: 5),
               Text(
                 "${album.rate}",
                 style: GoogleFonts.spectral(
@@ -164,7 +164,7 @@ class DescriptionCard extends StatelessWidget {
   WidgetSpan _buildDotSpan() {
     return WidgetSpan(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: _Dot(
           sizeDot: 4,
           color: Colors.grey[400],

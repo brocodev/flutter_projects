@@ -12,7 +12,7 @@ class CoverPageBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white, width: 3.0),
+        border: Border.all(color: Colors.white, width: 3),
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,

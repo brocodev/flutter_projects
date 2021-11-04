@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_projects/orix_gaming/models/video_game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/orix_gaming/models/video_game.dart';
 import 'package:flutter_projects/orix_gaming/ui/widgets/game_play_card.dart';
 import 'package:flutter_projects/orix_gaming/ui/widgets/rounded_icon_button.dart';
 import 'package:flutter_projects/orix_gaming/ui/widgets/user_avatar.dart';
@@ -53,7 +53,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+                  const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -71,7 +71,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
           // ORIX APP TITLE
           //-----------------------------
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               children: [
                 Expanded(
@@ -81,14 +81,14 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
                       Text(
                         'Orix',
                         style: GoogleFonts.poppins(
-                          fontSize: 42.0,
+                          fontSize: 42,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
                         'Gaming',
                         style: GoogleFonts.poppins(
-                            fontSize: 42.0,
+                            fontSize: 42,
                             height: 0.8,
                             fontWeight: FontWeight.w300),
                       ),
@@ -121,7 +121,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
               itemBuilder: (context, index) {
                 final videoGame = VideoGame.videoGames[index];
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: GamePlayCard(
                     videoGame: videoGame,
                     haveFocus: index == _gameIndex,

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_projects/medical_appointment/models/md_patient.dart';
 
 class SearchAppBar extends StatelessWidget {
@@ -39,7 +39,7 @@ class SearchAppBar extends StatelessWidget {
           Container(
             width: height,
             height: height,
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 2),
                 shape: BoxShape.circle,

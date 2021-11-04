@@ -162,7 +162,7 @@ class _InstagramStoriesState extends State<InstagramStories>
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
@@ -228,7 +228,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                           borderRadius: BorderRadius.circular(40),
                           child: BackdropFilter(
                             filter:
-                                ImageFilter.blur(sigmaY: 10.0, sigmaX: 10.0),
+                                ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                             child: const SendMessageTextField(),
                           ),
                         ),

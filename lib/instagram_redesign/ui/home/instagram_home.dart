@@ -24,7 +24,7 @@ class _InstagramHomeState extends State<InstagramHome>
   void initState() {
     _controller =
         AnimationController(duration: kThemeAnimationDuration, vsync: this);
-    _heightFactor = Tween(begin: 0.88, end: 1.0).animate(
+    _heightFactor = Tween<double>(begin: 0.88, end: 1).animate(
         CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
     super.initState();
   }
@@ -133,7 +133,7 @@ class _InstagramHomeState extends State<InstagramHome>
                       itemBuilder: (context, index) {
                         final itemSize =
                             MediaQuery.of(context).size.height * .09;
-                        if ((index == 0)) {
+                        if (index == 0) {
                           return InstagramAddItem(
                             itemSize: itemSize,
                             label: 'My Story',
@@ -230,6 +230,4 @@ class _InstagramHomeState extends State<InstagramHome>
           }),
     );
   }
-
-
 }

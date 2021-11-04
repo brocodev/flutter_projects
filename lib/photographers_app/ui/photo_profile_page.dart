@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/photographers_app/ui/clippers/tile_skew_clipper.dart';
 import 'package:flutter_projects/photographers_app/utils/photo_app_colors.dart';

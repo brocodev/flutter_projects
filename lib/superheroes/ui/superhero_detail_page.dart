@@ -4,7 +4,6 @@ import 'package:flutter_projects/superheroes/models/superhero.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroDetailPage extends StatefulWidget {
-
   const SuperheroDetailPage({
     Key? key,
     required this.superhero,
@@ -18,7 +17,7 @@ class SuperheroDetailPage extends StatefulWidget {
 
 class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     with SingleTickerProviderStateMixin {
-  AnimationController? _controller;
+  late AnimationController? _controller;
   late Animation<double> _colorGradientValue;
   late Animation<double> _whiteGradientValue;
 
@@ -32,15 +31,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
       duration: const Duration(seconds: 1),
     );
 
-    _colorGradientValue = Tween(begin: 1.0, end: 0.0).animate(
+    _colorGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
-          curve: const Interval(0.0, 1.0, curve: Curves.fastOutSlowIn),
+          curve: const Interval(0, 1, curve: Curves.fastOutSlowIn),
           parent: _controller!),
     );
 
-    _whiteGradientValue = Tween(begin: 1.0, end: 0.0).animate(
+    _whiteGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
-          curve: const Interval(0.1, 1.0, curve: Curves.fastOutSlowIn),
+          curve: const Interval(0.1, 1, curve: Curves.fastOutSlowIn),
           parent: _controller!),
     );
 
@@ -205,7 +204,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.fastOutSlowIn,
                             tween: Tween(
-                              begin: 0.0,
+                              begin: 0,
                               end: _enableInfoItems ? 1.0 : 0.0,
                             ),
                             builder: (context, dynamic value, child) {
@@ -296,7 +295,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                         duration: Duration(milliseconds: 1000 + (300 * index)),
                         curve: Curves.elasticOut,
                         tween: Tween(
-                          begin: 0.0,
+                          begin: 0,
                           end: _enableInfoItems ? 0.0 : 1.0,
                         ),
                         builder: (context, value, child) {
@@ -307,7 +306,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                                 child: child),
                           );
                         },
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.only(right: 15),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),

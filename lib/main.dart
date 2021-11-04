@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_projects/bookstore_app/book_app.dart';
 import 'package:flutter_projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
+import 'package:flutter_projects/medical_appointment/medical_app.dart';
 import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
 import 'package:flutter_projects/music_album_collection/music_album_collection.dart';
 import 'package:flutter_projects/music_vinyl_player/music_vinyl_player.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_projects/streaming_app/streaming_app.dart';
 import 'package:flutter_projects/superheroes/superheroes_app.dart';
 import 'package:flutter_projects/template_gallery/template_gallery_app.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_projects/medical_appointment/medical_app.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

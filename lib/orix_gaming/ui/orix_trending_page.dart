@@ -21,7 +21,7 @@ class OrixTrendingPage extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+                  const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -40,11 +40,11 @@ class OrixTrendingPage extends StatelessWidget {
           //-----------------------------
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
             child: Text(
               'Trending 🔥',
               style: GoogleFonts.poppins(
-                fontSize: 42.0,
+                fontSize: 42,
               ),
             ),
           ),
@@ -56,7 +56,7 @@ class OrixTrendingPage extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: VideoGame.videoGames.length,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               itemBuilder: (context, index) {
                 final game = VideoGame.videoGames[index];
                 final materialColor =
@@ -91,11 +91,11 @@ class _MainTrendingGame extends StatelessWidget {
     final titleWithoutFirstWord =
         game.title!.replaceRange(0, firstTitleWord.length, '').trim();
     return Container(
-      margin: const EdgeInsets.all(10.0),
-      padding: const EdgeInsets.all(15.0),
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.blueGrey[900],
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Column(
         children: [
@@ -104,7 +104,7 @@ class _MainTrendingGame extends StatelessWidget {
           //-----------------------------------
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(20),
               child: Image.asset(
                 game.srcImage!,
                 fit: BoxFit.cover,
@@ -119,10 +119,10 @@ class _MainTrendingGame extends StatelessWidget {
               // GAME AVATAR
               //-------------------------------
               CircleAvatar(
-                radius: 25.0,
+                radius: 25,
                 backgroundImage: AssetImage(game.srcImage!),
               ),
-              const SizedBox(width: 6.0),
+              const SizedBox(width: 6),
               //------------------------------
               // GAME TITLE & GENRE
               //------------------------------
@@ -139,7 +139,7 @@ class _MainTrendingGame extends StatelessWidget {
                     ]),
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18.0,
+                        fontSize: 18,
                         color: Colors.white),
                   ),
                   // GENRE
@@ -148,7 +148,7 @@ class _MainTrendingGame extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         color: Colors.yellow.withOpacity(.8),
-                        borderRadius: BorderRadius.circular(6.0)),
+                        borderRadius: BorderRadius.circular(6)),
                     child: Text(
                       game.genre!,
                       style: GoogleFonts.poppins(
@@ -164,9 +164,9 @@ class _MainTrendingGame extends StatelessWidget {
               // PLAY BUTTON
               //----------------------------
               Container(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(12),
                   gradient: LinearGradient(
                     colors: [
                       Theme.of(context).primaryColorLight,
@@ -176,7 +176,7 @@ class _MainTrendingGame extends StatelessWidget {
                 ),
                 child: const Icon(
                   Icons.play_arrow_rounded,
-                  size: 30.0,
+                  size: 30,
                   color: Colors.white,
                 ),
               )
@@ -203,10 +203,10 @@ class _OrixTrendingGameCard extends StatelessWidget {
     return Container(
       width: 180,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(color: Colors.black.withOpacity(.06), blurRadius: 15)
           ]),
@@ -230,7 +230,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     color: materialColor.shade100,
                   ),
                   child: Text(
@@ -246,7 +246,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
                     child: Text(
                       game.title!,
                       style: GoogleFonts.poppins(
-                        fontSize: 20.0,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.center,

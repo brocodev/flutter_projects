@@ -16,7 +16,7 @@ class OrixNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: kToolbarHeight,
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(items.length, (index) {
@@ -55,7 +55,7 @@ class _NavItemWidget extends StatelessWidget {
           },
           child: haveFocus
               ? Container(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(colors: [
@@ -72,7 +72,7 @@ class _NavItemWidget extends StatelessWidget {
                   color: Colors.grey,
                 ),
         ),
-        const SizedBox(width: 4.0),
+        const SizedBox(width: 4),
         AnimatedDefaultTextStyle(
           duration: kThemeChangeDuration,
           style: GoogleFonts.poppins(

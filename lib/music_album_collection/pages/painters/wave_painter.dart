@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class WavePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    var paint =  Paint()
+    final paint =  Paint()
       ..color = Colors.grey[300]!
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
 
-    var paint2 =  Paint()
+    final paint2 =  Paint()
       ..color = const Color(0xffc21451)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
 
-    var path = Path();
+    final path = Path();
     var path2 = Path();
     path..moveTo(0, size.height * 0.4960000)
       ..quadraticBezierTo(size.width * 0.0393750, size.height * 0.2635000,

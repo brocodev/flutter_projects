@@ -198,7 +198,6 @@ class _AmplePostCardState extends State<AmplePostCard>
               //--- ANIMATED HEART
               //---------------------------------
               Align(
-                alignment: Alignment.center,
                 child: AnimatedBuilder(
                     animation: _controller!,
                     builder: (context, _) {

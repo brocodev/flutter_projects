@@ -21,7 +21,7 @@ class TranslateAnimation extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       duration: duration,
       curve: curve,
-      tween: Tween(begin: 1.0, end: 0.0),
+      tween: Tween(begin: 1, end: 0),
       builder: (context, value, child) {
         return Transform.translate(
             offset: offsetDirection == Axis.horizontal

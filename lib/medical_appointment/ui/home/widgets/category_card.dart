@@ -1,5 +1,5 @@
-import 'package:flutter_projects/medical_appointment/models/md_doctor_category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/medical_appointment/models/md_doctor_category.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -48,7 +48,7 @@ class CategoryCard extends StatelessWidget {
           //-----CATEGORY INFORMATION
           //----------------------------------
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[

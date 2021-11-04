@@ -5,10 +5,10 @@ import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:flutter_projects/movie_selection/models/movie.dart';
 import 'package:flutter_projects/movie_selection/pages/cinema_selection/widgets/hours_movie_list.dart';
 import 'package:flutter_projects/movie_selection/pages/cinema_selection/widgets/select_cinema.dart';
-import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
-import 'package:flutter_projects/movie_selection/pages/widgets/top_bordered_container.dart';
 import 'package:flutter_projects/movie_selection/pages/seats_selection/seats_selection_page.dart';
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
+import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
+import 'package:flutter_projects/movie_selection/pages/widgets/top_bordered_container.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CinemaSelectionPage extends StatelessWidget {
@@ -99,7 +99,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.barlowCondensed(
                         fontSize: size.height * .04,
-                        letterSpacing: 1.0,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -112,7 +112,6 @@ class _BodyCinemaSelection extends StatelessWidget {
                     movie: movie,
                     child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Text("Today",
                               style: GoogleFonts.barlowCondensed(
@@ -130,7 +129,6 @@ class _BodyCinemaSelection extends StatelessWidget {
                     child: SelectCinema()),
                 const SizedBox(height: 30),
                 TranslateAnimation(
-                  duration: const Duration(milliseconds: 800),
                   child: SizedBox(
                       height: size.height * .22,
                       child: HoursMovieOptions(

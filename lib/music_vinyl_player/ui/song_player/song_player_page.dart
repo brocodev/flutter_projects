@@ -26,8 +26,8 @@ class _SongPlayerPageState extends State<SongPlayerPage>
   late AnimationController _controllerSkew;
   late Animation<double> _rotateDisk;
   late Animation<double> _skewDisk;
-  double playedSeconds = 0.0;
-  double vinylDragValue = 0.0;
+  double playedSeconds = 0;
+  double vinylDragValue = 0;
   bool isPlaying = false;
   Timer? _oneSecondTimer;
 
@@ -37,9 +37,9 @@ class _SongPlayerPageState extends State<SongPlayerPage>
         AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _controllerSkew =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    _skewDisk = Tween(begin: 0.0, end: 1.0).animate(
+    _skewDisk = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(curve: Curves.easeInOut, parent: _controllerSkew));
-    _rotateDisk = Tween(begin: 0.0, end: 1.0).animate(_controller);
+    _rotateDisk = Tween<double>(begin: 0, end: 1).animate(_controller);
     _controllerSkew.forward();
     super.initState();
   }
@@ -109,7 +109,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
       _controller.repeat();
     }
     _controllerSkew.animateTo(
-      1.0,
+      1,
       curve: Curves.bounceOut,
       duration: const Duration(milliseconds: 600),
     );
@@ -179,11 +179,11 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                 // Disk Rotate animation
                 //-------------------------
                 child: Transform.rotate(
-                  angle: (pi) * vinylDragValue,
+                  angle: pi * vinylDragValue,
                   child: TweenAnimationBuilder(
                     curve: Curves.fastOutSlowIn,
                     duration: const Duration(milliseconds: 800),
-                    tween: Tween(begin: 0.0, end: 1.0),
+                    tween: Tween(begin: 0, end: 1),
                     builder: (context, dynamic value, child) {
                       return Transform.scale(
                         scale: 1.5 - (.5 * value),

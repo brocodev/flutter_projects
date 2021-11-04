@@ -34,7 +34,6 @@ class Comment {
       commentResponses: 5,
       photoUserUrl:
           'https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
-      photoCommentUrl: null,
       user: 'Ramiro Talavera',
     ),
     Comment(
@@ -53,7 +52,6 @@ class Comment {
       commentResponses: 5,
       photoUserUrl:
           'https://images.unsplash.com/photo-1569124589354-615739ae007b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-      photoCommentUrl: null,
       user: 'Beca Lway',
     ),
     Comment(
@@ -72,7 +70,6 @@ class Comment {
       commentResponses: 5,
       photoUserUrl:
           'https://images.unsplash.com/photo-1573878221976-aab98adadabc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=721&q=80',
-      photoCommentUrl: null,
       user: 'Rayman Smith',
     ),
   ];

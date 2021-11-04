@@ -18,7 +18,7 @@ class TextInputFindOut extends StatelessWidget {
     final outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),
       borderSide: BorderSide(
-          color: Colors.grey[100]!, width: 2, style: BorderStyle.solid),
+          color: Colors.grey[100]!, width: 2),
     );
     final hidePasswordNotifier = ValueNotifier(true);
     return ValueListenableBuilder(

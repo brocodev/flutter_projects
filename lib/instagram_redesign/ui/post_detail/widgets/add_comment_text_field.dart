@@ -27,7 +27,7 @@ class AddCommentTextField extends StatelessWidget {
           ),
           hintText: 'Add a comment',
           suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: const EdgeInsets.only(right: 8),
             child: IconButton(
               onPressed: () {},
               color: Theme.of(context).colorScheme.onBackground,

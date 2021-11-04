@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:flutter_projects/movie_selection/models/billboard.dart';
 import 'package:flutter_projects/movie_selection/pages/home/widgets/billboard_list.dart';
-import 'widgets/header_option.dart';
+import 'package:flutter_projects/movie_selection/pages/home/widgets/header_option.dart';
 
 class MovieHome extends StatelessWidget {
   MovieHome({Key? key}) : super(key: key);
 
-  final resizeNotifier = ValueNotifier(0.0);
+  final resizeNotifier = ValueNotifier<double>(0);
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -20,7 +20,7 @@ class MovieHome extends StatelessWidget {
 
     resizeNotifier.value = heightAppBar;
     _scrollController.addListener(() {
-      if (_scrollController.offset < (resizeValue)) {
+      if (_scrollController.offset < resizeValue) {
         resizeNotifier.value = heightAppBar - _scrollController.offset;
       }
     });
@@ -40,7 +40,7 @@ class MovieHome extends StatelessWidget {
               valueListenable: resizeNotifier,
               builder: (context, value, child) {
                 return SizedBox(
-                  height: (value),
+                  height: value,
                   width: double.infinity,
                   child: child,
                 );

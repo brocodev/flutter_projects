@@ -3,8 +3,8 @@ import 'package:flutter_projects/medical_appointment/models/md_appointment.dart'
 import 'package:flutter_projects/medical_appointment/models/md_doctor.dart';
 import 'package:flutter_projects/medical_appointment/models/md_doctor_category.dart';
 import 'package:flutter_projects/medical_appointment/models/md_patient.dart';
-import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 import 'package:flutter_projects/medical_appointment/ui/home/widgets/home_widgets.dart';
+import 'package:flutter_projects/medical_appointment/utils/md_app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalHomePage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
           //----BOTTOM BODY ITEMS
           //-----------------------------------
           _BodyHome(
-            contentPadding: EdgeInsets.only(top: (heightCurtain) - 20),
+            contentPadding: EdgeInsets.only(top: heightCurtain - 20),
           ),
           //-----------------------------------
           //----TOP BODY WIDGETS
@@ -45,7 +45,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
             right: 0,
             height: expandAppointment ? heightCurtain + 280 : heightCurtain as double?,
             child: CustomPaint(
-              painter: TonguePainter(curveRadius: 30.0),
+              painter: TonguePainter(curveRadius: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

@@ -24,7 +24,7 @@ class BookRateStars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _showHalfStar = (rate - rate.floor() >= .4);
+    final _showHalfStar = rate - rate.floor() >= .4;
     final listStars = List<Widget>.generate(
         rate.floor(),
         (index) => Hero(

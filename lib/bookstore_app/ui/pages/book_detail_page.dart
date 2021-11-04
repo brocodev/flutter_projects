@@ -39,7 +39,7 @@ class BookDetailPage extends StatelessWidget {
                     'Details',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
+                        fontSize: 20,
                         color: Colors.grey[800]),
                   ),
                   const SizedBox(height: 10),
@@ -56,7 +56,7 @@ class BookDetailPage extends StatelessWidget {
                         'Check the catalog',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
+                            fontSize: 20,
                             color: Colors.grey[800]),
                       ),
                       Icon(
@@ -73,7 +73,7 @@ class BookDetailPage extends StatelessWidget {
                         'Comments',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
+                            fontSize: 20,
                             color: Colors.grey[800]),
                       ),
                       const Spacer(),
@@ -107,7 +107,7 @@ class BookDetailPage extends StatelessWidget {
                 'Similar books',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    fontSize: 18,
                     color: Colors.grey[800]),
               ),
             ),

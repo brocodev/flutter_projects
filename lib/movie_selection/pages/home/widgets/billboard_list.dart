@@ -57,7 +57,7 @@ class BillboardList extends StatelessWidget {
                       InkWell(
                         onTap: () => _openMovieDetail(context, movie),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           child: Hero(
                             flightShuttleBuilder: (_, __, ___, ____, _____) {
                               return Image.asset(
@@ -86,7 +86,7 @@ class BillboardList extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 5.0,
+                        height: 5,
                         width: double.infinity,
                       ),
                       Row(

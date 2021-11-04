@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-export 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
-export 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart';
+
 export 'package:flutter_projects/instagram_redesign/models/ig_activity.dart';
 export 'package:flutter_projects/instagram_redesign/models/ig_collection.dart';
 export 'package:flutter_projects/instagram_redesign/models/ig_external_platform.dart';
+export 'package:flutter_projects/instagram_redesign/models/ig_post.dart';
 export 'package:flutter_projects/instagram_redesign/models/ig_user.dart';
+export 'package:flutter_projects/instagram_redesign/models/ig_user_stories.dart';
 enum SettingsSate { visible, hide }
 enum ViewState { ample, clean, old }
 

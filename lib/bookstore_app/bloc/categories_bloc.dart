@@ -1,7 +1,6 @@
 import 'dart:async';
 
 class CategoriesBloc {
-
   CategoriesBloc() {
     _eventsStreamCtrl.stream.listen(mapEventToState);
   }
@@ -26,7 +25,7 @@ class CategoriesBloc {
 
   Sink<CategoriesEvent?> get eventsSink => _eventsStreamCtrl.sink;
 
-  void mapEventToState(CategoriesEvent? event) async {
+  Future<void> mapEventToState(CategoriesEvent? event) async {
     if (event is AddCategoryEvent) {
       _listCategories.add(event.category);
     }

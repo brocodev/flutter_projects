@@ -38,7 +38,7 @@ class CreditCardSlide extends StatelessWidget {
                   valueListenable: indexNotifier,
                   builder: (context, value, _) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: CircleAvatar(
                         backgroundColor:
                             value == index ? kAccentColor : Colors.white70,
@@ -65,12 +65,12 @@ class CreditCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.all(20),
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.red,
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(30),
           gradient: LinearGradient(
               colors: colors as List<Color>,
               begin: Alignment.topLeft,
@@ -79,7 +79,6 @@ class CreditCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Row(

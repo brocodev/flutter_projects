@@ -26,7 +26,7 @@ class PlayerControls extends StatelessWidget {
                 offset: Offset(0, 30),
               )
             ],
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(30),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(

@@ -140,7 +140,7 @@ class _ContactListPageState extends State<ContactListPage> {
                       Expanded(
                         child: Slider(
                           value: _itemExtent!,
-                          min: 270.0,
+                          min: 270,
                           max: MediaQuery.of(context).size.height * .8,
                           label: '$_itemExtent',
                           activeColor: Colors.deepPurple[200],

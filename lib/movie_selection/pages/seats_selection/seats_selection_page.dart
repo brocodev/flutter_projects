@@ -51,7 +51,7 @@ class SeatsSelectionPage extends StatelessWidget {
                   TranslateAnimation(
                     duration: const Duration(milliseconds: 600),
                     child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -93,7 +93,6 @@ class SeatsSelectionPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   TranslateAnimation(
-                    duration: const Duration(milliseconds: 800),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(

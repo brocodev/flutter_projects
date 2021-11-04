@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/find_out/models/place.dart';
-import 'package:flutter_projects/find_out/ui/widgets/drop_down_widget.dart';
 import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
+import 'package:flutter_projects/find_out/ui/widgets/drop_down_widget.dart';
 import 'package:flutter_projects/find_out/ui/widgets/page_view_places.dart';
 
 class HomePageFindOut extends StatelessWidget {

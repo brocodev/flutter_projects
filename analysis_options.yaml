@@ -5,6 +5,7 @@ linter:
     prefer_single_quotes: false
     unawaited_futures: false
     cascade_invocations: false
+    missing_whitespace_between_adjacent_strings: false
 
 analyzer:
   strong-mode:

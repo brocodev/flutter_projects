@@ -22,7 +22,7 @@ class SettingsBlurCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(bottom: Radius.circular(50)),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaY: 20.0, sigmaX: 20.0),
+        filter: ImageFilter.blur(sigmaY: 20, sigmaX: 20),
         child: Container(
           height: height,
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -109,7 +109,7 @@ class SettingsBlurCard extends StatelessWidget {
                 InkWell(
                   onTap: instagramBloc.hideSettings,
                   child: const Padding(
-                    padding:  EdgeInsets.all(5.0),
+                    padding:  EdgeInsets.all(5),
                     child: Icon(
                       Ionicons.ios_arrow_up,
                       color: Colors.white,

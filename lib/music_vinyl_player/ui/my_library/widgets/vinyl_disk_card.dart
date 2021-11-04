@@ -33,7 +33,7 @@ class VinylAlbumCover extends StatelessWidget {
           right: (-screenWidth * .15) * (val ? (1 - factorChange) : 0.0),
           left: 10 * (1 - factorChange),
           child: Transform.rotate(
-            angle: -factorChange * (pi),
+            angle: -factorChange * pi,
             child:
                 VinylDisk(albumImagePath: album.pathImage, heightDisk: height),
           ),

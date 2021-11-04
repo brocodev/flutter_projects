@@ -91,7 +91,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
                     end: Alignment.bottomCenter,
                     colors: [
                       widget.backItemsShadowColor.withOpacity(.8),
-                      widget.backItemsShadowColor.withOpacity(.0),
+                      widget.backItemsShadowColor.withOpacity(0),
                     ],
                   ),
                 ),
@@ -159,14 +159,12 @@ class _PerspectiveItems extends StatelessWidget {
           //---------------------------------
           // Static Last Item
           //---------------------------------
-          (currentIndex! > (generatedItems - 1))
-              ? _TransformedItem(
+          if (currentIndex! > (generatedItems - 1)) _TransformedItem(
                   heightItem: heightItem,
                   factorChange: 1.0,
                   endScale: .5,
                   child: children[currentIndex! - generatedItems],
-                )
-              : const SizedBox(),
+                ) else const SizedBox(),
           //----------------------------------
           // Perspective Items
           //----------------------------------
@@ -175,12 +173,12 @@ class _PerspectiveItems extends StatelessWidget {
                 ? _TransformedItem(
                     heightItem: heightItem,
                     factorChange: pagePercent,
-                    scale: lerpDouble(0.5, 1, (index + 1) / (generatedItems)),
+                    scale: lerpDouble(0.5, 1, (index + 1) / generatedItems),
                     translateY:
-                        (height - heightItem!) * (index + 1) / (generatedItems),
-                    endScale: lerpDouble(0.5, 1, index / (generatedItems)),
+                        (height - heightItem!) * (index + 1) / generatedItems,
+                    endScale: lerpDouble(0.5, 1, index / generatedItems),
                     endTranslateY:
-                        (height - heightItem!) * (index / (generatedItems)),
+                        (height - heightItem!) * (index / generatedItems),
                     child: children[
                         currentIndex! - (((generatedItems - 2) - index) + 1)],
                   )
@@ -188,15 +186,13 @@ class _PerspectiveItems extends StatelessWidget {
           //---------------------------------
           // Bottom Hide Item
           //---------------------------------
-          (currentIndex! < (children.length - 1))
-              ? _TransformedItem(
+          if (currentIndex! < (children.length - 1)) _TransformedItem(
                   heightItem: heightItem,
                   factorChange: pagePercent,
                   translateY: height + 20,
                   endTranslateY: (height - heightItem!),
                   child: children[currentIndex! + 1],
-                )
-              : const SizedBox()
+                ) else const SizedBox()
         ],
       );
     });
@@ -230,7 +226,7 @@ class _TransformedItem extends StatelessWidget {
       transform: Matrix4.identity()
         ..scale(lerpDouble(scale, endScale, factorChange!))
         ..translate(
-            0.0, lerpDouble(translateY, endTranslateY, factorChange!)!, 0.0),
+            0.0, lerpDouble(translateY, endTranslateY, factorChange!)!),
       child: Align(
         alignment: Alignment.topCenter,
         child: SizedBox(

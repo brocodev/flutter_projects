@@ -7,9 +7,9 @@ import 'package:flutter_projects/movie_selection/pages/cinema_selection/cinema_s
 import 'package:flutter_projects/movie_selection/pages/detail/widgets/actors_list.dart';
 import 'package:flutter_projects/movie_selection/pages/detail/widgets/movie_main_details.dart';
 import 'package:flutter_projects/movie_selection/pages/detail/widgets/synopsis.dart';
+import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
 import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
 import 'package:flutter_projects/movie_selection/pages/widgets/top_bordered_container.dart';
-import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MovieDetail extends StatelessWidget {
@@ -131,7 +131,6 @@ class _BodyDetail extends StatelessWidget {
       children: <Widget>[
         Center(
           child: ScaleAnimation(
-            curve: Curves.fastOutSlowIn,
             finalScale: 1.2,
             child: FloatingActionButton(
               onPressed: () {},
@@ -161,7 +160,6 @@ class _BodyDetail extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 20, right: size.height * .12),
           child: TranslateAnimation(
-            duration: const Duration(milliseconds: 800),
             child: Wrap(
               runSpacing: 10,
               children: List.generate(movie!.tags!.length, (i) {
@@ -184,7 +182,7 @@ class _BodyDetail extends StatelessWidget {
         TranslateAnimation(
           duration: const Duration(milliseconds: 1000),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: MovieMainDetails(movie: movie),
           ),
         ),

@@ -25,14 +25,14 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
   void initState() {
     _animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    _sizeAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    _sizeAnimation = Tween(begin: 0, end: 1).animate(CurvedAnimation(
       parent: _animationController,
-      curve: const Interval(0.0, 0.6, curve: Curves.fastOutSlowIn),
+      curve: const Interval(0, 0.6, curve: Curves.fastOutSlowIn),
     ));
 
-    _itemsAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    _itemsAnimation = Tween(begin: 0, end: 1).animate(CurvedAnimation(
       parent: _animationController,
-      curve: const Interval(0.6, 1.0, curve: Curves.decelerate),
+      curve: const Interval(0.6, 1, curve: Curves.decelerate),
     ));
     Future.delayed(const Duration(milliseconds: 300), () {
       _animationController.forward();
@@ -138,7 +138,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 const BorderRadius.vertical(
-                                              top: Radius.circular(8.0),
+                                              top: Radius.circular(8),
                                             ),
                                             boxShadow: const [
                                               BoxShadow(
@@ -187,7 +187,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                         opacity: _itemsAnimation as Animation<double>,
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
-                                              horizontal: 10.0),
+                                              horizontal: 10),
                                           child: CustomPaint(
                                               painter: WavePainter(),
                                               child: Container()),

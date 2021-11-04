@@ -106,7 +106,6 @@ class _FilterPageState extends State<FilterPage> {
                             final list = snapshot.data;
                             return Wrap(
                               spacing: 12,
-                              runSpacing: 0,
                               children:
                                   List.generate(kFavorites!.length, (index) {
                                 final category = kFavorites![index];
@@ -136,7 +135,6 @@ class _FilterPageState extends State<FilterPage> {
                             final list = snapshot.data;
                             return Wrap(
                               spacing: 12,
-                              runSpacing: 0,
                               children: List.generate(kAllCategories.length,
                                   (index) {
                                 final category = kAllCategories[index];
@@ -227,7 +225,7 @@ class _CategoryChip extends StatelessWidget {
                 style: TextButton.styleFrom(
                     backgroundColor: value ? Colors.white : Colors.white12,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(1.0)),
+                        borderRadius: BorderRadius.circular(1)),
                     padding: const EdgeInsets.symmetric(
                       vertical: 12,
                       horizontal: 20,

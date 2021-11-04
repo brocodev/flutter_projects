@@ -140,7 +140,7 @@ class HeroMovie {
         "https://upload.wikimedia.org/wikipedia/en/2/2c/Ant-Man_and_the_Wasp_poster.jpg")
   ];
   static const blackWidowMovies = [
-    HeroMovie("Black Widow", 10.0,
+    HeroMovie("Black Widow", 10,
         'https://upload.wikimedia.org/wikipedia/en/7/74/Black_Widow_poster.jpg')
   ];
 
@@ -160,11 +160,11 @@ class HeroMovie {
         'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg'),
   ];
   static const ironManMovies = [
-    HeroMovie('Iron Man', 8.0,
+    HeroMovie('Iron Man', 8,
         'https://upload.wikimedia.org/wikipedia/en/0/00/Iron_Man_poster.jpg'),
-    HeroMovie('Iron Man 2', 8.0,
+    HeroMovie('Iron Man 2', 8,
         'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg'),
-    HeroMovie('Iron Man 3', 5.0,
+    HeroMovie('Iron Man 3', 5,
         'https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg'),
   ];
   static const spidermanMovies = [

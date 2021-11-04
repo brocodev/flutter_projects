@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/find_out/models/place.dart';
 import 'package:flutter_projects/find_out/ui/social_page.dart';
-import 'background_shader_image.dart';
-import 'common_widgets.dart';
+import 'package:flutter_projects/find_out/ui/widgets/background_shader_image.dart';
+import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 
-class PageViewPlaces extends StatelessWidget {
+class PageViewPlaces extends StatefulWidget {
   const PageViewPlaces({
     Key? key,
     this.places,
@@ -15,6 +15,20 @@ class PageViewPlaces extends StatelessWidget {
   final List<Place>? places;
   final PageController pageController;
 
+  @override
+  State<PageViewPlaces> createState() => _PageViewPlacesState();
+}
+
+class _PageViewPlacesState extends State<PageViewPlaces> {
+  late ValueNotifier<double> pageValueNotifier;
+
+  @override
+  void initState() {
+    widget.pageController.addListener(() {
+      pageValueNotifier.value = widget.pageController.page!;
+    });
+    super.initState();
+  }
 
   void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
     if (details.primaryDelta! < -20) {
@@ -31,18 +45,14 @@ class PageViewPlaces extends StatelessWidget {
           ));
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    final pageValueNotifier = ValueNotifier(0.0);
-    pageController.addListener(() {
-      pageValueNotifier.value = pageController.page!;
-    });
     return PageView.builder(
-      allowImplicitScrolling: false,
       physics: const NeverScrollableScrollPhysics(),
-      controller: pageController,
+      controller: widget.pageController,
       itemBuilder: (context, index) {
-        final place = places![index % places!.length];
+        final place = widget.places![index % widget.places!.length];
         return GestureDetector(
           onVerticalDragUpdate: (details) =>
               _onDragVerticalUpdate(details, context, place),
@@ -116,8 +126,6 @@ class PageViewPlaces extends StatelessWidget {
       },
     );
   }
-
-
 }
 
 class _LikeAndComments extends StatelessWidget {

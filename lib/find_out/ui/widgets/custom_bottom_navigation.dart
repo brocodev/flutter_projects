@@ -55,8 +55,8 @@ class BottomBarPainter extends CustomPainter {
       ..lineTo(0, h);
 
     canvas
-      ..drawShadow(path, Colors.black, 40.0, false)
-      ..drawShadow(path, Colors.black, 40.0, false)
+      ..drawShadow(path, Colors.black, 40, false)
+      ..drawShadow(path, Colors.black, 40, false)
       ..drawPath(path, Paint()..color = Colors.white);
   }
 

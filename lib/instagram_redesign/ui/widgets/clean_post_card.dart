@@ -36,11 +36,11 @@ class _CleanPostCardState extends State<CleanPostCard>
   void initState() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 800));
-    _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        curve: const Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
+    _scaleHeart = Tween(begin: 0, end: 1).animate(CurvedAnimation(
+        curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
         parent: _controller!));
-    _outScaleHeart = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        curve: const Interval(0.6, 1.0, curve: Curves.easeInOutQuint),
+    _outScaleHeart = Tween(begin: 1, end: 0).animate(CurvedAnimation(
+        curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
         parent: _controller!));
     _controller!.addStatusListener(_statusListener);
     super.initState();
@@ -130,7 +130,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.onPrimary,
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
                             color: Colors.black12,

@@ -80,7 +80,7 @@ class ActivityContainer extends StatelessWidget {
       case IgTypeActivity.comments:
       case IgTypeActivity.mention:
         return Padding(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: const EdgeInsets.only(top: 10),
           child: Row(
             children: [
               Icon(Icons.favorite_border, color: Colors.grey[400]),

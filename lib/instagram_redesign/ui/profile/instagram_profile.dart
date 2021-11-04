@@ -10,7 +10,7 @@ class InstagramProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentUser = IgUser.kevin;
+    const currentUser = IgUser.kevin;
     final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
 
     return Scaffold(
@@ -150,7 +150,7 @@ class InstagramProfile extends StatelessWidget {
                 const selectedIndex = 2;
                 return Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextButton(
                       style: TextButton.styleFrom(
                         backgroundColor: index == selectedIndex
@@ -264,7 +264,7 @@ class _ImageProfile extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: const Icon(
             Icons.add,

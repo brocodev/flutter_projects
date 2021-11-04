@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
 import 'package:flutter_projects/movie_selection/constants.dart';
 import 'package:flutter_projects/movie_selection/models/movie.dart';
-import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
 import 'package:flutter_projects/movie_selection/pages/payment/payment_page.dart';
 import 'package:flutter_projects/movie_selection/pages/widgets/gradient_animation_button.dart';
+import 'package:flutter_projects/movie_selection/pages/widgets/tag_container.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SummaryPage extends StatelessWidget {
@@ -129,7 +129,6 @@ class _BodySummary extends StatelessWidget {
                     ),
                   ),
                   TranslateAnimation(
-                    duration: const Duration(milliseconds: 800),
                     child: _TileInfo(
                         title: 'Duration',
                         subtitle: '${movie!.duration!.inMinutes} min',
@@ -139,14 +138,13 @@ class _BodySummary extends StatelessWidget {
               ),
               const SizedBox(height: 90),
               TranslateAnimation(
-                duration: const Duration(milliseconds: 800),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Row(
                     children: List.generate(50, (i) {
                       return const Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2.0),
+                          padding: EdgeInsets.symmetric(horizontal: 2),
                           child: Divider(
                             color: Colors.white,
                             thickness: 2,

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/bookstore_app/bloc/categories_bloc.dart';
 import 'package:flutter_projects/bookstore_app/bloc/categories_bloc_provider.dart';
 import 'package:flutter_projects/bookstore_app/models/book.dart';
-import 'package:flutter_projects/bookstore_app/ui/book_detail_page.dart';
-import 'package:flutter_projects/bookstore_app/ui/filter_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/pages/book_detail_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/pages/filter_page.dart';
 import 'package:flutter_projects/bookstore_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _scrollController = ScrollController();
     _scrollPercentNotifier = ValueNotifier(0);
-    _scrollController!.addListener(_scrollListener);
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _scrollListener() {
-    _scrollPercentNotifier.value = (_scrollController!.position.pixels /
-            _scrollController!.position.maxScrollExtent)
+    _scrollPercentNotifier.value = (_scrollController.position.pixels /
+            _scrollController.position.maxScrollExtent)
         .clamp(0.0, 1.0);
   }
 
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                       width: 40,
                       decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(2.0)),
+                          borderRadius: BorderRadius.circular(2)),
                       child: const Icon(Icons.tune, color: Colors.white),
                     ),
                   ),
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16),
             //---------------------------
             // List Scroll Indicator
             //---------------------------
@@ -196,7 +196,7 @@ class _HomeAppBar extends StatelessWidget {
         Text(
           'Hi ${UserBook.currentUser.name}',
         ),
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 8),
         Text(
           'We recommended the following books for you',
           style: Theme.of(context).textTheme.subtitle2,
@@ -298,7 +298,7 @@ class _CategoryChip extends StatelessWidget {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.grey[50],
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(1.0),
+                    borderRadius: BorderRadius.circular(1),
                     side: BorderSide(
                       color: Colors.grey[200]!,
                     )),

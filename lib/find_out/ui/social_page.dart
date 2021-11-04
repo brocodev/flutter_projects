@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/animations/tween_animations.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_projects/find_out/models/comments.dart';
 import 'package:flutter_projects/find_out/models/place.dart';
 import 'package:flutter_projects/find_out/ui/widgets/background_shader_image.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_projects/find_out/ui/widgets/card_place_information.dart
 import 'package:flutter_projects/find_out/ui/widgets/comment_card.dart';
 import 'package:flutter_projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/find_out/ui/widgets/custom_bottom_navigation.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SocialPage extends StatelessWidget {
   const SocialPage({Key? key, required this.place}) : super(key: key);
@@ -42,7 +42,6 @@ class SocialPage extends StatelessWidget {
                     infoVisibleNotifier: infoVisibleNotifier,
                   ),
                   const TranslateAnimation(
-                    duration: Duration(milliseconds: 800),
                     child: Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -57,7 +56,6 @@ class SocialPage extends StatelessWidget {
                     ),
                   ),
                   TranslateAnimation(
-                    duration: const Duration(milliseconds: 800),
                     child: SizedBox(
                       height: size.height * .12,
                       child: ListView.builder(
@@ -117,8 +115,8 @@ class SocialPage extends StatelessWidget {
                                 : 2.8,
                           );
                         },
-                        mainAxisSpacing: 8.0,
-                        crossAxisSpacing: 8.0,
+                        mainAxisSpacing: 8,
+                        crossAxisSpacing: 8,
                       ),
                     ),
                   )

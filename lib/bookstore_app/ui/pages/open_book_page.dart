@@ -41,9 +41,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
     return Stack(
       fit: StackFit.expand,
       children: [
-        HeroFlightDirection.push == direction
-            ? OpenBookPage(book: widget.book)
-            : Container(color: Colors.white),
+        if (HeroFlightDirection.push == direction) OpenBookPage(book: widget.book) else Container(color: Colors.white),
         AnimatedBuilder(
             animation: animation,
             builder: (_, __) {
@@ -70,7 +68,7 @@ class _OpenBookPageState extends State<OpenBookPage> {
             duration: const Duration(milliseconds: 300),
             child: animate
                 ? Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         Row(

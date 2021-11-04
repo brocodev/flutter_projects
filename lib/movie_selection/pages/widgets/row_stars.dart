@@ -14,26 +14,26 @@ class RowStars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorStars = color;
+    final colorStars = color;
     final _fillStar = Padding(
-      padding: const EdgeInsets.only(right: 1.0),
+      padding: const EdgeInsets.only(right: 1),
       child: Icon(Icons.star, color: colorStars, size: size),
     );
 
     final _halfStar = Padding(
-      padding:const  EdgeInsets.only(right: 1.0),
+      padding:const  EdgeInsets.only(right: 1),
       child: Icon(Icons.star_half, color: colorStars, size: size),
     );
 
     final _voidStar = Padding(
-      padding: const EdgeInsets.only(right: 1.0),
+      padding: const EdgeInsets.only(right: 1),
       child:
           Icon(Icons.star, color: Colors.grey[300]!.withOpacity(.4), size: size),
     );
 
     var fillStars = stars!.floor();
     final addHalfStar = (stars! - fillStars) >= 0.5;
-    var listStars = List<Widget>.generate(fillStars, (i) => _fillStar);
+    final listStars = List<Widget>.generate(fillStars, (i) => _fillStar);
     if (addHalfStar) {
       listStars.add(_halfStar);
       fillStars++;

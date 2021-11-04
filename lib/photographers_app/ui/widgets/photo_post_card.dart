@@ -32,12 +32,12 @@ class _PhotoPostCardState extends State<PhotoPostCard>
   void initState() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
-    _scaleHeart = Tween(begin: 0.0, end: 1.0).animate(
+    _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(curve: Curves.decelerate, parent: _controller));
-    _downOpacity = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
+    _downOpacity = Tween<double>(begin: 1, end: 0).animate(CurvedAnimation(
         curve: const Interval(
           0.5,
-          1.0,
+          1,
           curve: Curves.decelerate,
         ),
         parent: _controller));

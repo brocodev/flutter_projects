@@ -19,7 +19,7 @@ class GamePlayCard extends StatelessWidget {
     return Container(
       clipBehavior: Clip.antiAlias,
       margin: EdgeInsets.only(bottom: 120.0 * factorChange),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -32,7 +32,7 @@ class GamePlayCard extends StatelessWidget {
             duration: kThemeChangeDuration,
             child: haveFocus
                 ? Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         _StatusGame(videoGame: videoGame),
@@ -103,7 +103,7 @@ class _TitleAndPlayButton extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.w300,
                   color: Colors.white,
-                  height: 1.0,
+                  height: 1,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.fade,
@@ -113,9 +113,9 @@ class _TitleAndPlayButton extends StatelessWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).primaryColorLight,
@@ -125,7 +125,7 @@ class _TitleAndPlayButton extends StatelessWidget {
           ),
           child: const Icon(
             Icons.play_arrow_rounded,
-            size: 30.0,
+            size: 30,
             color: Colors.white,
           ),
         )
@@ -149,8 +149,8 @@ class _StatusGame extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 6.0,
+            horizontal: 20,
+            vertical: 6,
           ),
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -159,7 +159,7 @@ class _StatusGame extends StatelessWidget {
                   Theme.of(context).primaryColorDark,
                 ],
               ),
-              borderRadius: BorderRadius.circular(10.0)),
+              borderRadius: BorderRadius.circular(10)),
           child: Text(
             'Live',
             style: GoogleFonts.poppins(
@@ -171,12 +171,12 @@ class _StatusGame extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 6.0,
+            horizontal: 20,
+            vertical: 6,
           ),
           decoration: BoxDecoration(
             color: Colors.black26,
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
             '${(videoGame.nowPlaying! / 1000).toStringAsFixed(1)}k Playing',

@@ -91,7 +91,7 @@ class _DoctorInformation extends StatelessWidget {
     final countTextStyle = TextStyle(
       color: Colors.white.withOpacity(.8),
       fontWeight: FontWeight.w600,
-      height: 1.0,
+      height: 1,
     );
 
     return Column(
@@ -111,7 +111,7 @@ class _DoctorInformation extends StatelessWidget {
         Text(
           doctor.doctorCategory!.nameCategory!,
           style: const TextStyle(
-            height: 1.0,
+            height: 1,
             color: Colors.white70,
           ),
         ),

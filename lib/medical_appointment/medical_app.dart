@@ -20,11 +20,10 @@ class MedicalApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.grey[50],
           primaryColor: MdAppColors.kBlue,
-          accentColor: Colors.pinkAccent,
           primaryColorLight: MdAppColors.kLightBlue,
           primaryColorDark: MdAppColors.kDarkBlue,
           textTheme: GoogleFonts.poppinsTextTheme(),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+          visualDensity: VisualDensity.adaptivePlatformDensity, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.pinkAccent),
         ),
         home: _MainPage());
   }

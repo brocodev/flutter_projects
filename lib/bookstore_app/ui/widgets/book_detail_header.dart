@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/bookstore_app/models/book.dart';
-import 'package:flutter_projects/bookstore_app/ui/open_book_page.dart';
+import 'package:flutter_projects/bookstore_app/ui/pages/open_book_page.dart';
 import 'package:flutter_projects/bookstore_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
@@ -173,8 +173,7 @@ class _BlurBackground extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: Colors.black12,
-                blurRadius: 10 * percent!,
-                offset: const Offset(0, 0))
+                blurRadius: 10 * percent!)
           ]),
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),

@@ -76,7 +76,7 @@ class Album {
     Album(
         title: 'Cortamambo',
         author: 'Cuarteto de nos',
-        rate: 4.0,
+        rate: 4,
         pathImage: 'assets/img/music/cortamanbo.jpg',
         year: 2000),
   ];
