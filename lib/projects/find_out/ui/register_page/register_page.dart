@@ -92,6 +92,7 @@ class RegisterPage extends StatelessWidget {
                                     child: TextButton(
                                       onPressed: () {},
                                       style: TextButton.styleFrom(
+                                        primary: Colors.white,
                                         padding: const EdgeInsets.all(12),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
