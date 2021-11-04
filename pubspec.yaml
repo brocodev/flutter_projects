@@ -3,7 +3,7 @@ description: Flutter apps with amazing design and moderate animations
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.13.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -11,15 +11,15 @@ dependencies:
   cupertino_icons: ^1.0.3
   google_fonts: ^2.1.0
   flutter_vector_icons: ^1.0.0
-  flutter_staggered_grid_view: ^0.4.0
+  flutter_staggered_grid_view: ^0.4.1
   cached_network_image: ^3.1.0
-  flutter_svg: ^0.22.0
+  flutter_svg: ^0.23.0+1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^2.3.0
+  very_good_analysis: ^2.4.0
 
 flutter:
 

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_projects/bookstore_app/book_app.dart';
-import 'package:flutter_projects/find_out/find_out_app.dart';
-import 'package:flutter_projects/instagram_redesign/instagram_app.dart';
-import 'package:flutter_projects/medical_appointment/medical_app.dart';
-import 'package:flutter_projects/movie_selection/movie_selection_app.dart';
-import 'package:flutter_projects/music_album_collection/music_album_collection.dart';
-import 'package:flutter_projects/music_vinyl_player/music_vinyl_player.dart';
-import 'package:flutter_projects/orix_gaming/orix_gaming_app.dart';
-import 'package:flutter_projects/photographers_app/photographers_app.dart';
-import 'package:flutter_projects/streaming_app/streaming_app.dart';
-import 'package:flutter_projects/superheroes/superheroes_app.dart';
-import 'package:flutter_projects/template_gallery/template_gallery_app.dart';
+import 'package:flutter_projects/projects/bookstore_app/book_app.dart';
+import 'package:flutter_projects/projects/find_out/find_out_app.dart';
+import 'package:flutter_projects/projects/instagram_redesign/instagram_app.dart';
+import 'package:flutter_projects/projects/medical_appointment/medical_app.dart';
+import 'package:flutter_projects/projects/movie_selection/movie_selection_app.dart';
+import 'package:flutter_projects/projects/music_album_collection/music_album_collection.dart';
+import 'package:flutter_projects/projects/music_vinyl_player/music_vinyl_player.dart';
+import 'package:flutter_projects/projects/orix_gaming/orix_gaming_app.dart';
+import 'package:flutter_projects/projects/photographers_app/photographers_app.dart';
+import 'package:flutter_projects/projects/streaming_app/streaming_app.dart';
+import 'package:flutter_projects/projects/superheroes/superheroes_app.dart';
+import 'package:flutter_projects/projects/template_gallery/template_gallery_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         _ProjectModel.orixGaming.route!: (_) => const OrixGamingApp(),
         _ProjectModel.bookApp.route!: (_) => const BookStoreApp(),
         _ProjectModel.templateGallery.route!: (_) => const TemplateGalleryApp(),
-        _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
+        // _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
       },
     );
   }
@@ -288,14 +288,14 @@ class _ProjectModel {
       designer: 'Sergey Valiukh',
       pathImage: 'assets/img/template_gallery.gif',
       route: 'template');
-  static const streamingApp = _ProjectModel(
-      title: 'Streaming App',
-      description: 'Advanced UI',
-      designer: 'Mao Lop',
-      pathImage: 'assets/img/streaming_app.png',
-      route: 'streaming');
+  // static const streamingApp = _ProjectModel(
+  //     title: 'Streaming App',
+  //     description: 'Advanced UI',
+  //     designer: 'Mao Lop',
+  //     pathImage: 'assets/img/streaming_app.png',
+  //     route: 'streaming');
   static const listProjects = [
-    streamingApp,
+    // streamingApp,
     templateGallery,
     bookApp,
     orixGaming,
