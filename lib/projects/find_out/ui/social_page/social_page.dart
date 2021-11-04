@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/find_out/models/comments.dart';
 import 'package:flutter_projects/projects/find_out/models/place.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/background_shader_image.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/card_place_information.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/comment_card.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/background_shader_image.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/card_place_information.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/comment_card.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/custom_bottom_navigation.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/custom_bottom_navigation.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SocialPage extends StatelessWidget {

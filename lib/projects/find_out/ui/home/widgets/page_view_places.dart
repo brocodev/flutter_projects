@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/models/place.dart';
-import 'package:flutter_projects/projects/find_out/ui/pages/social_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/background_shader_image.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/social_page.dart';
+import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/background_shader_image.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
 class PageViewPlaces extends StatefulWidget {

@@ -1,12 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/clippers/inverted_top_border.dart';
+import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_border_clipper.dart';
+import 'package:flutter_projects/projects/find_out/ui/home/home_page.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/text_input_find_out.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({
+    Key? key,
+  }) : super(key: key);
+
+  void _openHomePage(BuildContext context) {
+    final newRoute = PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 1000),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: const HomePageFindOut(),
+        );
+      },
+    );
+    Navigator.pushAndRemoveUntil(context, newRoute, ModalRoute.withName(''));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +67,16 @@ class RegisterPage extends StatelessWidget {
                     const Spacer(),
                     Stack(
                       children: [
-                        const Center(child: _DragDownIndication()),
+                        const Align(
+                          alignment: Alignment.topCenter,
+                          child: _DragDownIndication(),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 55),
                           child: ClipPath(
-                            clipper: InvertedTopBorder(circularRadius: 40),
+                            clipper: InvertedTopBorderClipper(circularRadius: 40),
                             child: Container(
-                              height: 440,
+                              height: 340,
                               width: double.infinity,
                               color: Colors.white,
                               padding:
@@ -69,12 +88,6 @@ class RegisterPage extends StatelessWidget {
                                   const TextInputFindOut(
                                     label: 'Nombre de usuario',
                                     iconData: FontAwesome.user,
-                                    textInputType: TextInputType.text,
-                                  ),
-                                  const SizedBox(height: 20),
-                                  const TextInputFindOut(
-                                    label: 'Correo electronico',
-                                    iconData: Icons.alternate_email,
                                     textInputType: TextInputType.emailAddress,
                                   ),
                                   const SizedBox(height: 20),
@@ -84,13 +97,22 @@ class RegisterPage extends StatelessWidget {
                                     textInputType:
                                         TextInputType.visiblePassword,
                                   ),
-                                  const SizedBox(height: 5),
-                                  const _AcceptTerms(),
                                   const SizedBox(height: 10),
+                                  Text(
+                                    '¿Olvidaste tu contraseña?',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.grey[600],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
                                   SizedBox(
                                     width: size.width * .65,
                                     child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        resizeNotifier.value = false;
+                                        _openHomePage(context);
+                                      },
                                       style: TextButton.styleFrom(
                                         padding: const EdgeInsets.all(12),
                                         shape: RoundedRectangleBorder(
@@ -100,7 +122,7 @@ class RegisterPage extends StatelessWidget {
                                         backgroundColor: Colors.pinkAccent,
                                       ),
                                       child: const Text(
-                                        "Crear cuenta",
+                                        'Iniciar sesion',
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
@@ -136,7 +158,7 @@ class _DragDownIndication extends StatelessWidget {
     return Column(
       children: [
         const Text(
-          'Registro',
+          'Inicia sesión',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -145,7 +167,7 @@ class _DragDownIndication extends StatelessWidget {
         Text(
           'Desliza para ir hacia atras',
           style: TextStyle(
-              height: 2, fontSize: 12, color: Colors.white.withOpacity(.9)),
+              height: 2, fontSize: 14, color: Colors.white.withOpacity(.9)),
         ),
         Icon(
           Icons.keyboard_arrow_down,
@@ -153,52 +175,6 @@ class _DragDownIndication extends StatelessWidget {
           size: 35,
         ),
       ],
-    );
-  }
-}
-
-class _AcceptTerms extends StatelessWidget {
-  const _AcceptTerms({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final valueNotifier = ValueNotifier(false);
-    return InkWell(
-      onTap: () => valueNotifier.value = !valueNotifier.value,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ValueListenableBuilder(
-            valueListenable: valueNotifier,
-            builder: (context, dynamic value, child) {
-              return Checkbox(
-                value: value,
-                onChanged: (val) {},
-                checkColor: Colors.white,
-                activeColor: Colors.pinkAccent,
-              );
-            },
-          ),
-          Text(
-            "Acepto",
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey[600],
-            ),
-          ),
-          const Text(
-            " terminos y condiciones",
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: Colors.pinkAccent,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

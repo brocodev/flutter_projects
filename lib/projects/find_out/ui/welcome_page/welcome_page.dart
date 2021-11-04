@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/pages/login_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/pages/register_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/animated_background.dart';
+import 'package:flutter_projects/projects/find_out/ui/login/login_page.dart';
+import 'package:flutter_projects/projects/find_out/ui/register_page/register_page.dart';
+import 'package:flutter_projects/projects/find_out/ui/welcome_page/widgets/animated_background.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
-import 'package:flutter_projects/projects/find_out/ui/widgets/snake_button.dart';
+import 'package:flutter_projects/projects/find_out/ui/welcome_page/widgets/snake_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -77,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                                 'Iniciar sesión',
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 18,
+                                  fontSize: 14,
                                 ),
                               ),
                             ),
@@ -134,6 +134,7 @@ class RectangularButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
+          primary: Colors.white,
           shape: const RoundedRectangleBorder(
               side: BorderSide(color: Colors.white, width: 3)),
         ),
@@ -141,7 +142,7 @@ class RectangularButton extends StatelessWidget {
           label,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w500,
-            fontSize: 18,
+            fontSize: 14,
           ),
         ),
       ),

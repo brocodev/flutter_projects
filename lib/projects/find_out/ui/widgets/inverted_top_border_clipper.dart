@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InvertedTopBorder extends CustomClipper<Path> {
-  InvertedTopBorder({required this.circularRadius});
+class InvertedTopBorderClipper extends CustomClipper<Path> {
+  InvertedTopBorderClipper({required this.circularRadius});
 
   final double circularRadius;
 
