@@ -15,7 +15,7 @@ class TileClipper extends CustomClipper<Path> {
         ..quadraticBezierTo(size.width * .5, 0, size.width, curveSize)
         ..lineTo(size.width, size.height - curveSize)
         ..quadraticBezierTo(size.width * .5, size.height - (curveSize * 2), 0,
-            size.height - curveSize);
+            size.height - curveSize,);
     } else {
       path
         ..moveTo(0, curveSize + 3)

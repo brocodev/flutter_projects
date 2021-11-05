@@ -14,10 +14,15 @@ class TileSkewClipper extends CustomClipper<Path> {
         ..quadraticBezierTo(size.width * .5, curveSize, size.width, curveSize)
         ..lineTo(size.width, size.height)
         ..quadraticBezierTo(
-            size.width * .5, size.height, 0, size.height - curveSize);
+          size.width * .5,
+          size.height,
+          0,
+          size.height - curveSize,
+        );
     } else {
       path
         ..moveTo(0, curveSize)
+        ..quadraticBezierTo(size.width * .5, curveSize, size.width, 0)
         ..lineTo(size.width, size.height - curveSize)
         ..quadraticBezierTo(size.width * .5, size.height, 0, size.height);
     }
@@ -25,5 +30,5 @@ class TileSkewClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
 }

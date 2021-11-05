@@ -22,9 +22,8 @@ class PhotographersApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
             color: Colors.transparent,
             elevation: 0,
-            brightness: Brightness.light,
-            textTheme: GoogleFonts.philosopherTextTheme()
-                .apply(bodyColor: PhotoAppColors.kDarkBlue),
+            titleTextStyle:
+                GoogleFonts.philosopher(color: PhotoAppColors.kDarkBlue),
             iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue)),
         //---------------------------
         // Text Theme
