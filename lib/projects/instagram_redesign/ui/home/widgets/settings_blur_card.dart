@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
@@ -40,23 +41,25 @@ class SettingsBlurCard extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Visualization",
-                                    style: GoogleFonts.lato(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 16,
-                                    )),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: List.generate(3, (index) {
-                                    return _ViewModeItem(
-                                      modeNumber: index + 1,
-                                      nameMode: [
-                                        "Ample",
-                                        "Clean",
-                                        "Old",
-                                      ][index],
-                                      viewState: [
+                              Text(
+                                "Visualization",
+                                style: GoogleFonts.lato(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: List.generate(3, (index) {
+                                  return _ViewModeItem(
+                                    modeNumber: index + 1,
+                                    nameMode: [
+                                      "Ample",
+                                      "Clean",
+                                      "Old",
+                                    ][index],
+                                    viewState: [
                                         ViewState.ample,
                                         ViewState.clean,
                                         ViewState.old,
@@ -94,22 +97,23 @@ class SettingsBlurCard extends StatelessWidget {
                                             .setThemeMode(ThemeMode.dark);
                                       } else {
                                         instagramBloc
-                                            .setThemeMode(ThemeMode.light);
-                                      }
-                                    },
-                                  ),
-                                ],
-                              ),
+                                          .setThemeMode(ThemeMode.light);
+                                    }
+                                  },
+                                ),
+                              ],
                             ),
-                          )
-                        ],
-                      );
-                    }),
+                          ),
+                        )
+                      ],
+                    );
+                  },
+                ),
                 const Spacer(),
                 InkWell(
                   onTap: instagramBloc.hideSettings,
                   child: const Padding(
-                    padding:  EdgeInsets.all(5),
+                    padding: EdgeInsets.all(5),
                     child: Icon(
                       Ionicons.ios_arrow_up,
                       color: Colors.white,
@@ -151,15 +155,16 @@ class _ViewModeItem extends StatelessWidget {
             child: AnimatedContainer(
               duration: kThemeAnimationDuration,
               alignment: Alignment.center,
-              height: 80,
+              height: MediaQuery.of(context).size.height * .1,
               margin: const EdgeInsets.only(right: 10),
               decoration: BoxDecoration(
                 border: Border.all(
-                    color: Colors.white,
-                    width: 3,
-                    style: instagramBloc.viewState == viewState
-                        ? BorderStyle.solid
-                        : BorderStyle.none),
+                  color: Colors.white,
+                  width: 3,
+                  style: instagramBloc.viewState == viewState
+                      ? BorderStyle.solid
+                      : BorderStyle.none,
+                ),
                 color: instagramBloc.viewState == viewState
                     ? colorScheme.onBackground.withOpacity(.2)
                     : colorScheme.onPrimary.withOpacity(.2),

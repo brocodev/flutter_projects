@@ -28,21 +28,28 @@ class AmplePostCard extends StatefulWidget {
 
 class _AmplePostCardState extends State<AmplePostCard>
     with SingleTickerProviderStateMixin {
-  AnimationController? _controller;
-  late Animation _scaleHeart;
-  late Animation _outOpacityHeart;
+  late AnimationController? _controller;
+  late Animation<double> _scaleHeart;
+  late Animation<double> _outOpacityHeart;
   final _indexNotifier = ValueNotifier(0);
 
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600));
-    _scaleHeart = Tween(begin: 0, end: 1.0).animate(CurvedAnimation(
-        curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
-        parent: _controller!));
-    _outOpacityHeart = Tween(begin: 1, end: 0.0).animate(CurvedAnimation(
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    );
+    _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+          curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
+          parent: _controller!),
+    );
+    _outOpacityHeart = Tween<double>(begin: 1, end: 0).animate(
+      CurvedAnimation(
         curve: const Interval(0.5, 1, curve: Curves.fastOutSlowIn),
-        parent: _controller!));
+        parent: _controller!,
+      ),
+    );
     _controller!.addStatusListener(_statusListener);
     super.initState();
   }
@@ -103,7 +110,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                           ),
                         ),
                         //-----------------------
-                        //------SHADER IMAGES
+                        // SHADER IMAGES
                         //-----------------------
                         DecoratedBox(
                           decoration: BoxDecoration(

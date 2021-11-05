@@ -25,8 +25,8 @@ class _CleanPostCardState extends State<CleanPostCard>
     with SingleTickerProviderStateMixin {
   int indexPageView = 0;
   AnimationController? _controller;
-  late Animation _scaleHeart;
-  late Animation _outScaleHeart;
+  late Animation<double> _scaleHeart;
+  late Animation<double> _outScaleHeart;
 
   void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) _controller!.reset();
@@ -36,12 +36,16 @@ class _CleanPostCardState extends State<CleanPostCard>
   void initState() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 800));
-    _scaleHeart = Tween(begin: 0, end: 1).animate(CurvedAnimation(
-        curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
-        parent: _controller!));
-    _outScaleHeart = Tween(begin: 1, end: 0).animate(CurvedAnimation(
-        curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
-        parent: _controller!));
+    _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+          curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
+          parent: _controller!),
+    );
+    _outScaleHeart = Tween<double>(begin: 1, end: 0).animate(
+      CurvedAnimation(
+          curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
+          parent: _controller!),
+    );
     _controller!.addStatusListener(_statusListener);
     super.initState();
   }

@@ -34,12 +34,13 @@ class _MateApp extends StatelessWidget {
       animation: instagramBloc,
       builder: (context, child) {
         return MaterialApp(
-            title: 'Instagram',
-            debugShowCheckedModeBanner: false,
-            themeMode: instagramBloc.themeMode,
-            darkTheme: InstagramTheme.kDarkTheme,
-            theme: InstagramTheme.kLightTheme,
-            home: child);
+          title: 'Instagram',
+          debugShowCheckedModeBanner: false,
+          themeMode: instagramBloc.themeMode,
+          darkTheme: InstagramTheme.kDarkTheme,
+          theme: InstagramTheme.kLightTheme,
+          home: child,
+        );
       },
       child: _InstagramNavigationPage(),
     );
@@ -58,6 +59,8 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
   @override
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
+    final topInset = MediaQuery.of(context).padding.top;
+    final settingsHeight = MediaQuery.of(context).size.height * .22 + topInset;
 
     return Scaffold(
       body: OverflowBox(
@@ -83,28 +86,35 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
               animation: instagramBloc,
               builder: (context, settingsCard) {
                 return AnimatedPositioned(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.fastOutSlowIn,
-                    top: instagramBloc.settingState == SettingsSate.visible
-                        ? 0
-                        : -200,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    child: Stack(
-                      children: [
-                        //--------------------------
-                        // HIDE SETTINGS ZONE
-                        //--------------------------
-                        if (instagramBloc.settingState == SettingsSate.visible) Positioned.fill(
-                                child: GestureDetector(onPanDown: (details) {
-                                instagramBloc.hideSettings();
-                              })) else const SizedBox(),
-                        settingsCard!,
-                      ],
-                    ));
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.fastOutSlowIn,
+                  top: instagramBloc.settingState == SettingsSate.visible
+                      ? 0
+                      : -settingsHeight,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Stack(
+                    children: [
+                      //--------------------------
+                      // HIDE SETTINGS ZONE
+                      //--------------------------
+                      if (instagramBloc.settingState == SettingsSate.visible)
+                        Positioned.fill(
+                          child: GestureDetector(
+                            onPanDown: (details) {
+                              instagramBloc.hideSettings();
+                            },
+                          ),
+                        )
+                      else
+                        const SizedBox(),
+                      settingsCard!,
+                    ],
+                  ),
+                );
               },
-              child: const SettingsBlurCard(height: 200),
+              child: SettingsBlurCard(height: settingsHeight),
             ),
           ],
         ),
