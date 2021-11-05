@@ -97,7 +97,7 @@ class ProjectModel {
     title: 'Travel app',
     description: 'Sliver Animations',
     designer: 'mobilepatterns',
-    pathImage: 'assets/img/projects/streaming_app.png',
+    pathImage: 'assets/img/projects/travel.gif',
     route: 'travel',
   );
   static const listProjects = [
