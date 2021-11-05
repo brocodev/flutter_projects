@@ -12,6 +12,7 @@ import 'package:flutter_projects/projects/orix_gaming/orix_gaming_app.dart';
 import 'package:flutter_projects/projects/photographers_app/photographers_app.dart';
 import 'package:flutter_projects/projects/superheroes/superheroes_app.dart';
 import 'package:flutter_projects/projects/template_gallery/template_gallery_app.dart';
+import 'package:flutter_projects/projects/travel_app/travel_app.dart';
 
 class ProjectRoutes {
   static Map<String, WidgetBuilder> routes = {
@@ -27,6 +28,7 @@ class ProjectRoutes {
     ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
     ProjectModel.bookApp.route: (_) => const BookStoreApp(),
     ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
+    ProjectModel.travelApp.route: (_) => const TravelApp(),
     // _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
   };
 }

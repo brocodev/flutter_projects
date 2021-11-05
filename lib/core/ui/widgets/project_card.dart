@@ -57,10 +57,10 @@ class ProjectCard extends StatelessWidget {
                       opacity: .6,
                       child: Container(
                         padding: const EdgeInsets.all(14),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black, width: 4)),
                         child: Text(
                           '$index',
                           style: GoogleFonts.poppins(
@@ -131,16 +131,17 @@ class ProjectCard extends StatelessWidget {
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
+                          side: const BorderSide(color: Colors.white),
                         ),
-                        backgroundColor: Colors.cyan[50],
+                        backgroundColor: Colors.black.withOpacity(.5),
                       ),
                       child: Text(
                         "See project",
                         maxLines: 1,
                         softWrap: false,
                         style: GoogleFonts.poppins(
-                          color: Colors.cyan[600],
-                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     )

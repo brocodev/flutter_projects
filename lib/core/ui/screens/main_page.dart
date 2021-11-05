@@ -9,15 +9,31 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.grey[50],
+        backgroundColor: Colors.white,
         elevation: 0,
-        leading: const Center(child: FlutterLogo(size: 30)),
-        title: Text(
-          "My Flutter Projects",
-          style: GoogleFonts.poppins(
-              color: Colors.grey, fontWeight: FontWeight.w600),
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 20),
+          child: Center(
+            child: CircleAvatar(
+              backgroundImage: AssetImage('assets/img/projects/broco.png'),
+            ),
+          ),
         ),
+        title: Text(
+          "Brocodev Projects",
+          style: GoogleFonts.poppins(
+            color: const Color(0xff001800),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: FlutterLogo(size: 25),
+          )
+        ],
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),

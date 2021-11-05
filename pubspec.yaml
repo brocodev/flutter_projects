@@ -38,6 +38,7 @@ flutter:
     - assets/svg/medical/
     - assets/svg/streaming/
     - assets/img/books/
+    - assets/img/projects/
   fonts:
     - family: MDIcons
       fonts:
