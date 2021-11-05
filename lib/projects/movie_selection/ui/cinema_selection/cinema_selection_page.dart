@@ -117,10 +117,10 @@ class _BodyCinemaSelection extends StatelessWidget {
                               style: GoogleFonts.barlowCondensed(
                                 fontSize: size.height * .03,
                                 fontWeight: FontWeight.w500,
-                              )),
+                              ),),
                           const SizedBox(height: 10),
                           const TagContainer(tag: 'PREMIERE')
-                        ]),
+                        ],),
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -134,7 +134,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                       child: HoursMovieOptions(
                           listHours: listHours,
                           selectedHourNotifier: selectedHourNotifier,
-                          movie: movie)),
+                          movie: movie),),
                 ),
               ],
             ),

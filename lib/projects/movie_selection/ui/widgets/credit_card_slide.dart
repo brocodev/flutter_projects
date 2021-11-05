@@ -10,7 +10,7 @@ class CreditCardSlide extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final listColors = [
       [Colors.purpleAccent, Colors.pinkAccent],
-      [Colors.cyanAccent[400], Colors.blueAccent],
+      [Colors.cyanAccent.shade400, Colors.blueAccent],
       [Colors.amber, Colors.deepOrange],
     ];
     final indexNotifier = ValueNotifier(0);

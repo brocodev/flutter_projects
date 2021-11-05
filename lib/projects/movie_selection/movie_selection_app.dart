@@ -9,17 +9,19 @@ class MovieSelectionApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Movie Selection',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            textTheme: GoogleFonts.barlowCondensedTextTheme()
-                .apply(bodyColor: Colors.white)
-                .copyWith(
-                  bodyText2: GoogleFonts.barlowCondensed(
-                    letterSpacing: 2,
-                    color: Colors.white,
-                  ),
-                )),
-        home: MovieHome());
+      title: 'Movie Selection',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.barlowCondensedTextTheme()
+            .apply(bodyColor: Colors.white)
+            .copyWith(
+              bodyText2: GoogleFonts.barlowCondensed(
+                letterSpacing: 2,
+                color: Colors.white,
+              ),
+            ),
+      ),
+      home: MovieHome(),
+    );
   }
 }

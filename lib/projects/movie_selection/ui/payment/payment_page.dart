@@ -20,9 +20,9 @@ class PaymentPage extends StatelessWidget {
     final hideWidgets = ValueNotifier(false);
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
-      body: ValueListenableBuilder(
+      body: ValueListenableBuilder<bool>(
         valueListenable: hideWidgets,
-        builder: (context, dynamic value, child) {
+        builder: (context, value, child) {
           return AnimatedContainer(
             curve: Curves.fastOutSlowIn,
             duration: kDuration400ms,
@@ -37,24 +37,27 @@ class PaymentPage extends StatelessWidget {
             Column(
               children: <Widget>[
                 const Padding(
-                    padding: EdgeInsets.only(right: 20, top: 10),
-                    child: CustomAppBar(
-                      title: 'Payment details',
-                      subtitle: 'Amount to be paid : 60 MXN',
-                    )),
+                  padding: EdgeInsets.only(right: 20, top: 10),
+                  child: CustomAppBar(
+                    title: 'Payment details',
+                    subtitle: 'Amount to be paid : 60 MXN',
+                  ),
+                ),
                 const SizedBox(height: 20),
                 const TranslateAnimation(
-                    duration:  Duration(milliseconds: 550),
-                    child: CreditCardSlide()),
+                  duration: Duration(milliseconds: 550),
+                  child: CreditCardSlide(),
+                ),
                 const SizedBox(height: 70),
                 TranslateAnimation(
                   duration: const Duration(milliseconds: 550),
                   child: Text(
                     'Do you want to add a new card?'.toUpperCase(),
                     style: GoogleFonts.barlowCondensed(
-                        fontSize: size.height * .016,
-                        color: kPrimaryColorLight,
-                        letterSpacing: 0),
+                      fontSize: size.height * .016,
+                      color: kPrimaryColorLight,
+                      letterSpacing: 0,
+                    ),
                   ),
                 )
               ],

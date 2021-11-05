@@ -12,8 +12,9 @@ class MusicAlbumList extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(),
+        primarySwatch: Colors.grey,
         appBarTheme: const AppBarTheme(
-          color: Colors.white,
+          backgroundColor: Colors.white,
           elevation: 0,
         ),
         primaryColor: Colors.white,
