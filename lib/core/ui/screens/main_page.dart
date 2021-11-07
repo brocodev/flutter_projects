@@ -37,7 +37,7 @@ class MainPage extends StatelessWidget {
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         itemCount: ProjectModel.listProjects.length,
         itemBuilder: (context, index) {
           final project = ProjectModel.listProjects[index];

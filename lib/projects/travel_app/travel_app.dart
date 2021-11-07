@@ -11,7 +11,7 @@ class TravelApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(),
       ),
-      home: Scaffold(
+      home: const Scaffold(
         body: Center(
           child: Text('New York'),
         ),

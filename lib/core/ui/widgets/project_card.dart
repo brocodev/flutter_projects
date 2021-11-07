@@ -19,7 +19,7 @@ class ProjectCard extends StatelessWidget {
     return Container(
       height: 220,
       clipBehavior: Clip.antiAlias,
-      margin: const EdgeInsets.only(bottom: 30),
+      margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -102,6 +102,7 @@ class ProjectCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
+                      flex: 5,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -121,27 +122,32 @@ class ProjectCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    TextButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, project.route),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
+                    Expanded(
+                      flex: 4,
+                      child: TextButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, project.route),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            side: const BorderSide(color: Colors.white),
+                          ),
+                          backgroundColor: Colors.black.withOpacity(.5),
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: const BorderSide(color: Colors.white),
-                        ),
-                        backgroundColor: Colors.black.withOpacity(.5),
-                      ),
-                      child: Text(
-                        "See project",
-                        maxLines: 1,
-                        softWrap: false,
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                        child: FittedBox(
+                          child: Text(
+                            'Open project',
+                            maxLines: 1,
+                            softWrap: false,
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                       ),
                     )
