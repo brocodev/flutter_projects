@@ -20,20 +20,19 @@ class TravelNavigationBar extends StatelessWidget {
       painter: _NavPainter(),
       child: SizedBox(
         height: kToolbarHeight,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(
-              items.length,
-              (index) {
-                return IconButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(
+            items.length,
+            (index) {
+              return Expanded(
+                child: IconButton(
                   onPressed: () => onPressed(index),
                   icon: Icon(items[index].icon),
-                );
-              },
-            ),
-          ),
+                ),
+              );
+            },
+          )..insert(1, const Expanded(child: SizedBox())),
         ),
       ),
     );
