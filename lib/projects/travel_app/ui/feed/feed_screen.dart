@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
-import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.dart';
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
+import 'package:flutter_projects/projects/travel_app/ui/widgets/place_card.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({
@@ -30,7 +30,7 @@ class FeedScreen extends StatelessWidget {
         itemExtent: 350,
         itemCount: TravelPlace.places.length,
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, kToolbarHeight + 20),
         itemBuilder: (context, index) {
           final place = TravelPlace.places[index];
           return PlaceCard(place: place);
@@ -43,14 +43,15 @@ class FeedScreen extends StatelessWidget {
       ),
       bottomNavigationBar: TravelNavigationBar(
         onPressed: (int value) {},
+        currentIndex: 1,
         items: [
           TravelNavigationBarItem(
-            icon: Icons.chat_outlined,
-            selectedIcon: Icons.chat,
+            icon: CupertinoIcons.chat_bubble,
+            selectedIcon: CupertinoIcons.chat_bubble_fill,
           ),
           TravelNavigationBarItem(
-            icon: Icons.widgets_outlined,
-            selectedIcon: Icons.widgets,
+            icon: CupertinoIcons.square_split_2x2,
+            selectedIcon: CupertinoIcons.square_split_2x2_fill,
           ),
         ],
       ),

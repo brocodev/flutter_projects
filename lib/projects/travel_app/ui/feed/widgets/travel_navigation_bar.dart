@@ -28,7 +28,12 @@ class TravelNavigationBar extends StatelessWidget {
               return Expanded(
                 child: IconButton(
                   onPressed: () => onPressed(index),
-                  icon: Icon(items[index].icon),
+                  color: currentIndex == index
+                      ? Theme.of(context).primaryColor
+                      : null,
+                  icon: currentIndex == index
+                      ? Icon(items[index].selectedIcon)
+                      : Icon(items[index].icon),
                 ),
               );
             },
