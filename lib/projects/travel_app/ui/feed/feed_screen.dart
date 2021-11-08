@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.dart';
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
 
 class FeedScreen extends StatelessWidget {
@@ -26,17 +28,12 @@ class FeedScreen extends StatelessWidget {
       extendBody: true,
       body: ListView.builder(
         itemExtent: 350,
-        itemCount: 10,
+        itemCount: TravelPlace.places.length,
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(bottom: 20),
-            decoration: BoxDecoration(
-              color: Colors.redAccent,
-              borderRadius: BorderRadius.circular(12),
-            ),
-          );
+          final place = TravelPlace.places[index];
+          return PlaceCard(place: place);
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

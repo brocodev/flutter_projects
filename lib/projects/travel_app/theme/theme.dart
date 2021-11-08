@@ -61,6 +61,7 @@ class TravelTheme {
       headline3: GoogleFonts.montserrat(
         fontSize: 32,
         fontWeight: FontWeight.w500,
+        color: Colors.white,
       ),
       headline2: GoogleFonts.montserrat(
         fontSize: 36,

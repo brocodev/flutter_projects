@@ -11,6 +11,7 @@ class TravelApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: TravelTheme.theme,
       home: const FeedScreen(),
+
     );
   }
 }
