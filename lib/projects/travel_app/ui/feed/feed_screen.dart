@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/detail/place_detail_screen.dart';
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
 import 'package:flutter_projects/projects/travel_app/ui/widgets/place_card.dart';
 
@@ -33,7 +34,25 @@ class FeedScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(20, 10, 20, kToolbarHeight + 20),
         itemBuilder: (context, index) {
           final place = TravelPlace.places[index];
-          return PlaceCard(place: place);
+          return InkWell(
+            onTap: () => Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (_, animation, __) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: PlaceDetailScreen(place: place),
+                  );
+                },
+              ),
+            ),
+            child: Hero(
+              tag: place.id,
+              child: PlaceCard(
+                place: place,
+              ),
+            ),
+          );
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
