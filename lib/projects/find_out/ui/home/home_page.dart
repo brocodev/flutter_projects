@@ -58,7 +58,7 @@ class HomePageFindOut extends StatelessWidget {
                         labels: ['Playas', 'Pueblos', 'Ciudades'],
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
+/// Watch the full video to create this [SnakeButton] on diegoveloper's channel
+/// https://www.youtube.com/watch?v=e-OPrZWowB4&ab_channel=diegoveloper
 class SnakeButton extends StatefulWidget {
 
   const SnakeButton(

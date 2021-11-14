@@ -116,6 +116,7 @@ class LoginPage extends StatelessWidget {
                                         _openHomePage(context);
                                       },
                                       style: TextButton.styleFrom(
+                                        primary: Colors.white,
                                         padding: const EdgeInsets.all(12),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
