@@ -14,8 +14,10 @@ class MovieHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final heightAppBar = size.height * .15;
-    final resizeValue = heightAppBar * .4;
+    final topPadding = MediaQuery.of(context).padding.top;
+
+    final heightAppBar = size.height * .2;
+    final resizeValue = heightAppBar * .6 - topPadding;
     final billboardList = Billboard.billboardList;
 
     resizeNotifier.value = heightAppBar;
@@ -25,28 +27,36 @@ class MovieHome extends StatelessWidget {
       }
     });
     return Scaffold(
-        backgroundColor: kPrimaryColorDark,
-        body: Stack(
+      backgroundColor: kPrimaryColorDark,
+      body: Stack(
           children: [
-            ListView.builder(
-              controller: _scrollController,
-              itemCount: billboardList.length,
-              padding: EdgeInsets.only(top: heightAppBar + 10),
-              itemBuilder: (context, index) {
-                return BillboardList(billboard: billboardList[index]);
-              },
-            ),
-            ValueListenableBuilder<double>(
-              valueListenable: resizeNotifier,
-              builder: (context, value, child) {
-                return SizedBox(
-                  height: value,
-                  width: double.infinity,
-                  child: child,
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
+          //-------------------------
+          // Movie lists
+          //-------------------------
+          ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            controller: _scrollController,
+            itemCount: billboardList.length,
+            padding: EdgeInsets.only(top: heightAppBar + 10, bottom: 20),
+            itemBuilder: (context, index) {
+              final billboard = billboardList[index];
+              return BillboardList(billboard: billboard);
+            },
+          ),
+          //-----------------------------
+          // Custom bouncing app bar
+          //-----------------------------
+          ValueListenableBuilder<double>(
+            valueListenable: resizeNotifier,
+            builder: (context, value, child) {
+              return SizedBox(
+                height: value,
+                width: double.infinity,
+                child: child,
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
                   color: kPrimaryColorHeavy,
                   boxShadow: [
                     BoxShadow(
@@ -68,10 +78,12 @@ class MovieHome extends StatelessWidget {
                     title: "Time",
                     isSelected: false,
                   ),
-                ]),
+                ],
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

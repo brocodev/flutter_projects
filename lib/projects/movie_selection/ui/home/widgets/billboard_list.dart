@@ -27,7 +27,7 @@ class BillboardList extends StatelessWidget {
             billboard.hour,
             style: GoogleFonts.barlowCondensed(
               letterSpacing: 2,
-              fontSize: heightBillboard * .05,
+              fontSize: 20,
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -48,68 +48,8 @@ class BillboardList extends StatelessWidget {
                 ..uniqueId = movie.title! + billboard.hour
                 ..billboardHour = billboard.hour;
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: SizedBox(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () => _openMovieDetail(context, movie),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Hero(
-                            flightShuttleBuilder: (_, __, ___, ____, _____) {
-                              return Image.asset(
-                                movie.imageUrl!,
-                                fit: BoxFit.cover,
-                              );
-                            },
-                            tag: movie.uniqueId!,
-                            child: Image.asset(
-                              movie.imageUrl!,
-                              height: heightBillboard * .88,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        movie.title!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.barlowCondensed(
-                          fontSize: heightBillboard * .036,
-                          letterSpacing: 2,
-                          fontWeight: FontWeight.w500,
-                          height: 2,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                        width: double.infinity,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          RowStars(
-                            color: kAccentColor,
-                            size: heightBillboard * .022,
-                            stars: movie.rate,
-                          ),
-                          Text(
-                            "${movie.reviews} Reviews",
-                            style: GoogleFonts.barlowCondensed(
-                                fontSize: heightBillboard * .03,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 3,
-                                color: Colors.white38),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+              return MovieBillboardCard(
+                movie: movie,
               );
             },
           ),
@@ -117,21 +57,99 @@ class BillboardList extends StatelessWidget {
       ],
     );
   }
+}
+
+class MovieBillboardCard extends StatelessWidget {
+  const MovieBillboardCard({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
+
+  final Movie movie;
 
   void _openMovieDetail(BuildContext context, Movie movie) {
     Navigator.push(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return MovieDetail(movie: movie);
-          },
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ));
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return MovieDetail(movie: movie);
+        },
+        transitionsBuilder: (__, animation, _, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: InkWell(
+              onTap: () => _openMovieDetail(context, movie),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Hero(
+                  tag: movie.uniqueId!,
+                  flightShuttleBuilder: (_, __, ___, ____, _____) {
+                    return Image.asset(
+                      movie.imageUrl!,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  child: Image.asset(
+                    movie.imageUrl!,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Text(
+            movie.title!,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.barlowCondensed(
+              letterSpacing: 2,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              height: 2,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+            width: double.infinity,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+                child: RowStars(
+                  color: kAccentColor,
+                  stars: movie.rate,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                "${movie.reviews} Reviews",
+                style: GoogleFonts.barlowCondensed(
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 3,
+                  color: Colors.white38,
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
