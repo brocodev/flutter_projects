@@ -25,7 +25,7 @@ class PlaceCard extends StatelessWidget {
           borderRadius:
               expanded ? BorderRadius.zero : BorderRadius.circular(12),
           image: DecorationImage(
-            image: NetworkImage(place.imageUrl.first),
+            image: NetworkImage(place.imagesUrl.first),
             fit: BoxFit.cover,
             colorFilter: const ColorFilter.mode(
               Colors.black26,

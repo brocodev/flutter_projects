@@ -6,9 +6,10 @@ class TravelTheme {
 
   static ThemeData get theme => ThemeData(
         primaryColor: const Color(0xff202053),
+        scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
           elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           centerTitle: true,
           iconTheme: const IconThemeData(color: Colors.black),
           titleTextStyle: GoogleFonts.montserrat(
