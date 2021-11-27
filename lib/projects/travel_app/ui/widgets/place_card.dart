@@ -8,11 +8,9 @@ class PlaceCard extends StatelessWidget {
   const PlaceCard({
     Key? key,
     required this.place,
-    this.expanded = false,
   }) : super(key: key);
 
   final TravelPlace place;
-  final bool expanded;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +18,9 @@ class PlaceCard extends StatelessWidget {
       color: Colors.transparent,
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
-        padding: expanded ? const EdgeInsets.all(20) : const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          borderRadius:
-              expanded ? BorderRadius.zero : BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
             image: NetworkImage(place.imagesUrl.first),
             fit: BoxFit.cover,
@@ -36,45 +33,39 @@ class PlaceCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Visibility(
-              visible: !expanded,
-              maintainState: true,
-              maintainAnimation: true,
-              maintainSize: true,
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(place.user.urlPhoto),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        place.user.name,
-                        style: context.bodyText1.copyWith(
-                          color: Colors.white,
-                        ),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage(place.user.urlPhoto),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      place.user.name,
+                      style: context.bodyText1.copyWith(
+                        color: Colors.white,
                       ),
-                      Text(
-                        'yesterday at 9:10 a.m.',
-                        style: context.bodyText2.copyWith(
-                          color: Colors.white70,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.more_horiz,
-                      color: Colors.white,
                     ),
-                  )
-                ],
-              ),
+                    Text(
+                      'yesterday at 9:10 a.m.',
+                      style: context.bodyText2.copyWith(
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.more_horiz,
+                    color: Colors.white,
+                  ),
+                )
+              ],
             ),
             const Spacer(),
             Text(
@@ -113,33 +104,27 @@ class PlaceCard extends StatelessWidget {
               },
             ),
             const Spacer(),
-            Visibility(
-              visible: !expanded,
-              maintainState: true,
-              maintainAnimation: true,
-              maintainSize: true,
-              child: Row(
-                children: [
-                  TextButton.icon(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    icon: const Icon(CupertinoIcons.heart),
-                    label: Text(place.likes.toString()),
+            Row(
+              children: [
+                TextButton.icon(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    shape: const StadiumBorder(),
                   ),
-                  TextButton.icon(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    icon: const Icon(CupertinoIcons.reply),
-                    label: Text(place.shared.toString()),
-                  )
-                ],
-              ),
+                  icon: const Icon(CupertinoIcons.heart),
+                  label: Text(place.likes.toString()),
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    shape: const StadiumBorder(),
+                  ),
+                  icon: const Icon(CupertinoIcons.reply),
+                  label: Text(place.shared.toString()),
+                )
+              ],
             )
           ],
         ),
