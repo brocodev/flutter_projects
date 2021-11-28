@@ -36,7 +36,7 @@ class IgCollection {
     ),
     IgCollection(
       title: 'Flutter',
-      iconImage: 'https://flutter.dev/images/catalog-widget-placeholder.png',
+      iconImage: 'https://flutter.dev/images/catalog-widgets-placeholder.png',
       imagesCollection: [],
     ),
     IgCollection(

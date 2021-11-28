@@ -43,8 +43,7 @@ class FeedScreen extends StatelessWidget {
                     opacity: animation,
                     child: PlaceDetailScreen(
                       place: place,
-                      initialScrollOffset:
-                          MediaQuery.of(context).size.height * .4,
+                      screenHeight: MediaQuery.of(context).size.height,
                     ),
                   );
                 },
@@ -52,9 +51,7 @@ class FeedScreen extends StatelessWidget {
             ),
             child: Hero(
               tag: place.id,
-              child: PlaceCard(
-                place: place,
-              ),
+              child: PlaceCard(place: place),
             ),
           );
         },

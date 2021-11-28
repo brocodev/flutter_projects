@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
-import 'package:flutter_projects/projects/travel_app/ui/detail/animated_detail_header.dart';
+import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/animated_detail_header.dart';
 
 class PlaceDetailScreen extends StatefulWidget {
   const PlaceDetailScreen({
     Key? key,
     required this.place,
-    required this.initialScrollOffset,
+    required this.screenHeight,
   }) : super(key: key);
 
   final TravelPlace place;
-  final double initialScrollOffset;
+  final double screenHeight;
 
   @override
   State<PlaceDetailScreen> createState() => _PlaceDetailScreenState();
@@ -26,7 +27,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   void initState() {
     super.initState();
     _scrollController =
-        ScrollController(initialScrollOffset: widget.initialScrollOffset);
+        ScrollController(initialScrollOffset: widget.screenHeight * .3);
     _scrollController.addListener(_scrollListener);
   }
 
@@ -53,16 +54,22 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                 return Hero(
                   tag: widget.place.id,
                   child: AnimatedDetailHeader(
-
-                    upFactorChange: ((1 - factorChange) / .6).clamp(0.0, 1.0),
-                    downFactorChange: (factorChange / .4).clamp(0.0, 1.0),
+                    upFactorChange: ((1 - factorChange) / .7).clamp(0.0, 1.0),
+                    downFactorChange: (factorChange / .3).clamp(0.0, 1.0),
                     place: widget.place,
                   ),
                 );
               },
             ),
           ),
-          SliverToBoxAdapter(child: Container(height: 600)),
+          SliverToBoxAdapter(
+            child: TranslateAnimation(
+              child: Container(
+                height: 600,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );

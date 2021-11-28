@@ -11,7 +11,7 @@ class CurvedNavigationBar extends StatelessWidget {
     this.currentIndex = 0,
   })  : assert(
           items.length == 4,
-          'The correct functioning of this widget '
+          'The correct functioning of this widgets '
           'depends on its items being exactly 4',
         ),
         super(key: key);
