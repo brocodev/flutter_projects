@@ -49,10 +49,7 @@ class FeedScreen extends StatelessWidget {
                 },
               ),
             ),
-            child: Hero(
-              tag: place.id,
-              child: PlaceCard(place: place),
-            ),
+            child: PlaceCard(place: place),
           );
         },
       ),

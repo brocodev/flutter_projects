@@ -12,7 +12,7 @@ class TranslateAnimation extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 1, end: 0),
       duration: const Duration(milliseconds: 600),
-      curve: Curves.decelerate,
+      curve: Curves.easeInOutBack,
       builder: (_, value, child) {
         return Transform.translate(
           offset: Offset(0, 100 * value),

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -36,23 +37,46 @@ class AnimatedDetailHeader extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   top: (20 + topPadding) * (1 - downFactorChange),
-                  bottom: 180 * (1 - downFactorChange),
+                  bottom: 160 * (1 - downFactorChange),
                 ),
                 child: PlaceImagesPageView(
                   factorChange: downFactorChange,
-                  place: place,
+                  imagesUrl: place.imagesUrl,
                 ),
               ),
               SafeArea(
                 child: Material(
                   color: Colors.transparent,
                   child: Row(
-                    children: const [
-                      BackButton(color: Colors.white),
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const BackButton(color: Colors.white),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.more_horiz),
+                        color: Colors.white,
+                      )
                     ],
                   ),
                 ),
-              )
+              ),
+              Positioned(
+                top: lerpDouble(-30, 140, upFactorChange)!
+                    .clamp(topPadding + 10, 140.0),
+                left: lerpDouble(60, 20, upFactorChange)!.clamp(20, 50),
+                right: 20,
+                child: Opacity(
+                  opacity: downFactorChange,
+                  child: Text(
+                    place.name,
+                    style: TextStyle(
+                      fontSize: lerpDouble(20, 40, upFactorChange),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -72,6 +96,10 @@ class AnimatedDetailHeader extends StatelessWidget {
         //--------------------------
         // Profile information
         //--------------------------
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(color: Colors.white, height: 20),
+        ),
         Positioned.fill(
           top: null,
           child: TranslateAnimation(
@@ -117,7 +145,7 @@ class _UserInfoContainer extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(place.user.urlPhoto),
+            backgroundImage: CachedNetworkImageProvider(place.user.urlPhoto),
           ),
           const SizedBox(width: 10),
           Column(

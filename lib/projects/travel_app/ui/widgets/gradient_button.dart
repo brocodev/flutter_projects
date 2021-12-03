@@ -1,19 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
+import 'package:flutter_projects/projects/travel_app/models/place.dart';
 
 class GradientTag extends StatelessWidget {
   const GradientTag({
     Key? key,
-    required this.child,
-    required this.colors,
-  })  : assert(colors.length > 1, 'Colors must be more than one'),
-        super(key: key);
+    required this.statusTag,
+  }) : super(key: key);
 
-  final Widget child;
-  final List<Color> colors;
+  final StatusTag statusTag;
 
   @override
   Widget build(BuildContext context) {
+    List<Color> colors;
+    String text;
+    switch (statusTag) {
+      case StatusTag.popular:
+        colors = [
+          Colors.amber,
+          Colors.orange.shade700,
+        ];
+        text = 'Popular places';
+        break;
+      case StatusTag.event:
+        colors = [
+          Colors.greenAccent.shade200,
+          Colors.greenAccent.shade700,
+        ];
+        text = 'Events';
+        break;
+    }
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       decoration: BoxDecoration(
@@ -22,7 +39,12 @@ class GradientTag extends StatelessWidget {
           colors: colors,
         ),
       ),
-      child: child,
+      child: Text(
+        text,
+        style: context.subtitle1.copyWith(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }

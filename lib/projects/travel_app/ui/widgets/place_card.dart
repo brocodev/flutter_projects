@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
@@ -22,7 +23,7 @@ class PlaceCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
-            image: NetworkImage(place.imagesUrl.first),
+            image: CachedNetworkImageProvider(place.imagesUrl.first),
             fit: BoxFit.cover,
             colorFilter: const ColorFilter.mode(
               Colors.black26,
@@ -73,35 +74,8 @@ class PlaceCard extends StatelessWidget {
               style: context.headline2,
             ),
             const SizedBox(height: 16),
-            Builder(
-              builder: (context) {
-                switch (place.statusTag) {
-                  case StatusTag.popular:
-                    return GradientTag(
-                      colors: [
-                        Colors.amber,
-                        Colors.orange.shade700,
-                      ],
-                      child: Text(
-                        'Popular places',
-                        style: context.subtitle1.copyWith(color: Colors.white),
-                      ),
-                    );
-                  case StatusTag.event:
-                    return GradientTag(
-                      colors: [
-                        Colors.greenAccent.shade200,
-                        Colors.greenAccent.shade700,
-                      ],
-                      child: Text(
-                        'Events',
-                        style: context.subtitle1.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                    );
-                }
-              },
+            GradientTag(
+              statusTag: place.statusTag
             ),
             const Spacer(),
             Row(

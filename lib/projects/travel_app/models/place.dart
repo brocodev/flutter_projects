@@ -1,14 +1,14 @@
 class TravelPlace {
   TravelPlace({
-    required this.id,
     required this.name,
     required this.user,
-    required this.statusTag,
-    required this.shared,
-    required this.likes,
     required this.imagesUrl,
-    required this.locationDesc,
-    required this.description,
+    this.id = '',
+    this.description = '',
+    this.locationDesc = '',
+    this.statusTag = StatusTag.popular,
+    this.shared = 0,
+    this.likes = 0,
   });
 
   final String id;
@@ -93,6 +93,50 @@ class TravelPlace {
       locationDesc: 'GOLDEN GATE Cat Bridge, San Francisco California',
     ),
   ];
+  static final collectionPlaces = [
+    TravelPlace(
+      name: 'San Miguel de Allende',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+    TravelPlace(
+      name: 'Chichen Itza',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+    TravelPlace(
+      name: 'Ciudad de Mexico',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1574493264149-87880133a2ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+    TravelPlace(
+      name: 'Teotihuacan',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1575351881847-b3bf188d9d0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+    TravelPlace(
+      name: 'Taxco',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1595781514079-2abd0a36f892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+    TravelPlace(
+      name: 'Acapulco',
+      imagesUrl: [
+        'https://images.unsplash.com/photo-1624979575293-10e2113ed91d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=60'
+      ],
+      user: TravelUser.mario,
+    ),
+  ];
 }
 
 class TravelUser {
@@ -101,11 +145,18 @@ class TravelUser {
   final String name;
   final String urlPhoto;
 
-  static TravelUser alex = TravelUser('Alex Fernandez', 'https://images.unsplash.com/photo-1589304038421-449708a42983?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
-  static TravelUser mario = TravelUser('Mario Calzada', 'https://i.ibb.co/c1j1VDT/yo.jpg');
-  static TravelUser luna = TravelUser('Luna Benioly', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80');
+  static TravelUser lili = TravelUser('Lily Juarez',
+      'https://images.unsplash.com/photo-1457732815361-daa98277e9c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=60');
+  static TravelUser alex = TravelUser('Alex Fernandez',
+      'https://images.unsplash.com/photo-1589304038421-449708a42983?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+  static TravelUser mario =
+      TravelUser('Mario Calzada', 'https://i.ibb.co/c1j1VDT/yo.jpg');
+  static TravelUser luna = TravelUser('Luna Benioly',
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80');
+  static TravelUser javier = TravelUser('Luna Benioly',
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80');
 
-  static List<TravelUser> users = [alex, mario, luna];
+  static List<TravelUser> users = [alex, mario, luna, lili, javier];
 }
 
 enum StatusTag { popular, event }
