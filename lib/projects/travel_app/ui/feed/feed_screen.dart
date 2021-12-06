@@ -31,25 +31,33 @@ class FeedScreen extends StatelessWidget {
         itemExtent: 350,
         itemCount: TravelPlace.places.length,
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, kToolbarHeight + 20),
+        padding: const EdgeInsets.only(bottom: kToolbarHeight + 20),
         itemBuilder: (context, index) {
           final place = TravelPlace.places[index];
-          return InkWell(
-            onTap: () => Navigator.push(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (_, animation, __) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: PlaceDetailScreen(
-                      place: place,
-                      screenHeight: MediaQuery.of(context).size.height,
+          return Hero(
+            tag: place.id,
+            child: Material(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (_, animation, __) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: PlaceDetailScreen(
+                            place: place,
+                            screenHeight: MediaQuery.of(context).size.height,
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  ),
+                  child: PlaceCard(place: place),
+                ),
               ),
             ),
-            child: PlaceCard(place: place),
           );
         },
       ),

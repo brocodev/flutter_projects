@@ -31,53 +31,58 @@ class AnimatedDetailHeader extends StatelessWidget {
         //------------------------
         // Page view
         //------------------------
-        ClipRRect(
-          child: Stack(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  top: (20 + topPadding) * (1 - downFactorChange),
-                  bottom: 160 * (1 - downFactorChange),
-                ),
-                child: PlaceImagesPageView(
-                  factorChange: downFactorChange,
-                  imagesUrl: place.imagesUrl,
-                ),
-              ),
-              SafeArea(
-                child: Material(
-                  color: Colors.transparent,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const BackButton(color: Colors.white),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.more_horiz),
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: lerpDouble(-30, 140, upFactorChange)!
-                    .clamp(topPadding + 10, 140.0),
-                left: lerpDouble(60, 20, upFactorChange)!.clamp(20, 50),
-                right: 20,
-                child: Opacity(
-                  opacity: downFactorChange,
-                  child: Text(
-                    place.name,
-                    style: TextStyle(
-                      fontSize: lerpDouble(20, 40, upFactorChange),
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+        Hero(
+          tag: place.id,
+          child: Material(
+            child: ClipRRect(
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: (20 + topPadding) * (1 - downFactorChange),
+                      bottom: 160 * (1 - downFactorChange),
+                    ),
+                    child: PlaceImagesPageView(
+                      factorChange: downFactorChange,
+                      imagesUrl: place.imagesUrl,
                     ),
                   ),
-                ),
+                  SafeArea(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const BackButton(color: Colors.white),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.more_horiz),
+                            color: Colors.white,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: lerpDouble(-30, 140, upFactorChange)!
+                        .clamp(topPadding + 10, 140.0),
+                    left: lerpDouble(60, 20, upFactorChange)!.clamp(20, 50),
+                    right: 20,
+                    child: Opacity(
+                      opacity: downFactorChange,
+                      child: Text(
+                        place.name,
+                        style: TextStyle(
+                          fontSize: lerpDouble(20, 40, upFactorChange),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
         //--------------------------
