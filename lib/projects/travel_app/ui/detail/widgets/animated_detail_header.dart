@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
-import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_status_tag.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
 import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/place_images_page_view.dart';
+import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_status_tag.dart';
 import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animation.dart';
 
 class AnimatedDetailHeader extends StatelessWidget {
@@ -235,7 +235,8 @@ class _LikesAndSharesContainer extends StatelessWidget {
               primary: Colors.blue.shade600,
               textStyle: context.subtitle1,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
             icon: const Icon(
               Icons.check_circle_outlined,

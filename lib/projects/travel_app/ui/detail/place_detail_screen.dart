@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/animated_detail_header.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/animated_detail_header.dart';
 import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animation.dart';
 
 class PlaceDetailScreen extends StatefulWidget {
@@ -25,13 +26,13 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   bool _isAnimatingScroll = false;
 
   void _scrollListener() {
-    var percent =
+    final percent =
         _controller.position.pixels / MediaQuery.of(context).size.height;
     bottomPercentNotifier.value = (percent / .3).clamp(0.0, 1.0);
   }
 
   void _isScrollingListener() {
-    var percent = _controller.position.pixels / widget.screenHeight;
+    final percent = _controller.position.pixels / widget.screenHeight;
     if (!_controller.position.isScrollingNotifier.value) {
       if (percent < .3 && percent > .1) {
         setState(() => _isAnimatingScroll = true);
@@ -47,20 +48,20 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
         setState(() => _isAnimatingScroll = true);
         _controller
             .animateTo(
-              0,
-              duration: kThemeAnimationDuration,
-              curve: Curves.decelerate,
-            )
+          0,
+          duration: kThemeAnimationDuration,
+          curve: Curves.decelerate,
+        )
             .then((value) => setState(() => _isAnimatingScroll = false));
       }
       if (percent < .5 && percent > .3) {
         setState(() => _isAnimatingScroll = true);
         _controller
             .animateTo(
-              widget.screenHeight * .3,
-              duration: kThemeAnimationDuration,
-              curve: Curves.decelerate,
-            )
+          widget.screenHeight * .3,
+          duration: kThemeAnimationDuration,
+          curve: Curves.decelerate,
+        )
             .then((value) => setState(() => _isAnimatingScroll = false));
       }
     }
@@ -75,7 +76,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
       _controller.position.isScrollingNotifier
           .addListener(_isScrollingListener);
     });
-    bottomPercentNotifier = ValueNotifier(1.0);
+    bottomPercentNotifier = ValueNotifier(1);
     super.initState();
   }
 
@@ -116,14 +117,18 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                   child: TranslateAnimation(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              const Icon(Icons.location_on,
-                                  color: Colors.black26),
+                              const Icon(
+                                Icons.location_on,
+                                color: Colors.black26,
+                              ),
                               Flexible(
                                 child: Text(
                                   widget.place.locationDesc,
@@ -159,7 +164,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                       itemCount: TravelPlace.collectionPlaces.length,
                       itemBuilder: (context, index) {
                         final collectionPlace =
-                            TravelPlace.collectionPlaces[index];
+                        TravelPlace.collectionPlaces[index];
                         return Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: ClipRRect(
@@ -218,10 +223,11 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                               radius: 15,
                               backgroundColor: Colors.white,
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(2),
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      TravelUser.users[i].urlPhoto),
+                                  backgroundImage: CachedNetworkImageProvider(
+                                    TravelUser.users[i].urlPhoto,
+                                  ),
                                 ),
                               ),
                             ),
@@ -258,8 +264,9 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                     padding: const EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       child: const Icon(
                         Icons.location_on,
                         color: Colors.blue,
@@ -290,7 +297,10 @@ class BuilderPersistentDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return builder(shrinkOffset / _maxExtent);
   }
 

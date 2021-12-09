@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
-import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.dart';
 import 'package:flutter_projects/projects/travel_app/ui/detail/place_detail_screen.dart';
+import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.dart';
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
 
 class FeedScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
-import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_status_tag.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_status_tag.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
