@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.dart';
 import 'package:flutter_projects/projects/travel_app/ui/detail/place_detail_screen.dart';
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
-import 'package:flutter_projects/projects/travel_app/ui/widgets/place_card.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({
@@ -14,11 +14,11 @@ class FeedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Feed'),
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(CupertinoIcons.search),
         ),
-        title: const Text('Feed'),
         actions: [
           IconButton(
             onPressed: () {},
@@ -26,49 +26,45 @@ class FeedScreen extends StatelessWidget {
           ),
         ],
       ),
-      extendBody: true,
       body: ListView.builder(
-        itemExtent: 350,
         itemCount: TravelPlace.places.length,
+        itemExtent: 350,
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.only(bottom: kToolbarHeight + 20),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, kToolbarHeight + 20),
         itemBuilder: (context, index) {
           final place = TravelPlace.places[index];
           return Hero(
             tag: place.id,
             child: Material(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: InkWell(
-                  onTap: () => Navigator.push(
+              child: PlaceCard(
+                place: place,
+                onPressed: () async {
+                  Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (_, animation, __) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: PlaceDetailScreen(
-                            place: place,
-                            screenHeight: MediaQuery.of(context).size.height,
-                          ),
-                        );
-                      },
+                      pageBuilder: (_, animation, __) => FadeTransition(
+                        opacity: animation,
+                        child: PlaceDetailScreen(
+                          place: place,
+                          screenHeight: MediaQuery.of(context).size.height,
+                        ),
+                      ),
                     ),
-                  ),
-                  child: PlaceCard(place: place),
-                ),
+                  );
+                },
               ),
             ),
           );
         },
       ),
+      extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.location_on),
       ),
       bottomNavigationBar: TravelNavigationBar(
-        onPressed: (int value) {},
-        currentIndex: 1,
+        onTap: (index) {},
         items: [
           TravelNavigationBarItem(
             icon: CupertinoIcons.chat_bubble,
@@ -79,6 +75,7 @@ class FeedScreen extends StatelessWidget {
             selectedIcon: CupertinoIcons.square_split_2x2_fill,
           ),
         ],
+        currentIndex: 1,
       ),
     );
   }

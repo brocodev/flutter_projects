@@ -38,7 +38,7 @@ class TravelPlace {
       ],
       statusTag: StatusTag.popular,
       user: TravelUser.alex,
-      locationDesc: 'GOLDEN GATE Cat Bridge, San Francisco California',
+      locationDesc: 'QUINTANA ROO Mexico, Coast of the Caribbean Sea',
     ),
     TravelPlace(
       id: '1',
@@ -56,7 +56,7 @@ class TravelPlace {
       ],
       statusTag: StatusTag.event,
       user: TravelUser.mario,
-      locationDesc: 'GOLDEN GATE Cat Bridge, San Francisco California',
+      locationDesc: 'QUINTANA ROO Mexico, in southeastern Mexico',
     ),
     TravelPlace(
       id: '2',
@@ -72,7 +72,7 @@ class TravelPlace {
       ],
       statusTag: StatusTag.event,
       user: TravelUser.luna,
-      locationDesc: 'GOLDEN GATE Cat Bridge, San Francisco California',
+      locationDesc: 'GUERRERO MEXICO Ometepec City',
     ),
     TravelPlace(
       id: '4',
@@ -89,8 +89,8 @@ class TravelPlace {
         'https://images.unsplash.com/photo-1584415326659-a6a153c07e32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80'
       ],
       statusTag: StatusTag.event,
-      user: TravelUser.mario,
-      locationDesc: 'GOLDEN GATE Cat Bridge, San Francisco California',
+      user: TravelUser.lili,
+      locationDesc: 'GUERRERO MEXICO ON THE SOUTHERN COAST OF THE COUNTRY',
     ),
   ];
   static final collectionPlaces = [
@@ -134,7 +134,7 @@ class TravelPlace {
       imagesUrl: [
         'https://images.unsplash.com/photo-1624979575293-10e2113ed91d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=60'
       ],
-      user: TravelUser.mario,
+      user: TravelUser.luna,
     ),
   ];
 }
@@ -153,7 +153,7 @@ class TravelUser {
       TravelUser('Mario Calzada', 'https://i.ibb.co/c1j1VDT/yo.jpg');
   static TravelUser luna = TravelUser('Luna Benioly',
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80');
-  static TravelUser javier = TravelUser('Luna Benioly',
+  static TravelUser javier = TravelUser('Javier',
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80');
 
   static List<TravelUser> users = [alex, mario, luna, lili, javier];

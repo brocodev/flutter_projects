@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
 
-class GradientTag extends StatelessWidget {
-  const GradientTag({
+class GradientStatusTag extends StatelessWidget {
+  const GradientStatusTag({
     Key? key,
     required this.statusTag,
   }) : super(key: key);
@@ -13,22 +13,16 @@ class GradientTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Color> colors;
     String text;
+    List<Color> colors;
     switch (statusTag) {
       case StatusTag.popular:
-        colors = [
-          Colors.amber,
-          Colors.orange.shade700,
-        ];
         text = 'Popular places';
+        colors = [Colors.amber, Colors.orange.shade600];
         break;
       case StatusTag.event:
-        colors = [
-          Colors.greenAccent.shade200,
-          Colors.greenAccent.shade700,
-        ];
-        text = 'Events';
+        text = 'Event';
+        colors = [Colors.cyan, Colors.blue.shade600];
         break;
     }
     return Container(
@@ -41,9 +35,7 @@ class GradientTag extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: context.subtitle1.copyWith(
-          color: Colors.white,
-        ),
+        style: context.subtitle1.copyWith(color: Colors.white),
       ),
     );
   }

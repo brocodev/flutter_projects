@@ -5,13 +5,13 @@ class TravelNavigationBar extends StatelessWidget {
   const TravelNavigationBar({
     Key? key,
     required this.items,
-    required this.onPressed,
+    required this.onTap,
     this.currentIndex = 0,
   })  : assert(items.length == 2, ''),
         super(key: key);
 
   final List<TravelNavigationBarItem> items;
-  final ValueChanged<int> onPressed;
+  final ValueChanged<int> onTap;
   final int currentIndex;
 
   @override
@@ -21,23 +21,19 @@ class TravelNavigationBar extends StatelessWidget {
       child: SizedBox(
         height: kToolbarHeight,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(
             items.length,
-            (index) {
-              return Expanded(
-                child: IconButton(
-                  onPressed: () => onPressed(index),
-                  color: currentIndex == index
-                      ? Theme.of(context).primaryColor
-                      : null,
-                  icon: currentIndex == index
-                      ? Icon(items[index].selectedIcon)
-                      : Icon(items[index].icon),
-                ),
-              );
-            },
-          )..insert(1, const Expanded(child: SizedBox())),
+            (index) => Expanded(
+              child: Icon(
+                currentIndex == index
+                    ? items[index].selectedIcon
+                    : items[index].icon,
+                color: currentIndex == index
+                    ? Theme.of(context).primaryColor
+                    : null,
+              ),
+            ),
+          )..insert(1, const Spacer()),
         ),
       ),
     );
@@ -47,11 +43,11 @@ class TravelNavigationBar extends StatelessWidget {
 class TravelNavigationBarItem {
   TravelNavigationBarItem({
     required this.icon,
-    this.selectedIcon,
+    required this.selectedIcon,
   });
 
   final IconData icon;
-  final IconData? selectedIcon;
+  final IconData selectedIcon;
 }
 
 class _NavPainter extends CustomPainter {
@@ -59,8 +55,8 @@ class _NavPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
-    final w5 = w * .5;
     final h5 = h * .5;
+    final w5 = w * .5;
     final h6 = h * .6;
 
     final path = Path()
@@ -74,10 +70,11 @@ class _NavPainter extends CustomPainter {
       ..lineTo(w5 - 3, h6)
       ..lineTo(w5, h)
       ..lineTo(0, h);
+
     canvas.drawShadow(path, Colors.black26, 10, false);
     canvas.drawPath(path, Paint()..color = Colors.white);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

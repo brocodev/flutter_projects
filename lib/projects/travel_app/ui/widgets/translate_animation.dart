@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TranslateAnimation extends StatelessWidget {
-  const TranslateAnimation({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
+  const TranslateAnimation({Key? key, required this.child}) : super(key: key);
+
   final Widget child;
 
   @override
@@ -13,7 +11,7 @@ class TranslateAnimation extends StatelessWidget {
       tween: Tween(begin: 1, end: 0),
       duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutBack,
-      builder: (_, value, child) {
+      builder: (context, value, child) {
         return Transform.translate(
           offset: Offset(0, 100 * value),
           child: child,

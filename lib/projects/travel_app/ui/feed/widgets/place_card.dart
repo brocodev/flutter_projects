@@ -1,29 +1,31 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
+import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_status_tag.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
-import 'package:flutter_projects/projects/travel_app/ui/widgets/gradient_button.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
     Key? key,
     required this.place,
+    required this.onPressed,
   }) : super(key: key);
 
   final TravelPlace place;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
+    final statusTag = place.statusTag;
+    return InkWell(
+      onTap: onPressed,
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
-            image: CachedNetworkImageProvider(place.imagesUrl.first),
+            image: NetworkImage(place.imagesUrl.first),
             fit: BoxFit.cover,
             colorFilter: const ColorFilter.mode(
               Colors.black26,
@@ -37,7 +39,6 @@ class PlaceCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.white,
                   backgroundImage: NetworkImage(place.user.urlPhoto),
                 ),
                 const SizedBox(width: 10),
@@ -51,8 +52,8 @@ class PlaceCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'yesterday at 9:10 a.m.',
-                      style: context.bodyText2.copyWith(
+                      'yesterday at 9:10 p.m.',
+                      style: context.bodyText1.copyWith(
                         color: Colors.white70,
                       ),
                     ),
@@ -73,10 +74,8 @@ class PlaceCard extends StatelessWidget {
               place.name,
               style: context.headline2,
             ),
-            const SizedBox(height: 16),
-            GradientTag(
-              statusTag: place.statusTag
-            ),
+            const SizedBox(height: 10),
+            GradientStatusTag(statusTag: statusTag),
             const Spacer(),
             Row(
               children: [
