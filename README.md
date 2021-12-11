@@ -17,7 +17,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 ___
 ## 12 - Travel App (available comming soon)
- [TRAVEL APP with Animations - Flutter Challenge](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
+#### [TRAVEL APP with Animations - Flutter Challenge](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Feed Screen | Details Screen |
  |-----------|-----------|
  |<img src="https://media.giphy.com/media/QE4ePwfrDUdp2OTegD/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/Lr51m3IIi3yLae1bV0/giphy-downsized-large.gif" width="250"> |
@@ -26,7 +26,7 @@ ___
 
 ___
 ## 11 - Template Gallery App
- [Flutter Card Template Animation | Stacked Cards | Speed Code](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
+#### [Flutter Card Template Animation | Stacked Cards | Speed Code](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Perspective List View| Settings Drawer |
  |-----------|-----------|
  |<img src="https://media.giphy.com/media/eZjCCjKneC0Us572ry/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/L1PIR41QveWiVy7on3/giphy.gif" width="250"> |
@@ -59,7 +59,7 @@ Flutter UI + Animations + Slivers + Simple Bloc
 
 ___
 ## 8 - Superhero Movies App
- [Superhero Movies App - Flutter Speed Code UI](https://www.youtube.com/watch?v=heimVhqr48M&t=459s) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
+#### [Superhero Movies App - Flutter Speed Code UI](https://www.youtube.com/watch?v=heimVhqr48M&t=459s) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
  | Slider Page | Detail Page |
  | ----------------- |-------------|
  | <img src="https://media4.giphy.com/media/RriIppZB1GXXAAXjH6/giphy.gif" width="250" > | <img src="https://media1.giphy.com/media/sZTnX2wu5y1jAhJ1sI/giphy.gif" width="250">|
