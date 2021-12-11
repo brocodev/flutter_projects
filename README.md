@@ -15,6 +15,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+___
+## 12 - Travel App (available comming soon)
+ [TRAVEL APP with Animations - Flutter Challenge](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">
+ | Feed Screen | Details Screen |
+ |-----------|-----------|
+ |<img src="https://media.giphy.com/media/QE4ePwfrDUdp2OTegD/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/Lr51m3IIi3yLae1bV0/giphy-downsized-large.gif" width="250"> |
+
+### [Inspiration](https://www.instagram.com/p/B-kGS--gluL/) <img src="https://i.ibb.co/dK1QRMq/logo-instagram-icon.png"  width="16">
 
 ___
 ## 11 - Template Gallery App
@@ -23,7 +31,7 @@ ___
  |-----------|-----------|
  |<img src="https://media.giphy.com/media/eZjCCjKneC0Us572ry/giphy.gif" width="250" >|<img src="https://media.giphy.com/media/L1PIR41QveWiVy7on3/giphy.gif" width="250"> |
 
-### [Inspiration]() <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="16">
+### [Inspiration]() <img src="https://i.ibb.co/J52dhz6/dribbble-1.png" width="20">
 
 ___
 ## 10 - Bookstore App
