@@ -36,7 +36,8 @@ class _PlaceImagesPageViewState extends State<PlaceImagesPageView> {
               return AnimatedContainer(
                 duration: kThemeAnimationDuration,
                 margin: EdgeInsets.only(
-                  right: 10,
+                  left: 5,
+                  right: 5,
                   top: isSelected ? 5 : 20,
                   bottom: isSelected ? 5 : 20,
                 ),
@@ -70,9 +71,12 @@ class _PlaceImagesPageViewState extends State<PlaceImagesPageView> {
               final isSelected = currentIndex == index;
               return AnimatedContainer(
                 duration: kThemeAnimationDuration,
-                color: isSelected ? Colors.black38 : Colors.black12,
+                decoration: BoxDecoration(
+                  color: isSelected ? Colors.black38 : Colors.black12,
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 margin: const EdgeInsets.symmetric(horizontal: 3),
-                height: 3,
+                height: isSelected ? 4 : 3,
                 width: isSelected ? 20 : 10,
               );
             },

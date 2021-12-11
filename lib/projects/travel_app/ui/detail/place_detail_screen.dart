@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
+import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/place_comments_widget.dart';
 import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/animated_detail_header.dart';
 import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animation.dart';
 
@@ -48,20 +48,20 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
         setState(() => _isAnimatingScroll = true);
         _controller
             .animateTo(
-          0,
-          duration: kThemeAnimationDuration,
-          curve: Curves.decelerate,
-        )
+              0,
+              duration: kThemeAnimationDuration,
+              curve: Curves.decelerate,
+            )
             .then((value) => setState(() => _isAnimatingScroll = false));
       }
-      if (percent < .5 && percent > .3) {
+      if (percent < .6 && percent > .3) {
         setState(() => _isAnimatingScroll = true);
         _controller
             .animateTo(
-          widget.screenHeight * .3,
-          duration: kThemeAnimationDuration,
-          curve: Curves.decelerate,
-        )
+              widget.screenHeight * .3,
+              duration: kThemeAnimationDuration,
+              curve: Curves.decelerate,
+            )
             .then((value) => setState(() => _isAnimatingScroll = false));
       }
     }
@@ -144,6 +144,8 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                           Text(widget.place.description),
                           const SizedBox(height: 10),
                           Text(widget.place.description),
+                          const SizedBox(height: 10),
+                          Text(widget.place.description),
                           const SizedBox(height: 20),
                           const Text(
                             'PLACES IN THIS COLLECTION',
@@ -164,7 +166,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                       itemCount: TravelPlace.collectionPlaces.length,
                       itemBuilder: (context, index) {
                         final collectionPlace =
-                        TravelPlace.collectionPlaces[index];
+                            TravelPlace.collectionPlaces[index];
                         return Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: ClipRRect(
@@ -192,90 +194,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                 child: child!,
               );
             },
-            child: Container(
-              height: 130,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.white.withOpacity(0),
-                    Colors.white,
-                  ],
-                ),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 60,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple.shade800,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        for (var i = 0; i < 3; i++)
-                          Align(
-                            widthFactor: .7,
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.all(2),
-                                child: CircleAvatar(
-                                  backgroundImage: CachedNetworkImageProvider(
-                                    TravelUser.users[i].urlPhoto,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          'Comments',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          '120',
-                          style: TextStyle(
-                            color: Colors.white70,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        const Icon(Icons.arrow_forward),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.blueGrey.shade50,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.location_on,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            child: const PlaceCommentsWidget(),
           )
         ],
       ),

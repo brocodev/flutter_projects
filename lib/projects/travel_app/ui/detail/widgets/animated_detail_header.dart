@@ -62,9 +62,9 @@ class AnimatedDetailHeader extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: lerpDouble(-30, 140, topPercent)!
+                    top: lerpDouble(-100, 140, topPercent)!
                         .clamp(topPadding + 10, 140),
-                    left: lerpDouble(60, 20, topPercent)!.clamp(20.0, 50.0),
+                    left: lerpDouble(100, 20, topPercent)!.clamp(20.0, 50.0),
                     right: 20,
                     child: AnimatedOpacity(
                       duration: kThemeAnimationDuration,
@@ -73,7 +73,8 @@ class AnimatedDetailHeader extends StatelessWidget {
                         place.name,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: lerpDouble(20, 40, topPercent),
+                          fontSize:
+                              lerpDouble(0, 40, topPercent)!.clamp(20.0, 40.0),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
