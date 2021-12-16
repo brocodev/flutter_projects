@@ -104,7 +104,7 @@ class Book {
               'see him live up to his potential as the valedictorian of '
               'Bronx Science. But Darren is content working at Starbucks in '
               'the lobby of a Midtown office building, hanging out with his '
-              'girlfriend, Soraya, and eating his mother’s home-cooked meals. '
+              'girlfriend, Soraya, and eating his mother’s feed-cooked meals. '
               'All that changes when a chance encounter with Rhett Daniels, '
               'the silver-tongued CEO of Sumwun, NYC’s hottest tech startup, '
               'results in an exclusive invitation for Darren to join an elite '

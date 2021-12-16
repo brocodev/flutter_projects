@@ -15,7 +15,7 @@ class BookDetailHeader extends StatelessWidget {
   final Book? book;
 
   // [enableOpenBookAnimation]
-  // Validation to not apply the custom hero when going to the home screen
+  // Validation to not apply the custom hero when going to the feed screen
   final ValueNotifier<bool> enableOpenBookAnimation = ValueNotifier(false);
 
   //----------------------------------------

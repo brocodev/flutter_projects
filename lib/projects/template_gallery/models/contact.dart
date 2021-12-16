@@ -11,7 +11,7 @@ class Contact {
 
   static const contacts = [
     Contact('Bette Gracey', 'Biostatistician IV', '1 Cherokee Parkway',
-        '804-575-0381', 'bgracey0@home.pl', 'utexas.edu'),
+        '804-575-0381', 'bgracey0@feed.pl', 'utexas.edu'),
     Contact(
         'Somerset Yosselevitch',
         'Mechanical Systems Engineer',
