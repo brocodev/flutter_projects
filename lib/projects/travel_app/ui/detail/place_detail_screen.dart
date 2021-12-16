@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
-import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/place_comments_widget.dart';
 import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/animated_detail_header.dart';
+import 'package:flutter_projects/projects/travel_app/ui/detail/widgets/place_comments_widget.dart';
 import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animation.dart';
 
 class PlaceDetailScreen extends StatefulWidget {
@@ -32,39 +31,40 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   }
 
   void _isScrollingListener() {
-    final percent = _controller.position.pixels / widget.screenHeight;
-    if (!_controller.position.isScrollingNotifier.value) {
-      if (percent < .3 && percent > .1) {
-        setState(() => _isAnimatingScroll = true);
-        _controller
-            .animateTo(
-              widget.screenHeight * .3,
-              duration: kThemeAnimationDuration,
-              curve: Curves.decelerate,
-            )
-            .then((value) => setState(() => _isAnimatingScroll = false));
-      }
-      if (percent < .1 && percent > 0) {
-        setState(() => _isAnimatingScroll = true);
-        _controller
-            .animateTo(
-              0,
-              duration: kThemeAnimationDuration,
-              curve: Curves.decelerate,
-            )
-            .then((value) => setState(() => _isAnimatingScroll = false));
-      }
-      if (percent < .6 && percent > .3) {
-        setState(() => _isAnimatingScroll = true);
-        _controller
-            .animateTo(
-              widget.screenHeight * .3,
-              duration: kThemeAnimationDuration,
-              curve: Curves.decelerate,
-            )
-            .then((value) => setState(() => _isAnimatingScroll = false));
-      }
-    }
+    // TODO(brocodev): review scroll bug
+    // final percent = _controller.position.pixels / widget.screenHeight;
+    // if (!_controller.position.isScrollingNotifier.value) {
+    //   if (percent < .3 && percent > .1) {
+    //     setState(() => _isAnimatingScroll = true);
+    //     _controller
+    //         .animateTo(
+    //           widget.screenHeight * .3,
+    //           duration: kThemeAnimationDuration,
+    //           curve: Curves.decelerate,
+    //         )
+    //         .then((value) => setState(() => _isAnimatingScroll = false));
+    //   }
+    //   if (percent < .1 && percent > 0) {
+    //     setState(() => _isAnimatingScroll = true);
+    //     _controller
+    //         .animateTo(
+    //           0,
+    //           duration: kThemeAnimationDuration,
+    //           curve: Curves.decelerate,
+    //         )
+    //         .then((value) => setState(() => _isAnimatingScroll = false));
+    //   }
+    //   if (percent < .6 && percent > .3) {
+    //     setState(() => _isAnimatingScroll = true);
+    //     _controller
+    //         .animateTo(
+    //           widget.screenHeight * .3,
+    //           duration: kThemeAnimationDuration,
+    //           curve: Curves.decelerate,
+    //         )
+    //         .then((value) => setState(() => _isAnimatingScroll = false));
+    //   }
+    // }
   }
 
   @override
