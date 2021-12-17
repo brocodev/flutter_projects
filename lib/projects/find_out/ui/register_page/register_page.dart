@@ -18,7 +18,7 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: GestureDetector(
         onVerticalDragUpdate: (details) {
-          if (details.primaryDelta! > 10) {
+          if (details.primaryDelta! > 3) {
             resizeNotifier.value = false;
             Navigator.pop(context);
           }

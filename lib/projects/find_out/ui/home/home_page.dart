@@ -4,12 +4,36 @@ import 'package:flutter_projects/projects/find_out/ui/home/widgets/drop_down_wid
 import 'package:flutter_projects/projects/find_out/ui/home/widgets/page_view_places.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
-class HomePageFindOut extends StatelessWidget {
+class HomePageFindOut extends StatefulWidget {
   const HomePageFindOut({Key? key}) : super(key: key);
 
   @override
+  State<HomePageFindOut> createState() => _HomePageFindOutState();
+}
+
+class _HomePageFindOutState extends State<HomePageFindOut> {
+  late final ValueNotifier<double> _pageValueNotifier;
+  late final PageController _pageController;
+
+  void _pageListener() => _pageValueNotifier.value = _pageController.page!;
+
+  @override
+  void initState() {
+    _pageController = PageController();
+    _pageValueNotifier = ValueNotifier<double>(0);
+    _pageController.addListener(_pageListener);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.removeListener(_pageListener);
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final pageController = PageController(viewportFraction: .999);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -17,7 +41,8 @@ class HomePageFindOut extends StatelessWidget {
         children: <Widget>[
           PageViewPlaces(
             places: Place.dumpListData,
-            pageController: pageController,
+            pageController: _pageController,
+            pageValueNotifier: _pageValueNotifier,
           ),
           Positioned(
             top: 20,
@@ -38,11 +63,12 @@ class HomePageFindOut extends StatelessWidget {
                       ),
                       FindOutHorizontalLogo(),
                       CircleAvatar(
-                          backgroundColor: Colors.black12,
-                          child: Icon(
-                            Icons.person_outline,
-                            color: Colors.white,
-                          ),)
+                        backgroundColor: Colors.black12,
+                        child: Icon(
+                          Icons.person_outline,
+                          color: Colors.white,
+                        ),
+                      )
                     ],
                   ),
                   const SizedBox(height: 30),
@@ -67,7 +93,7 @@ class HomePageFindOut extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                onPressed: () => pageController.previousPage(
+                onPressed: () => _pageController.previousPage(
                   duration: const Duration(milliseconds: 800),
                   curve: Curves.easeInOutQuint,
                 ),
@@ -75,7 +101,7 @@ class HomePageFindOut extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back_ios),
               ),
               IconButton(
-                onPressed: () => pageController.nextPage(
+                onPressed: () => _pageController.nextPage(
                   duration: const Duration(milliseconds: 800),
                   curve: Curves.easeInOutQuint,
                 ),

@@ -4,34 +4,20 @@ import 'package:flutter_projects/projects/find_out/ui/social_page/social_page.da
 import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/background_shader_image.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
-class PageViewPlaces extends StatefulWidget {
+class PageViewPlaces extends StatelessWidget {
   const PageViewPlaces({
     Key? key,
     this.places,
     required this.pageController,
+    required this.pageValueNotifier,
   }) : super(key: key);
 
   final List<Place>? places;
   final PageController pageController;
-
-  @override
-  State<PageViewPlaces> createState() => _PageViewPlacesState();
-}
-
-class _PageViewPlacesState extends State<PageViewPlaces> {
-  late ValueNotifier<double> pageValueNotifier;
-
-  @override
-  void initState() {
-    pageValueNotifier = ValueNotifier<double>(0);
-    widget.pageController.addListener(() {
-      pageValueNotifier.value = widget.pageController.page!;
-    });
-    super.initState();
-  }
+  final ValueNotifier<double> pageValueNotifier;
 
   void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
-    if (details.primaryDelta! < -20) {
+    if (details.primaryDelta! < -5) {
       Navigator.push(
         context,
         PageRouteBuilder(
@@ -51,9 +37,10 @@ class _PageViewPlacesState extends State<PageViewPlaces> {
   Widget build(BuildContext context) {
     return PageView.builder(
       physics: const NeverScrollableScrollPhysics(),
-      controller: widget.pageController,
+      controller: pageController,
+      allowImplicitScrolling: true,
       itemBuilder: (context, index) {
-        final place = widget.places![index % widget.places!.length];
+        final place = places![index % places!.length];
         return GestureDetector(
           onVerticalDragUpdate: (details) =>
               _onDragVerticalUpdate(details, context, place),

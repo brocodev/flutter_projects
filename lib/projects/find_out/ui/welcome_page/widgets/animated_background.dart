@@ -52,7 +52,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
           fit: StackFit.expand,
           children: <Widget>[
             Image.asset(
-              'assets/img/findout/background${(i + 1).toInt()}.jpg',
+              'assets/img/findout/background${i + 1}.jpg',
               fit: BoxFit.cover,
             ),
             const Positioned.fill(
