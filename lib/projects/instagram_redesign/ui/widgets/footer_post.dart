@@ -46,7 +46,7 @@ class FooterPost extends StatelessWidget {
                 colorDescription ?? Theme.of(context).colorScheme.onBackground,
             fontWeight: FontWeight.bold,
           ),
-        )))
+        ),),)
         ..add(const SizedBox(width: 5))
         ..add(SizedBox(
           height: 30,
@@ -64,7 +64,7 @@ class FooterPost extends StatelessWidget {
               ),
             ),
           ),
-        )),
+        ),),
     );
   }
 }

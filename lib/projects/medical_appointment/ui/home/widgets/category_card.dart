@@ -20,7 +20,7 @@ class CategoryCard extends StatelessWidget {
           gradient: LinearGradient(colors: [
             Color(category.rawColor!),
             Color(category.rawColor!).withAlpha(1000),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter,),),
       child: Stack(
         fit: StackFit.expand,
         children: [

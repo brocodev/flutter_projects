@@ -1,4 +1,4 @@
-import 'album.dart';
+import 'package:flutter_projects/projects/music_vinyl_player/models/album.dart';
 
 class Song {
   const Song(this.title, this.duration, this.album);

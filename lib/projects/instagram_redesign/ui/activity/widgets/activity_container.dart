@@ -116,13 +116,13 @@ class ActivityContainer extends StatelessWidget {
                 BoxShadow(
                     color: Colors.lightBlueAccent.withOpacity(.3),
                     blurRadius: 10,
-                    offset: const Offset(0, 8))
-              ]),
+                    offset: const Offset(0, 8),)
+              ],),
           child: TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
                 padding: const EdgeInsets.all(20),
-                textStyle: const TextStyle(color: Colors.white)),
+                textStyle: const TextStyle(color: Colors.white),),
             child: Text(
               activity.typeNotification == IgTypeActivity.follows
                   ? 'Follow back'

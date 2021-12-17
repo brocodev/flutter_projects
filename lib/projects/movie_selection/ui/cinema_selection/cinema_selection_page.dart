@@ -31,7 +31,7 @@ class CinemaSelectionPage extends StatelessWidget {
               child: child,
             );
           },
-          child: _BodyCinemaSelection(movie: movie, hideWidgets: hideWidgets)),
+          child: _BodyCinemaSelection(movie: movie, hideWidgets: hideWidgets),),
     );
   }
 }
@@ -126,7 +126,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                 const SizedBox(height: 40),
                 const TranslateAnimation(
                     duration: Duration(milliseconds: 700),
-                    child: SelectCinema()),
+                    child: SelectCinema(),),
                 const SizedBox(height: 30),
                 TranslateAnimation(
                   child: SizedBox(
@@ -134,7 +134,7 @@ class _BodyCinemaSelection extends StatelessWidget {
                       child: HoursMovieOptions(
                           listHours: listHours,
                           selectedHourNotifier: selectedHourNotifier,
-                          movie: movie),),
+                          movie: movie,),),
                 ),
               ],
             ),
@@ -167,6 +167,6 @@ class _BodyCinemaSelection extends StatelessWidget {
               child: SeatsSelectionPage(movie: movie),
             );
           },
-        ));
+        ),);
   }
 }

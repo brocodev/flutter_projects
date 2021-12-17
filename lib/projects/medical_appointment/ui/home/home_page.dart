@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/medical_appointment/models/md_appointment.dart';
 import 'package:flutter_projects/projects/medical_appointment/models/md_doctor.dart';
 import 'package:flutter_projects/projects/medical_appointment/models/md_doctor_category.dart';
 import 'package:flutter_projects/projects/medical_appointment/models/md_patient.dart';
@@ -11,10 +10,10 @@ class MedicalHomePage extends StatefulWidget {
   const MedicalHomePage({Key? key}) : super(key: key);
 
   @override
-  _MedicalHomePageState createState() => _MedicalHomePageState();
+  MedicalHomePageState createState() => MedicalHomePageState();
 }
 
-class _MedicalHomePageState extends State<MedicalHomePage> {
+class MedicalHomePageState extends State<MedicalHomePage> {
   bool expandAppointment = false;
   bool showAppointmentDetails = false;
 
@@ -22,7 +21,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     const expandDuration = Duration(milliseconds: 400);
-    final num heightCurtain = (size.width * .75).clamp(310.0, 340.0);
+    final heightCurtain = (size.width * .75).clamp(310.0, 340.0);
     final nextAppointment = MedicalAppointment.nextAppointment;
     return Scaffold(
       body: Stack(
@@ -43,7 +42,7 @@ class _MedicalHomePageState extends State<MedicalHomePage> {
             top: 0,
             left: 0,
             right: 0,
-            height: expandAppointment ? heightCurtain + 280 : heightCurtain as double?,
+            height: expandAppointment ? heightCurtain + 280 : heightCurtain,
             child: CustomPaint(
               painter: TonguePainter(curveRadius: 30),
               child: Column(
@@ -222,15 +221,19 @@ class _BodyHome extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text.rich(
-            TextSpan(text: 'Last medical check', children: [
-              TextSpan(
+            TextSpan(
+              text: 'Last medical check',
+              children: [
+                TextSpan(
                   text: ' (2020 - Ago - 12)',
                   style: TextStyle(
                     color: Colors.grey[400],
                     fontWeight: FontWeight.w700,
                     fontSize: 14,
-                  ))
-            ]),
+                  ),
+                )
+              ],
+            ),
             style: sectionStyle,
           ),
         ),

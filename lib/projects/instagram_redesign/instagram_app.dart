@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
-import 'package:flutter_projects/projects/instagram_redesign/bloc/instagram_bloc.dart';
 import 'package:flutter_projects/projects/instagram_redesign/theme/themes.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/activity/activities_page.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/home/instagram_home.dart';

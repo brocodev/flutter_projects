@@ -32,7 +32,7 @@ class InstagramProfile extends StatelessWidget {
               currentUser.username!,
               style: GoogleFonts.lato(
                   fontSize: 16,
-                  color: Theme.of(context).appBarTheme.iconTheme!.color),
+                  color: Theme.of(context).appBarTheme.iconTheme!.color,),
             ),
             const Icon(Icons.keyboard_arrow_down)
           ],
@@ -92,7 +92,7 @@ class InstagramProfile extends StatelessWidget {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
-                )),
+                ),),
                 const SizedBox(width: 10),
                 Text(
                   "|",
@@ -103,7 +103,7 @@ class InstagramProfile extends StatelessWidget {
                       color: Theme.of(context)
                           .colorScheme
                           .onBackground
-                          .withOpacity(.3)),
+                          .withOpacity(.3),),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -114,7 +114,7 @@ class InstagramProfile extends StatelessWidget {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
-                )),
+                ),),
               ],
             ),
 
@@ -135,8 +135,8 @@ class InstagramProfile extends StatelessWidget {
                           text: " @brocodev",
                           style: TextStyle(
                               color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold))
-                    ]),
+                              fontWeight: FontWeight.bold,),)
+                    ],),
               ),
             ),
             const SizedBox(height: 10),
@@ -226,7 +226,7 @@ class InstagramProfile extends StatelessWidget {
             const Divider(height: 2),
             SizedBox(
               height: MediaQuery.of(context).size.height * .5,
-              child: BottomTabViewProfile(user: currentUser),
+              child: const BottomTabViewProfile(user: currentUser),
             )
           ],
         ),

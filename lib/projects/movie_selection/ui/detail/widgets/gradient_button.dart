@@ -35,13 +35,13 @@ class GradientButton extends StatelessWidget {
               )
             ],
             borderRadius: BorderRadius.circular(8),
-            gradient: kGradientRedOrange),
+            gradient: kGradientRedOrange,),
         child: Text(
           text!,
           style: GoogleFonts.barlowCondensed(
               fontSize: size.height * .027,
               fontWeight: FontWeight.w500,
-              letterSpacing: 4),
+              letterSpacing: 4,),
         ),
       ),
     );

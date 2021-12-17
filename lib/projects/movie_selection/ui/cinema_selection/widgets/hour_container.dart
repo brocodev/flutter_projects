@@ -35,7 +35,7 @@ class HourContainer extends StatelessWidget {
                   boxShadow: const [
                     BoxShadow(blurRadius: 20, color: Colors.black38)
                   ],
-                  borderRadius: BorderRadius.circular(6)),
+                  borderRadius: BorderRadius.circular(6),),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -59,6 +59,6 @@ class HourContainer extends StatelessWidget {
               ),
             ),
           );
-        });
+        },);
   }
 }

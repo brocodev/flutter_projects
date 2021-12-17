@@ -84,7 +84,7 @@ class CardPlaceInformation extends StatelessWidget {
           elevation: 2,
           backgroundColor: Colors.pinkAccent,
           child: const Icon(Icons.person_pin_circle,
-              color: Colors.white, size: 35),
+              color: Colors.white, size: 35,),
         )
       ],
     );
@@ -112,7 +112,7 @@ class _InlineTextSpan extends StatelessWidget {
               text: " $value",
               style: const TextStyle(color: Colors.grey),
             ),
-          ]),
+          ],),
     );
   }
 }

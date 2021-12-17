@@ -30,7 +30,7 @@ class AnimatedLine extends StatelessWidget {
               backgroundColor: Colors.white54,
               valueColor: const AlwaysStoppedAnimation(Colors.white),
             );
-          }),
+          },),
     );
   }
 }

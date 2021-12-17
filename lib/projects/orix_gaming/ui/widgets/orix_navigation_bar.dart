@@ -61,7 +61,7 @@ class _NavItemWidget extends StatelessWidget {
                       gradient: LinearGradient(colors: [
                         Theme.of(context).primaryColorLight,
                         Theme.of(context).primaryColorDark,
-                      ])),
+                      ],),),
                   child: Icon(
                     item.iconData,
                     color: Colors.white,

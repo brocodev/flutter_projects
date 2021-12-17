@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_activity.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/activity/widgets/activity_container.dart';
@@ -9,10 +8,10 @@ class ActivitiesPage extends StatefulWidget {
   const ActivitiesPage({Key? key}) : super(key: key);
 
   @override
-  _ActivitiesPageState createState() => _ActivitiesPageState();
+  ActivitiesPageState createState() => ActivitiesPageState();
 }
 
-class _ActivitiesPageState extends State<ActivitiesPage> {
+class ActivitiesPageState extends State<ActivitiesPage> {
   int selectedIndex = 0;
   PageController? _pageController;
 
@@ -35,7 +34,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
           title: Text(
         'Activity',
         style: GoogleFonts.lato(fontSize: 24),
-      )),
+      ),),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -64,7 +63,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                     notifications: index == 0
                         ? 0
                         : _getLengthActivities(
-                            IgTypeActivity.values[index - 1]),
+                            IgTypeActivity.values[index - 1],),
                     labelButton: index == 0
                         ? 'All activity'
                         : IgTypeActivity.values[index - 1]
@@ -103,7 +102,7 @@ class _ActivitiesPageState extends State<ActivitiesPage> {
                 final listActivities = selectedIndex == 0
                     ? IgActivity.listActivities
                     : _getActivitiesByType(
-                        IgTypeActivity.values[selectedIndex - 1]);
+                        IgTypeActivity.values[selectedIndex - 1],);
 
                 return ListView.builder(
                   physics: const BouncingScrollPhysics(),

@@ -73,8 +73,8 @@ class SeatsSelectionPage extends StatelessWidget {
                                       quantity: value,
                                       label: 'Selected',
                                     );
-                                  }),
-                            ])),
+                                  },),
+                            ],),),
                   ),
                   const SizedBox(height: 100),
                   TranslateAnimation(
@@ -120,7 +120,7 @@ class SeatsSelectionPage extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),);
   }
 
   void _openSummary(BuildContext context, Movie? movie) {
@@ -134,6 +134,6 @@ class SeatsSelectionPage extends StatelessWidget {
               child: SummaryPage(movie: movie),
             );
           },
-        ));
+        ),);
   }
 }

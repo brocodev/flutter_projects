@@ -30,7 +30,7 @@ class SendMessageTextField extends StatelessWidget {
                 color: Colors.white70,
               ),
             ),
-          )),
+          ),),
     );
   }
 }

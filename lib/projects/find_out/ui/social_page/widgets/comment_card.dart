@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/models/comments.dart';
 
@@ -39,14 +38,14 @@ class CommentCard extends StatelessWidget {
                         color: Colors.black,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
-                        fontSize: fontSize),
+                        fontSize: fontSize,),
                     children: [
                       TextSpan(
                           text: '\nhace 20 min',
                           style: TextStyle(
-                              color: Colors.grey, fontSize: fontSize * .8))
-                    ]),
-              )),
+                              color: Colors.grey, fontSize: fontSize * .8,),)
+                    ],),
+              ),),
             ],
           ),
           const SizedBox(height: 10),
@@ -59,7 +58,7 @@ class CommentCard extends StatelessWidget {
                     imageUrl: comment.photoCommentUrl!,
                     height: 100,
                     width: double.infinity,
-                    fit: BoxFit.cover),
+                    fit: BoxFit.cover,),
               ),
             ),
           Flexible(
@@ -72,7 +71,7 @@ class CommentCard extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w600,
-                    fontSize: 12),
+                    fontSize: 12,),
               ),
             ),
           ),
@@ -87,7 +86,7 @@ class CommentCard extends StatelessWidget {
               Text(
                 " ${comment.commentLikes}",
                 style: TextStyle(
-                    color: Colors.grey[600], fontWeight: FontWeight.w700),
+                    color: Colors.grey[600], fontWeight: FontWeight.w700,),
               ),
               const SizedBox(width: 20),
               Icon(
@@ -97,7 +96,7 @@ class CommentCard extends StatelessWidget {
               Text(
                 " ${comment.commentResponses}",
                 style: TextStyle(
-                    color: Colors.grey[600], fontWeight: FontWeight.w700),
+                    color: Colors.grey[600], fontWeight: FontWeight.w700,),
               ),
             ],
           )

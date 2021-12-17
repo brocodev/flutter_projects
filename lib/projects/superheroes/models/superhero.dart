@@ -28,20 +28,20 @@ class Superhero {
             'echnology',
         pathImage: 'assets/img/superheroes/spiderman-a.png',
         movies: HeroMovie.spidermanMovies,
-        rawColor: 0xffA41209),
+        rawColor: 0xffA41209,),
     Superhero(
         heroName: 'Iron Man',
         name: 'Tony Stark',
         description:
             'He is the Armored Avenger - driven by a heart that is part machin'
             'e, but all hero! He is the '
-            'INVINCIBLE IRON MAN! Iron Man\'s Powers and Abilities: Wears modu'
+            "INVINCIBLE IRON MAN! Iron Man's Powers and Abilities: Wears modu"
             'lar arc reactor-powered Iron Man armor, '
             'granting superhuman strength & durability, the ability to fly &'
             ' project Repulsor blasts',
         pathImage: 'assets/img/superheroes/ironman-a.png',
         movies: HeroMovie.ironManMovies,
-        rawColor: 0xffB3790F),
+        rawColor: 0xffB3790F,),
     Superhero(
         heroName: 'Thor',
         name: 'Thor Odinson',
@@ -54,7 +54,7 @@ class Superhero {
             'ing member of the Avengers.',
         pathImage: 'assets/img/superheroes/thor-c.png',
         movies: HeroMovie.thorMovies,
-        rawColor: 0xff3E4953),
+        rawColor: 0xff3E4953,),
     Superhero(
         heroName: 'Ant Man',
         name: 'Scott Lang',
@@ -66,7 +66,7 @@ class Superhero {
             'from a new generation of towering threats.',
         pathImage: 'assets/img/superheroes/antman-a.png',
         movies: HeroMovie.antmanMovies,
-        rawColor: 0xff98142B),
+        rawColor: 0xff98142B,),
     Superhero(
         heroName: 'Black Widow',
         name: 'Natasha Romanova',
@@ -79,20 +79,20 @@ class Superhero {
             't few appearances but simply evening wear and a veil.',
         pathImage: 'assets/img/superheroes/blackwidow-a.png',
         movies: HeroMovie.blackWidowMovies,
-        rawColor: 0xff011535),
+        rawColor: 0xff011535,),
     Superhero(
         heroName: 'Captain America',
         name: 'Steve Rogers',
         description:
             'Captain America is the alter ego of Steve Rogers, a frail young '
             'man enhanced to the peak of human perfection '
-            'by an experimental serum to aid the United States government\'s'
+            "by an experimental serum to aid the United States government's"
             ' efforts in World War II. Near the end of the war, '
             'he was trapped in ice and survived in suspended animation until'
             ' he was revived in modern times.',
         pathImage: 'assets/img/superheroes/captain-b.png',
         movies: HeroMovie.captainAmericaMovies,
-        rawColor: 0xff0232CB),
+        rawColor: 0xff0232CB,),
     Superhero(
         heroName: 'Hawk eye',
         name: 'Clint Barton',
@@ -104,7 +104,7 @@ class Superhero {
             'him astray from his direct orders',
         pathImage: 'assets/img/superheroes/hawkeye.png',
         movies: [],
-        rawColor: 0xff380142),
+        rawColor: 0xff380142,),
     Superhero(
         heroName: 'Hulk',
         name: 'Bruce Banner',
@@ -117,7 +117,7 @@ class Superhero {
             'physicist',
         pathImage: 'assets/img/superheroes/hulk-b.png',
         movies: HeroMovie.hulkMovies,
-        rawColor: 0xff047A3B),
+        rawColor: 0xff047A3B,),
   ];
 }
 
@@ -135,50 +135,50 @@ class HeroMovie {
 
   static const antmanMovies = [
     HeroMovie('Ant-Man', 7.6,
-        "https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg"),
+        "https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg",),
     HeroMovie('Ant-Man and the Wasp', 8.2,
-        "https://upload.wikimedia.org/wikipedia/en/2/2c/Ant-Man_and_the_Wasp_poster.jpg")
+        "https://upload.wikimedia.org/wikipedia/en/2/2c/Ant-Man_and_the_Wasp_poster.jpg",)
   ];
   static const blackWidowMovies = [
     HeroMovie("Black Widow", 10,
-        'https://upload.wikimedia.org/wikipedia/en/7/74/Black_Widow_poster.jpg')
+        'https://upload.wikimedia.org/wikipedia/en/7/74/Black_Widow_poster.jpg',)
   ];
 
   static const captainAmericaMovies = [
     HeroMovie('Captain America: The First Avenger', 7.8,
-        'https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg',),
     HeroMovie('Captain America: The Winter Soldier', 9.3,
-        'https://upload.wikimedia.org/wikipedia/en/9/9e/Captain_America_The_Winter_Soldier_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/9/9e/Captain_America_The_Winter_Soldier_poster.jpg',),
     HeroMovie('Captain America: Civil War', 8.7,
-        'https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg',),
   ];
 
   static const hulkMovies = [
     HeroMovie('Hulk', 6.5,
-        'https://upload.wikimedia.org/wikipedia/en/5/59/Hulk_movie.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/5/59/Hulk_movie.jpg',),
     HeroMovie('The Incredible Hulk', 7.5,
-        'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg',),
   ];
   static const ironManMovies = [
     HeroMovie('Iron Man', 8,
-        'https://upload.wikimedia.org/wikipedia/en/0/00/Iron_Man_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/0/00/Iron_Man_poster.jpg',),
     HeroMovie('Iron Man 2', 8,
-        'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg',),
     HeroMovie('Iron Man 3', 5,
-        'https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg',),
   ];
   static const spidermanMovies = [
     HeroMovie('Spider-Man: Homecoming', 7.1,
-        'https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg',),
     HeroMovie('Spider-Man: Far From Home', 7.8,
-        'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg',),
   ];
   static const thorMovies = [
     HeroMovie("Thor", 7.6,
-        'https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg',),
     HeroMovie("Thor: The Dark World", 7.6,
-        'https://upload.wikimedia.org/wikipedia/en/7/7f/Thor_The_Dark_World_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/7/7f/Thor_The_Dark_World_poster.jpg',),
     HeroMovie("Thor: Ragnarok", 6.8,
-        'https://upload.wikimedia.org/wikipedia/en/7/7d/Thor_Ragnarok_poster.jpg'),
+        'https://upload.wikimedia.org/wikipedia/en/7/7d/Thor_Ragnarok_poster.jpg',),
   ];
 }

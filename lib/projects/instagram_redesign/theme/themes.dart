@@ -16,7 +16,6 @@ class InstagramTheme {
 
   static final kAppBarThemeDark = kAppBarThemeLight.copyWith(
     iconTheme: const IconThemeData(color: Colors.white),
-    brightness: Brightness.dark,
     color: Colors.black,
     titleTextStyle: GoogleFonts.satisfy(
       color: Colors.white,

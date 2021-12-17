@@ -62,7 +62,7 @@ class OrixTrendingPage extends StatelessWidget {
                 final materialColor =
                     Colors.primaries[index % Colors.primaries.length];
                 return _OrixTrendingGameCard(
-                    game: game, materialColor: materialColor);
+                    game: game, materialColor: materialColor,);
               },
             ),
           ),
@@ -136,11 +136,11 @@ class _MainTrendingGame extends StatelessWidget {
                         text: ' $titleWithoutFirstWord',
                         style: GoogleFonts.poppins(fontWeight: FontWeight.w300),
                       )
-                    ]),
+                    ],),
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
-                        color: Colors.white),
+                        color: Colors.white,),
                   ),
                   // GENRE
                   Container(
@@ -148,7 +148,7 @@ class _MainTrendingGame extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         color: Colors.yellow.withOpacity(.8),
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(6),),
                     child: Text(
                       game.genre!,
                       style: GoogleFonts.poppins(
@@ -209,7 +209,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(color: Colors.black.withOpacity(.06), blurRadius: 15)
-          ]),
+          ],),
       child: Column(
         children: [
           Expanded(
@@ -238,7 +238,7 @@ class _OrixTrendingGameCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         color: materialColor.shade700,
                         fontSize: 12,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w500,),
                   ),
                 ),
                 Expanded(

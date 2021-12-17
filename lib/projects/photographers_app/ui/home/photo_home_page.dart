@@ -73,7 +73,7 @@ class PhotoHomePage extends StatelessWidget {
                           text: "opular Users",
                           style: TextStyle(decoration: TextDecoration.none),
                         )
-                      ]),
+                      ],),
                 ),
               ),
               //-------------------------------

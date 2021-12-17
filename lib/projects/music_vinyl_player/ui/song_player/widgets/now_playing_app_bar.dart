@@ -14,7 +14,7 @@ class NowPlayingAppBar extends StatelessWidget {
           color: Colors.grey[100],
           borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(60),
-          )),
+          ),),
       child: SafeArea(
         child: Row(
           children: <Widget>[
@@ -26,7 +26,7 @@ class NowPlayingAppBar extends StatelessWidget {
                   color: Colors.grey,
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
-                  letterSpacing: 3),
+                  letterSpacing: 3,),
             ),
             const Spacer(),
           ],

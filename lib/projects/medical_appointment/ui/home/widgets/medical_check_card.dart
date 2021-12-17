@@ -24,7 +24,7 @@ class MedicalCheckCard extends StatelessWidget {
               BoxShadow(
                   color: Colors.grey.withOpacity(.1),
                   blurRadius: 10,
-                  offset: const Offset(-3, 3)),
+                  offset: const Offset(-3, 3),),
             ],
           ),
           child: Row(

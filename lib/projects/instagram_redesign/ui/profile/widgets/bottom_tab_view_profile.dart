@@ -79,7 +79,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
               childAspectRatio: 10 / 2.8,
               crossAxisCount: 2,
               crossAxisSpacing: 15,
-              mainAxisSpacing: 15),
+              mainAxisSpacing: 15,),
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.fromLTRB(15, 15, 10, 76),
           itemCount: user.externalPlatforms.length,
@@ -90,7 +90,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(externalPlatform.imagePath!))),
+                      image: AssetImage(externalPlatform.imagePath!),),),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: IconButton(
@@ -105,7 +105,7 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
           },
         ), //---LINKS
         const Center(child: Text("Saved")), //---SAVED
-      ]),
+      ],),
     );
   }
 }

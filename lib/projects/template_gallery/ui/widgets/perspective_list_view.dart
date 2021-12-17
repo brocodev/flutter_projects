@@ -40,7 +40,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
     _currentIndex = widget.initialIndex;
     _pageController = PageController(
         viewportFraction: 1 / widget.visualizedItems!,
-        initialPage: _currentIndex!);
+        initialPage: _currentIndex!,);
     _pagePercent = 0.0;
     _pageController!.addListener(_pageListener);
     super.initState();
@@ -76,7 +76,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
                 currentIndex: _currentIndex,
                 heightItem: widget.itemExtent,
                 pagePercent: _pagePercent,
-                children: widget.children),
+                children: widget.children,),
           ),
           //---------------------------------------
           // Back Items Shadow
@@ -129,7 +129,7 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
           )
         ],
       );
-    });
+    },);
   }
 }
 
@@ -195,7 +195,7 @@ class _PerspectiveItems extends StatelessWidget {
                 ) else const SizedBox()
         ],
       );
-    });
+    },);
   }
 }
 
@@ -226,7 +226,7 @@ class _TransformedItem extends StatelessWidget {
       transform: Matrix4.identity()
         ..scale(lerpDouble(scale, endScale, factorChange!))
         ..translate(
-            0.0, lerpDouble(translateY, endTranslateY, factorChange!)!),
+            0.0, lerpDouble(translateY, endTranslateY, factorChange!)!,),
       child: Align(
         alignment: Alignment.topCenter,
         child: SizedBox(

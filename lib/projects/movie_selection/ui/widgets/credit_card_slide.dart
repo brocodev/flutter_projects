@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../constants/constants.dart';
 
 class CreditCardSlide extends StatelessWidget {
   const CreditCardSlide({Key? key}):super(key: key);
@@ -23,7 +22,7 @@ class CreditCardSlide extends StatelessWidget {
             onPageChanged: (index) => indexNotifier.value = index,
             itemCount: 3,
             itemBuilder: (context, index) {
-              return CreditCardWidget(
+              return CreditCard(
                 colors: listColors[index],
               );
             },
@@ -45,7 +44,7 @@ class CreditCardSlide extends StatelessWidget {
                         radius: value == index ? 5 : 2.5,
                       ),
                     );
-                  });
+                  },);
             }),
           ),
         )
@@ -54,12 +53,12 @@ class CreditCardSlide extends StatelessWidget {
   }
 }
 
-class CreditCardWidget extends StatelessWidget {
-  const CreditCardWidget({
+class CreditCard extends StatelessWidget {
+  const CreditCard({
     Key? key,
-    this.colors,
+    required this.colors,
   }) : super(key: key);
-  final List<Color?>? colors;
+  final List<Color> colors;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +71,9 @@ class CreditCardWidget extends StatelessWidget {
           color: Colors.red,
           borderRadius: BorderRadius.circular(30),
           gradient: LinearGradient(
-              colors: colors as List<Color>,
+              colors: colors,
               begin: Alignment.topLeft,
-              end: Alignment.bottomRight)),
+              end: Alignment.bottomRight,),),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -84,7 +83,7 @@ class CreditCardWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   CircleAvatar(
-                      backgroundColor: Colors.redAccent.withOpacity(.8)),
+                      backgroundColor: Colors.redAccent.withOpacity(.8),),
                   Align(
                     widthFactor: .3,
                     child: CircleAvatar(
@@ -103,11 +102,11 @@ class CreditCardWidget extends StatelessWidget {
               Text("Kevin Melendez Hernandez".toUpperCase(),
                   maxLines: 1,
                   style: GoogleFonts.barlowCondensed(
-                      color: Colors.white70, fontSize: size.height * .018)),
+                      color: Colors.white70, fontSize: size.height * .018,),),
               Text("05/24".toUpperCase(),
                   maxLines: 1,
                   style: GoogleFonts.barlowCondensed(
-                      color: Colors.white70, fontSize: size.height * .018)),
+                      color: Colors.white70, fontSize: size.height * .018,),),
             ],
           ),
           const SizedBox(height: 30),
@@ -116,7 +115,7 @@ class CreditCardWidget extends StatelessWidget {
               style: GoogleFonts.barlowCondensed(
                 fontSize: size.height * .024,
                 letterSpacing: 12,
-              )),
+              ),),
         ],
       ),
     );

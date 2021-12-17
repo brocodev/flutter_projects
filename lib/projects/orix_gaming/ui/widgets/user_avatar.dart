@@ -16,7 +16,7 @@ class UserAvatar extends StatelessWidget {
             margin: const EdgeInsets.fromLTRB(5, 10, 5, 0),
             decoration: BoxDecoration(
                 color: Colors.lightBlueAccent[100],
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(10),),
           ),
           Image.asset('assets/img/gaming/boy.png')
         ],

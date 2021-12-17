@@ -34,7 +34,7 @@ class AppointmentDetails extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           height: 90,
           decoration: BoxDecoration(
-              color: Colors.white30, borderRadius: BorderRadius.circular(10)),
+              color: Colors.white30, borderRadius: BorderRadius.circular(10),),
           child: Row(
             children: <Widget>[
               const Icon(
@@ -89,7 +89,7 @@ class AppointmentDetails extends StatelessWidget {
                         child: SvgPicture.asset(
                       mdIndication.svgIconPath!,
                       color: Colors.white,
-                    )),
+                    ),),
                     const SizedBox(width: 5),
                     Expanded(
                       flex: 2,
@@ -99,7 +99,7 @@ class AppointmentDetails extends StatelessWidget {
                         style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 16),
+                            fontSize: 16,),
                       ),
                     )
                   ],

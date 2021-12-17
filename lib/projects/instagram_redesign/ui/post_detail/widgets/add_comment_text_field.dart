@@ -16,7 +16,7 @@ class AddCommentTextField extends StatelessWidget {
           fillColor: Colors.grey.withOpacity(.1),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(40),
-              borderSide: BorderSide.none),
+              borderSide: BorderSide.none,),
           prefixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: RoundedBorderImage(
@@ -33,7 +33,7 @@ class AddCommentTextField extends StatelessWidget {
               color: Theme.of(context).colorScheme.onBackground,
               icon: const Icon(Icons.send),
             ),
-          )),
+          ),),
     );
   }
 }

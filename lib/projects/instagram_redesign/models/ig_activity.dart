@@ -40,10 +40,10 @@ class IgActivity {
             '(N. del T. persona que se dedica a la imprenta) desconocido usó '
             'una galería de textos y los mezcló de tal '
             'manera que logró hacer un libro de textos especimen.',
-        isViewed: false),
+        isViewed: false,),
   );
 
-  static final _listImagesUrl = IgUser.kevin.listPhotosUrl;
+  static late final _listImagesUrl = IgUser.kevin.listPhotosUrl;
   static final _dates = [
     DateTime.now().subtract(const Duration(minutes: 1)),
     DateTime.now().subtract(const Duration(minutes: 20)),

@@ -1,7 +1,11 @@
 
 class ExternalPlatform {
-  const ExternalPlatform._(
-      {this.name, this.urlLauncher, this.imagePath, this.haveDarkImage});
+  const ExternalPlatform._({
+    this.name,
+    this.urlLauncher,
+    this.imagePath,
+    this.haveDarkImage,
+  });
 
   final String? name;
   final String? urlLauncher;

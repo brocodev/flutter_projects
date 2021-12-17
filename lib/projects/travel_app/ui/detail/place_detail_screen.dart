@@ -22,7 +22,7 @@ class PlaceDetailScreen extends StatefulWidget {
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   late ScrollController _controller;
   late ValueNotifier<double> bottomPercentNotifier;
-  bool _isAnimatingScroll = false;
+  final bool _isAnimatingScroll = false;
 
   void _scrollListener() {
     final percent =

@@ -24,35 +24,35 @@ class CleanPostCard extends StatefulWidget {
 class _CleanPostCardState extends State<CleanPostCard>
     with SingleTickerProviderStateMixin {
   int indexPageView = 0;
-  AnimationController? _controller;
+  late AnimationController _controller;
   late Animation<double> _scaleHeart;
   late Animation<double> _outScaleHeart;
 
   void _statusListener(AnimationStatus status) {
-    if (status == AnimationStatus.completed) _controller!.reset();
+    if (status == AnimationStatus.completed) _controller.reset();
   }
 
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 800));
+        vsync: this, duration: const Duration(milliseconds: 800),);
     _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
           curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
-          parent: _controller!),
+          parent: _controller,),
     );
     _outScaleHeart = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
           curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
-          parent: _controller!),
+          parent: _controller,),
     );
-    _controller!.addStatusListener(_statusListener);
+    _controller.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller!
+    _controller
       ..removeStatusListener(_statusListener)
       ..dispose();
     super.dispose();
@@ -99,8 +99,8 @@ class _CleanPostCardState extends State<CleanPostCard>
                               color: Theme.of(context)
                                   .colorScheme
                                   .onBackground
-                                  .withOpacity(.3)))
-                    ]),
+                                  .withOpacity(.3),),)
+                    ],),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -129,7 +129,7 @@ class _CleanPostCardState extends State<CleanPostCard>
                   setState(() {
                     post.isLiked = true;
                   });
-                  _controller!.forward();
+                  _controller.forward();
                 },
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -139,8 +139,8 @@ class _CleanPostCardState extends State<CleanPostCard>
                         BoxShadow(
                             color: Colors.black12,
                             blurRadius: 20,
-                            offset: Offset(0, 10))
-                      ]),
+                            offset: Offset(0, 10),)
+                      ],),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Stack(
@@ -176,16 +176,16 @@ class _CleanPostCardState extends State<CleanPostCard>
                         //-------------------------
                         Center(
                           child: AnimatedBuilder(
-                              animation: _controller!,
+                              animation: _controller,
                               builder: (context, _) {
                                 return Icon(
                                   Icons.favorite,
                                   color: Colors.white,
                                   size: 90 *
                                       _scaleHeart.value *
-                                      _outScaleHeart.value as double?,
+                                      _outScaleHeart.value,
                                 );
-                              }),
+                              },),
                         )
                       ],
                     ),

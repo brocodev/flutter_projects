@@ -47,7 +47,7 @@ class _AlbumsPageState extends State<AlbumsPage> {
                 ),
               );
             },
-          ));
+          ),);
     });
   }
 
@@ -91,7 +91,7 @@ class _AlbumsListView extends StatelessWidget {
     return ListView.builder(
       itemCount: AlbumModel.listAlbum.length,
       padding: EdgeInsets.only(
-          left: 40, top: 20, bottom: MediaQuery.of(context).size.height * 1.2),
+          left: 40, top: 20, bottom: MediaQuery.of(context).size.height * 1.2,),
       itemBuilder: (context, index) {
         final album = AlbumModel.listAlbum[index];
         return Align(

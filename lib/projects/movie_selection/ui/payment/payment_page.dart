@@ -76,7 +76,7 @@ class PaymentPage extends StatelessWidget {
                           child: TicketPage(movie: movie),
                         );
                       },
-                    ));
+                    ),);
               },
             )
           ],

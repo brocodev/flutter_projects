@@ -19,7 +19,7 @@ class ProjectModel {
       description: "Flutter UI + Simple Animations",
       designer: "Mao Lop",
       pathImage: 'assets/img/projects/findout.png',
-      route: "findOut");
+      route: "findOut",);
   static const movieSelection = ProjectModel(
     title: "Movie Selection",
     description: "Flutter UI + Animations",
@@ -46,45 +46,45 @@ class ProjectModel {
       description: 'Flutter UI',
       designer: 'Kevin Melendez',
       pathImage: 'assets/img/projects/medical_appointment.png',
-      route: 'medical');
+      route: 'medical',);
   static const photographersApp = ProjectModel(
       title: 'Social Photographers App',
       description: 'Flutter UI + Simple animation',
       designer: 'Manuel Rovira',
       pathImage: 'assets/img/projects/photographers_app.png',
-      route: 'photographers');
+      route: 'photographers',);
   static const instagram = ProjectModel(
       title: 'Instagram redesign',
       description: 'Flutter UI + Implicit Animations',
       designer: 'Manuel Rovira',
       pathImage: 'assets/img/projects/ig.png',
-      route: 'instagram');
+      route: 'instagram',);
   static const superheroes = ProjectModel(
       title: 'Superhero Movies',
       description: 'Flutter UI + Animations',
       designer: 'vijay verma',
       pathImage: 'assets/img/projects/heroes.gif',
-      route: 'superhero');
+      route: 'superhero',);
 
   static const orixGaming = ProjectModel(
       title: 'Orix Gaming',
       description: 'Flutter UI + Animations',
       designer: 'Sajon',
       pathImage: 'assets/img/projects/orix_gaming.jpg',
-      route: 'gaming');
+      route: 'gaming',);
 
   static const bookApp = ProjectModel(
       title: 'Custom Book List',
       description: 'Flutter UI + Animations',
       designer: 'Sam',
       pathImage: 'assets/img/projects/book_app.gif',
-      route: 'book');
+      route: 'book',);
   static const templateGallery = ProjectModel(
       title: 'Template Gallery',
       description: 'Page View + Stack',
       designer: 'Sergey Valiukh',
       pathImage: 'assets/img/projects/template_gallery.gif',
-      route: 'template');
+      route: 'template',);
 
   // static const streamingApp = _ProjectModel(
   //     title: 'Streaming App',

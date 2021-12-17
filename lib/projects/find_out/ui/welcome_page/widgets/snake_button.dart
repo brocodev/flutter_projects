@@ -5,15 +5,15 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 /// https://www.youtube.com/watch?v=e-OPrZWowB4&ab_channel=diegoveloper
 class SnakeButton extends StatefulWidget {
 
-  const SnakeButton(
-      {Key? key,
-        this.onPressed,
-        this.duration = const Duration(milliseconds: 2500),
-        this.borderColor = Colors.white,
-        this.snakeColor = Colors.pinkAccent,
-        this.borderWidth = 3.0,
-        this.child})
-      : super(key: key);
+  const SnakeButton({
+    Key? key,
+    this.onPressed,
+    this.duration = const Duration(milliseconds: 2500),
+    this.borderColor = Colors.white,
+    this.snakeColor = Colors.pinkAccent,
+    this.borderWidth = 3.0,
+    this.child,
+  }) : super(key: key);
 
   final Widget? child;
   final VoidCallback? onPressed;
@@ -94,25 +94,24 @@ class _SnakePainter extends CustomPainter {
     final snakePaint = Paint()
       ..shader = SweepGradient(
           colors: const [
-            Colors.pinkAccent,
-            Colors.transparent,
-          ],
-          stops: const [
-            0.5,
-            0.5
-          ],
-          endAngle: vector.radians(90),
-          transform: GradientRotation(
-            vector.radians(360 * animation!.value as double),
-          )).createShader(rectBorder);
+          Colors.pinkAccent,
+          Colors.transparent,
+        ],
+        stops: const [0.5, 0.5],
+        endAngle: vector.radians(90),
+        transform: GradientRotation(
+          vector.radians(360 * animation!.value as double),
+        ),
+      ).createShader(rectBorder);
 
     canvas.drawPath(
-        Path.combine(
-          PathOperation.xor,
-          Path()..addRect(rectBorder),
-          Path()..addRect(rectBorder.deflate(borderWidth)),
-        ),
-        snakePaint);
+      Path.combine(
+        PathOperation.xor,
+        Path()..addRect(rectBorder),
+        Path()..addRect(rectBorder.deflate(borderWidth)),
+      ),
+      snakePaint,
+    );
   }
 
   @override

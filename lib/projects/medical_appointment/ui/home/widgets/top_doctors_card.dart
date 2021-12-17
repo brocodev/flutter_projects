@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/medical_appointment/models/md_doctor.dart';
 import 'package:flutter_projects/projects/medical_appointment/utils/md_app_colors.dart';
@@ -40,11 +39,14 @@ class TopDoctorCard extends StatelessWidget {
                     right: 5,
                   ),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: const LinearGradient(colors: [
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: const LinearGradient(
+                      colors: [
                         MdAppColors.kLightBlue,
                         MdAppColors.kBlue,
-                      ])),
+                      ],
+                    ),
+                  ),
                   child: _DoctorInformation(doctor: doctor),
                 ),
                 //-----------------------------
@@ -131,8 +133,9 @@ class _DoctorInformation extends StatelessWidget {
                 Text(
                   "Patients",
                   style: TextStyle(
-                      color: Colors.white.withOpacity(.8),
-                      fontWeight: FontWeight.w500),
+                    color: Colors.white.withOpacity(.8),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Text(
                   doctor.patients.toString(),
@@ -149,8 +152,9 @@ class _DoctorInformation extends StatelessWidget {
                 Text(
                   "Rate",
                   style: TextStyle(
-                      color: Colors.white.withOpacity(.8),
-                      fontWeight: FontWeight.w500),
+                    color: Colors.white.withOpacity(.8),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -220,10 +224,11 @@ class _WhiteBackground extends StatelessWidget {
     );
   }
 
-  Widget _buildIconButton(
-      {required String label,
-      required IconData iconData,
-      VoidCallback? onTap}) {
+  Widget _buildIconButton({
+    required String label,
+    required IconData iconData,
+    VoidCallback? onTap,
+  }) {
     return Row(
       children: [
         Icon(

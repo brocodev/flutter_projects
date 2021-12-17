@@ -12,4 +12,4 @@ const kDuration400ms = Duration(milliseconds: 400);
 const kGradientRedOrange = LinearGradient(
     colors: [kAccentColor, kAccentSecondaryColor],
     begin: Alignment.topCenter,
-    end: Alignment(1.8, 1));
+    end: Alignment(1.8, 1),);

@@ -31,18 +31,16 @@ class RoundedNavigationBar extends StatelessWidget {
         children: List.generate(items.length, (index) {
           final item = items[index];
           return IconButton(
-            onPressed: () {
-              if (onTap != null) {
-                onTap!(index);
-              }
-            },
+            onPressed: () => onTap?.call(index),
             color: index == currentIndex ? selectedColor : unselectedColor,
             icon: Stack(
               alignment: const Alignment(1, .5),
               children: [
-                Icon(index == currentIndex
-                    ? item.selectedIconData ?? item.iconData
-                    : item.iconData),
+                Icon(
+                  index == currentIndex
+                      ? item.selectedIconData ?? item.iconData
+                      : item.iconData,
+                ),
                 if (item.hasNotification) const RedDot()
               ],
             ),

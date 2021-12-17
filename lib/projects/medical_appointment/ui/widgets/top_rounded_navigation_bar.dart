@@ -35,7 +35,7 @@ class TopRoundedNavigationBar extends StatelessWidget {
           ],
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(30),
-          )),
+          ),),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(items.length, (index) {
@@ -98,7 +98,7 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
             color: isSelected! ? color.withOpacity(.2) : Colors.transparent,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(10),),
         child: Row(
           children: [
             Icon(
@@ -112,7 +112,7 @@ class _TopRoundedNavigationBarButton extends StatelessWidget {
               style: GoogleFonts.poppins(
                   fontSize: isSelected! ? 14 : 0,
                   color: color,
-                  fontWeight: FontWeight.w600),
+                  fontWeight: FontWeight.w600,),
               child: Text(item!.label),
             )
           ],

@@ -81,7 +81,7 @@ class FindOutHorizontalLogo extends StatelessWidget {
             color: Colors.black12,
             blurRadius: 10,
           )
-        ]);
+        ],);
     return Hero(
       tag: 'horizontal_logo',
       child: Material(
@@ -134,8 +134,8 @@ class TitlePlace extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w700,
                         height: 1.2,
-                        fontSize: baseFontSize))
-              ]),
+                        fontSize: baseFontSize,),)
+              ],),
         ),
       ),
     );

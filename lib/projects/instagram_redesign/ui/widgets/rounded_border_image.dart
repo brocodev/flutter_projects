@@ -23,14 +23,17 @@ class RoundedBorderImage extends StatelessWidget {
       height: height,
       width: height,
       decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(
-            color: borderColor ?? Theme.of(context).backgroundColor,
-            width: borderWidth,
-          ),
-          borderRadius: BorderRadius.circular(borderRadius ?? height! * .4),
-          image: DecorationImage(
-              image: CachedNetworkImageProvider(imageUrl!), fit: BoxFit.cover)),
+        color: Colors.white,
+        border: Border.all(
+          color: borderColor ?? Theme.of(context).backgroundColor,
+          width: borderWidth,
+        ),
+        borderRadius: BorderRadius.circular(borderRadius ?? height! * .4),
+        image: DecorationImage(
+          image: CachedNetworkImageProvider(imageUrl!),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

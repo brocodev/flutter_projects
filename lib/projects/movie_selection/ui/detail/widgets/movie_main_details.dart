@@ -36,7 +36,7 @@ class MovieMainDetails extends StatelessWidget {
               children: <Widget>[
                 buildInfoText('Genre:', movie!.tags!.first, size),
                 buildInfoText('Duration:',
-                    '${movie!.duration!.inMinutes} min', size),
+                    '${movie!.duration!.inMinutes} min', size,),
                 buildInfoText('Release year:', movie!.year, size),
                 buildInfoText('Director:', movie!.director, size),
                 buildInfoText('Writer:', movie!.writer, size),
@@ -56,8 +56,8 @@ class MovieMainDetails extends StatelessWidget {
             text: '  $subtitle',
             style: const TextStyle(
               color: Colors.white,
-            ))
-      ]),
+            ),)
+      ],),
       maxLines: 1,
       style: GoogleFonts.barlowCondensed(
         color: kPrimaryColorLight,

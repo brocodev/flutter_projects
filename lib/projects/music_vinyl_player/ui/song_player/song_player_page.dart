@@ -38,7 +38,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
     _controllerSkew =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _skewDisk = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(curve: Curves.easeInOut, parent: _controllerSkew));
+        CurvedAnimation(curve: Curves.easeInOut, parent: _controllerSkew),);
     _rotateDisk = Tween<double>(begin: 0, end: 1).animate(_controller);
     _controllerSkew.forward();
     super.initState();
@@ -167,11 +167,11 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                           BoxShadow(
                               color: Colors.black54,
                               blurRadius: 100,
-                              offset: Offset(0, 20))
+                              offset: Offset(0, 20),)
                         ],
                       ),
                       child: Transform.rotate(
-                          angle: (2 * pi) * _rotateDisk.value, child: child),
+                          angle: (2 * pi) * _rotateDisk.value, child: child,),
                     ),
                   );
                 },

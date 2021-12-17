@@ -25,11 +25,7 @@ class TypeActivityToggleButton extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         TextButton(
-          onPressed: () {
-            if (onPressed != null) {
-              onPressed!(value);
-            }
-          },
+          onPressed: () => onPressed?.call(value),
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             shape: const StadiumBorder(),

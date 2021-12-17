@@ -66,7 +66,7 @@ class _ShaderCard extends StatelessWidget {
         ],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-      )),
+      ),),
     );
   }
 }
@@ -95,7 +95,7 @@ class _TitleAndPlayButton extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                    color: Colors.white,),
               ),
               Text(
                 titleWithoutFirstWord,
@@ -159,7 +159,7 @@ class _StatusGame extends StatelessWidget {
                   Theme.of(context).primaryColorDark,
                 ],
               ),
-              borderRadius: BorderRadius.circular(10)),
+              borderRadius: BorderRadius.circular(10),),
           child: Text(
             'Live',
             style: GoogleFonts.poppins(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
-import 'package:flutter_projects/projects/instagram_redesign/models/ig_post.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_border_image.dart';
 
 class CommentListTile extends StatelessWidget {
@@ -29,7 +28,7 @@ class CommentListTile extends StatelessWidget {
               Text(
                 comment.user!.username!,
                 style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.grey),
+                    fontWeight: FontWeight.bold, color: Colors.grey,),
               ),
               Text(
                 comment.comment!,

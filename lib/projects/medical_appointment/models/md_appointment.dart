@@ -1,5 +1,5 @@
-import 'md_doctor.dart';
-import 'md_indication.dart';
+import 'package:flutter_projects/projects/medical_appointment/models/md_doctor.dart';
+import 'package:flutter_projects/projects/medical_appointment/models/md_indication.dart';
 
 class MedicalAppointment {
   MedicalAppointment({

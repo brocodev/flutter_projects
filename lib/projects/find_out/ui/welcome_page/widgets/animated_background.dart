@@ -22,7 +22,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
          pageController!.nextPage(
             duration: const Duration(milliseconds: 1400),
-            curve: Curves.fastOutSlowIn);
+            curve: Curves.fastOutSlowIn,);
       });
     });
     super.initState();
@@ -60,7 +60,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
               decoration: BoxDecoration(
                 color: Colors.black26,
               ),
-            )),
+            ),),
             Positioned(
               left: 50,
               top: topPosition,

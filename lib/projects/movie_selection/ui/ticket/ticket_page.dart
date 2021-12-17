@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
@@ -26,7 +25,7 @@ class TicketPage extends StatelessWidget {
               duration: kDuration400ms,
               padding: EdgeInsets.only(top: value ? 100 : 0),
               curve: Curves.fastOutSlowIn,
-              child: child);
+              child: child,);
         },
         child: Stack(
           children: <Widget>[
@@ -93,15 +92,16 @@ class TicketPage extends StatelessWidget {
                                     title: 'Cinema',
                                     subtitle: 'Gulliver',
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start),
+                                        CrossAxisAlignment.start,),
                                 _TileInfo(
                                   title: 'Start time',
                                   subtitle: movie!.billboardHour,
                                 ),
                                 _TileInfo(
-                                    title: 'Duration',
-                                    subtitle: '${movie!.duration!.inMinutes} min',
-                                    crossAxisAlignment: CrossAxisAlignment.end),
+                                  title: 'Duration',
+                                  subtitle: '${movie!.duration!.inMinutes} min',
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                ),
                               ],
                             ),
                             const SizedBox(height: 40),
@@ -113,11 +113,11 @@ class TicketPage extends StatelessWidget {
                                   return const Expanded(
                                       child: Padding(
                                           padding: EdgeInsets.symmetric(
-                                              horizontal: 2),
+                                              horizontal: 2,),
                                           child: Divider(
                                               color: kPrimaryColorDark,
-                                              thickness: 2)));
-                                }))),
+                                              thickness: 2,),),);
+                                }),),),
                             Center(
                               child: Text("# 0X43012",
                                   style: GoogleFonts.barlowCondensed(
@@ -125,7 +125,7 @@ class TicketPage extends StatelessWidget {
                                     height: 1.5,
                                     fontWeight: FontWeight.w400,
                                     fontSize: size.height * .018,
-                                  )),
+                                  ),),
                             ),
                             const SizedBox(height: 20),
                             const Spacer(),
@@ -137,8 +137,8 @@ class TicketPage extends StatelessWidget {
                               ),
                             ),
                             const Spacer()
-                          ])),
-                )),
+                          ],),),
+                ),),
             GradientAnimationButton(
               hideWidgets: hideWidgets,
               onPressed: () {

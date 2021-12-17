@@ -16,7 +16,7 @@ class UserBook {
         'Thriller',
         'Physic',
         'Sci-Fi',
-      ]);
+      ],);
 
   static const users1 = [
     UserBook(

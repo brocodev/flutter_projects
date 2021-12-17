@@ -16,23 +16,23 @@ class CustomBottomNavigation extends StatelessWidget {
                 child: Icon(
               Icons.search,
               color: color,
-            )),
+            ),),
             Expanded(
                 child: Icon(
               Icons.notifications_none,
               color: color,
-            )),
+            ),),
             const Spacer(),
             Expanded(
                 child: Icon(
               Icons.favorite_border,
               color: color,
-            )),
+            ),),
             Expanded(
                 child: Icon(
               Icons.person_outline,
               color: color,
-            )),
+            ),),
           ],
         ),
       ),

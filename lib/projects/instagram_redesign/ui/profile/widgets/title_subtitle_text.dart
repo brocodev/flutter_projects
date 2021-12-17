@@ -25,13 +25,13 @@ class IgTitleSubtitleText extends StatelessWidget {
             style: GoogleFonts.lato(
               fontWeight: FontWeight.w900,
               fontSize: 17,
-            )),
+            ),),
         Text(
           subtitle,
           style: GoogleFonts.lato(
               color: Theme.of(context).colorScheme.onBackground.withOpacity(.5),
               height: height,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.bold,),
         ),
       ],
     );

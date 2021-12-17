@@ -212,7 +212,7 @@ class Book {
       readers: _generateReaders(),
     ),
     Book(
-      title: 'Don\'t Promise Me Rainbows',
+      title: "Don't Promise Me Rainbows",
       author: 'Susan Aylworth',
       category: 'Romance',
       description:
@@ -256,7 +256,7 @@ class Book {
       author: 'Dr Mark Hyman ',
       category: 'Food',
       description:
-          'Dr. Mark Hyman\'s Food: What the Heck Should I Eat? revolutionized'
+          "Dr. Mark Hyman's Food: What the Heck Should I Eat? revolutionized"
               ' the way we view food, busting long-held nutritional myths '
               'that have sabotaged our health and kept us away from delicious '
               'foods that are actually good for us. Now, in this companion coo'
@@ -276,9 +276,9 @@ class Book {
       author: 'Dr Mark Hyman ',
       category: 'Food',
       description:
-          'Did you know that eating oatmeal actually isn\'t a healthy way t'
-              'o start the day? That milk doesn\'t build bones, and eggs are'
-              'n\'t the devil?',
+          "Did you know that eating oatmeal actually isn't a healthy way t"
+              "o start the day? That milk doesn't build bones, and eggs are"
+              "n't the devil?",
       srcImage: 'assets/img/books/food what should i eat.jpg',
       likes: 7891,
       rate: 4.4,
@@ -307,7 +307,7 @@ class Book {
     ),
     Book(
       title:
-          'The Ultimate Hitchhiker\'s Guide to the Galaxy: Five Novels in One '
+          "The Ultimate Hitchhiker's Guide to the Galaxy: Five Novels in One "
           'Outrageous',
       author: 'Douglas Adams',
       category: 'Science',
@@ -366,9 +366,9 @@ class Book {
       author: 'Stephen King',
       category: 'Thriller',
       description:
-          'Jack Torrance\'s new job at the Overlook Hotel is the perfect chance'
+          "Jack Torrance's new job at the Overlook Hotel is the perfect chance"
               ' for a fresh start. As the off-season caretaker at the atmosph'
-              'eric old hotel, he\'ll have plenty of time to spend reconnect'
+              "eric old hotel, he'll have plenty of time to spend reconnect"
               'ing with his family and working on his writing. But as the har'
               'sh winter weather sets in, the idyllic location feels ever mo'
               're remote . . . and more sinister. And the only one to notice t'
@@ -390,7 +390,7 @@ class Book {
       description:
           'The light in her wide brown eyes dimmed as she drew her last brea'
               'h. She might have been beautiful lying there on the floor, i'
-              'f it wasn\'t for the purple marks on her neck and the angry r'
+              "f it wasn't for the purple marks on her neck and the angry r"
               'ed line on her finger where her wedding band used to be...',
       srcImage: 'assets/img/books/the dancing girls.jpg',
       likes: 13291,

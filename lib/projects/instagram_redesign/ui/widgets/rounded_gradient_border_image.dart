@@ -27,10 +27,10 @@ class RoundedGradientBorderImage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
-            borderRadius: BorderRadius.circular(height! * .4)),
+            borderRadius: BorderRadius.circular(height! * .4),),
         child: RoundedBorderImage(
           height: height,
           imageUrl: imageUrl,
-        ));
+        ),);
   }
 }

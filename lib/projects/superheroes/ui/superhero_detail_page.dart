@@ -34,13 +34,13 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
     _colorGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
           curve: const Interval(0, 1, curve: Curves.fastOutSlowIn),
-          parent: _controller!),
+          parent: _controller!,),
     );
 
     _whiteGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
           curve: const Interval(0.1, 1, curve: Curves.fastOutSlowIn),
-          parent: _controller!),
+          parent: _controller!,),
     );
 
     _changeToBlack = false;
@@ -81,7 +81,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
   //-----------------------
   // On Back Button Tap
   //-----------------------
-  void _backButtonTap() async {
+  Future<void> _backButtonTap() async {
     setState(() {
       _enableInfoItems = false;
     });
@@ -90,8 +90,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
         _changeToBlack = false;
       });
     });
-    await _controller!.reverse();
-    Navigator.pop(context);
+    _controller!.reverse().then((value) => Navigator.pop(context));
   }
 
   @override
@@ -126,8 +125,8 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                       ),
                     ),
                   );
-                }),
-          )),
+                },),
+          ),),
           //----------------------
           // Items Body
           //----------------------
@@ -168,7 +167,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                               style: textTheme.headline2!.copyWith(
                                   color: _changeToBlack
                                       ? Colors.black
-                                      : Colors.white),
+                                      : Colors.white,),
                               child: Text(
                                 widget.superhero.heroName!
                                     .replaceAll(' ', '\n')
@@ -191,7 +190,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                               style: textTheme.headline5!.copyWith(
                                   color: _changeToBlack
                                       ? Colors.black
-                                      : Colors.white),
+                                      : Colors.white,),
                               child: Text(
                                 widget.superhero.name!.toLowerCase(),
                               ),
@@ -303,7 +302,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             offset: Offset(0, 50 * value),
                             child: Opacity(
                                 opacity: 1 - value.clamp(0.0, 1.0),
-                                child: child),
+                                child: child,),
                           );
                         },
                         child: Padding(

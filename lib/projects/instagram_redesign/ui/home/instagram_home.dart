@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/home/widgets/home_widgets.dart';
@@ -25,7 +24,7 @@ class _InstagramHomeState extends State<InstagramHome>
     _controller =
         AnimationController(duration: kThemeAnimationDuration, vsync: this);
     _heightFactor = Tween<double>(begin: 0.88, end: 1).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
+        CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn),);
     super.initState();
   }
 
@@ -45,11 +44,14 @@ class _InstagramHomeState extends State<InstagramHome>
           ),
         );
       },
-    ));
+    ),);
   }
 
-  void _openDetailsFromAmpleView(
-      BuildContext context, IgPost post, int indexPost) async {
+  Future<void> _openDetailsFromAmpleView(
+    BuildContext context,
+    IgPost post,
+    int indexPost,
+  ) async {
     setState(() {
       selectedIndexPost = indexPost;
     });
@@ -67,7 +69,7 @@ class _InstagramHomeState extends State<InstagramHome>
           ),
         );
       },
-    ));
+    ),);
     await Future.delayed(const Duration(milliseconds: 300));
     _controller.reverse();
   }
@@ -160,7 +162,7 @@ class _InstagramHomeState extends State<InstagramHome>
                   height: instagramBloc.viewState == ViewState.ample
                       ? screenHeight * .09
                       : 20,
-                )),
+                ),),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -189,7 +191,7 @@ class _InstagramHomeState extends State<InstagramHome>
                                       ),
                                     );
                                   },
-                                ));
+                                ),);
                               },
                             ),
                           );
@@ -218,7 +220,7 @@ class _InstagramHomeState extends State<InstagramHome>
                                     );
                                   },
                                   height: heightItem as double?,
-                                )),
+                                ),),
                           );
                       }
                     },
@@ -227,7 +229,7 @@ class _InstagramHomeState extends State<InstagramHome>
                 ),
               ],
             );
-          }),
+          },),
     );
   }
 }

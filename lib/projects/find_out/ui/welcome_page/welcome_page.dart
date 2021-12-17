@@ -103,7 +103,7 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  void _openPage(BuildContext context, Widget page) async {
+  Future<void> _openPage(BuildContext context, Widget page) async {
     hideNotifier.value = true;
     await Navigator.push(
         context,
@@ -113,7 +113,7 @@ class WelcomePage extends StatelessWidget {
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(opacity: animation, child: page);
           },
-        ));
+        ),);
     hideNotifier.value = false;
   }
 }
@@ -136,7 +136,7 @@ class RectangularButton extends StatelessWidget {
         style: TextButton.styleFrom(
           primary: Colors.white,
           shape: const RoundedRectangleBorder(
-              side: BorderSide(color: Colors.white, width: 3)),
+              side: BorderSide(color: Colors.white, width: 3),),
         ),
         child: Text(
           label,

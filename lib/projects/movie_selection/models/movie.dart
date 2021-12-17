@@ -51,7 +51,7 @@ class Movie {
             'queridos mientras otros luchadores intentan salvar el reino de '
             'la Tierra de la aniquilación.',
         reviews: 12,
-        imageUrl: 'assets/img/movie/mortal_kombat.jpg'),
+        imageUrl: 'assets/img/movie/mortal_kombat.jpg',),
     Movie(
         title: 'Superman Red Son',
         duration: const Duration(hours: 1, minutes: 40),
@@ -64,7 +64,7 @@ class Movie {
             'hubiera caído en la Unión Soviética en vez de Kansas? Esa es '
             'la premisa de este cuento de Elseworld de DC Comics.',
         reviews: 66,
-        imageUrl: 'assets/img/movie/red_son.jpg'),
+        imageUrl: 'assets/img/movie/red_son.jpg',),
     Movie(
         title: 'Justice League - Apokolips War',
         duration: const Duration(hours: 2, minutes: 7),
@@ -79,7 +79,7 @@ class Movie {
             'la guerra hasta el mismo Darkseid si tienen alguna oportunidad de '
             'salvar al planeta y a los sobrevivientes de una vez por todas.',
         reviews: 44,
-        imageUrl: 'assets/img/movie/apokolips_war.jpg'),
+        imageUrl: 'assets/img/movie/apokolips_war.jpg',),
     Movie(
         title: 'Extraction',
         duration: const Duration(hours: 2, minutes: 7),
@@ -93,7 +93,7 @@ class Movie {
             'en una peligrosa misión de extracción cuando es contratado '
             'para rescatar al hijo secuestrado de un líder del crimen en Asia',
         reviews: 44,
-        imageUrl: 'assets/img/movie/mision_rescate.jpg'),
+        imageUrl: 'assets/img/movie/mision_rescate.jpg',),
   ];
 
   static final listMovie2 = [
@@ -112,7 +112,7 @@ class Movie {
             ' facultad y una nueva amistad con un atractivo compañero de'
             ' clase que podría cambiar todo.',
         reviews: 54,
-        imageUrl: 'assets/img/movie/kissing_both.jpg'),
+        imageUrl: 'assets/img/movie/kissing_both.jpg',),
     Movie(
         title: 'Rambo: Last Blood',
         duration: const Duration(hours: 2, minutes: 6),
@@ -125,7 +125,7 @@ class Movie {
             'implacables habilidades de combate para vengarse en una misión'
             'final. Un viaje mortal de venganza.',
         reviews: 30,
-        imageUrl: 'assets/img/movie/rambo.jpg'),
+        imageUrl: 'assets/img/movie/rambo.jpg',),
     Movie(
         title: 'Bad Boys II',
         duration: const Duration(hours: 1, minutes: 56),
@@ -140,7 +140,7 @@ class Movie {
             'del departamento de policía de Miami para capturar al implacable '
             'Armando Armas, líder de un cartel de drogas.',
         reviews: 40,
-        imageUrl: 'assets/img/movie/bad_boys2.jpg'),
+        imageUrl: 'assets/img/movie/bad_boys2.jpg',),
     Movie(
         title: 'Star Wars: The Rise Of Skywalker',
         duration: const Duration(hours: 1, minutes: 56),
@@ -155,7 +155,7 @@ class Movie {
             'los Jedi y los Sith alcanza su punto máximo llevando la saga '
             'Skywalker a su fin.',
         reviews: 54,
-        imageUrl: 'assets/img/movie/star_wars.jpg'),
+        imageUrl: 'assets/img/movie/star_wars.jpg',),
   ];
 
   static final listMovie3 = [
@@ -174,7 +174,7 @@ class Movie {
             'imaginario, Adolf Hitler, Jojo debe confrontar su'
             ' nacionalismo ciego.',
         reviews: 54,
-        imageUrl: 'assets/img/movie/jojo_rabbit.jpg'),
+        imageUrl: 'assets/img/movie/jojo_rabbit.jpg',),
     Movie(
         title: 'Sonic The Hedgehod',
         duration: const Duration(hours: 2, minutes: 6),
@@ -189,7 +189,7 @@ class Movie {
             'derrotar a un genio malvado que quiere capturarlo para '
             'experimentar con él. Basada en el videojuego.',
         reviews: 30,
-        imageUrl: 'assets/img/movie/sonic.jpg'),
+        imageUrl: 'assets/img/movie/sonic.jpg',),
     Movie(
         title: 'Onward',
         duration: const Duration(hours: 1, minutes: 56),
@@ -204,7 +204,7 @@ class Movie {
             ' pasar un último día con su padre, quien falleció cuando '
             'eran muy pequeños para recordarlo.',
         reviews: 40,
-        imageUrl: 'assets/img/movie/onward.jpg'),
+        imageUrl: 'assets/img/movie/onward.jpg',),
     Movie(
         title: 'Birds of Prey: And the Fantabulous Emancipation of One Harley '
             'Quinn',
@@ -221,6 +221,6 @@ class Movie {
             'caminos de Harley, Huntress, Black Canary y Renee Montoya '
             'se cruzan.',
         reviews: 54,
-        imageUrl: 'assets/img/movie/bird_prey.jpg'),
+        imageUrl: 'assets/img/movie/bird_prey.jpg',),
   ];
 }

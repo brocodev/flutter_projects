@@ -38,16 +38,22 @@ class BookDetailPage extends StatelessWidget {
                   Text(
                     'Details',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey[800]),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.grey[800],
+                    ),
                   ),
                   const SizedBox(height: 10),
-                  Text(book.description!,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          height: 1.3, color: Colors.grey[500], fontSize: 14)),
+                  Text(
+                    book.description!,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      height: 1.3,
+                      color: Colors.grey[500],
+                      fontSize: 14,
+                    ),
+                  ),
                   const Divider(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,9 +61,10 @@ class BookDetailPage extends StatelessWidget {
                       Text(
                         'Check the catalog',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.grey[800]),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.grey[800],
+                        ),
                       ),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -72,9 +79,10 @@ class BookDetailPage extends StatelessWidget {
                       Text(
                         'Comments',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.grey[800]),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.grey[800],
+                        ),
                       ),
                       const Spacer(),
                       Text(
@@ -106,9 +114,10 @@ class BookDetailPage extends StatelessWidget {
               child: Text(
                 'Similar books',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.grey[800]),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.grey[800],
+                ),
               ),
             ),
           ),
@@ -155,12 +164,15 @@ class _SimilarBookCard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      offset: Offset(5, 5))
+                    color: Colors.black12,
+                    blurRadius: 10,
+                    offset: Offset(5, 5),
+                  )
                 ],
                 image: DecorationImage(
-                    image: AssetImage(book.srcImage!), fit: BoxFit.cover),
+                  image: AssetImage(book.srcImage!),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

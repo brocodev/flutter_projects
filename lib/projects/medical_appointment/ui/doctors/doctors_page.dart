@@ -18,7 +18,7 @@ class DoctorsPage extends StatelessWidget {
               colors: [MdAppColors.kBlue, MdAppColors.kDarkBlue],
               end: Alignment.bottomCenter,
               begin: Alignment.topCenter,
-            )),
+            ),),
             child: SafeArea(
               child: Column(
                 children: [
@@ -34,7 +34,7 @@ class DoctorsPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 22),
+                                fontSize: 22,),
                           ),
                           Text(
                             "The best doctors catalog",

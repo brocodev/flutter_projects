@@ -11,10 +11,10 @@ class OpenBookPage extends StatefulWidget {
   final Book? book;
 
   @override
-  _OpenBookPageState createState() => _OpenBookPageState();
+  OpenBookPageState createState() => OpenBookPageState();
 }
 
-class _OpenBookPageState extends State<OpenBookPage> {
+class OpenBookPageState extends State<OpenBookPage> {
   late bool animate;
 
   @override

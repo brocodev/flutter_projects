@@ -25,11 +25,11 @@ class SearchAppBar extends StatelessWidget {
                   suffixIcon: const Icon(Icons.search, color: Colors.white70),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none),
+                      borderSide: BorderSide.none,),
                   hintStyle: const TextStyle(
                       color: Colors.white70,
                       fontWeight: FontWeight.w700,
-                      fontSize: 14),
+                      fontSize: 14,),
                   hintText: 'Search',
                 ),
               ),
@@ -46,9 +46,9 @@ class SearchAppBar extends StatelessWidget {
                 color: Colors.white,
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(
-                      MedicalPatient.currentPatient.photoUrl!),
+                      MedicalPatient.currentPatient.photoUrl!,),
                   fit: BoxFit.cover,
-                )),
+                ),),
           ),
         ],
       ),

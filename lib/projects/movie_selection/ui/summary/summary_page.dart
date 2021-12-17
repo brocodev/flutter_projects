@@ -25,7 +25,7 @@ class SummaryPage extends StatelessWidget {
               duration: kDuration400ms,
               padding: EdgeInsets.only(top: value ? 100 : 0),
               curve: Curves.fastOutSlowIn,
-              child: child);
+              child: child,);
         },
         child: _BodySummary(movie: movie, hideWidgets: hideWidgets),
       ),
@@ -93,7 +93,7 @@ class _BodySummary extends StatelessWidget {
                     style: GoogleFonts.barlowCondensed(
                         fontSize: size.height * .04,
                         fontWeight: FontWeight.w500,
-                        letterSpacing: 1)),
+                        letterSpacing: 1,),),
               ),
               const SizedBox(height: 20),
               TranslateAnimation(
@@ -119,7 +119,7 @@ class _BodySummary extends StatelessWidget {
                     child: _TileInfo(
                         title: 'Cinema',
                         subtitle: 'Gulliver',
-                        crossAxisAlignment: CrossAxisAlignment.start),
+                        crossAxisAlignment: CrossAxisAlignment.start,),
                   ),
                   TranslateAnimation(
                     duration: const Duration(milliseconds: 700),
@@ -132,7 +132,7 @@ class _BodySummary extends StatelessWidget {
                     child: _TileInfo(
                         title: 'Duration',
                         subtitle: '${movie!.duration!.inMinutes} min',
-                        crossAxisAlignment: CrossAxisAlignment.end),
+                        crossAxisAlignment: CrossAxisAlignment.end,),
                   ),
                 ],
               ),
@@ -173,7 +173,7 @@ class _BodySummary extends StatelessWidget {
                       child: PaymentPage(movie: movie),
                     );
                   },
-                ));
+                ),);
           },
         ),
         Positioned(

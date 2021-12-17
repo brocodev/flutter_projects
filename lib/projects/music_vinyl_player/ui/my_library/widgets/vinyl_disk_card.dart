@@ -71,7 +71,7 @@ class _AlbumImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         image: DecorationImage(
-            image: AssetImage(album.pathImage!), fit: BoxFit.cover),
+            image: AssetImage(album.pathImage!), fit: BoxFit.cover,),
       ),
     );
   }

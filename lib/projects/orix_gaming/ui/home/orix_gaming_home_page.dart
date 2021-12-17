@@ -89,7 +89,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
                         style: GoogleFonts.poppins(
                             fontSize: 42,
                             height: 0.8,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w300,),
                       ),
                     ],
                   ),
@@ -137,6 +137,6 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
 
   void _openTrendingPage(BuildContext context) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const OrixTrendingPage()));
+        MaterialPageRoute(builder: (context) => const OrixTrendingPage()),);
   }
 }

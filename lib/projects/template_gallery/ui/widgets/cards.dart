@@ -49,7 +49,7 @@ class ContactCard extends StatelessWidget {
               borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
-                  topRight: Radius.circular(20)),
+                  topRight: Radius.circular(20),),
             ),
             //-----------------------------
             // Card Body
@@ -83,12 +83,12 @@ class ContactCard extends StatelessWidget {
                                 style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal,
-                                    height: 1.5),
+                                    height: 1.5,),
                               )
                             ],
                           ),
                           style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
+                              fontSize: 20, fontWeight: FontWeight.w500,),
                         ),
                       ),
                     ],
@@ -125,7 +125,7 @@ class ContactCard extends StatelessWidget {
                       Text(
                         contact.phone,
                         style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16, fontWeight: FontWeight.bold,),
                       )
                     ],
                   ),

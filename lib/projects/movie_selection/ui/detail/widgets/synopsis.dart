@@ -29,7 +29,7 @@ class Synopsis extends StatelessWidget {
               fontSize: size.height * .02,
               height: 1.5,
               fontWeight: FontWeight.w400,
-              color: kPrimaryColorLight),
+              color: kPrimaryColorLight,),
         ),
       ],
     );

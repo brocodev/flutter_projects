@@ -26,7 +26,7 @@ class IgUserStories {
               isViewed: false,
               duration: const Duration(seconds: 3),
             );
-          }));
+          }),);
     },
   );
 }

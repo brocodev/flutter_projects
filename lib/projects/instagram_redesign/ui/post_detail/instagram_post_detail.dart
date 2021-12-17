@@ -65,7 +65,7 @@ class InstagramPostDetail extends StatelessWidget {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  child: child!);
+                  child: child!,);
             },
             child: Container(
               clipBehavior: Clip.antiAlias,
@@ -81,8 +81,8 @@ class InstagramPostDetail extends StatelessWidget {
                               .onBackground
                               .withOpacity(.06),
                           blurRadius: 10,
-                          offset: const Offset(0, -5))
-                  ]),
+                          offset: const Offset(0, -5),)
+                  ],),
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(20),
@@ -113,7 +113,7 @@ class InstagramPostDetail extends StatelessWidget {
                   onPressed: () => expandComments.value = !expandComments.value,
                   icon: Icon(value
                       ? Icons.keyboard_arrow_down
-                      : Icons.keyboard_arrow_up),
+                      : Icons.keyboard_arrow_up,),
                 ),
               );
             },
@@ -139,7 +139,7 @@ class InstagramPostDetail extends StatelessWidget {
                       color: Colors.black12,
                       blurRadius: 20,
                     )
-                  ]),
+                  ],),
               child: Row(
                 children: const [
                   Expanded(

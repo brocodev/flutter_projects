@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_border_clipper.dart';

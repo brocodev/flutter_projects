@@ -24,7 +24,7 @@ class PhotographersApp extends StatelessWidget {
             elevation: 0,
             titleTextStyle:
                 GoogleFonts.philosopher(color: PhotoAppColors.kDarkBlue),
-            iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue)),
+            iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),),
         //---------------------------
         // Text Theme
         //---------------------------
@@ -61,7 +61,7 @@ class _NavigationPageState extends State<_NavigationPage> {
               const Scaffold(body: Center(child: Text("Messages"))),
               const Scaffold(body: Center(child: Text("Favorites"))),
               PhotoProfilePage(user: PhotoUser.liliana),
-            ][index]),
+            ][index],),
       ),
       bottomNavigationBar: CurvedNavigationBar(
         onTap: (val) => setState(() {
@@ -87,8 +87,8 @@ class _NavigationPageState extends State<_NavigationPage> {
               BoxShadow(
                   color: Colors.grey.shade200,
                   blurRadius: 10,
-                  offset: const Offset(0, 10))
-            ]),
+                  offset: const Offset(0, 10),)
+            ],),
         child: const Icon(Icons.add, size: 32),
       ),
     );

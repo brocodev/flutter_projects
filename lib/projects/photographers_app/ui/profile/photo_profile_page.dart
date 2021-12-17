@@ -13,6 +13,7 @@ class PhotoProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageUser = user.photoUrl;
+    final followers = (user.followers! / 1000).toString().substring(0, 4);
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -47,7 +48,7 @@ class PhotoProfilePage extends StatelessWidget {
                 ],
               ),
               _TitleSubtitleText(
-                title: "${(user.followers! / 1000).toString().substring(0, 4)}K",
+                title: "${followers}K",
                 subtitle: "Followers",
                 height: 2,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +75,7 @@ class PhotoProfilePage extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 2 / 3,
-                    crossAxisSpacing: 10),
+                    crossAxisSpacing: 10,),
                 itemBuilder: (context, index) {
                   final imageUrl = user.listPhotosUrl![index];
                   return Center(
@@ -128,8 +129,8 @@ class _ImageProfile extends StatelessWidget {
             BoxShadow(
                 color: Colors.grey.withOpacity(.26),
                 blurRadius: 20,
-                offset: const Offset(0, 10))
-          ]),
+                offset: const Offset(0, 10),)
+          ],),
     );
   }
 }
@@ -159,13 +160,13 @@ class _TitleSubtitleText extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: PhotoAppColors.kDarkBlue,
               fontSize: 17,
-            )),
+            ),),
         Text(
           subtitle!,
           style: GoogleFonts.lato(
               height: height,
               color: PhotoAppColors.kGrey,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.bold,),
         ),
       ],
     );
@@ -183,7 +184,7 @@ class _GreenDot extends StatelessWidget {
       decoration: BoxDecoration(
           color: PhotoAppColors.kGreen,
           border: Border.all(color: Colors.white, width: 2),
-          borderRadius: BorderRadius.circular(10)),
+          borderRadius: BorderRadius.circular(10),),
     );
   }
 }

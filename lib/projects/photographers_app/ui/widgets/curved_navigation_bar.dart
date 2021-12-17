@@ -40,7 +40,7 @@ class CurvedNavigationBar extends StatelessWidget {
             final item = items[index];
             return Padding(
               padding: EdgeInsets.only(
-                  bottom: (index == 0 || index == 3) ? 20.0 : 0),
+                  bottom: (index == 0 || index == 3) ? 20.0 : 0,),
               child: IconButton(
                 onPressed: () => onTap?.call(index),
                 color: index == currentIndex ? selectedColor : unselectedColor,

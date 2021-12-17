@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc_provider.dart';

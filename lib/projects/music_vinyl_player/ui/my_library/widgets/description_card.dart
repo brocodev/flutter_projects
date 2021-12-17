@@ -29,7 +29,7 @@ class DescriptionCard extends StatelessWidget {
               offset: Offset(-10, 10),
               blurRadius: 10,
             )
-          ]),
+          ],),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -43,7 +43,7 @@ class DescriptionCard extends StatelessWidget {
                 style: GoogleFonts.spectral(
                     color: const Color(0xffd4af90),
                     fontWeight: FontWeight.w800,
-                    fontSize: 16),
+                    fontSize: 16,),
               ),
               const Spacer(),
               RowStars(
@@ -55,7 +55,7 @@ class DescriptionCard extends StatelessWidget {
               Text(
                 "${album.rate}",
                 style: GoogleFonts.spectral(
-                    fontSize: 18, fontWeight: FontWeight.w600),
+                    fontSize: 18, fontWeight: FontWeight.w600,),
               )
             ],
           ),
@@ -81,7 +81,7 @@ class DescriptionCard extends StatelessWidget {
                 text: album.author,
                 style: GoogleFonts.poppins(color: Colors.grey[800]),
               ),
-            ]),
+            ],),
             style: GoogleFonts.poppins(
               color: Colors.grey[400],
               fontWeight: FontWeight.w500,
@@ -101,7 +101,7 @@ class DescriptionCard extends StatelessWidget {
                     text: '${album.duration.inHours} hr '
                         // ignore: lines_longer_than_80_chars
                         '${(album.duration - const Duration(hours: 1)).inMinutes}'
-                        ' min'),
+                        ' min',),
               ],
             ),
             style: GoogleFonts.poppins(
@@ -145,7 +145,7 @@ class DescriptionCard extends StatelessWidget {
                       labelStyle: GoogleFonts.poppins(
                           color: Colors.grey[700],
                           fontWeight: FontWeight.w500,
-                          fontSize: 12),
+                          fontSize: 12,),
                       shape: ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),

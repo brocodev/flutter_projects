@@ -22,9 +22,9 @@ class TypeSeatInfo extends StatelessWidget {
           color: kPrimaryColorDark,
           boxShadow: const [
             BoxShadow(
-                color: Colors.black38, blurRadius: 50, offset: Offset(0, 10)),
+                color: Colors.black38, blurRadius: 50, offset: Offset(0, 10),),
           ],
-          borderRadius: BorderRadius.circular(6)),
+          borderRadius: BorderRadius.circular(6),),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -33,7 +33,7 @@ class TypeSeatInfo extends StatelessWidget {
             width: 25,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: color, borderRadius: BorderRadius.circular(3)),
+                color: color, borderRadius: BorderRadius.circular(3),),
             child: Text(
               '$quantity',
               style: GoogleFonts.barlowCondensed(
@@ -78,7 +78,7 @@ class CustomAppBar extends StatelessWidget {
               child: BackButton(
                 color: Colors.white,
                 onPressed: onPressedBack,
-              )),
+              ),),
           Flexible(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -93,7 +93,7 @@ class CustomAppBar extends StatelessWidget {
                     style: GoogleFonts.barlowCondensed(
                         fontSize: size.height * .018,
                         fontWeight: FontWeight.w500,
-                        height: 1.5),
+                        height: 1.5,),
                   ),
                 ),
                 TranslateAnimation(
@@ -102,7 +102,7 @@ class CustomAppBar extends StatelessWidget {
                     subtitle!.toUpperCase(),
                     style: GoogleFonts.barlowCondensed(
                         fontSize: size.height * .018,
-                        color: kPrimaryColorLight),
+                        color: kPrimaryColorLight,),
                   ),
                 ),
               ],
@@ -141,7 +141,7 @@ class RowSeats extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: kPrimaryColorLight,
                   borderRadius: BorderRadius.circular(3),
-                ));
+                ),);
           }
 
           final isActiveNotifier = ValueNotifier(false);
@@ -170,7 +170,7 @@ class RowSeats extends StatelessWidget {
                     ),
                   ),
                 );
-              });
+              },);
         }),
       ),
     );

@@ -1,6 +1,5 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/open_book_page.dart';

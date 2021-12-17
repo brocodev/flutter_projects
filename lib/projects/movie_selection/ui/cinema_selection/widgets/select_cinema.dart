@@ -22,7 +22,7 @@ class SelectCinema extends StatelessWidget {
                 color: Colors.black54,
                 blurRadius: 30,
               )
-            ]),
+            ],),
         child: Row(
           children: <Widget>[
             Column(
@@ -33,13 +33,13 @@ class SelectCinema extends StatelessWidget {
                       color: kPrimaryColorLight,
                       fontSize: size.height * .018,
                       fontWeight: FontWeight.w500,
-                    )),
+                    ),),
                 Text("Gulliver",
                     style: GoogleFonts.barlowCondensed(
                       height: 2,
                       fontSize: size.height * .025,
                       fontWeight: FontWeight.w600,
-                    )),
+                    ),),
               ],
             ),
             const Spacer(),
@@ -49,6 +49,6 @@ class SelectCinema extends StatelessWidget {
               size: size.height * .03,
             )
           ],
-        ));
+        ),);
   }
 }

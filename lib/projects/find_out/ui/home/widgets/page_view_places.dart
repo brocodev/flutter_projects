@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/models/place.dart';
 import 'package:flutter_projects/projects/find_out/ui/social_page/social_page.dart';

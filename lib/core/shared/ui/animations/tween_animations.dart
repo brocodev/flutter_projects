@@ -27,7 +27,7 @@ class TranslateAnimation extends StatelessWidget {
             offset: offsetDirection == Axis.horizontal
                 ? Offset(value * offset, 0)
                 : Offset(0, value * offset),
-            child: child);
+            child: child,);
       },
       child: child,
     );

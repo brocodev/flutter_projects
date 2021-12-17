@@ -98,7 +98,7 @@ class NextAppointmentCard extends StatelessWidget {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border:
-                                  Border.all(color: Colors.white60, width: 3)),
+                                  Border.all(color: Colors.white60, width: 3),),
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
                             backgroundImage:
@@ -125,7 +125,7 @@ class NextAppointmentCard extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: Colors.white60,
                   borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(20))),
+                      BorderRadius.only(bottomLeft: Radius.circular(20)),),
               child: Text(
                 MdUtils.extractHourDate(mdAppointment.date!),
                 style: const TextStyle(

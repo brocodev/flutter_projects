@@ -41,7 +41,7 @@ class Album {
         author: 'Cuarteto de nos',
         rate: 4.1,
         pathImage: 'assets/img/music/zombie.jpg',
-        year: 2018),
+        year: 2018,),
     Album(
       title: 'Jueves',
       author: 'Cuarteto de nos',
@@ -54,30 +54,30 @@ class Album {
         author: 'Cuarteto de nos',
         rate: 4.6,
         pathImage: 'assets/img/music/espejo.jpg',
-        year: 2016),
+        year: 2016,),
     Album(
         title: 'Porfiado',
         author: 'Cuarteto de nos',
         rate: 4.4,
         pathImage: 'assets/img/music/porfiado.jpg',
-        year: 2011),
+        year: 2011,),
     Album(
         title: 'Bipolar',
         rate: 3.9,
         author: 'Cuarteto de nos',
         pathImage: 'assets/img/music/bipolar.jpg',
-        year: 2009),
+        year: 2009,),
     Album(
         title: 'Raro',
         author: 'Cuarteto de nos',
         rate: 4.3,
         pathImage: 'assets/img/music/raro.jpg',
-        year: 2006),
+        year: 2006,),
     Album(
         title: 'Cortamambo',
         author: 'Cuarteto de nos',
         rate: 4,
         pathImage: 'assets/img/music/cortamanbo.jpg',
-        year: 2000),
+        year: 2000,),
   ];
 }

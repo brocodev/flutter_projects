@@ -34,12 +34,12 @@ class PhotoUserCard extends StatelessWidget {
                     BoxShadow(
                         color: Colors.grey.shade300,
                         blurRadius: 20,
-                        offset: const Offset(-10, 10))
+                        offset: const Offset(-10, 10),)
                   ],
                   borderRadius: BorderRadius.circular(size * .35),
                   image: DecorationImage(
                       image: CachedNetworkImageProvider(user.photoUrl!),
-                      fit: BoxFit.cover)),
+                      fit: BoxFit.cover,),),
             ),
             const SizedBox(height: 10),
             FittedBox(

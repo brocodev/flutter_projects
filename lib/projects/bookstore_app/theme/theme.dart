@@ -5,12 +5,10 @@ class BookAppTheme {
   static final _appBarTheme = AppBarTheme(
     color: Colors.white,
     elevation: 0,
-    textTheme: TextTheme(
-      headline6: GoogleFonts.workSans(
-        color: Colors.grey[800],
-        fontSize: 26,
-        fontWeight: FontWeight.w600,
-      ),
+    toolbarTextStyle: GoogleFonts.workSans(
+      color: Colors.grey[800],
+      fontSize: 26,
+      fontWeight: FontWeight.w600,
     ),
   );
 
@@ -45,5 +43,5 @@ class BookAppTheme {
       backgroundColor: Colors.white,
       primaryColor: Colors.white,
       textTheme: _textTheme,
-      appBarTheme: _appBarTheme);
+      appBarTheme: _appBarTheme,);
 }

@@ -140,6 +140,6 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
           ),
         );
       },
-    ));
+    ),);
   }
 }

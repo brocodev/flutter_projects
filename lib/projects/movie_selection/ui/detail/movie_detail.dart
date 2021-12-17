@@ -71,7 +71,7 @@ class MovieDetail extends StatelessWidget {
                           ),
                         ),
                         padding: EdgeInsets.only(top: heightVisiblePoster),
-                        child: _BodyDetail(movie: movie)),
+                        child: _BodyDetail(movie: movie),),
                   ),
                 ],
               ),
@@ -111,7 +111,7 @@ class MovieDetail extends StatelessWidget {
               child: CinemaSelectionPage(movie: movie),
             );
           },
-        ));
+        ),);
   }
 }
 
@@ -152,7 +152,7 @@ class _BodyDetail extends StatelessWidget {
               style: GoogleFonts.barlowCondensed(
                   fontSize: size.height * .04,
                   fontWeight: FontWeight.w500,
-                  color: Colors.white.withOpacity(.9)),
+                  color: Colors.white.withOpacity(.9),),
             ),
           ),
         ),
@@ -189,7 +189,7 @@ class _BodyDetail extends StatelessWidget {
         const SizedBox(height: 40),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Synopsis(description: movie!.description)),
+            child: Synopsis(description: movie!.description),),
         const SizedBox(height: 40),
         ActorsList(
           listActors: movie!.actors,

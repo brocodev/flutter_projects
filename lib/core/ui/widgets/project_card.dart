@@ -14,8 +14,6 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    // return _Option1(project: project, size: size);
     return Container(
       height: 220,
       clipBehavior: Clip.antiAlias,
@@ -60,13 +58,13 @@ class ProjectCard extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
-                            border: Border.all(color: Colors.black, width: 4)),
+                            border: Border.all(width: 4),),
                         child: Text(
                           '$index',
                           style: GoogleFonts.poppins(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
-                              color: Colors.black),
+                              color: Colors.black,),
                         ),
                       ),
                     ),
@@ -117,7 +115,7 @@ class ProjectCard extends StatelessWidget {
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
-                                fontSize: 16),
+                                fontSize: 16,),
                           ),
                         ],
                       ),
@@ -156,124 +154,6 @@ class ProjectCard extends StatelessWidget {
               ],
             ),
           )
-        ],
-      ),
-    );
-  }
-}
-
-class _Option1 extends StatelessWidget {
-  const _Option1({
-    Key? key,
-    required this.project,
-    required this.size,
-  }) : super(key: key);
-
-  final ProjectModel project;
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
-      child: Stack(
-        alignment: Alignment.bottomLeft,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            height: 150,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[200]!,
-                      blurRadius: 20,
-                      offset: const Offset(-6, 6))
-                ]),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    project.pathImage,
-                    height: double.infinity,
-                    width: size.width * .3,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Flexible(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      FittedBox(
-                        child: Text(
-                          project.title,
-                          maxLines: 1,
-                          style: GoogleFonts.poppins(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey[600]),
-                        ),
-                      ),
-                      FittedBox(
-                        child: Text(
-                          project.description,
-                          maxLines: 1,
-                          style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blue),
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        'Designer',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        project.designer,
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        height: 30,
-                        width: double.infinity,
-                        child: TextButton(
-                          onPressed: () =>
-                              Navigator.pushNamed(context, project.route),
-                          style: TextButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            backgroundColor: Colors.cyan[50],
-                          ),
-                          child: Text(
-                            "See project",
-                            maxLines: 1,
-                            softWrap: false,
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              color: Colors.cyan,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
         ],
       ),
     );

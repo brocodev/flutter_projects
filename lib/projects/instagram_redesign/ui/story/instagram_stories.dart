@@ -72,7 +72,7 @@ class _InstagramStoriesState extends State<InstagramStories>
           ),
         );
       },
-    ));
+    ),);
   }
 
   //---------------------------------
@@ -85,7 +85,7 @@ class _InstagramStoriesState extends State<InstagramStories>
       });
       _pageController!.previousPage(
           duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOutQuint);
+          curve: Curves.easeInOutQuint,);
       _showStory(widget.stories!.listStories![_currentStory]);
     } else {
       if (widget.stories!.indexStory! > 0) {
@@ -104,7 +104,7 @@ class _InstagramStoriesState extends State<InstagramStories>
       });
       _pageController!.nextPage(
           duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOutQuint);
+          curve: Curves.easeInOutQuint,);
       _showStory(widget.stories!.listStories![_currentStory]);
     } else {
       if (widget.stories!.indexStory! <
@@ -126,7 +126,6 @@ class _InstagramStoriesState extends State<InstagramStories>
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.transparent,
-        brightness: Brightness.dark,
       ),
       body: OverflowBox(
         alignment: Alignment.bottomCenter,

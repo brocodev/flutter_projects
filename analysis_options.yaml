@@ -6,6 +6,7 @@ linter:
     unawaited_futures: false
     cascade_invocations: false
     missing_whitespace_between_adjacent_strings: false
+    library_private_types_in_public_api: false
 
 analyzer:
   strong-mode:

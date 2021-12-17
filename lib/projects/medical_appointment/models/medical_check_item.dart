@@ -13,17 +13,17 @@ class MedicalCheckItem {
         title: 'Weight & Height',
         info: '149.7 lb - 172 cm',
         pathImage: 'assets/img/medical/weight.png',
-        state: MedicalState.normal),
+        state: MedicalState.normal,),
     MedicalCheckItem(
         title: 'Blood pressure',
         info: '130/90 mm',
         pathImage: 'assets/img/medical/arm.png',
-        state: MedicalState.alert),
+        state: MedicalState.alert,),
     MedicalCheckItem(
         title: 'Cholesterol',
         info: '200 mg/dl',
         pathImage: 'assets/img/medical/cholesterol.png',
-        state: MedicalState.alert),
+        state: MedicalState.alert,),
     MedicalCheckItem(
       title: 'Glucose',
       info: '200 mg/dl',

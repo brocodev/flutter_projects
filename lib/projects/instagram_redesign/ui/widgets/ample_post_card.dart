@@ -42,7 +42,7 @@ class _AmplePostCardState extends State<AmplePostCard>
     _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
           curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
-          parent: _controller!),
+          parent: _controller!,),
     );
     _outOpacityHeart = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
@@ -123,7 +123,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                                 ],
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                stops: const [0.0, 0.12, 0.75, .9]),
+                                stops: const [0.0, 0.12, 0.75, .9],),
                           ),
                         ),
                       ],
@@ -157,7 +157,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                           style: GoogleFonts.lato(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
-                              fontSize: 14),
+                              fontSize: 14,),
                         ),
                         const Spacer(),
                         //---------------------------
@@ -187,7 +187,7 @@ class _AmplePostCardState extends State<AmplePostCard>
                           setState(() {
                             post.isLiked = !post.isLiked!;
                           });
-                        }),
+                        },),
                     //------------------------------------------
                     //---USERS COMMENTS PHOTOS & DESCRIPTION
                     //------------------------------------------
@@ -212,11 +212,11 @@ class _AmplePostCardState extends State<AmplePostCard>
                         opacity: _outOpacityHeart.value,
                         child: SvgPicture.asset(
                           'assets/svg/instagram/heart_colored.svg',
-                          height: 150 * _scaleHeart.value as double?,
+                          height: 150 * _scaleHeart.value,
                           fit: BoxFit.cover,
                         ),
                       );
-                    }),
+                    },),
               )
             ],
           ),

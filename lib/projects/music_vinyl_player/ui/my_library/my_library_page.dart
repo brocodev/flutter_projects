@@ -67,7 +67,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   void _pageAlbumListener() {
     if (_isAlbumScrolling) {
       _pageDescriptionController!.position.jumpTo(
-          _pageAlbumController!.page! * MediaQuery.of(context).size.width);
+          _pageAlbumController!.page! * MediaQuery.of(context).size.width,);
       setState(() {
         _scrollDirection = _pageAlbumController!.position.userScrollDirection;
         _pageAlbum = _pageAlbumController!.page;
@@ -86,8 +86,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
     final route =
         PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
       return FadeTransition(
-          opacity: animation, child: SongPlayerPage(song: Song.currentSong));
-    });
+          opacity: animation, child: SongPlayerPage(song: Song.currentSong),);
+    },);
     Navigator.push(context, route);
   }
 
@@ -133,7 +133,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                           if (!_isAlbumScrolling) {
                             _pageAlbumController!.animateToPage(value,
                                 duration: const Duration(milliseconds: 600),
-                                curve: Curves.fastOutSlowIn);
+                                curve: Curves.fastOutSlowIn,);
                           }
                         },
                         physics: const BouncingScrollPhysics(),
@@ -157,7 +157,7 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                               transform: Matrix4.identity()
                                 ..setEntry(3, 2, 0.001)
                                 ..rotateY((.9 * percentDescription) *
-                                    scrollDirectionFactor),
+                                    scrollDirectionFactor,),
                               alignment: Alignment.center,
                               child: Padding(
                                 padding:
@@ -173,17 +173,17 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                               ),
                             ),
                           );
-                        }),
+                        },),
                   ),
                   //-------------------------------------
                   // Song Player Footer
                   //-------------------------------------
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
+                        horizontal: 20, vertical: 10,),
                     child: InkWell(
                         onTap: () => _openPlayerPage(context),
-                        child: SongPlayFooter(song: Song.currentSong)),
+                        child: SongPlayFooter(song: Song.currentSong),),
                   )
                 ],
               ),
@@ -212,8 +212,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                             text: ' Library',
                             style: GoogleFonts.spectral(
                               fontWeight: FontWeight.w800,
-                            ))
-                      ]),
+                            ),)
+                      ],),
                 ),
               ),
               //------------------------------------------
@@ -226,15 +226,15 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                   BoxShadow(
                       color: Colors.black.withOpacity(.08),
                       blurRadius: 20,
-                      offset: const Offset(0, 25))
-                ]),
+                      offset: const Offset(0, 25),)
+                ],),
                 child: Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [Colors.grey[100]!, Colors.white],
                     begin: Alignment.center,
                     end: Alignment.bottomCenter,
-                  )),
+                  ),),
                   //--------------------------------------
                   // Page View Album Covers
                   //--------------------------------------

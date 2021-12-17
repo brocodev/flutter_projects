@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/medical_appointment/utils/md_app_colors.dart';
 
@@ -24,15 +23,35 @@ class TonguePainter extends CustomPainter {
     final path = Path()
       ..lineTo(0, size.height)
       ..quadraticBezierTo(
-          0, size.height - curveRadius, curveRadius, size.height - curveRadius)
+        0,
+        size.height - curveRadius,
+        curveRadius,
+        size.height - curveRadius,
+      )
       ..lineTo(size.width * .3, size.height - curveRadius)
-      ..cubicTo(size.width * .42, size.height - curveRadius, size.width * .41,
-          size.height, size.width * .5, size.height)
-      ..cubicTo(size.width * .59, size.height, size.width * .59,
-          size.height - curveRadius, size.width * .7, size.height - curveRadius)
+      ..cubicTo(
+        size.width * .42,
+        size.height - curveRadius,
+        size.width * .41,
+        size.height,
+        size.width * .5,
+        size.height,
+      )
+      ..cubicTo(
+        size.width * .59,
+        size.height,
+        size.width * .59,
+        size.height - curveRadius,
+        size.width * .7,
+        size.height - curveRadius,
+      )
       ..lineTo(size.width - curveRadius, size.height - curveRadius)
       ..quadraticBezierTo(
-          size.width, size.height - curveRadius, size.width, size.height)
+        size.width,
+        size.height - curveRadius,
+        size.width,
+        size.height,
+      )
       ..lineTo(size.width, 0)
       ..lineTo(0, 0);
     canvas

@@ -23,9 +23,12 @@ class MedicalApp extends StatelessWidget {
           primaryColorLight: MdAppColors.kLightBlue,
           primaryColorDark: MdAppColors.kDarkBlue,
           textTheme: GoogleFonts.poppinsTextTheme(),
-          visualDensity: VisualDensity.adaptivePlatformDensity, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.pinkAccent),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            secondary: Colors.pinkAccent,
+          ),
         ),
-        home: _MainPage());
+        home: _MainPage(),);
   }
 }
 
@@ -66,15 +69,15 @@ class _MainPageState extends State<_MainPage> {
           TopRoundedNavigationBarItem(
               label: 'Doctors',
               selectedIcon: FontAwesome.user_md,
-              color: Color(0xFF06F884)),
+              color: Color(0xFF06F884),),
           TopRoundedNavigationBarItem(
               label: 'History',
               selectedIcon: Icons.history,
-              color: Colors.purpleAccent),
+              color: Colors.purpleAccent,),
           TopRoundedNavigationBarItem(
               label: 'Urgency',
               selectedIcon: Icons.notifications,
-              color: Colors.redAccent),
+              color: Colors.redAccent,),
         ],
       ),
     );

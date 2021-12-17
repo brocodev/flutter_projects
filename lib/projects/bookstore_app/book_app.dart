@@ -66,7 +66,7 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
         child: BottomNavigationBar(
           onTap: (value) => setState(() {
             _pageController!.animateToPage(value,
-                duration: kThemeChangeDuration, curve: Curves.decelerate);
+                duration: kThemeChangeDuration, curve: Curves.decelerate,);
             _indexPage = value;
           }),
           selectedItemColor: Colors.blue,

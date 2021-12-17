@@ -24,7 +24,7 @@ class AlbumListViewCard extends StatelessWidget {
           child: MusicPlayerPage(album: album),
         );
       },
-    ));
+    ),);
   }
 
   @override
@@ -57,7 +57,7 @@ class AlbumListViewCard extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
                         tag: '${album.title}vinyl',
-                        child: Image.asset('assets/img/music/vinyl.png')),
+                        child: Image.asset('assets/img/music/vinyl.png'),),
                   ),
                 ),
               ),
@@ -78,9 +78,10 @@ class AlbumListViewCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                 boxShadow: const [
                                   BoxShadow(
-                                      color: Colors.black26,
-                                      blurRadius: 10,
-                                      offset: Offset(-3, 5))
+                                    color: Colors.black26,
+                                    blurRadius: 10,
+                                    offset: Offset(-3, 5),
+                                  )
                                 ],
                                 image: DecorationImage(
                                   image: AssetImage(album.pathImage),
@@ -100,7 +101,7 @@ class AlbumListViewCard extends StatelessWidget {
                                         Colors.black12,
                                         Colors.black54,
                                       ],
-                                      stops: hideDisk ? [1, 0, 0] : null),
+                                      stops: hideDisk ? [1, 0, 0] : null,),
                                 ),
                               ),
                             )
@@ -161,7 +162,7 @@ class AlbumGridViewCard extends StatelessWidget {
           child: MusicPlayerPage(album: album),
         );
       },
-    ));
+    ),);
   }
 
   @override
@@ -194,7 +195,7 @@ class AlbumGridViewCard extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
                         tag: '${album.title}vinyl',
-                        child: Image.asset('assets/img/music/vinyl.png')),
+                        child: Image.asset('assets/img/music/vinyl.png'),),
                   ),
                 ),
               ),
@@ -213,7 +214,7 @@ class AlbumGridViewCard extends StatelessWidget {
                           BoxShadow(
                               color: Colors.black26,
                               blurRadius: 10,
-                              offset: Offset(-3, 5))
+                              offset: Offset(-3, 5),)
                         ],
                         image: DecorationImage(
                           image: AssetImage(album.pathImage),
