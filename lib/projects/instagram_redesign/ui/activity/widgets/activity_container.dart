@@ -64,18 +64,20 @@ class ActivityContainer extends StatelessWidget {
   }
 
   String? _getTextDescription() {
-    switch (activity.typeNotification) {
+    switch (activity.typeNotification!) {
       case IgTypeActivity.follows:
         return 'started following you';
       case IgTypeActivity.likes:
         return 'liked your photo';
-      default:
+      case IgTypeActivity.comments:
+      case IgTypeActivity.mention:
+      case IgTypeActivity.messages:
         return activity.description;
     }
   }
 
   Widget _getBottomWidgets() {
-    switch (activity.typeNotification) {
+    switch (activity.typeNotification!) {
       case IgTypeActivity.messages:
       case IgTypeActivity.comments:
       case IgTypeActivity.mention:
@@ -89,13 +91,14 @@ class ActivityContainer extends StatelessWidget {
             ],
           ),
         );
-      default:
+      case IgTypeActivity.likes:
+      case IgTypeActivity.follows:
         return const SizedBox();
     }
   }
 
   Widget _getRightWidget() {
-    switch (activity.typeNotification) {
+    switch (activity.typeNotification!) {
       case IgTypeActivity.comments:
       case IgTypeActivity.mention:
       case IgTypeActivity.likes:
@@ -133,8 +136,6 @@ class ActivityContainer extends StatelessWidget {
             ),
           ),
         );
-      default:
-        return const SizedBox();
     }
   }
 }

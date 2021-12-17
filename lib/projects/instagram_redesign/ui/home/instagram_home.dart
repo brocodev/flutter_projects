@@ -191,39 +191,42 @@ class _InstagramHomeState extends State<InstagramHome>
                                       ),
                                     );
                                   },
-                                ),);
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      case ViewState.ample:
+                      case ViewState.old:
+                        //------------------------------
+                        // Ample Post Card
+                        //------------------------------
+                        return AnimatedBuilder(
+                          animation: _controller,
+                          builder: (context, child) => Align(
+                            alignment: Alignment.bottomCenter,
+                            heightFactor: selectedIndexPost < index
+                                ? _heightFactor.value
+                                : .88,
+                            child: child,
+                          ),
+                          child: Hero(
+                            tag: post.id!,
+                            child: AmplePostCard(
+                              post: post,
+                              onTap: () {
+                                _openDetailsFromAmpleView(
+                                  context,
+                                  post,
+                                  index,
+                                );
                               },
+                              height: heightItem as double?,
                             ),
-                          );
-                        default:
-                          //------------------------------
-                          // Ample Post Card
-                          //------------------------------
-                          return AnimatedBuilder(
-                            animation: _controller,
-                            builder: (context, child) => Align(
-                              alignment: Alignment.bottomCenter,
-                              heightFactor: selectedIndexPost < index
-                                  ? _heightFactor.value
-                                  : .88,
-                              child: child,
-                            ),
-                            child: Hero(
-                                tag: post.id!,
-                                child: AmplePostCard(
-                                  post: post,
-                                  onTap: () {
-                                    _openDetailsFromAmpleView(
-                                      context,
-                                      post,
-                                      index,
-                                    );
-                                  },
-                                  height: heightItem as double?,
-                                ),),
-                          );
-                      }
-                    },
+                          ),
+                        );
+                    }
+                  },
                     childCount: IgPost.listPosts.length,
                   ),
                 ),
