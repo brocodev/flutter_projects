@@ -83,7 +83,7 @@ class AlbumListViewCard extends StatelessWidget {
                                       offset: Offset(-3, 5))
                                 ],
                                 image: DecorationImage(
-                                  image: AssetImage(album.pathImage!),
+                                  image: AssetImage(album.pathImage),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -216,7 +216,7 @@ class AlbumGridViewCard extends StatelessWidget {
                               offset: Offset(-3, 5))
                         ],
                         image: DecorationImage(
-                          image: AssetImage(album.pathImage!),
+                          image: AssetImage(album.pathImage),
                           fit: BoxFit.cover,
                         ),
                       ),

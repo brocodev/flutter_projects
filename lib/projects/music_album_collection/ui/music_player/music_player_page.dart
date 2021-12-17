@@ -12,28 +12,32 @@ class MusicPlayerPage extends StatefulWidget {
   final AlbumModel album;
 
   @override
-  _MusicPlayerPageState createState() => _MusicPlayerPageState();
+  MusicPlayerPageState createState() => MusicPlayerPageState();
 }
 
-class _MusicPlayerPageState extends State<MusicPlayerPage>
+class MusicPlayerPageState extends State<MusicPlayerPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-  Animation? _sizeAnimation;
-  Animation? _itemsAnimation;
+  late Animation<double> _sizeAnimation;
+  late Animation<double> _itemsAnimation;
 
   @override
   void initState() {
     _animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    _sizeAnimation = Tween(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: const Interval(0, 0.6, curve: Curves.fastOutSlowIn),
-    ));
+    _sizeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.6, curve: Curves.fastOutSlowIn),
+      ),
+    );
 
-    _itemsAnimation = Tween(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: const Interval(0.6, 1, curve: Curves.decelerate),
-    ));
+    _itemsAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.6, 1, curve: Curves.decelerate),
+      ),
+    );
     Future.delayed(const Duration(milliseconds: 300), () {
       _animationController.forward();
     });
@@ -56,10 +60,11 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
       body: DecoratedBox(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Colors.white, Colors.blueGrey],
-              stops: [0, 0]),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.white, Colors.blueGrey],
+            stops: [0, 0],
+          ),
         ),
         child: Column(
           children: [
@@ -101,13 +106,17 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                           //-------------------------------------
                           Positioned.fill(
                             top: lerpDouble(
-                                cardHeight, 20, _sizeAnimation!.value),
+                              cardHeight,
+                              20,
+                              _sizeAnimation.value,
+                            ),
                             left: size.width * .12,
                             right: size.width * .12,
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Colors.white60,
-                                  borderRadius: BorderRadius.circular(8)),
+                                color: Colors.white60,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
                           ),
                           //--------------------------------------
@@ -115,16 +124,20 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                           //--------------------------------------
                           Positioned.fill(
                             top: lerpDouble(
-                                cardHeight, 20, _sizeAnimation!.value),
+                              cardHeight,
+                              20,
+                              _sizeAnimation.value,
+                            ),
                             bottom: 15,
                             left: size.width * .09,
                             right: size.width * .09,
                             child: Opacity(
-                              opacity: _sizeAnimation!.value,
+                              opacity: _sizeAnimation.value,
                               child: Container(
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8)),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                                 child: Column(
                                   children: [
                                     //------------------------------
@@ -133,7 +146,7 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     Expanded(
                                       flex: 4,
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation as Animation<double>,
+                                        opacity: _itemsAnimation,
                                         child: Container(
                                           decoration: BoxDecoration(
                                             borderRadius:
@@ -142,13 +155,15 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                             ),
                                             boxShadow: const [
                                               BoxShadow(
-                                                  color: Colors.black26,
-                                                  blurRadius: 10,
-                                                  offset: Offset(0, 8))
+                                                color: Colors.black26,
+                                                blurRadius: 10,
+                                                offset: Offset(0, 8),
+                                              )
                                             ],
                                             image: DecorationImage(
                                               image: AssetImage(
-                                                  widget.album.pathImage!),
+                                                widget.album.pathImage,
+                                              ),
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -160,14 +175,15 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     //----------------------------
                                     Expanded(
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation as Animation<double>,
+                                        opacity: _itemsAnimation,
                                         child: Align(
                                           alignment: Alignment.bottomCenter,
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 30),
+                                              horizontal: 30,
+                                            ),
                                             child: Text(
-                                              '${widget.album.songs!.first} '
+                                              '${widget.album.songs.first} '
                                               'by ${widget.album.author} - '
                                               '${widget.album.title}',
                                               textAlign: TextAlign.center,
@@ -184,13 +200,15 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                                     //-----------------------------
                                     Expanded(
                                       child: FadeTransition(
-                                        opacity: _itemsAnimation as Animation<double>,
+                                        opacity: _itemsAnimation,
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
-                                              horizontal: 10),
+                                            horizontal: 10,
+                                          ),
                                           child: CustomPaint(
-                                              painter: WavePainter(),
-                                              child: Container()),
+                                            painter: WavePainter(),
+                                            child: Container(),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -210,19 +228,22 @@ class _MusicPlayerPageState extends State<MusicPlayerPage>
                           ),
                         ],
                       );
-                    });
-              }),
+                    },
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 20),
             AnimatedBuilder(
               animation: _animationController,
               builder: (context, child) {
                 return Transform.translate(
-                    offset: Offset(
-                      0,
-                      lerpDouble(size.width * .1, 0, _itemsAnimation!.value)!,
-                    ),
-                    child: child);
+                  offset: Offset(
+                    0,
+                    lerpDouble(size.width * .1, 0, _itemsAnimation.value)!,
+                  ),
+                  child: child,
+                );
               },
               child: Container(
                 width: size.width * .2,
@@ -253,14 +274,13 @@ class _AnimatedPlayerControls extends StatelessWidget {
     required this.animation1,
     required this.animation2,
   }) : super(key: key);
-
-  final Animation? animation1;
-  final Animation? animation2;
+  final Animation<double> animation1;
+  final Animation<double> animation2;
 
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
-      opacity: animation1 as Animation<double>,
+      opacity: animation1,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: Row(
@@ -283,7 +303,7 @@ class _AnimatedPlayerControls extends StatelessWidget {
                     scale: lerpDouble(
                       .5,
                       1,
-                      animation2!.value,
+                      animation2.value,
                     )!,
                     child: FloatingActionButton(
                       mini: i != 2,
