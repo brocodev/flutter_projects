@@ -200,7 +200,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           //--------------------------
                           // Animated Marvel Logo
                           //--------------------------
-                          TweenAnimationBuilder(
+                          TweenAnimationBuilder<double>(
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.fastOutSlowIn,
                             tween: Tween(

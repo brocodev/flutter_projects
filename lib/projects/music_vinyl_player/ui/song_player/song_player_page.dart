@@ -180,7 +180,7 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                 //-------------------------
                 child: Transform.rotate(
                   angle: pi * vinylDragValue,
-                  child: TweenAnimationBuilder(
+                  child: TweenAnimationBuilder<double>(
                     curve: Curves.fastOutSlowIn,
                     duration: const Duration(milliseconds: 800),
                     tween: Tween(begin: 0, end: 1),

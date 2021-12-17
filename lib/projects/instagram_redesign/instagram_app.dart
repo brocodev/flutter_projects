@@ -60,7 +60,7 @@ class _InstagramNavigationPageState extends State<_InstagramNavigationPage> {
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
     final topInset = MediaQuery.of(context).padding.top;
-    final settingsHeight = MediaQuery.of(context).size.height * .22 + topInset;
+    final settingsHeight = MediaQuery.of(context).size.height * .25 + topInset;
 
     return Scaffold(
       body: OverflowBox(

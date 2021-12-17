@@ -35,11 +35,6 @@ class IgCollection {
       imagesCollection: [],
     ),
     IgCollection(
-      title: 'Flutter',
-      iconImage: 'https://flutter.dev/images/catalog-widgets-placeholder.png',
-      imagesCollection: [],
-    ),
-    IgCollection(
       title: 'Beach',
       iconImage: 'https://images.unsplash.com/photo-1509233725247-49e657c54213?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       imagesCollection: [],
