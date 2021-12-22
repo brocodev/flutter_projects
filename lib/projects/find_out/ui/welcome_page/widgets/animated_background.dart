@@ -11,16 +11,16 @@ class AnimatedBackground extends StatefulWidget {
 }
 
 class AnimatedBackgroundState extends State<AnimatedBackground> {
-  PageController? pageController;
+  late final PageController pageController;
   late Timer timerSlide;
 
   @override
   void initState() {
-    pageController = PageController(viewportFraction: .999);
+    pageController = PageController();
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       timerSlide =
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
-         pageController!.nextPage(
+         pageController.nextPage(
             duration: const Duration(milliseconds: 1400),
             curve: Curves.fastOutSlowIn,);
       });
@@ -31,7 +31,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
   @override
   void dispose() {
     timerSlide.cancel();
-    pageController!.dispose();
+    pageController.dispose();
     super.dispose();
   }
 
@@ -45,6 +45,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
     final topPosition = MediaQuery.of(context).size.height * .37;
     return PageView.builder(
       physics: const NeverScrollableScrollPhysics(),
+      allowImplicitScrolling: true,
       controller: pageController,
       itemBuilder: (context, index) {
         final i = index % 3;

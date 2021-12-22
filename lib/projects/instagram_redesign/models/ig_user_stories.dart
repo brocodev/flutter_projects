@@ -3,14 +3,14 @@ import 'package:flutter_projects/projects/instagram_redesign/models/ig_user.dart
 class IgUserStories {
 
   const IgUserStories({
-    this.indexStory,
-    this.instagramUser,
-    this.listStories,
+    required this.indexStory,
+    required this.instagramUser,
+    required this.listStories,
   });
 
-  final int? indexStory;
-  final IgUser? instagramUser;
-  final List<StoryModel>? listStories;
+  final int indexStory;
+  final IgUser instagramUser;
+  final List<StoryModel> listStories;
 
 
   static final List<IgUserStories> listUserStories = List.generate(

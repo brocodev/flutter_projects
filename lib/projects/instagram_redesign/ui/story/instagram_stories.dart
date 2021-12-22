@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_user_stories.dart';
@@ -15,28 +16,28 @@ class InstagramStories extends StatefulWidget {
 
 class _InstagramStoriesState extends State<InstagramStories>
     with SingleTickerProviderStateMixin {
-  PageController? _pageController;
-  AnimationController? _animationController;
+  late final PageController _pageController;
+  late final AnimationController _animationController;
   int _currentStory = 0;
 
   @override
   void initState() {
-    _pageController = PageController(viewportFraction: .9999);
+    _pageController = PageController();
     _animationController = AnimationController(vsync: this);
     //-----------------------------
     //---SHOW FIRST USER STORY
     //-----------------------------
-    _showStory(widget.stories!.listStories![_currentStory]);
-    _animationController!.addStatusListener(_statusListener);
+    _showStory(widget.stories!.listStories[_currentStory]);
+    _animationController.addStatusListener(_statusListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    _animationController!
+    _animationController
       ..removeStatusListener(_statusListener)
       ..dispose();
-    _pageController!.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -53,7 +54,7 @@ class _InstagramStoriesState extends State<InstagramStories>
   //-----SHOW NEW STORY
   //----------------------------------
   void _showStory(StoryModel story) {
-    _animationController!
+    _animationController
       ..reset()
       ..duration = story.duration
       ..forward();
@@ -83,13 +84,13 @@ class _InstagramStoriesState extends State<InstagramStories>
       setState(() {
         _currentStory--;
       });
-      _pageController!.previousPage(
+      _pageController.previousPage(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOutQuint,);
-      _showStory(widget.stories!.listStories![_currentStory]);
+      _showStory(widget.stories!.listStories[_currentStory]);
     } else {
-      if (widget.stories!.indexStory! > 0) {
-        _openUserStories(widget.stories!.indexStory! - 1);
+      if (widget.stories!.indexStory > 0) {
+        _openUserStories(widget.stories!.indexStory - 1);
       }
     }
   }
@@ -98,18 +99,18 @@ class _InstagramStoriesState extends State<InstagramStories>
   //----NEXT STORY
   //---------------------------------
   void _nextStory() {
-    if (_currentStory < (widget.stories!.listStories!.length - 1)) {
+    if (_currentStory < (widget.stories!.listStories.length - 1)) {
       setState(() {
         _currentStory++;
       });
-      _pageController!.nextPage(
+      _pageController.nextPage(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOutQuint,);
-      _showStory(widget.stories!.listStories![_currentStory]);
+      _showStory(widget.stories!.listStories[_currentStory]);
     } else {
-      if (widget.stories!.indexStory! <
+      if (widget.stories!.indexStory <
           (IgUserStories.listUserStories.length - 1)) {
-        _openUserStories(widget.stories!.indexStory! + 1);
+        _openUserStories(widget.stories!.indexStory + 1);
       } else {
         Navigator.pop(context);
       }
@@ -119,8 +120,8 @@ class _InstagramStoriesState extends State<InstagramStories>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final listStories = widget.stories!.listStories!;
-    final user = widget.stories!.instagramUser!;
+    final listStories = widget.stories!.listStories;
+    final user = widget.stories!.instagramUser;
 
     return Scaffold(
       appBar: AppBar(
@@ -149,6 +150,7 @@ class _InstagramStoriesState extends State<InstagramStories>
               //----------------------------------
               child: PageView.builder(
                 controller: _pageController,
+                allowImplicitScrolling: true,
                 itemCount: listStories.length,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
