@@ -75,7 +75,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final upperLimit = MediaQuery.of(context).size.height - 200;
+    final upperLimit = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
