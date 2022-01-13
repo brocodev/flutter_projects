@@ -22,7 +22,7 @@ class PlaceDetailScreen extends StatefulWidget {
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   late ScrollController _controller;
   late ValueNotifier<double> bottomPercentNotifier;
-  double dy = 0;
+  double velocity = 0;
 
   void _scrollListener() {
     final percent =
@@ -82,10 +82,10 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
           GestureDetector(
             onVerticalDragEnd: (_) => _restoreScrollPosition(),
             onVerticalDragStart: (details) =>
-                dy = details.localPosition.dy * .025,
+                velocity = details.localPosition.dy * .025,
             onVerticalDragUpdate: (details) {
               final posY = _controller.position.pixels -
-                  ((details.localPosition.dy * .025) - dy);
+                  ((details.localPosition.dy * .025) - velocity);
               final posYFixed = posY.clamp(0.0, upperLimit);
               _controller.jumpTo(posYFixed);
             },
