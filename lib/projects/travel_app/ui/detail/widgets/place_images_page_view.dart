@@ -24,6 +24,7 @@ class _PlaceImagesPageViewState extends State<PlaceImagesPageView> {
       children: [
         Expanded(
           child: PageView.builder(
+            allowImplicitScrolling: true,
             itemCount: widget.imagesUrl.length,
             onPageChanged: (value) {
               setState(() => currentIndex = value);
