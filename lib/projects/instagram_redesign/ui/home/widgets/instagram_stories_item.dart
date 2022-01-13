@@ -16,7 +16,7 @@ class InstagramStoriesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = stories.instagramUser!;
+    final user = stories.instagramUser;
     return InkWell(
       onTap: onTap,
       splashColor: Colors.transparent,
