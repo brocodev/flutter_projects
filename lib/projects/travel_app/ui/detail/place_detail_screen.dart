@@ -22,7 +22,7 @@ class PlaceDetailScreen extends StatefulWidget {
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   late ScrollController _controller;
   late ValueNotifier<double> bottomPercentNotifier;
-  final bool _isAnimatingScroll = false;
+  double dy = 0;
 
   void _scrollListener() {
     final percent =
@@ -30,41 +30,31 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
     bottomPercentNotifier.value = (percent / .3).clamp(0.0, 1.0);
   }
 
-  void _isScrollingListener() {
-    // TODO(brocodev): review scroll bug
-    // final percent = _controller.position.pixels / widget.screenHeight;
-    // if (!_controller.position.isScrollingNotifier.value) {
-    //   if (percent < .3 && percent > .1) {
-    //     setState(() => _isAnimatingScroll = true);
-    //     _controller
-    //         .animateTo(
-    //           widget.screenHeight * .3,
-    //           duration: kThemeAnimationDuration,
-    //           curve: Curves.decelerate,
-    //         )
-    //         .then((value) => setState(() => _isAnimatingScroll = false));
-    //   }
-    //   if (percent < .1 && percent > 0) {
-    //     setState(() => _isAnimatingScroll = true);
-    //     _controller
-    //         .animateTo(
-    //           0,
-    //           duration: kThemeAnimationDuration,
-    //           curve: Curves.decelerate,
-    //         )
-    //         .then((value) => setState(() => _isAnimatingScroll = false));
-    //   }
-    //   if (percent < .6 && percent > .3) {
-    //     setState(() => _isAnimatingScroll = true);
-    //     _controller
-    //         .animateTo(
-    //           widget.screenHeight * .3,
-    //           duration: kThemeAnimationDuration,
-    //           curve: Curves.decelerate,
-    //         )
-    //         .then((value) => setState(() => _isAnimatingScroll = false));
-    //   }
-    // }
+  void _restoreScrollPosition() {
+    final percent = _controller.position.pixels / widget.screenHeight;
+    if (!_controller.position.isScrollingNotifier.value) {
+      if (percent < .3 && percent > .1) {
+        _controller.animateTo(
+          widget.screenHeight * .3,
+          duration: kThemeAnimationDuration,
+          curve: Curves.decelerate,
+        );
+      }
+      if (percent < .1 && percent > 0) {
+        _controller.animateTo(
+          0,
+          duration: kThemeAnimationDuration,
+          curve: Curves.decelerate,
+        );
+      }
+      if (percent < .6 && percent > .3) {
+        _controller.animateTo(
+          widget.screenHeight * .3,
+          duration: kThemeAnimationDuration,
+          curve: Curves.decelerate,
+        );
+      }
+    }
   }
 
   @override
@@ -72,10 +62,6 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
     _controller =
         ScrollController(initialScrollOffset: widget.screenHeight * .3);
     _controller.addListener(_scrollListener);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      _controller.position.isScrollingNotifier
-          .addListener(_isScrollingListener);
-    });
     bottomPercentNotifier = ValueNotifier(1);
     super.initState();
   }
@@ -89,13 +75,22 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final upperLimit = MediaQuery.of(context).size.height - 200;
     return Scaffold(
       body: Stack(
         children: [
-          AbsorbPointer(
-            absorbing: _isAnimatingScroll,
+          GestureDetector(
+            onVerticalDragEnd: (_) => _restoreScrollPosition(),
+            onVerticalDragStart: (details) =>
+                dy = details.localPosition.dy * .025,
+            onVerticalDragUpdate: (details) {
+              final posY = _controller.position.pixels -
+                  ((details.localPosition.dy * .025) - dy);
+              final posYFixed = posY.clamp(0.0, upperLimit);
+              _controller.jumpTo(posYFixed);
+            },
             child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               controller: _controller,
               slivers: [
                 SliverPersistentHeader(
