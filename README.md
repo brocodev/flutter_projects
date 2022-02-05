@@ -14,7 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+samples, guidance on mobile development, and a full API reference.´
 ___
 ## 12 - Travel App
 #### [TRAVEL APP with Animations - Flutter Challenge](https://www.youtube.com/watch?v=YeV2ZYn2_JI&t=686s&ab_channel=diegoveloper) <img src="https://i.ibb.co/1fTqGCz/You-Tube-s-mbolo.jpg" width="16">

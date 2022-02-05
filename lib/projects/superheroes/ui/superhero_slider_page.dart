@@ -67,9 +67,14 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
         title:const  Text("movies"),
         elevation: 0,
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
+        leading: Hero(
+          tag: 'back.button.tag',
+          child: Material(
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_back_ios),
+            ),
+          ),
         ),
       ),
       body: Stack(

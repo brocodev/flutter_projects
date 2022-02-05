@@ -33,14 +33,16 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
 
     _colorGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
-          curve: const Interval(0, 1, curve: Curves.fastOutSlowIn),
-          parent: _controller!,),
+        curve: const Interval(0, 1, curve: Curves.fastOutSlowIn),
+        parent: _controller!,
+      ),
     );
 
     _whiteGradientValue = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
-          curve: const Interval(0.1, 1, curve: Curves.fastOutSlowIn),
-          parent: _controller!,),
+        curve: const Interval(0.1, 1, curve: Curves.fastOutSlowIn),
+        parent: _controller!,
+      ),
     );
 
     _changeToBlack = false;
@@ -104,9 +106,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
           // Animated Background
           //-------------------------
           Positioned.fill(
-              child: Hero(
-            tag: "${widget.superhero.heroName}background",
-            child: AnimatedBuilder(
+            child: Hero(
+              tag: "${widget.superhero.heroName}background",
+              child: AnimatedBuilder(
                 animation: _controller!,
                 builder: (_, __) {
                   return DecoratedBox(
@@ -125,8 +127,10 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                       ),
                     ),
                   );
-                },),
-          ),),
+                },
+              ),
+            ),
+          ),
           //----------------------
           // Items Body
           //----------------------
@@ -165,9 +169,10 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
                               style: textTheme.headline2!.copyWith(
-                                  color: _changeToBlack
-                                      ? Colors.black
-                                      : Colors.white,),
+                                color: _changeToBlack
+                                    ? Colors.black
+                                    : Colors.white,
+                              ),
                               child: Text(
                                 widget.superhero.heroName!
                                     .replaceAll(' ', '\n')
@@ -183,16 +188,25 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           //---------------------------------------
                           // Superhero Secret Identity Name
                           //---------------------------------------
-                          Hero(
-                            tag: widget.superhero.name!,
-                            child: AnimatedDefaultTextStyle(
-                              duration: kThemeAnimationDuration,
-                              style: textTheme.headline5!.copyWith(
-                                  color: _changeToBlack
-                                      ? Colors.black
-                                      : Colors.white,),
-                              child: Text(
-                                widget.superhero.name!.toLowerCase(),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Hero(
+                                tag: widget.superhero.name!,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: AnimatedDefaultTextStyle(
+                                    duration: kThemeAnimationDuration,
+                                    style: textTheme.headline5!.copyWith(
+                                      color: _changeToBlack
+                                          ? Colors.black
+                                          : Colors.white,
+                                    ),
+                                    child: Text(
+                                      widget.superhero.name!.toLowerCase(),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -215,7 +229,6 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                             child: Image.asset(
                               'assets/img/superheroes/marvel_logo.jpg',
                               height: 35,
-                              width: 100,
                             ),
                           )
                         ],
@@ -301,8 +314,9 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           return Transform.translate(
                             offset: Offset(0, 50 * value),
                             child: Opacity(
-                                opacity: 1 - value.clamp(0.0, 1.0),
-                                child: child,),
+                              opacity: 1 - value.clamp(0.0, 1.0),
+                              child: child,
+                            ),
                           );
                         },
                         child: Padding(
@@ -326,9 +340,15 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
             left: 20,
             top: 0,
             child: SafeArea(
-              child: IconButton(
-                onPressed: _backButtonTap,
-                icon: const Icon(Icons.arrow_back_ios),
+              child: Hero(
+                tag: 'back.button.tag',
+                child: Material(
+                  color: Colors.transparent,
+                  child: IconButton(
+                    onPressed: _backButtonTap,
+                    icon: const Icon(Icons.arrow_back_ios),
+                  ),
+                ),
               ),
             ),
           )
