@@ -164,9 +164,9 @@ class HomePageState extends State<HomePage> {
             child: Stack(
               children: [
                 const Divider(color: Color(0xFFeaeaea)),
-                ValueListenableBuilder(
+                ValueListenableBuilder<double>(
                   valueListenable: _scrollPercentNotifier,
-                  builder: (context, dynamic value, child) {
+                  builder: (context, double value, child) {
                     return Align(
                       alignment: Alignment(ui.lerpDouble(-1.0, 1.0, value)!, 0),
                       child: child,

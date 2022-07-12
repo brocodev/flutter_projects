@@ -55,9 +55,9 @@ class InstagramPostDetail extends StatelessWidget {
           //-----------------------------------
           // Comments List View
           //-----------------------------------
-          ValueListenableBuilder(
+          ValueListenableBuilder<bool>(
             valueListenable: expandComments,
-            builder: (context, dynamic value, child) {
+            builder: (context, value, child) {
               return AnimatedPositioned(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.fastOutSlowIn,
@@ -99,9 +99,9 @@ class InstagramPostDetail extends StatelessWidget {
           //-----------------------------------
           // Expand Comments Button
           //-----------------------------------
-          ValueListenableBuilder(
+          ValueListenableBuilder<bool>(
             valueListenable: expandComments,
-            builder: (context, dynamic value, _) {
+            builder: (context,  value, _) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.fastOutSlowIn,

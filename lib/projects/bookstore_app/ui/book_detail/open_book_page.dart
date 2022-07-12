@@ -20,9 +20,11 @@ class OpenBookPageState extends State<OpenBookPage> {
   @override
   void initState() {
     animate = false;
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
-      await Future.delayed(kThemeChangeDuration);
-      setState(() => animate = !animate);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      return Future.delayed(
+        kThemeChangeDuration,
+        () => setState(() => animate = !animate),
+      );
     });
     super.initState();
   }

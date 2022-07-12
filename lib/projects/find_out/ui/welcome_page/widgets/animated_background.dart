@@ -17,7 +17,7 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
   @override
   void initState() {
     pageController = PageController();
-    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       timerSlide =
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
          pageController.nextPage(

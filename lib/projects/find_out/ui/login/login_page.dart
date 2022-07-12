@@ -26,8 +26,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final resizeNotifier = ValueNotifier(false);
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    final resizeNotifier = ValueNotifier<bool>(false);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (!resizeNotifier.value) resizeNotifier.value = true;
     });
     return Scaffold(
@@ -41,9 +41,9 @@ class LoginPage extends StatelessWidget {
         },
         child: Stack(
           children: <Widget>[
-            ValueListenableBuilder(
+            ValueListenableBuilder<bool>(
               valueListenable: resizeNotifier,
-              builder: (context, dynamic value, child) {
+              builder: (context, value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,

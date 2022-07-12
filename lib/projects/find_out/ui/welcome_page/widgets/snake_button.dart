@@ -69,7 +69,7 @@ class _SnakePainter extends CustomPainter {
     this.borderWidth = 3.0,
   }) : super(repaint: animation);
 
-  final Animation? animation;
+  final Animation<double>? animation;
   final Color snakeColor;
   final Color borderColor;
   final double borderWidth;
@@ -100,7 +100,7 @@ class _SnakePainter extends CustomPainter {
         stops: const [0.5, 0.5],
         endAngle: vector.radians(90),
         transform: GradientRotation(
-          vector.radians(360 * animation!.value as double),
+          vector.radians(360 * animation!.value),
         ),
       ).createShader(rectBorder);
 

@@ -23,9 +23,9 @@ class TextInputFindOut extends StatelessWidget {
       ),
     );
     final hidePasswordNotifier = ValueNotifier(true);
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<bool>(
         valueListenable: hidePasswordNotifier,
-        builder: (context, dynamic value, child) {
+        builder: (context, value, child) {
           return TextField(
             keyboardType: textInputType,
             obscureText: isPassword ? value : false,

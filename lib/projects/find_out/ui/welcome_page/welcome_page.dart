@@ -19,9 +19,9 @@ class WelcomePage extends StatelessWidget {
         fit: StackFit.expand,
         children: <Widget>[
           const AnimatedBackground(),
-          ValueListenableBuilder(
+          ValueListenableBuilder<bool>(
             valueListenable: hideNotifier,
-            builder: (context, dynamic value, child) {
+            builder: (context, value, child) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,

@@ -17,14 +17,17 @@ class AlbumListViewCard extends StatelessWidget {
   final double textSize;
 
   void _onTapAlbum(BuildContext context) {
-    Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: MusicPlayerPage(album: album),
-        );
-      },
-    ),);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: MusicPlayerPage(album: album),
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -38,11 +41,11 @@ class AlbumListViewCard extends StatelessWidget {
               //----------------------------------------
               // Vinyl Disk
               //----------------------------------------
-              TweenAnimationBuilder(
+              TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
-                builder: (context, dynamic value, child) {
+                builder: (context, value, child) {
                   return Align(
                     alignment: Alignment(-1.0 + value, 0),
                     child: Transform.rotate(
@@ -56,8 +59,9 @@ class AlbumListViewCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
-                        tag: '${album.title}vinyl',
-                        child: Image.asset('assets/img/music/vinyl.png'),),
+                      tag: '${album.title}vinyl',
+                      child: Image.asset('assets/img/music/vinyl.png'),
+                    ),
                   ),
                 ),
               ),
@@ -94,14 +98,15 @@ class AlbumListViewCard extends StatelessWidget {
                                 duration: kThemeAnimationDuration,
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: const [
-                                        Colors.black12,
-                                        Colors.black12,
-                                        Colors.black54,
-                                      ],
-                                      stops: hideDisk ? [1, 0, 0] : null,),
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: const [
+                                      Colors.black12,
+                                      Colors.black12,
+                                      Colors.black54,
+                                    ],
+                                    stops: hideDisk ? [1, 0, 0] : null,
+                                  ),
                                 ),
                               ),
                             )
@@ -155,14 +160,17 @@ class AlbumGridViewCard extends StatelessWidget {
   final double textSize;
 
   void _onTapAlbum(BuildContext context) {
-    Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: MusicPlayerPage(album: album),
-        );
-      },
-    ),);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: MusicPlayerPage(album: album),
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -176,11 +184,11 @@ class AlbumGridViewCard extends StatelessWidget {
               //----------------------------------------
               // Vinyl Disk
               //----------------------------------------
-              TweenAnimationBuilder(
+              TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0, end: hideDisk ? 0.0 : 2.0),
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.fastOutSlowIn,
-                builder: (context, dynamic value, child) {
+                builder: (context, value, child) {
                   return Align(
                     alignment: Alignment(-1.0 + value, 0),
                     child: Transform.rotate(
@@ -194,8 +202,9 @@ class AlbumGridViewCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Hero(
-                        tag: '${album.title}vinyl',
-                        child: Image.asset('assets/img/music/vinyl.png'),),
+                      tag: '${album.title}vinyl',
+                      child: Image.asset('assets/img/music/vinyl.png'),
+                    ),
                   ),
                 ),
               ),
@@ -212,9 +221,10 @@ class AlbumGridViewCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: const [
                           BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 10,
-                              offset: Offset(-3, 5),)
+                            color: Colors.black26,
+                            blurRadius: 10,
+                            offset: Offset(-3, 5),
+                          )
                         ],
                         image: DecorationImage(
                           image: AssetImage(album.pathImage),

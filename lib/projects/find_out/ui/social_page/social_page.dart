@@ -21,7 +21,7 @@ class SocialPage extends StatelessWidget {
     final heightBackPageView = size.height * .33;
     final infoVisibleNotifier = ValueNotifier(false);
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Future.delayed(const Duration(milliseconds: 800), () {
         infoVisibleNotifier.value = true;
       });
@@ -105,16 +105,12 @@ class SocialPage extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 70),
                     itemCount: listComments.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final comment = listComments[index];
-                      return CommentCard(comment: comment);
-                    },
-                    staggeredTileBuilder: (int index) {
-                      return StaggeredTile.count(
-                        2,
-                        listComments[index].photoCommentUrl == null ? 2.3 : 2.8,
-                      );
-                    },
+                    itemBuilder: (context, index) =>
+                        CommentCard(comment: listComments[index]),
+                    staggeredTileBuilder: (index) => StaggeredTile.count(
+                      2,
+                      listComments[index].photoCommentUrl == null ? 2.3 : 2.8,
+                    ),
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                   ),
@@ -181,58 +177,60 @@ class _HeaderSocialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: heightBackPageView * 1.33,
-      child: Stack(children: <Widget>[
-        SizedBox(
-          height: heightBackPageView,
-          child: Hero(
-            tag: place.id!,
-            child: _BackImagesPageView(
-              place: place,
-              indexNotifier: indexImageBackground,
+      child: Stack(
+        children: <Widget>[
+          SizedBox(
+            height: heightBackPageView,
+            child: Hero(
+              tag: place.id!,
+              child: _BackImagesPageView(
+                place: place,
+                indexNotifier: indexImageBackground,
+              ),
             ),
           ),
-        ),
-        Positioned(
-          top: 40,
-          left: 20,
-          right: 20,
-          bottom: 0,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const _CustomAppBar(),
-              SizedBox(
-                height: heightBackPageView * .13,
-              ),
-              _TitleAndHeart(
-                place: place,
-                infoVisibleNotifier: infoVisibleNotifier,
-              ),
-              _PageViewIndicators(
-                maxIndex: place.imageUrl!.length,
-                indexImageBackground: indexImageBackground,
-              ),
-              const Spacer()
-            ],
+          Positioned(
+            top: 40,
+            left: 20,
+            right: 20,
+            bottom: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const _CustomAppBar(),
+                SizedBox(
+                  height: heightBackPageView * .13,
+                ),
+                _TitleAndHeart(
+                  place: place,
+                  infoVisibleNotifier: infoVisibleNotifier,
+                ),
+                _PageViewIndicators(
+                  maxIndex: place.imageUrl!.length,
+                  indexImageBackground: indexImageBackground,
+                ),
+                const Spacer()
+              ],
+            ),
           ),
-        ),
-        ValueListenableBuilder(
-          valueListenable: infoVisibleNotifier,
-          builder: (context, dynamic value, child) {
-            return Positioned(
-              bottom: 0,
-              left: 20,
-              right: 20,
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 400),
-                opacity: value ? 1.0 : 0.0,
-                child: child,
-              ),
-            );
-          },
-          child: const CardPlaceInformation(),
-        )
-      ],),
+          ValueListenableBuilder<bool>(
+            valueListenable: infoVisibleNotifier,
+            builder: (context, value, child) {
+              return Positioned(
+                bottom: 0,
+                left: 20,
+                right: 20,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 400),
+                  opacity: value ? 1.0 : 0.0,
+                  child: child,
+                ),
+              );
+            },
+            child: const CardPlaceInformation(),
+          )
+        ],
+      ),
     );
   }
 }
@@ -258,23 +256,25 @@ class _TitleAndHeart extends StatelessWidget {
           baseFontSize: 30,
         ),
         const Spacer(),
-        ValueListenableBuilder(
-            valueListenable: infoVisibleNotifier,
-            builder: (context, dynamic value, child) {
-              return AnimatedOpacity(
-                  duration: const Duration(milliseconds: 400),
-                  opacity: value ? 1.0 : 0.0,
-                  child: child,);
-            },
-            child: FloatingActionButton(
-              onPressed: () {},
-              heroTag: '',
-              backgroundColor: Colors.white,
-              elevation: 3,
-              mini: true,
-              foregroundColor: Colors.pinkAccent,
-              child: const Icon(Icons.favorite),
-            ),),
+        ValueListenableBuilder<bool>(
+          valueListenable: infoVisibleNotifier,
+          builder: (context, value, child) {
+            return AnimatedOpacity(
+              duration: const Duration(milliseconds: 400),
+              opacity: value ? 1.0 : 0.0,
+              child: child,
+            );
+          },
+          child: FloatingActionButton(
+            onPressed: () {},
+            heroTag: '',
+            backgroundColor: Colors.white,
+            elevation: 3,
+            mini: true,
+            foregroundColor: Colors.pinkAccent,
+            child: const Icon(Icons.favorite),
+          ),
+        ),
         const SizedBox(width: 20),
       ],
     );
@@ -294,23 +294,28 @@ class _PageViewIndicators extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 20),
-        child: Row(
-            children: List.generate(maxIndex, (index) {
-          return ValueListenableBuilder(
-            valueListenable: indexImageBackground,
-            builder: (context, dynamic value, child) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 10, top: 10),
-                child: CircleAvatar(
-                  radius: value == index ? 5 : 4,
-                  backgroundColor:
-                      value == index ? Colors.pinkAccent : Colors.white,
-                ),
-              );
-            },
-          );
-        },),),);
+      padding: const EdgeInsets.only(left: 20),
+      child: Row(
+        children: List.generate(
+          maxIndex,
+          (index) {
+            return ValueListenableBuilder(
+              valueListenable: indexImageBackground,
+              builder: (context, dynamic value, child) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10, top: 10),
+                  child: CircleAvatar(
+                    radius: value == index ? 5 : 4,
+                    backgroundColor:
+                        value == index ? Colors.pinkAccent : Colors.white,
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 }
 
@@ -321,14 +326,16 @@ class _CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: const [
-      BackButton(),
-      Spacer(flex: 2),
-      FindOutHorizontalLogo(),
-      Spacer(
-        flex: 3,
-      )
-    ],);
+    return Row(
+      children: const [
+        BackButton(),
+        Spacer(flex: 2),
+        FindOutHorizontalLogo(),
+        Spacer(
+          flex: 3,
+        )
+      ],
+    );
   }
 }
 

@@ -27,9 +27,9 @@ class MovieDetail extends StatelessWidget {
     final hideWidgets = ValueNotifier(false);
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
-      body: ValueListenableBuilder(
+      body: ValueListenableBuilder<bool>(
         valueListenable: hideWidgets,
-        builder: (context, dynamic value, child) {
+        builder: (context, value, child) {
           return AnimatedContainer(
             duration: kDuration400ms,
             curve: Curves.fastOutSlowIn,
@@ -57,21 +57,22 @@ class MovieDetail extends StatelessWidget {
                   TranslateAnimation(
                     duration: const Duration(milliseconds: 700),
                     child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Colors.transparent,
-                              kPrimaryColorDark.withOpacity(.55),
-                              kPrimaryColorDark.withOpacity(.95),
-                              kPrimaryColorDark,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            stops: const [0.1, 0.25, 0.33, 0.45],
-                          ),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            kPrimaryColorDark.withOpacity(.55),
+                            kPrimaryColorDark.withOpacity(.95),
+                            kPrimaryColorDark,
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          stops: const [0.1, 0.25, 0.33, 0.45],
                         ),
-                        padding: EdgeInsets.only(top: heightVisiblePoster),
-                        child: _BodyDetail(movie: movie),),
+                      ),
+                      padding: EdgeInsets.only(top: heightVisiblePoster),
+                      child: _BodyDetail(movie: movie),
+                    ),
                   ),
                 ],
               ),
@@ -102,16 +103,17 @@ class MovieDetail extends StatelessWidget {
 
   void _openCinemaSelection(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: CinemaSelectionPage(movie: movie),
-            );
-          },
-        ),);
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: CinemaSelectionPage(movie: movie),
+          );
+        },
+      ),
+    );
   }
 }
 
@@ -150,9 +152,10 @@ class _BodyDetail extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.barlowCondensed(
-                  fontSize: size.height * .04,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white.withOpacity(.9),),
+                fontSize: size.height * .04,
+                fontWeight: FontWeight.w500,
+                color: Colors.white.withOpacity(.9),
+              ),
             ),
           ),
         ),
@@ -188,8 +191,9 @@ class _BodyDetail extends StatelessWidget {
         ),
         const SizedBox(height: 40),
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Synopsis(description: movie!.description),),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Synopsis(description: movie!.description),
+        ),
         const SizedBox(height: 40),
         ActorsList(
           listActors: movie!.actors,

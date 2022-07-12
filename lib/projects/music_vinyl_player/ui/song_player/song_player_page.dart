@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/models/song.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/ui/song_player/widgets/song_player_widgets.dart';
@@ -38,7 +39,8 @@ class _SongPlayerPageState extends State<SongPlayerPage>
     _controllerSkew =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _skewDisk = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(curve: Curves.easeInOut, parent: _controllerSkew),);
+      CurvedAnimation(curve: Curves.easeInOut, parent: _controllerSkew),
+    );
     _rotateDisk = Tween<double>(begin: 0, end: 1).animate(_controller);
     _controllerSkew.forward();
     super.initState();
@@ -165,13 +167,16 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                         borderRadius: BorderRadius.circular(sizeVinylDisk),
                         boxShadow: const [
                           BoxShadow(
-                              color: Colors.black54,
-                              blurRadius: 100,
-                              offset: Offset(0, 20),)
+                            color: Colors.black54,
+                            blurRadius: 100,
+                            offset: Offset(0, 20),
+                          )
                         ],
                       ),
                       child: Transform.rotate(
-                          angle: (2 * pi) * _rotateDisk.value, child: child,),
+                        angle: (2 * pi) * _rotateDisk.value,
+                        child: child,
+                      ),
                     ),
                   );
                 },
@@ -184,11 +189,11 @@ class _SongPlayerPageState extends State<SongPlayerPage>
                     curve: Curves.fastOutSlowIn,
                     duration: const Duration(milliseconds: 800),
                     tween: Tween(begin: 0, end: 1),
-                    builder: (context, dynamic value, child) {
+                    builder: (context, value, child) {
                       return Transform.scale(
                         scale: 1.5 - (.5 * value),
                         child: Transform.translate(
-                          offset: Offset(0, -200 * (1 - value as double)),
+                          offset: Offset(0, -200 * (1 - value)),
                           child: Opacity(
                             opacity: value,
                             child: child,

@@ -170,12 +170,4 @@ class ContactCard extends StatelessWidget {
   }
 }
 
-class SuperHeroCard extends StatelessWidget {
-  const SuperHeroCard({Key?  key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
 

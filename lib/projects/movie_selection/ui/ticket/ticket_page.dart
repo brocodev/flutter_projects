@@ -18,9 +18,9 @@ class TicketPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
-      body: ValueListenableBuilder(
+      body: ValueListenableBuilder<bool>(
         valueListenable: hideWidgets,
-        builder: (context, dynamic value, child) {
+        builder: (context, value, child) {
           return AnimatedContainer(
               duration: kDuration400ms,
               padding: EdgeInsets.only(top: value ? 100 : 0),

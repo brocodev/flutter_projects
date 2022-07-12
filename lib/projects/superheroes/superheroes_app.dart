@@ -19,7 +19,7 @@ class SuperheroesApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
-          titleTextStyle: GoogleFonts.spartan(
+          titleTextStyle: GoogleFonts.leagueSpartan(
             fontSize: 22,
             fontWeight: FontWeight.w600,
             color: Colors.black,
@@ -29,13 +29,13 @@ class SuperheroesApp extends StatelessWidget {
         // Text Theme
         //-------------------
         textTheme: TextTheme(
-          headline2: GoogleFonts.spartan(
+          headline2: GoogleFonts.leagueSpartan(
             fontWeight: FontWeight.w600,
             letterSpacing: -3,
             height: 0.9,
             fontSize: 64,
           ),
-          headline5: GoogleFonts.spartan(
+          headline5: GoogleFonts.leagueSpartan(
             letterSpacing: -1,
             fontWeight: FontWeight.w500,
           ),

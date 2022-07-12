@@ -160,7 +160,7 @@ class _SimilarBookCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(

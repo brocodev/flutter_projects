@@ -206,19 +206,19 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isSelectedNotifier = ValueNotifier(isSelected);
+    final isSelectedNotifier = ValueNotifier<bool>(isSelected ?? false);
     final bloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
     return Hero(
       tag: 'chip-$category',
-      child: ValueListenableBuilder(
+      child: ValueListenableBuilder<bool>(
         valueListenable: isSelectedNotifier,
-        builder: (context, dynamic value, _) {
+        builder: (context, bool value, _) {
           return Material(
             color: Colors.transparent,
             child: TextButton(
               onPressed: () {
-                isSelectedNotifier.value = !isSelectedNotifier.value!;
-                if (isSelectedNotifier.value!) {
+                isSelectedNotifier.value = !isSelectedNotifier.value;
+                if (isSelectedNotifier.value) {
                   bloc.eventsSink.add(AddCategoryEvent(category));
                 } else {
                   bloc.eventsSink.add(RemoveCategoryEvent(category));

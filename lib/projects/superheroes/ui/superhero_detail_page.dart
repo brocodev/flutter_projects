@@ -220,7 +220,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                               begin: 0,
                               end: _enableInfoItems ? 1.0 : 0.0,
                             ),
-                            builder: (context, dynamic value, child) {
+                            builder: (context, value, child) {
                               return Transform.scale(
                                 scale: value,
                                 child: child,
@@ -250,7 +250,7 @@ class _SuperheroDetailPageState extends State<SuperheroDetailPage>
                           opacity: _enableInfoItems ? 1.0 : 0.0,
                           child: Text(
                             widget.superhero.description!,
-                            style: GoogleFonts.spartan(
+                            style: GoogleFonts.leagueSpartan(
                               color: Colors.grey[500],
                               height: 1.5,
                             ),

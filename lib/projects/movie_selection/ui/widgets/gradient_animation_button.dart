@@ -17,9 +17,9 @@ class GradientAnimationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<bool>(
       valueListenable: hideWidgets,
-      builder: (context, dynamic value, child) {
+      builder: (context, value, child) {
         return AnimatedPositioned(
           curve: Curves.fastOutSlowIn,
           duration: kDuration400ms,

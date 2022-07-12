@@ -41,8 +41,9 @@ class _AmplePostCardState extends State<AmplePostCard>
     );
     _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
-          curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
-          parent: _controller!,),
+        curve: const Interval(0, 0.75, curve: Curves.fastOutSlowIn),
+        parent: _controller!,
+      ),
     );
     _outOpacityHeart = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
@@ -115,15 +116,16 @@ class _AmplePostCardState extends State<AmplePostCard>
                         DecoratedBox(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                                colors: [
-                                  Colors.black45,
-                                  Colors.transparent,
-                                  Colors.transparent,
-                                  Colors.black.withOpacity(.7),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: const [0.0, 0.12, 0.75, .9],),
+                              colors: [
+                                Colors.black45,
+                                Colors.transparent,
+                                Colors.transparent,
+                                Colors.black.withOpacity(.7),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              stops: const [0.0, 0.12, 0.75, .9],
+                            ),
                           ),
                         ),
                       ],
@@ -155,9 +157,10 @@ class _AmplePostCardState extends State<AmplePostCard>
                         Text(
                           user.username!,
                           style: GoogleFonts.lato(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 14,),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 14,
+                          ),
                         ),
                         const Spacer(),
                         //---------------------------
@@ -165,9 +168,9 @@ class _AmplePostCardState extends State<AmplePostCard>
                         //---------------------------
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
-                          child: ValueListenableBuilder(
+                          child: ValueListenableBuilder<int>(
                             valueListenable: _indexNotifier,
-                            builder: (context, dynamic value, child) {
+                            builder: (context, value, child) {
                               return PageIndicators(
                                 currentIndex: value,
                                 numberIndicators: post.photos!.length,
@@ -182,12 +185,13 @@ class _AmplePostCardState extends State<AmplePostCard>
                     //---LIKES AND COMMENTS
                     //---------------------------
                     PostButtons(
-                        post: post,
-                        onTapLike: () {
-                          setState(() {
-                            post.isLiked = !post.isLiked!;
-                          });
-                        },),
+                      post: post,
+                      onTapLike: () {
+                        setState(() {
+                          post.isLiked = !post.isLiked!;
+                        });
+                      },
+                    ),
                     //------------------------------------------
                     //---USERS COMMENTS PHOTOS & DESCRIPTION
                     //------------------------------------------
@@ -206,17 +210,18 @@ class _AmplePostCardState extends State<AmplePostCard>
               //---------------------------------
               Align(
                 child: AnimatedBuilder(
-                    animation: _controller!,
-                    builder: (context, _) {
-                      return Opacity(
-                        opacity: _outOpacityHeart.value,
-                        child: SvgPicture.asset(
-                          'assets/svg/instagram/heart_colored.svg',
-                          height: 150 * _scaleHeart.value,
-                          fit: BoxFit.cover,
-                        ),
-                      );
-                    },),
+                  animation: _controller!,
+                  builder: (context, _) {
+                    return Opacity(
+                      opacity: _outOpacityHeart.value,
+                      child: SvgPicture.asset(
+                        'assets/svg/instagram/heart_colored.svg',
+                        height: 150 * _scaleHeart.value,
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           ),

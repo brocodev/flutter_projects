@@ -6,9 +6,9 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class BottomTabViewProfile extends StatefulWidget {
   const BottomTabViewProfile({
-    Key? key,
+    super.key,
     required this.user,
-  }) : super(key: key);
+  });
 
   final IgUser user;
 
@@ -46,66 +46,72 @@ class _BottomTabViewProfileState extends State<BottomTabViewProfile>
           Tab(icon: Icon(Icons.bookmark_border)),
         ],
       ),
-      body: TabBarView(controller: _tabController, children: [
-        //----------------------------
-        //----PHOTOS TAB VIEW
-        //----------------------------
-        StaggeredGridView.countBuilder(
-          crossAxisCount: 3,
-          physics: const BouncingScrollPhysics(),
-          itemCount: user.listPhotosUrl!.length,
-          padding: const EdgeInsets.only(bottom: 76),
-          mainAxisSpacing: 5,
-          crossAxisSpacing: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return CachedNetworkImage(
-              imageUrl: user.listPhotosUrl![index],
-              fit: BoxFit.cover,
-            );
-          },
-          staggeredTileBuilder: (int index) =>
-              StaggeredTile.count(index == 0 ? 2 : 1, index == 0 ? 2 : 1),
-        ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          //----------------------------
+          //----PHOTOS TAB VIEW
+          //----------------------------
+          StaggeredGridView.countBuilder(
+            crossAxisCount: 3,
+            physics: const BouncingScrollPhysics(),
+            itemCount: user.listPhotosUrl!.length,
+            padding: const EdgeInsets.only(bottom: 76),
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
+            itemBuilder: (BuildContext context, int index) {
+              return CachedNetworkImage(
+                imageUrl: user.listPhotosUrl![index],
+                fit: BoxFit.cover,
+              );
+            },
+            staggeredTileBuilder: (int index) =>
+                StaggeredTile.count(index == 0 ? 2 : 1, index == 0 ? 2 : 1),
+          ),
 
-        const Center(child: Text("Videos")), //---VIDEOS
-        const Center(child: Text("Streams")), //---STREAMS
-        const Center(child: Text("Friends")), //---CONTACTS
+          const Center(child: Text("Videos")), //---VIDEOS
+          const Center(child: Text("Streams")), //---STREAMS
+          const Center(child: Text("Friends")), //---CONTACTS
 
-        //-------------------------------------
-        //------EXTERNAL PLATFORMS GRID VIEW
-        //-------------------------------------
-        GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //-------------------------------------
+          //------EXTERNAL PLATFORMS GRID VIEW
+          //-------------------------------------
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 10 / 2.8,
               crossAxisCount: 2,
               crossAxisSpacing: 15,
-              mainAxisSpacing: 15,),
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.fromLTRB(15, 15, 10, 76),
-          itemCount: user.externalPlatforms.length,
-          itemBuilder: (context, index) {
-            final externalPlatform = user.externalPlatforms[index];
-            return Container(
-              decoration: BoxDecoration(
+              mainAxisSpacing: 15,
+            ),
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.fromLTRB(15, 15, 10, 76),
+            itemCount: user.externalPlatforms.length,
+            itemBuilder: (context, index) {
+              final externalPlatform = user.externalPlatforms[index];
+              return DecoratedBox(
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(externalPlatform.imagePath!),),),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  onPressed: () {},
-                  color: externalPlatform.haveDarkImage!
-                      ? Colors.white
-                      : Colors.black,
-                  icon: const Icon(Icons.launch),
+                    fit: BoxFit.cover,
+                    image: AssetImage(externalPlatform.imagePath!),
+                  ),
                 ),
-              ),
-            );
-          },
-        ), //---LINKS
-        const Center(child: Text("Saved")), //---SAVED
-      ],),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    color: externalPlatform.haveDarkImage!
+                        ? Colors.white
+                        : Colors.black,
+                    icon: const Icon(Icons.launch),
+                  ),
+                ),
+              );
+            },
+          ), //---LINKS
+          const Center(child: Text("Saved")), //---SAVED
+        ],
+      ),
     );
   }
 }

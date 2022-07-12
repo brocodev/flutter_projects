@@ -10,8 +10,8 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final resizeNotifier = ValueNotifier(false);
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    final resizeNotifier = ValueNotifier<bool>(false);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (!resizeNotifier.value) resizeNotifier.value = true;
     });
     return Scaffold(
@@ -25,9 +25,9 @@ class RegisterPage extends StatelessWidget {
         },
         child: Stack(
           children: <Widget>[
-            ValueListenableBuilder(
+            ValueListenableBuilder<bool>(
               valueListenable: resizeNotifier,
-              builder: (context, dynamic value, child) {
+              builder: (context,  value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,
@@ -175,9 +175,9 @@ class _AcceptTerms extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ValueListenableBuilder(
+          ValueListenableBuilder<bool>(
             valueListenable: valueNotifier,
-            builder: (context, dynamic value, child) {
+            builder: (context, value, child) {
               return Checkbox(
                 value: value,
                 onChanged: (val) {},

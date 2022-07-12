@@ -16,7 +16,11 @@ class PageViewPlaces extends StatelessWidget {
   final PageController pageController;
   final ValueNotifier<double> pageValueNotifier;
 
-  void _onDragVerticalUpdate(DragUpdateDetails details, context, place) {
+  void _onDragVerticalUpdate(
+    DragUpdateDetails details,
+    BuildContext context,
+    Place place,
+  ) {
     if (details.primaryDelta! < -5) {
       Navigator.push(
         context,

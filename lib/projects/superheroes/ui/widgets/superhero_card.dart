@@ -100,7 +100,7 @@ class SuperheroCard extends StatelessWidget {
                       )
                     ],
                   ),
-                  style: GoogleFonts.spartan(
+                  style: GoogleFonts.leagueSpartan(
                       color: Colors.amber,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,),

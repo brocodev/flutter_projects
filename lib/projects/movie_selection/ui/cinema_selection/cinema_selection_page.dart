@@ -18,12 +18,12 @@ class CinemaSelectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hideWidgets = ValueNotifier(false);
+    final hideWidgets = ValueNotifier<bool>(false);
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
-      body: ValueListenableBuilder(
+      body: ValueListenableBuilder<bool>(
           valueListenable: hideWidgets,
-          builder: (context, dynamic value, child) {
+          builder: (context, value, child) {
             return AnimatedContainer(
               duration: kDuration400ms,
               margin: EdgeInsets.only(top: value ? 100 : 0),
