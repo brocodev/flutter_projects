@@ -3,10 +3,10 @@ import 'package:flutter_projects/projects/template_gallery/models/contact.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({
-    Key? key,
+    super.key,
     required this.borderColor,
     required this.contact,
-  }) : super(key: key);
+  });
 
   final Color borderColor;
   final Contact contact;
@@ -47,9 +47,10 @@ class ContactCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: borderColor,
               borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  topRight: Radius.circular(20),),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
             ),
             //-----------------------------
             // Card Body
@@ -68,7 +69,7 @@ class ContactCard extends StatelessWidget {
                   //---------------------------
                   Row(
                     children: [
-                      const  Icon(
+                      const Icon(
                         Icons.person_outlined,
                         size: 40,
                       ),
@@ -81,14 +82,17 @@ class ContactCard extends StatelessWidget {
                               TextSpan(
                                 text: '\n${contact.role}',
                                 style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5,),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1.5,
+                                ),
                               )
                             ],
                           ),
                           style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500,),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],
@@ -125,7 +129,9 @@ class ContactCard extends StatelessWidget {
                       Text(
                         contact.phone,
                         style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold,),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )
                     ],
                   ),
@@ -169,5 +175,3 @@ class ContactCard extends StatelessWidget {
     );
   }
 }
-
-
