@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class PerspectiveListView extends StatefulWidget {
   const PerspectiveListView({
-    Key? key,
+    super.key,
     required this.visualizedItems,
     required this.itemExtent,
     required this.children,
@@ -14,7 +14,7 @@ class PerspectiveListView extends StatefulWidget {
     this.onChangeFrontItem,
     this.backItemsShadowColor = Colors.transparent,
     this.enableBackItemsShadow = false,
-  }) : super(key: key);
+  });
 
   final List<Widget> children;
   final double? itemExtent;
@@ -131,13 +131,13 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
 
 class _PerspectiveItems extends StatelessWidget {
   const _PerspectiveItems({
-    Key? key,
+    super.key,
     required this.generatedItems,
     required this.currentIndex,
     required this.heightItem,
     required this.pagePercent,
     required this.children,
-  }) : super(key: key);
+  });
 
   final int generatedItems;
   final int? currentIndex;
