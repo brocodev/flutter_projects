@@ -3,7 +3,7 @@ import 'package:flutter_projects/core/routes/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BrocodevProjectsApp extends StatelessWidget {
-  const BrocodevProjectsApp({Key? key}) : super(key: key);
+  const BrocodevProjectsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
