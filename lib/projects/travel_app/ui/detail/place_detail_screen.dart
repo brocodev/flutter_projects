@@ -22,7 +22,7 @@ class PlaceDetailScreen extends StatefulWidget {
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   late ScrollController _controller;
   late ValueNotifier<double> bottomPercentNotifier;
-  double velocity = 0;
+  bool _isAnimatingScroll = false;
 
   void _scrollListener() {
     final percent =
@@ -30,29 +30,38 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
     bottomPercentNotifier.value = (percent / .3).clamp(0.0, 1.0);
   }
 
-  void _restoreScrollPosition() {
+  void _isScrollingListener() {
     final percent = _controller.position.pixels / widget.screenHeight;
     if (!_controller.position.isScrollingNotifier.value) {
       if (percent < .3 && percent > .1) {
-        _controller.animateTo(
-          widget.screenHeight * .3,
-          duration: kThemeAnimationDuration,
-          curve: Curves.decelerate,
-        );
+        setState(() => _isAnimatingScroll = true);
+        _controller
+            .animateTo(
+              widget.screenHeight * .3,
+              duration: kThemeAnimationDuration,
+              curve: Curves.decelerate,
+            )
+            .then((value) => setState(() => _isAnimatingScroll = false));
       }
       if (percent < .1 && percent > 0) {
-        _controller.animateTo(
-          0,
-          duration: kThemeAnimationDuration,
-          curve: Curves.decelerate,
-        );
+        setState(() => _isAnimatingScroll = true);
+        _controller
+            .animateTo(
+              0,
+              duration: kThemeAnimationDuration,
+              curve: Curves.decelerate,
+            )
+            .then((value) => setState(() => _isAnimatingScroll = false));
       }
       if (percent < .6 && percent > .3) {
-        _controller.animateTo(
-          widget.screenHeight * .3,
-          duration: kThemeAnimationDuration,
-          curve: Curves.decelerate,
-        );
+        setState(() => _isAnimatingScroll = true);
+        _controller
+            .animateTo(
+              widget.screenHeight * .3,
+              duration: kThemeAnimationDuration,
+              curve: Curves.decelerate,
+            )
+            .then((value) => setState(() => _isAnimatingScroll = false));
       }
     }
   }
@@ -62,6 +71,10 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
     _controller =
         ScrollController(initialScrollOffset: widget.screenHeight * .3);
     _controller.addListener(_scrollListener);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _controller.position.isScrollingNotifier
+          .addListener(_isScrollingListener);
+    });
     bottomPercentNotifier = ValueNotifier(1);
     super.initState();
   }
@@ -75,22 +88,13 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final upperLimit = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
-          GestureDetector(
-            onVerticalDragEnd: (_) => _restoreScrollPosition(),
-            onVerticalDragStart: (details) =>
-                velocity = details.localPosition.dy * .025,
-            onVerticalDragUpdate: (details) {
-              final posY = _controller.position.pixels -
-                  ((details.localPosition.dy * .025) - velocity);
-              final posYFixed = posY.clamp(0.0, upperLimit);
-              _controller.jumpTo(posYFixed);
-            },
+          AbsorbPointer(
+            absorbing: _isAnimatingScroll,
             child: CustomScrollView(
-              physics: const NeverScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               controller: _controller,
               slivers: [
                 SliverPersistentHeader(

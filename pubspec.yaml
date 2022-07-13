@@ -21,7 +21,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   very_good_analysis: ^3.0.1
-
+  flutter_launcher_icons: ^0.9.3
 flutter:
 
   uses-material-design: true
@@ -44,3 +44,8 @@ flutter:
     - family: MDIcons
       fonts:
         - asset: assets/icons/md_icons/MdIcons.ttf
+
+flutter_icons:
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icons/icon.png"
