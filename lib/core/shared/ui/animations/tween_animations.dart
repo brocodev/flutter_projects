@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Axis, BuildContext, Curve, Curves, Key, Offset, Opacity, StatelessWidget, Transform, Tween, TweenAnimationBuilder, Widget;
 
 class TranslateAnimation extends StatelessWidget {
 
   const TranslateAnimation({
-    Key? key,
+    super.key,
     this.duration = const Duration(milliseconds: 800),
     this.child,
     this.offset = 140.0,
     this.curve = Curves.fastOutSlowIn,
     this.offsetDirection = Axis.vertical,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final Duration duration;
@@ -38,13 +38,13 @@ class TranslateAnimation extends StatelessWidget {
 class OpacityAnimation extends StatelessWidget {
 
   const OpacityAnimation({
-    Key? key,
+    super.key,
     this.duration = const Duration(milliseconds: 1000),
     this.child,
     this.curve = Curves.ease,
     this.begin = 0.0,
     this.end = 1.0,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final Duration duration;
@@ -73,13 +73,13 @@ class OpacityAnimation extends StatelessWidget {
 class ScaleAnimation extends StatelessWidget {
 
   const ScaleAnimation({
-    Key? key,
+    super.key,
     this.duration = const Duration(milliseconds: 800),
     this.child,
     this.curve = Curves.fastOutSlowIn,
     this.initScale = 0.0,
     this.finalScale = 1.0,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final Duration duration;
