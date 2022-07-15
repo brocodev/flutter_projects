@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Alignment, BorderRadius, BoxDecoration, BoxShadow, BuildContext, CircleAvatar, Color, Colors, Container, EdgeInsets, Icon, IconButton, Icons, InkWell, Key, MainAxisAlignment, MediaQuery, Offset, Row, Stack, StatelessWidget, VoidCallback, Widget;
 
 class PlayerControls extends StatelessWidget {
   const PlayerControls({
-    Key? key,
+    super.key,
     required this.onPausePlay,
     required this.isPlaying,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPausePlay;
   final bool isPlaying;

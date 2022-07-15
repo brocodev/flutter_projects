@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart' show Alignment, BouncingScrollPhysics, BoxDecoration, BoxShadow, BuildContext, Column, Container, CrossAxisAlignment, CupertinoIcons, Curves, EdgeInsets, Expanded, FadeTransition, FontWeight, GestureDetector, Icon, Key, LinearGradient, Matrix4, MediaQuery, Navigator, Offset, Padding, PageController, PageRouteBuilder, PageView, Positioned, RichText, Stack, State, StatefulWidget, TextSpan, Transform, Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/models/album.dart';
@@ -8,8 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyLibraryPage extends StatefulWidget {
   const MyLibraryPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _MyLibraryPageState createState() => _MyLibraryPageState();

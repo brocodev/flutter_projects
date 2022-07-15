@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:ui' show Color, FontWeight, Offset, Radius, TextAlign, lerpDouble;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
@@ -6,9 +6,9 @@ import 'package:flutter_projects/projects/music_album_collection/ui/music_player
 
 class MusicPlayerPage extends StatefulWidget {
   const MusicPlayerPage({
-    Key? key,
+    super.key,
     required this.album,
-  }) : super(key: key);
+  });
   final AlbumModel album;
 
   @override

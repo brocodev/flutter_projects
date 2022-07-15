@@ -1,17 +1,17 @@
-import 'dart:math';
+import 'dart:math' show pi;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/models/album.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/ui/widgets/vinyl_disk.dart';
 
 class VinylAlbumCover extends StatelessWidget {
   const VinylAlbumCover({
-    Key? key,
+    super.key,
     required this.album,
     required this.factorChange,
     this.height,
     this.currentIndex,
     this.index,
-  }) : super(key: key);
+  });
   final Album album;
   final double factorChange;
   final double? height;

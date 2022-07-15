@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
@@ -6,11 +6,11 @@ import 'package:flutter_projects/projects/music_album_collection/ui/music_player
 
 class AlbumListViewCard extends StatelessWidget {
   const AlbumListViewCard({
-    Key? key,
+    super.key,
     required this.album,
     required this.hideDisk,
     this.textSize = 14.0,
-  }) : super(key: key);
+  });
 
   final bool hideDisk;
   final AlbumModel album;

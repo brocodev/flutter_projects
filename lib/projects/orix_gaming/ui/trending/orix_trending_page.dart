@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AssetImage, Axis, BorderRadius, BoxDecoration, BoxFit, BoxShadow, BuildContext, Center, CircleAvatar, ClipRRect, Colors, Column, Container, CrossAxisAlignment, EdgeInsets, Expanded, FontWeight, Icon, Icons, Image, Key, LinearGradient, ListView, MainAxisAlignment, MaterialColor, MediaQuery, Navigator, Padding, Row, SafeArea, Scaffold, SizedBox, Spacer, StatelessWidget, Text, TextAlign, TextSpan, Theme, Widget;
 import 'package:flutter_projects/projects/orix_gaming/models/video_game.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/rounded_icon_button.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/user_avatar.dart';
@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixTrendingPage extends StatelessWidget {
   const OrixTrendingPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

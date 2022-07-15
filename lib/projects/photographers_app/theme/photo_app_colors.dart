@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:ui' show Color;
 
 class PhotoAppColors {
   static const kGrey = Color(0xffB0ABAB);

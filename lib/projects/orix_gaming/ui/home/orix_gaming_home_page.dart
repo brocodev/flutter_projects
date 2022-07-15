@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart' show BuildContext, Column, CrossAxisAlignment, CupertinoIcons, EdgeInsets, Expanded, FontWeight, Image, Key, MainAxisAlignment, MediaQuery, Navigator, Padding, PageController, PageView, Row, SafeArea, SizedBox, State, StatefulWidget, Text, Transform, Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/orix_gaming/models/video_game.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/home/widgets/game_play_card.dart';
@@ -9,8 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixGamingHomePage extends StatefulWidget {
   const OrixGamingHomePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _OrixGamingHomePageState createState() => _OrixGamingHomePageState();

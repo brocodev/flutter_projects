@@ -13,7 +13,7 @@ const kDurationTextStyle = TextStyle(
 );
 
 class SongPlayerPage extends StatefulWidget {
-  const SongPlayerPage({Key? key, required this.song}) : super(key: key);
+  const SongPlayerPage({super.key, required this.song});
 
   final Song song;
 

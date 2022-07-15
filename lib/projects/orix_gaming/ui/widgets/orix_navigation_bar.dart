@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AnimatedDefaultTextStyle, AnimatedSwitcher, BoxDecoration, BoxShape, BuildContext, Colors, Container, EdgeInsets, FontWeight, Icon, IconData, InkWell, Key, LinearGradient, MainAxisAlignment, Row, ScaleTransition, SizedBox, StatelessWidget, Text, Theme, ValueChanged, Widget, kThemeChangeDuration, kToolbarHeight;
 import 'package:google_fonts/google_fonts.dart';
 
 class OrixNavigationBar extends StatelessWidget {
   const OrixNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     this.currentIndex = 0,
     this.onTapItem,
-  }) : super(key: key);
+  });
   final List<OrixNavigationBarItem> items;
   final int currentIndex;
   final ValueChanged<int>? onTapItem;

@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Axis, BorderRadius, BouncingScrollPhysics, BoxDecoration, BoxShadow, BuildContext, Chip, Color, Colors, Column, Container, ContinuousRectangleBorder, CrossAxisAlignment, EdgeInsets, EdgeInsetsGeometry, Flexible, FontWeight, Key, ListView, Offset, Padding, PlaceholderAlignment, Radius, Row, SingleChildScrollView, SizedBox, Spacer, StatelessWidget, Text, TextOverflow, TextSpan, Widget, WidgetSpan;
 import 'package:flutter_projects/projects/music_vinyl_player/models/album.dart';
 import 'package:flutter_projects/projects/music_vinyl_player/ui/my_library/widgets/row_stars.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionCard extends StatelessWidget {
   const DescriptionCard({
-    Key? key,
+    super.key,
     required this.album,
     this.padding,
-  }) : super(key: key);
+  });
 
   final Album album;
   final EdgeInsetsGeometry? padding;

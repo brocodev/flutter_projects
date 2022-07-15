@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, Canvas, ClipPath, Colors, CustomClipper, CustomPaint, CustomPainter, FittedBox, FontWeight, Key, Offset, Paint, PaintingStyle, Path, Shadow, Size, Stack, StatelessWidget, Text, TextOverflow, Widget;
 import 'package:google_fonts/google_fonts.dart';
 
 class PlayerIndicator extends StatelessWidget {
   const PlayerIndicator({
-    Key? key,
+    super.key,
     required this.songTitle,
     required this.percentIndicator,
-  }) : super(key: key);
+  });
 
   final String songTitle;
   final double percentIndicator;

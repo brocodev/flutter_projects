@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Alignment, AnimatedSwitcher, BorderRadius, BoxDecoration, BoxFit, BuildContext, Clip, Colors, Column, Container, CrossAxisAlignment, DecoratedBox, EdgeInsets, Expanded, FontWeight, Icon, Icons, Image, Key, LinearGradient, MainAxisAlignment, Padding, Row, SizedBox, Spacer, Stack, StackFit, StatelessWidget, Text, TextOverflow, Theme, Widget, kThemeChangeDuration;
 import 'package:flutter_projects/projects/orix_gaming/models/video_game.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GamePlayCard extends StatelessWidget {
   const GamePlayCard({
-    Key? key,
+    super.key,
     required this.videoGame,
     required this.haveFocus,
     required this.factorChange,
-  }) : super(key: key);
+  });
 
   final VideoGame videoGame;
   final bool haveFocus;

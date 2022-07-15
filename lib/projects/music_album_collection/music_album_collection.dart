@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBarTheme, BuildContext, Colors, Key, MaterialApp, StatelessWidget, ThemeData, Widget;
 import 'package:flutter_projects/projects/music_album_collection/ui/albums/albums_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MusicAlbumList extends StatelessWidget {
-  const MusicAlbumList({Key? key}) : super(key: key);
+  const MusicAlbumList({super.key});
 
   @override
   Widget build(BuildContext context) {

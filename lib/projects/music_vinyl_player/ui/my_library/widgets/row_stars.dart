@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, Color, Colors, EdgeInsets, Icon, Icons, Key, Padding, Row, StatelessWidget, Widget;
 
 class RowStars extends StatelessWidget {
   const RowStars({
-    Key? key,
+    super.key,
     this.stars,
     this.size,
     this.color = Colors.cyan,
-  }) : super(key: key);
+  });
 
   final double? stars;
   final double? size;

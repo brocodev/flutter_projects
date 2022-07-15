@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Canvas, Color, Colors, CustomPainter, Offset, Paint, PaintingStyle, Path, Size;
 
 class WavePainter extends CustomPainter {
   @override

@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Align, Alignment, AppBar, BouncingScrollPhysics, BuildContext, Container, EdgeInsets, FadeTransition, GridView, Icon, IconButton, Icons, Key, ListView, MediaQuery, Navigator, OverflowBox, PageRouteBuilder, Scaffold, SliverGridDelegateWithFixedCrossAxisCount, State, StatefulWidget, StatelessWidget, Text, Widget;
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
 import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/animated_album_card.dart';
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({
-    Key? key,
+    super.key,
     this.gridMode = true,
-  }) : super(key: key);
+  });
 
   final bool gridMode;
 

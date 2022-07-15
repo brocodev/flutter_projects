@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AlwaysStoppedAnimation, AssetImage, BuildContext, CircleAvatar, CircularProgressIndicator, Color, Colors, Column, CrossAxisAlignment, FontWeight, Icon, IconButton, Icons, Key, Row, SizedBox, Spacer, Stack, StackFit, StatelessWidget, Text, Widget;
 import 'package:flutter_projects/projects/music_vinyl_player/models/song.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SongPlayFooter extends StatelessWidget {
   const SongPlayFooter({
-    Key? key,
+    super.key,
     required this.song,
-  }) : super(key: key);
+  });
 
   final Song song;
 

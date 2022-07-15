@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Alignment, BorderRadius, BuildContext, ClipRRect, Image, Key, Stack, StatelessWidget, Widget;
 
 class VinylDisk extends StatelessWidget {
   const VinylDisk({
-    Key? key,
+    super.key,
     required this.albumImagePath,
     required this.heightDisk,
-  }) : super(key: key);
+  });
 
   final String? albumImagePath;
   final double? heightDisk;

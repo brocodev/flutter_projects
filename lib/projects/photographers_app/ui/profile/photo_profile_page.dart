@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart' show CachedNetworkImage, CachedNetworkImageProvider;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_projects/projects/photographers_app/ui/widgets/tile_skew
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoProfilePage extends StatelessWidget {
-  const PhotoProfilePage({Key? key, required this.user}) : super(key: key);
+  const PhotoProfilePage({super.key, required this.user});
 
   final PhotoUser user;
 

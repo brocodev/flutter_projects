@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AnimatedSwitcher, BuildContext, Center, Colors, Icons, Key, MaterialApp, Scaffold, State, StatefulWidget, StatelessWidget, Text, ThemeData, Widget, kThemeChangeDuration;
 import 'package:flutter_projects/projects/orix_gaming/ui/home/orix_gaming_home_page.dart';
 import 'package:flutter_projects/projects/orix_gaming/ui/widgets/orix_navigation_bar.dart';
 
 class OrixGamingApp extends StatelessWidget {
-  const OrixGamingApp({Key? key}) : super(key: key);
+  const OrixGamingApp({super.key});
 
   @override
   Widget build(BuildContext context) {

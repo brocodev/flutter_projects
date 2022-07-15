@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Alignment, AnimatedSwitcher, AppBarTheme, BorderRadius, BoxDecoration, BoxShadow, BuildContext, Center, Color, Colors, Container, EdgeInsets, FloatingActionButtonLocation, Icon, IconThemeData, Icons, Key, MaterialApp, MediaQuery, Offset, OverflowBox, Scaffold, State, StatefulWidget, StatelessWidget, Text, ThemeData, VisualDensity, Widget, kThemeAnimationDuration;
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
 import 'package:flutter_projects/projects/photographers_app/ui/home/photo_home_page.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotographersApp extends StatelessWidget {
-  const PhotographersApp({Key? key}) : super(key: key);
+  const PhotographersApp({super.key});
 
   @override
   Widget build(BuildContext context) {

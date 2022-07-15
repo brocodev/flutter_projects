@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show CustomClipper, Path, Size;
 
 class TileClipper extends CustomClipper<Path> {
   TileClipper({this.inverted = false, this.curveSize = 30});

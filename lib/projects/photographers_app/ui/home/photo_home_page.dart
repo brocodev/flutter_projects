@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
@@ -9,7 +8,7 @@ import 'package:flutter_projects/projects/photographers_app/ui/widgets/photo_pos
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoHomePage extends StatelessWidget {
-  const PhotoHomePage({Key? key}) : super(key: key);
+  const PhotoHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

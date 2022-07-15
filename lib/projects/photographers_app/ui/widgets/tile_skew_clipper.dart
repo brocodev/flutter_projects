@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show CustomClipper, Path, Size;
 
 class TileSkewClipper extends CustomClipper<Path> {
   TileSkewClipper({required this.inverted, this.curveSize = 35.0});

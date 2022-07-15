@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, BorderRadius, BuildContext, Color, Colors, Column, Container, CrossAxisAlignment, Divider, Drawer, EdgeInsets, Expanded, Icon, IconButton, Icons, Material, MediaQuery, Radius, RoundedRectangleBorder, Row, SafeArea, Scaffold, Slider, State, StatefulWidget, Text, TextStyle, Theme, Widget;
 import 'package:flutter_projects/projects/template_gallery/models/contact.dart';
 import 'package:flutter_projects/projects/template_gallery/ui/widgets/cards.dart';
 import 'package:flutter_projects/projects/template_gallery/ui/widgets/perspective_list_view.dart';

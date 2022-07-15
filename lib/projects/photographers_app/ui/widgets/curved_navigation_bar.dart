@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Alignment, BuildContext, ClipPath, Color, Colors, Container, CustomClipper, EdgeInsets, Icon, IconButton, IconData, Key, MainAxisAlignment, Padding, Path, Row, Size, SizedBox, StatelessWidget, ValueChanged, Widget, kToolbarHeight;
 import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
 
 class CurvedNavigationBar extends StatelessWidget {
   const CurvedNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     this.onTap,
     this.unselectedColor = PhotoAppColors.kGrey,
@@ -13,8 +13,7 @@ class CurvedNavigationBar extends StatelessWidget {
           items.length == 4,
           'The correct functioning of this widgets '
           'depends on its items being exactly 4',
-        ),
-        super(key: key);
+        );
 
   final List<CurvedNavigationBarItem> items;
   final ValueChanged<int>? onTap;

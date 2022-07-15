@@ -1,15 +1,15 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart' show CachedNetworkImageProvider;
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
 import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
 
 class PhotoUserCard extends StatelessWidget {
   const PhotoUserCard({
-    Key? key,
+    super.key,
     required this.user,
     this.size = 100.0,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final PhotoUser user;
   final double size;
