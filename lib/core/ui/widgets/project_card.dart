@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Border, BorderRadius, BorderSide, BoxDecoration, BoxFit, BoxShadow, BoxShape, BuildContext, Clip, Color, Colors, Column, Container, CrossAxisAlignment, DecoratedBox, EdgeInsets, Expanded, FittedBox, Flexible, FontWeight, Image, Key, Navigator, Offset, Opacity, Positioned, RoundedRectangleBorder, Row, SizedBox, Spacer, Stack, StatelessWidget, Text, TextButton, Widget;
 import 'package:flutter_projects/core/models/project_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
-    Key? key,
+    super.key,
     required this.project,
     required this.index,
-  }) : super(key: key);
+  });
 
   final ProjectModel project;
   final int index;

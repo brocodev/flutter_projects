@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBarTheme, Color, Colors, FloatingActionButtonThemeData, FontWeight, IconThemeData, TextTheme, ThemeData;
 import 'package:google_fonts/google_fonts.dart';
 
 class TravelTheme {

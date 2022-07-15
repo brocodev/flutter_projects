@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBarTheme, Colors, FontWeight, ThemeData;
 import 'package:google_fonts/google_fonts.dart';
 
 class BookAppTheme {

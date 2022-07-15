@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Key, MaterialApp, Scaffold, StatelessWidget, Text, Widget;
 
 class StreamingApp extends StatelessWidget {
-  const StreamingApp({Key? key}) : super(key: key);
+  const StreamingApp({super.key});
 
   @override
   Widget build(BuildContext context) {

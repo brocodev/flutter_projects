@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BottomNavigationBar, BottomNavigationBarItem, BuildContext, Center, Colors, Curves, Icon, Icons, Key, MaterialApp, PageController, PageView, Scaffold, SizedBox, State, StatefulWidget, StatelessWidget, Text, Widget, kThemeChangeDuration, kToolbarHeight;
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc_provider.dart';
 import 'package:flutter_projects/projects/bookstore_app/theme/theme.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_projects/projects/bookstore_app/ui/home/home_page.dart';
 
 
 class BookStoreApp extends StatelessWidget {
-  const BookStoreApp({Key? key}) : super(key: key);
+  const BookStoreApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class BookStoreApp extends StatelessWidget {
 
 class _BookNavigationPage extends StatefulWidget {
   const _BookNavigationPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _BookNavigationPageState createState() => _BookNavigationPageState();
