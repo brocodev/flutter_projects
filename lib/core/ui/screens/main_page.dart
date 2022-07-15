@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, AssetImage, BouncingScrollPhysics, BuildContext, Center, CircleAvatar, Color, Colors, EdgeInsets, FlutterLogo, FontWeight, Key, ListView, Padding, Scaffold, StatelessWidget, Text, Widget;
 import 'package:flutter_projects/core/models/project_model.dart';
 import 'package:flutter_projects/core/ui/widgets/project_card.dart';
 import 'package:google_fonts/google_fonts.dart';
