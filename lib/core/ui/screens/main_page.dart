@@ -4,7 +4,7 @@ import 'package:flutter_projects/core/ui/widgets/project_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
