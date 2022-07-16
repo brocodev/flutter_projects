@@ -6,9 +6,7 @@ import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/place_card.
 import 'package:flutter_projects/projects/travel_app/ui/feed/widgets/travel_navigation_bar.dart';
 
 class FeedScreen extends StatelessWidget {
-  const FeedScreen({
-    Key? key,
-  }) : super(key: key);
+  const FeedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

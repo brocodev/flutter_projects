@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TravelNavigationBar extends StatelessWidget {
   const TravelNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     required this.onTap,
     this.currentIndex = 0,
-  })  : assert(items.length == 2, ''),
-        super(key: key);
+  }) : assert(items.length == 2, '');
 
   final List<TravelNavigationBarItem> items;
   final ValueChanged<int> onTap;
@@ -19,7 +17,7 @@ class TravelNavigationBar extends StatelessWidget {
     return CustomPaint(
       painter: _NavPainter(),
       child: SizedBox(
-        height: kToolbarHeight,
+        height: kToolbarHeight + MediaQuery.of(context).padding.bottom,
         child: Row(
           children: List.generate(
             items.length,
