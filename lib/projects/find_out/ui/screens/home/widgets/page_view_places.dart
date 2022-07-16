@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/models/place.dart';
-import 'package:flutter_projects/projects/find_out/ui/social_page/social_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/social_page/widgets/background_shader_image.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/social_screen/social_screen.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/social_screen/widgets/widgets.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
 class PageViewPlaces extends StatelessWidget {
@@ -29,7 +29,7 @@ class PageViewPlaces extends StatelessWidget {
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
               opacity: animation,
-              child: SocialPage(place: place),
+              child: SocialScreen(place: place),
             );
           },
         ),

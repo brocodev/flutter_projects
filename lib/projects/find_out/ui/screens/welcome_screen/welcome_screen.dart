@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/login/login_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/register_page/register_page.dart';
-import 'package:flutter_projects/projects/find_out/ui/welcome_page/widgets/animated_background.dart';
-import 'package:flutter_projects/projects/find_out/ui/welcome_page/widgets/snake_button.dart';
+import 'package:flutter_projects/projects/find_out/ui/forms/login_form.dart';
+import 'package:flutter_projects/projects/find_out/ui/forms/register_form.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/welcome_screen/widgets/animated_background.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/welcome_screen/widgets/snake_button.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WelcomePage extends StatelessWidget {
-  WelcomePage({super.key});
+class WelcomeScreen extends StatelessWidget {
+  WelcomeScreen({super.key});
 
   final hideNotifier = ValueNotifier(false);
 
@@ -87,7 +87,7 @@ class WelcomePage extends StatelessWidget {
                           Expanded(
                             child: RectangularButton(
                               onPressed: () =>
-                                  _openPage(context, const RegisterPage()),
+                                  _openPage(context, const RegisterForm()),
                               label: 'Registro',
                             ),
                           ),

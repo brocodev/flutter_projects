@@ -4,14 +4,14 @@ import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_borde
 import 'package:flutter_projects/projects/find_out/ui/widgets/text_input_find_out.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final resizeNotifier = ValueNotifier<bool>(false);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!resizeNotifier.value) resizeNotifier.value = true;
     });
     return Scaffold(
@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
           children: <Widget>[
             ValueListenableBuilder<bool>(
               valueListenable: resizeNotifier,
-              builder: (context, value, child) {
+              builder: (_, value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,
@@ -63,55 +63,7 @@ class RegisterPage extends StatelessWidget {
                               color: Colors.white,
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 40),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  const SizedBox(height: 60),
-                                  const TextInputFindOut(
-                                    label: 'Nombre de usuario',
-                                    iconData: FontAwesome.user,
-                                    textInputType: TextInputType.text,
-                                  ),
-                                  const SizedBox(height: 20),
-                                  const TextInputFindOut(
-                                    label: 'Correo electronico',
-                                    iconData: Icons.alternate_email,
-                                    textInputType: TextInputType.emailAddress,
-                                  ),
-                                  const SizedBox(height: 20),
-                                  const TextInputFindOut(
-                                    label: 'Constraseña',
-                                    iconData: Icons.lock_outline,
-                                    textInputType:
-                                        TextInputType.visiblePassword,
-                                  ),
-                                  const SizedBox(height: 5),
-                                  const _AcceptTerms(),
-                                  const SizedBox(height: 10),
-                                  SizedBox(
-                                    width: size.width * .65,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        primary: Colors.white,
-                                        padding: const EdgeInsets.all(12),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        backgroundColor: Colors.pinkAccent,
-                                      ),
-                                      child: const Text(
-                                        "Crear cuenta",
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
+                              child: const _FormInputsColumn(),
                             ),
                           ),
                         ),
@@ -124,6 +76,62 @@ class RegisterPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _FormInputsColumn extends StatelessWidget {
+  const _FormInputsColumn();
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const SizedBox(height: 60),
+        const TextInputFindOut(
+          label: 'Nombre de usuario',
+          iconData: FontAwesome.user,
+          textInputType: TextInputType.text,
+        ),
+        const SizedBox(height: 20),
+        const TextInputFindOut(
+          label: 'Correo electronico',
+          iconData: Icons.alternate_email,
+          textInputType: TextInputType.emailAddress,
+        ),
+        const SizedBox(height: 20),
+        const TextInputFindOut(
+          label: 'Constraseña',
+          iconData: Icons.lock_outline,
+          textInputType: TextInputType.visiblePassword,
+        ),
+        const SizedBox(height: 5),
+        const _AcceptTerms(),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: size.width * .65,
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              primary: Colors.white,
+              padding: const EdgeInsets.all(12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              backgroundColor: Colors.pinkAccent,
+            ),
+            child: const Text(
+              "Crear cuenta",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
