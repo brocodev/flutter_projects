@@ -10,7 +10,7 @@ import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_rate_sta
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   HomePageState createState() => HomePageState();
@@ -46,7 +46,7 @@ class HomePageState extends State<HomePage> {
 
   // Open the detail page of a book in the list.
   void _openPage(Widget page, BuildContext context, {bool opaque = false}) {
-    final route = PageRouteBuilder(
+    final route = PageRouteBuilder<dynamic>(
       opaque: opaque,
       transitionDuration: const Duration(milliseconds: 600),
       reverseTransitionDuration: const Duration(milliseconds: 600),
@@ -190,9 +190,7 @@ class HomePageState extends State<HomePage> {
 }
 
 class _HomeAppBar extends StatelessWidget {
-  const _HomeAppBar({
-    Key? key,
-  }) : super(key: key);
+  const _HomeAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -215,9 +213,8 @@ class _HomeAppBar extends StatelessWidget {
 
 class _HomeBookCard extends StatelessWidget {
   const _HomeBookCard({
-    Key? key,
     required this.book,
-  }) : super(key: key);
+  });
 
   final Book book;
 
@@ -287,9 +284,8 @@ class _HomeBookCard extends StatelessWidget {
 
 class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
-    Key? key,
     required this.category,
-  }) : super(key: key);
+  });
 
   final String category;
 

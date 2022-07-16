@@ -6,9 +6,10 @@ import 'package:flutter_projects/projects/music_album_collection/ui/music_player
 
 class MusicPlayerPage extends StatefulWidget {
   const MusicPlayerPage({
-    Key? key,
+    super.key,
     required this.album,
-  }) : super(key: key);
+  });
+
   final AlbumModel album;
 
   @override
@@ -94,9 +95,10 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
             // Body
             //--------------------------
             Expanded(
-              child: LayoutBuilder(builder: (child, constraints) {
-                final cardHeight = constraints.biggest.height;
-                return AnimatedBuilder(
+              child: LayoutBuilder(
+                builder: (child, constraints) {
+                  final cardHeight = constraints.biggest.height;
+                  return AnimatedBuilder(
                     animation: _animationController,
                     builder: (context, child) {
                       return Stack(
@@ -112,7 +114,7 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                             ),
                             left: size.width * .12,
                             right: size.width * .12,
-                            child: Container(
+                            child: DecoratedBox(
                               decoration: BoxDecoration(
                                 color: Colors.white60,
                                 borderRadius: BorderRadius.circular(8),
@@ -133,7 +135,7 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                             right: size.width * .09,
                             child: Opacity(
                               opacity: _sizeAnimation.value,
-                              child: Container(
+                              child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
@@ -147,7 +149,7 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                                       flex: 4,
                                       child: FadeTransition(
                                         opacity: _itemsAnimation,
-                                        child: Container(
+                                        child: DecoratedBox(
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 const BorderRadius.vertical(
@@ -270,10 +272,10 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
 
 class _AnimatedPlayerControls extends StatelessWidget {
   const _AnimatedPlayerControls({
-    Key? key,
     required this.animation1,
     required this.animation2,
-  }) : super(key: key);
+  });
+
   final Animation<double> animation1;
   final Animation<double> animation2;
 
@@ -304,7 +306,7 @@ class _AnimatedPlayerControls extends StatelessWidget {
                       .5,
                       1,
                       animation2.value,
-                    )!,
+                    ),
                     child: FloatingActionButton(
                       mini: i != 2,
                       heroTag: i.toString(),

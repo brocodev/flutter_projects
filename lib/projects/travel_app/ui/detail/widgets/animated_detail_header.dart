@@ -10,11 +10,11 @@ import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animat
 
 class AnimatedDetailHeader extends StatelessWidget {
   const AnimatedDetailHeader({
-    Key? key,
+    super.key,
     required this.place,
     required this.topPercent,
     required this.bottomPercent,
-  }) : super(key: key);
+  });
 
   final TravelPlace place;
   final double topPercent;
@@ -39,7 +39,7 @@ class AnimatedDetailHeader extends StatelessWidget {
                       bottom: 160 * (1 - bottomPercent),
                     ),
                     child: Transform.scale(
-                      scale: lerpDouble(1, 1.3, bottomPercent)!,
+                      scale: lerpDouble(1, 1.3, bottomPercent),
                       child: PlaceImagesPageView(imagesUrl: imagesUrl),
                     ),
                   ),
@@ -125,9 +125,8 @@ class AnimatedDetailHeader extends StatelessWidget {
 
 class _UserInfoContainer extends StatelessWidget {
   const _UserInfoContainer({
-    Key? key,
     required this.place,
-  }) : super(key: key);
+  });
 
   final TravelPlace place;
 
@@ -182,9 +181,8 @@ class _UserInfoContainer extends StatelessWidget {
 
 class _LikesAndSharesContainer extends StatelessWidget {
   const _LikesAndSharesContainer({
-    Key? key,
     required this.place,
-  }) : super(key: key);
+  });
 
   final TravelPlace place;
 

@@ -6,12 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PostButtons extends StatelessWidget {
   const PostButtons({
-    Key? key,
+    super.key,
     required this.post,
     required this.onTapLike,
     this.colorItems = Colors.white,
     this.likeBackgroundColor,
-  }) : super(key: key);
+  });
 
   final IgPost post;
   final Color colorItems;

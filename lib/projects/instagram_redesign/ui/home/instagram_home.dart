@@ -6,8 +6,8 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramHome extends StatefulWidget {
   const InstagramHome({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _InstagramHomeState createState() => _InstagramHomeState();
@@ -24,7 +24,8 @@ class _InstagramHomeState extends State<InstagramHome>
     _controller =
         AnimationController(duration: kThemeAnimationDuration, vsync: this);
     _heightFactor = Tween<double>(begin: 0.88, end: 1).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn),);
+      CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn),
+    );
     super.initState();
   }
 
@@ -35,16 +36,19 @@ class _InstagramHomeState extends State<InstagramHome>
   }
 
   void _openStories(BuildContext context, IgUserStories stories) {
-    Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: InstagramStories(
-            stories: stories,
-          ),
-        );
-      },
-    ),);
+    Navigator.push(
+      context,
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: InstagramStories(
+              stories: stories,
+            ),
+          );
+        },
+      ),
+    );
   }
 
   Future<void> _openDetailsFromAmpleView(
@@ -56,21 +60,24 @@ class _InstagramHomeState extends State<InstagramHome>
       selectedIndexPost = indexPost;
     });
     _controller.forward();
-    await Navigator.push(context, PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: InstagramPostDetail(
-            post: post,
-            postCard: AmplePostCard(
+    await Navigator.push(
+      context,
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: InstagramPostDetail(
               post: post,
-              borderRadius: BorderRadius.circular(50),
+              postCard: AmplePostCard(
+                post: post,
+                borderRadius: BorderRadius.circular(50),
+              ),
             ),
-          ),
-        );
-      },
-    ),);
-    await Future.delayed(const Duration(milliseconds: 300));
+          );
+        },
+      ),
+    );
+    await Future<void>.delayed(const Duration(milliseconds: 300));
     _controller.reverse();
   }
 
@@ -81,106 +88,107 @@ class _InstagramHomeState extends State<InstagramHome>
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: AnimatedBuilder(
-          animation: instagramBloc,
-          builder: (_, __) {
-            return CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                //-------------------------------
-                // Instagram Sliver App Bar
-                //-------------------------------
-                SliverAppBar(
-                  leadingWidth: 80,
-                  pinned: true,
-                  toolbarHeight: 70,
-                  leading: IconButton(
-                    icon: const Icon(Feather.settings),
-                    onPressed: instagramBloc.showSettings,
-                  ),
-                  title: const Text("Instagram"),
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            color:
-                                Theme.of(context).appBarTheme.iconTheme!.color,
-                            icon: const Icon(Feather.mail),
-                          ),
-                          const Positioned(
-                            right: 10,
-                            bottom: 20,
-                            child: RedDot(),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
+        animation: instagramBloc,
+        builder: (_, __) {
+          return CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              //-------------------------------
+              // Instagram Sliver App Bar
+              //-------------------------------
+              SliverAppBar(
+                leadingWidth: 80,
+                pinned: true,
+                toolbarHeight: 70,
+                leading: IconButton(
+                  icon: const Icon(Feather.settings),
+                  onPressed: instagramBloc.showSettings,
                 ),
-                //--------------------------------------------
-                // Friend Stories Horizontal List View
-                //--------------------------------------------
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: screenHeight * .12,
-                    child: ListView.builder(
-                      itemExtent: screenHeight * .1,
-                      itemCount: IgUserStories.listUserStories.length + 1,
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      itemBuilder: (context, index) {
-                        final itemSize =
-                            MediaQuery.of(context).size.height * .09;
-                        if (index == 0) {
-                          return InstagramAddItem(
-                            itemSize: itemSize,
-                            label: 'My Story',
-                          );
-                        } else {
-                          final stories =
-                              IgUserStories.listUserStories[(index - 1)];
-                          return InstagramStoriesItem(
-                            itemSize: itemSize,
-                            stories: stories,
-                            onTap: () => _openStories(context, stories),
-                          );
-                        }
-                      },
+                title: const Text("Instagram"),
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          color: Theme.of(context).appBarTheme.iconTheme!.color,
+                          icon: const Icon(Feather.mail),
+                        ),
+                        const Positioned(
+                          right: 10,
+                          bottom: 20,
+                          child: RedDot(),
+                        )
+                      ],
                     ),
                   ),
+                ],
+              ),
+              //--------------------------------------------
+              // Friend Stories Horizontal List View
+              //--------------------------------------------
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenHeight * .12,
+                  child: ListView.builder(
+                    itemExtent: screenHeight * .1,
+                    itemCount: IgUserStories.listUserStories.length + 1,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    itemBuilder: (context, index) {
+                      final itemSize = MediaQuery.of(context).size.height * .09;
+                      if (index == 0) {
+                        return InstagramAddItem(
+                          itemSize: itemSize,
+                          label: 'My Story',
+                        );
+                      } else {
+                        final stories =
+                            IgUserStories.listUserStories[(index - 1)];
+                        return InstagramStoriesItem(
+                          itemSize: itemSize,
+                          stories: stories,
+                          onTap: () => _openStories(context, stories),
+                        );
+                      }
+                    },
+                  ),
                 ),
+              ),
 
-                //----------------------------------
-                // Friend Posts List View
-                //---------------------------------
-                SliverToBoxAdapter(
-                    child: SizedBox(
+              //----------------------------------
+              // Friend Posts List View
+              //---------------------------------
+              SliverToBoxAdapter(
+                child: SizedBox(
                   height: instagramBloc.viewState == ViewState.ample
                       ? screenHeight * .09
                       : 20,
-                ),),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final post = IgPost.listPosts[index];
-                      final num heightItem =
-                          (screenHeight * .6).clamp(450.0, 550.0);
-                      switch (instagramBloc.viewState) {
-                        case ViewState.clean:
-                          //-------------------------------
-                          // Clean Post Card
-                          //-------------------------------
-                          return Hero(
-                            tag: post.id!,
-                            child: CleanPostCard(
-                              post: post,
-                              height: heightItem as double?,
-                              onTap: () {
-                                Navigator.push(context, PageRouteBuilder(
+                ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final post = IgPost.listPosts[index];
+                    final num heightItem =
+                        (screenHeight * .6).clamp(450.0, 550.0);
+                    switch (instagramBloc.viewState) {
+                      case ViewState.clean:
+                        //-------------------------------
+                        // Clean Post Card
+                        //-------------------------------
+                        return Hero(
+                          tag: post.id!,
+                          child: CleanPostCard(
+                            post: post,
+                            height: heightItem as double?,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder<dynamic>(
                                   pageBuilder:
                                       (context, animation, secondaryAnimation) {
                                     return FadeTransition(
@@ -227,12 +235,13 @@ class _InstagramHomeState extends State<InstagramHome>
                         );
                     }
                   },
-                    childCount: IgPost.listPosts.length,
-                  ),
+                  childCount: IgPost.listPosts.length,
                 ),
-              ],
-            );
-          },),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

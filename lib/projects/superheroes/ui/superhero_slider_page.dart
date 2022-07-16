@@ -7,8 +7,8 @@ import 'package:flutter_projects/projects/superheroes/ui/widgets/superhero_card.
 
 class SuperheroSliderPage extends StatefulWidget {
   const SuperheroSliderPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _SuperheroSliderPageState createState() => _SuperheroSliderPageState();
@@ -136,7 +136,7 @@ class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
   }
 
   void _openDetail(BuildContext context, Superhero superhero) {
-    Navigator.push(context, PageRouteBuilder(
+    Navigator.push(context, PageRouteBuilder<dynamic>(
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,

@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
-    Key? key,
+    super.key,
     required this.project,
     required this.index,
-  }) : super(key: key);
+  });
 
   final ProjectModel project;
   final int index;

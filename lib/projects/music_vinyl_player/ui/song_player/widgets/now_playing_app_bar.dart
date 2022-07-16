@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class NowPlayingAppBar extends StatelessWidget {
   const NowPlayingAppBar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

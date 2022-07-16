@@ -7,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ActivityContainer extends StatelessWidget {
   const ActivityContainer({
-    Key? key,
+    super.key,
     required this.activity,
-  }) : super(key: key);
+  });
 
   final IgActivity activity;
 

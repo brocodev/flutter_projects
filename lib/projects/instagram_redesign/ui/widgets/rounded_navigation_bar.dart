@@ -3,13 +3,13 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/home/widgets/red
 
 class RoundedNavigationBar extends StatelessWidget {
   const RoundedNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     this.onTap,
     this.unselectedColor = const Color(0xffa9a9a9),
     this.selectedColor = const Color(0xff000000),
     this.currentIndex = 0,
-  }) : super(key: key);
+  });
 
   final List<RoundedNavigationBarItem> items;
   final ValueChanged<int>? onTap;

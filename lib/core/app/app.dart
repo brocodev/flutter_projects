@@ -14,7 +14,6 @@ class BrocodevProjectsApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[50],
         backgroundColor: Colors.grey[50],
         textTheme: GoogleFonts.poppinsTextTheme(),
-        primaryColorBrightness: Brightness.light,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

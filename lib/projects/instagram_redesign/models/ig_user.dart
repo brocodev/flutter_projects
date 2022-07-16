@@ -2,7 +2,6 @@ import 'package:flutter_projects/projects/instagram_redesign/models/ig_collectio
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_external_platform.dart';
 
 class IgUser {
-
   const IgUser({
     this.name,
     this.typeUser,
@@ -24,17 +23,17 @@ class IgUser {
   final List<String>? listPhotosUrl;
   final String? username;
   final List<ExternalPlatform> externalPlatforms;
-  
+
   static const liliana = IgUser(
-      name: 'Liliana Mondragon',
-      followers: 14320,
-      collections: IgCollection.listCollection,
-      following: 120,
-      username: 'lilian_moon',
-      photoUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
-      listPhotosUrl: [
-        'https://images.unsplash.com/photo-1602066215160-33198d54a53d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+    name: 'Liliana Mondragon',
+    followers: 14320,
+    collections: IgCollection.listCollection,
+    following: 120,
+    username: 'lilian_moon',
+    photoUrl:
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
+    listPhotosUrl: [
+      'https://images.unsplash.com/photo-1602066215160-33198d54a53d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80',
       'https://images.unsplash.com/photo-1601575930087-f8800cf72a3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
       'https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
@@ -88,13 +87,13 @@ class IgUser {
     typeUser: 'Designer',
   );
   static const karla = IgUser(
-      name: 'Karla Smith',
-      followers: 14020,
-      collections: IgCollection.listCollection,
-      following: 402,
-      username: 'smith_karla',
-      photoUrl:
-          'https://images.unsplash.com/photo-1502898295-455afaf0f015?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+    name: 'Karla Smith',
+    followers: 14020,
+    collections: IgCollection.listCollection,
+    following: 402,
+    username: 'smith_karla',
+    photoUrl:
+        'https://images.unsplash.com/photo-1502898295-455afaf0f015?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
     listPhotosUrl: [
       'https://images.unsplash.com/photo-1601974915460-f55ea921f8ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=680&q=80',
       'https://images.unsplash.com/photo-1596213476704-4437fff60106?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
@@ -134,18 +133,18 @@ class IgUser {
     following: 47,
     photoUrl: 'https://i.ibb.co/c1j1VDT/yo.jpg',
     externalPlatforms: [
-      ExternalPlatform.kDiscord,
-      ExternalPlatform.kFacebook,
-        ExternalPlatform.kUplabs,
-        ExternalPlatform.kTwitter,
-        ExternalPlatform.kInstagram,
-        ExternalPlatform.kYoutube,
-        ExternalPlatform.kTwitch,
-        ExternalPlatform.kDiscord,
-        ExternalPlatform.kSnapchat,
-        ExternalPlatform.kUnsplash,
-      ],
-      listPhotosUrl: [
+      ExternalPlatform.discord,
+      ExternalPlatform.facebook,
+      ExternalPlatform.uplabs,
+      ExternalPlatform.twitter,
+      ExternalPlatform.instagram,
+      ExternalPlatform.youtube,
+      ExternalPlatform.twitch,
+      ExternalPlatform.discord,
+      ExternalPlatform.snapchat,
+      ExternalPlatform.unsplash,
+    ],
+    listPhotosUrl: [
       'https://images.unsplash.com/photo-1589793080380-6089f6eb360e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80',
       'https://images.unsplash.com/photo-1589793907316-f94025b46850?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=332&q=80',
       'https://images.unsplash.com/photo-1601921721860-f355dcbc16f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',

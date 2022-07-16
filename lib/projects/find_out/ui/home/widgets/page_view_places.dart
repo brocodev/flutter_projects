@@ -6,11 +6,11 @@ import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dar
 
 class PageViewPlaces extends StatelessWidget {
   const PageViewPlaces({
-    Key? key,
+    super.key,
     this.places,
     required this.pageController,
     required this.pageValueNotifier,
-  }) : super(key: key);
+  });
 
   final List<Place>? places;
   final PageController pageController;
@@ -22,9 +22,9 @@ class PageViewPlaces extends StatelessWidget {
     Place place,
   ) {
     if (details.primaryDelta! < -5) {
-      Navigator.push(
+      Navigator.push<dynamic>(
         context,
-        PageRouteBuilder(
+        PageRouteBuilder<dynamic>(
           transitionDuration: const Duration(milliseconds: 800),
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
@@ -133,10 +133,7 @@ class PageViewPlaces extends StatelessWidget {
 }
 
 class _LikeAndComments extends StatelessWidget {
-  const _LikeAndComments({
-    Key? key,
-    required this.place,
-  }) : super(key: key);
+  const _LikeAndComments({required this.place});
 
   final Place place;
 

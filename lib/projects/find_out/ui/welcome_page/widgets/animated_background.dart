@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class AnimatedBackground extends StatefulWidget {
-  const AnimatedBackground({Key? key}) : super(key: key);
+  const AnimatedBackground({super.key});
 
   @override
   AnimatedBackgroundState createState() => AnimatedBackgroundState();
@@ -20,9 +20,10 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       timerSlide =
           Timer.periodic(const Duration(seconds: 5), (Timer timer) async {
-         pageController.nextPage(
-            duration: const Duration(milliseconds: 1400),
-            curve: Curves.fastOutSlowIn,);
+        pageController.nextPage(
+          duration: const Duration(milliseconds: 1400),
+          curve: Curves.fastOutSlowIn,
+        );
       });
     });
     super.initState();
@@ -57,11 +58,12 @@ class AnimatedBackgroundState extends State<AnimatedBackground> {
               fit: BoxFit.cover,
             ),
             const Positioned.fill(
-                child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black26,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.black26,
+                ),
               ),
-            ),),
+            ),
             Positioned(
               left: 50,
               top: topPosition,

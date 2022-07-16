@@ -10,6 +10,7 @@ linter:
     avoid_implementing_value_types: false
     sort_pub_dependencies: false
     flutter_style_todos: false
+    inference_failure_on_instance_creation: false
 
 analyzer:
   strong-mode:

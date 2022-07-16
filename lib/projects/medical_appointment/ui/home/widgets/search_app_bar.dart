@@ -4,8 +4,8 @@ import 'package:flutter_projects/projects/medical_appointment/models/md_patient.
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

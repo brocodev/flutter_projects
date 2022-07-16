@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TagContainer extends StatelessWidget {
   const TagContainer({
-    Key? key,
+    super.key,
     this.tag,
     this.gradient = kGradientRedOrange,
-  }) : super(key: key);
+  });
   final String? tag;
   final Gradient gradient;
 

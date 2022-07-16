@@ -8,7 +8,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalApp extends StatelessWidget {
-  const MedicalApp({Key? key}) : super(key: key);
+  const MedicalApp({super.key});
 
   @override
   Widget build(BuildContext context) {

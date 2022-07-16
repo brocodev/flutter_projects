@@ -3,10 +3,10 @@ import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc.dar
 
 class CategoriesBlocProvider extends InheritedWidget {
   const CategoriesBlocProvider({
-    Key? key,
+    super.key,
     required this.categoriesBloc,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   final CategoriesBloc categoriesBloc;
 

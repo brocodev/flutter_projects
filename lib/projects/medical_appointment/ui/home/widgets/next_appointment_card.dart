@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/medical_appointment/models/md_appointment.dart';
 import 'package:flutter_projects/projects/medical_appointment/utils/md_app_colors.dart';
@@ -7,11 +6,11 @@ import 'package:flutter_projects/projects/medical_appointment/utils/md_utils.dar
 
 class NextAppointmentCard extends StatelessWidget {
   const NextAppointmentCard({
-    Key? key,
+    super.key,
     required this.height,
     required this.mdAppointment,
     this.margin,
-  }) : super(key: key);
+  });
 
   final double height;
   final EdgeInsetsGeometry? margin;

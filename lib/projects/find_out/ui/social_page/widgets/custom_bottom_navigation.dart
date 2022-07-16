@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
-  const CustomBottomNavigation({Key? key}) : super(key: key);
+  const CustomBottomNavigation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,26 +13,30 @@ class CustomBottomNavigation extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Expanded(
-                child: Icon(
-              Icons.search,
-              color: color,
-            ),),
+              child: Icon(
+                Icons.search,
+                color: color,
+              ),
+            ),
             Expanded(
-                child: Icon(
-              Icons.notifications_none,
-              color: color,
-            ),),
+              child: Icon(
+                Icons.notifications_none,
+                color: color,
+              ),
+            ),
             const Spacer(),
             Expanded(
-                child: Icon(
-              Icons.favorite_border,
-              color: color,
-            ),),
+              child: Icon(
+                Icons.favorite_border,
+                color: color,
+              ),
+            ),
             Expanded(
-                child: Icon(
-              Icons.person_outline,
-              color: color,
-            ),),
+              child: Icon(
+                Icons.person_outline,
+                color: color,
+              ),
+            ),
           ],
         ),
       ),

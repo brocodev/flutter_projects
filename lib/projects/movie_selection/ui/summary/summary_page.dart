@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
@@ -9,7 +8,7 @@ import 'package:flutter_projects/projects/movie_selection/ui/widgets/tag_contain
 import 'package:google_fonts/google_fonts.dart';
 
 class SummaryPage extends StatelessWidget {
-  const SummaryPage({Key? key, this.movie}) : super(key: key);
+  const SummaryPage({super.key, this.movie});
 
   final Movie? movie;
 
@@ -35,10 +34,9 @@ class SummaryPage extends StatelessWidget {
 
 class _BodySummary extends StatelessWidget {
   const _BodySummary({
-    Key? key,
     required this.movie,
     required this.hideWidgets,
-  }) : super(key: key);
+  });
 
   final Movie? movie;
   final ValueNotifier<bool> hideWidgets;
@@ -60,7 +58,7 @@ class _BodySummary extends StatelessWidget {
         TranslateAnimation(
           child: OpacityAnimation(
             begin: 0.5,
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -165,7 +163,7 @@ class _BodySummary extends StatelessWidget {
             hideWidgets.value = true;
             Navigator.pushReplacement(
                 context,
-                PageRouteBuilder(
+                PageRouteBuilder<dynamic>(
                   transitionDuration: kDuration400ms,
                   pageBuilder: (context, animation, secondaryAnimation) {
                     return FadeTransition(
@@ -194,11 +192,10 @@ class _BodySummary extends StatelessWidget {
 
 class _TileInfo extends StatelessWidget {
   const _TileInfo({
-    Key? key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
-  }) : super(key: key);
+  });
   final String? title;
   final String? subtitle;
   final CrossAxisAlignment? crossAxisAlignment;

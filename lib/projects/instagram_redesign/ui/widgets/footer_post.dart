@@ -4,12 +4,12 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_
 
 class FooterPost extends StatelessWidget {
   const FooterPost({
-    Key? key,
+    super.key,
     required this.post,
     this.colorDescription,
     this.colorMoreButton,
     this.colorMoreText,
-  }) : super(key: key);
+  });
 
   final IgPost post;
   final Color? colorMoreButton;

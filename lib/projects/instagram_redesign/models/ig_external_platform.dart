@@ -1,73 +1,62 @@
+enum ExternalPlatform {
+  discord._(
+    name: 'Discord',
+    haveDarkImage: false,
+    imagePath: 'assets/img/instagram/discord.png',
+  ),
+  facebook._(
+    name: 'Facebook',
+    haveDarkImage: true,
+    imagePath: 'assets/img/instagram/facebook.png',
+  ),
+  gitHub._(
+    name: 'GitHub',
+    haveDarkImage: true,
+    imagePath: 'assets/img/instagram/github.png',
+  ),
+  twitch._(
+    name: 'twitch',
+    haveDarkImage: true,
+    imagePath: 'assets/img/instagram/twitch.png',
+  ),
+  unsplash._(
+    name: 'Unsplash',
+    haveDarkImage: true,
+    imagePath: 'assets/img/instagram/unsplash.png',
+  ),
+  instagram._(
+    name: 'Unsplash',
+    haveDarkImage: false,
+    imagePath: 'assets/img/instagram/instagram.png',
+  ),
+  snapchat._(
+    name: 'Snapchat',
+    haveDarkImage: false,
+    imagePath: 'assets/img/instagram/snapchat.png',
+  ),
+  twitter._(
+    name: 'Twitter',
+    haveDarkImage: true,
+    imagePath: 'assets/img/instagram/twitter.png',
+  ),
+  uplabs._(
+    name: 'Uplabs',
+    haveDarkImage: false,
+    imagePath: 'assets/img/instagram/uplabs.png',
+  ),
+  youtube._(
+    name: 'YouTube',
+    haveDarkImage: false,
+    imagePath: 'assets/img/instagram/youtube.png',
+  );
 
-class ExternalPlatform {
   const ExternalPlatform._({
     this.name,
-    this.urlLauncher,
     this.imagePath,
     this.haveDarkImage,
   });
 
   final String? name;
-  final String? urlLauncher;
   final String? imagePath;
   final bool? haveDarkImage;
-
-
-  static const kDiscord = ExternalPlatform._(
-    name: 'Discord',
-    haveDarkImage: false,
-    imagePath: 'assets/img/instagram/discord.png',
-  );
-
-  static const kFacebook = ExternalPlatform._(
-    name: 'Facebook',
-    haveDarkImage: true,
-    imagePath: 'assets/img/instagram/facebook.png',
-  );
-
-  static const kGitHub = ExternalPlatform._(
-    name: 'GitHub',
-    haveDarkImage: true,
-    imagePath: 'assets/img/instagram/github.png',
-  );
-  static const kTwitch = ExternalPlatform._(
-    name: 'twitch',
-    haveDarkImage: true,
-    imagePath: 'assets/img/instagram/twitch.png',
-  );
-  static const kUnsplash = ExternalPlatform._(
-    name: 'Unsplash',
-    haveDarkImage: true,
-    imagePath: 'assets/img/instagram/unsplash.png',
-  );
-
-  static const kInstagram = ExternalPlatform._(
-    name: 'Unsplash',
-    haveDarkImage: false,
-    imagePath: 'assets/img/instagram/instagram.png',
-  );
-
-  static const kSnapchat = ExternalPlatform._(
-    name: 'Snapchat',
-    haveDarkImage: false,
-    imagePath: 'assets/img/instagram/snapchat.png',
-  );
-
-  static const kTwitter = ExternalPlatform._(
-    name: 'Twitter',
-    haveDarkImage: true,
-    imagePath: 'assets/img/instagram/twitter.png',
-  );
-
-  static const kUplabs = ExternalPlatform._(
-    name: 'Uplabs',
-    haveDarkImage: false,
-    imagePath: 'assets/img/instagram/uplabs.png',
-  );
-
-  static const kYoutube = ExternalPlatform._(
-    name: 'YouTube',
-    haveDarkImage: false,
-    imagePath: 'assets/img/instagram/youtube.png',
-  );
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/projects/photographers_app/models/users.dart';
@@ -9,7 +8,7 @@ import 'package:flutter_projects/projects/photographers_app/ui/widgets/photo_pos
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoHomePage extends StatelessWidget {
-  const PhotoHomePage({Key? key}) : super(key: key);
+  const PhotoHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,20 +59,21 @@ class PhotoHomePage extends StatelessWidget {
                 //--------------------------------
                 child: RichText(
                   text: TextSpan(
-                      text: "P",
-                      style: GoogleFonts.philosopher(
-                        color: PhotoAppColors.kDarkBlue,
-                        fontSize: 20,
-                        decoration: TextDecoration.overline,
-                        decorationThickness: 2,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "opular Users",
-                          style: TextStyle(decoration: TextDecoration.none),
-                        )
-                      ],),
+                    text: "P",
+                    style: GoogleFonts.philosopher(
+                      color: PhotoAppColors.kDarkBlue,
+                      fontSize: 20,
+                      decoration: TextDecoration.overline,
+                      decorationThickness: 2,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    children: const [
+                      TextSpan(
+                        text: "opular Users",
+                        style: TextStyle(decoration: TextDecoration.none),
+                      )
+                    ],
+                  ),
                 ),
               ),
               //-------------------------------
@@ -92,7 +92,7 @@ class PhotoHomePage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          MaterialPageRoute<dynamic>(
                             builder: (_) => PhotoProfilePage(user: user),
                           ),
                         );
@@ -112,9 +112,7 @@ class PhotoHomePage extends StatelessWidget {
 }
 
 class _SearchInput extends StatelessWidget {
-  const _SearchInput({
-    Key? key,
-  }) : super(key: key);
+  const _SearchInput();
 
   @override
   Widget build(BuildContext context) {

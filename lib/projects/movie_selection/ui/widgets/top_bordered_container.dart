@@ -6,10 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TopBorderedContainer extends StatelessWidget {
   const TopBorderedContainer({
-    Key? key,
+    super.key,
     required this.movie,
     this.child,
-  }) : super(key: key);
+  });
 
   final Movie? movie;
   final Widget? child;

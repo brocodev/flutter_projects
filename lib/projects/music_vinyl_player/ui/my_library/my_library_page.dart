@@ -8,8 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyLibraryPage extends StatefulWidget {
   const MyLibraryPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _MyLibraryPageState createState() => _MyLibraryPageState();
@@ -67,7 +67,8 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   void _pageAlbumListener() {
     if (_isAlbumScrolling) {
       _pageDescriptionController!.position.jumpTo(
-          _pageAlbumController!.page! * MediaQuery.of(context).size.width,);
+        _pageAlbumController!.page! * MediaQuery.of(context).size.width,
+      );
       setState(() {
         _scrollDirection = _pageAlbumController!.position.userScrollDirection;
         _pageAlbum = _pageAlbumController!.page;
@@ -83,11 +84,14 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
   // Open player page
   //--------------------------------
   void _openPlayerPage(BuildContext context) {
-    final route =
-        PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
-      return FadeTransition(
-          opacity: animation, child: SongPlayerPage(song: Song.currentSong),);
-    },);
+    final route = PageRouteBuilder<dynamic>(
+      pageBuilder: (__, animation, ___) {
+        return FadeTransition(
+          opacity: animation,
+          child: SongPlayerPage(song: Song.currentSong),
+        );
+      },
+    );
     Navigator.push(context, route);
   }
 
@@ -129,61 +133,68 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                   //-----------------------------------
                   Expanded(
                     child: PageView.builder(
-                        onPageChanged: (value) {
-                          if (!_isAlbumScrolling) {
-                            _pageAlbumController!.animateToPage(value,
-                                duration: const Duration(milliseconds: 600),
-                                curve: Curves.fastOutSlowIn,);
-                          }
-                        },
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: Album.listAlbum.length,
-                        controller: _pageDescriptionController,
-                        itemBuilder: (context, index) {
-                          final album = Album.listAlbum[index];
-                          final percentDescription =
-                              (_pageDescription! - index).abs();
-                          final scrollDirectionFactor =
-                              _scrollDirection == ScrollDirection.forward
-                                  ? 1
-                                  : -1;
-                          //---------------------------------------
-                          // Description card
-                          //---------------------------------------
-                          return Transform.scale(
-                            scale:
-                                1.0 * (1 - percentDescription).clamp(.8, 1.0),
-                            child: Transform(
-                              transform: Matrix4.identity()
-                                ..setEntry(3, 2, 0.001)
-                                ..rotateY((.9 * percentDescription) *
-                                    scrollDirectionFactor,),
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 30),
-                                child: DescriptionCard(
-                                  album: album,
-                                  padding: const EdgeInsets.only(
-                                    top: 75,
-                                    left: 20,
-                                    right: 20,
-                                  ),
+                      onPageChanged: (value) {
+                        if (!_isAlbumScrolling) {
+                          _pageAlbumController!.animateToPage(
+                            value,
+                            duration: const Duration(milliseconds: 600),
+                            curve: Curves.fastOutSlowIn,
+                          );
+                        }
+                      },
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: Album.listAlbum.length,
+                      controller: _pageDescriptionController,
+                      itemBuilder: (context, index) {
+                        final album = Album.listAlbum[index];
+                        final percentDescription =
+                            (_pageDescription! - index).abs();
+                        final scrollDirectionFactor =
+                            _scrollDirection == ScrollDirection.forward
+                                ? 1
+                                : -1;
+                        //---------------------------------------
+                        // Description card
+                        //---------------------------------------
+                        return Transform.scale(
+                          scale: 1.0 * (1 - percentDescription).clamp(.8, 1.0),
+                          child: Transform(
+                            transform: Matrix4.identity()
+                              ..setEntry(3, 2, 0.001)
+                              ..rotateY(
+                                (.9 * percentDescription) *
+                                    scrollDirectionFactor,
+                              ),
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              child: DescriptionCard(
+                                album: album,
+                                padding: const EdgeInsets.only(
+                                  top: 75,
+                                  left: 20,
+                                  right: 20,
                                 ),
                               ),
                             ),
-                          );
-                        },),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                   //-------------------------------------
                   // Song Player Footer
                   //-------------------------------------
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10,),
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
                     child: InkWell(
-                        onTap: () => _openPlayerPage(context),
-                        child: SongPlayFooter(song: Song.currentSong),),
+                      onTap: () => _openPlayerPage(context),
+                      child: SongPlayFooter(song: Song.currentSong),
+                    ),
                   )
                 ],
               ),
@@ -202,18 +213,20 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
                 //-------------------------------------
                 child: RichText(
                   text: TextSpan(
-                      text: 'My',
-                      style: GoogleFonts.spectral(
-                        color: Colors.grey[800],
-                        fontSize: 38,
-                      ),
-                      children: [
-                        TextSpan(
-                            text: ' Library',
-                            style: GoogleFonts.spectral(
-                              fontWeight: FontWeight.w800,
-                            ),)
-                      ],),
+                    text: 'My',
+                    style: GoogleFonts.spectral(
+                      color: Colors.grey[800],
+                      fontSize: 38,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: ' Library',
+                        style: GoogleFonts.spectral(
+                          fontWeight: FontWeight.w800,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               //------------------------------------------
@@ -222,19 +235,24 @@ class _MyLibraryPageState extends State<MyLibraryPage> {
               Container(
                 height: heightAlbumList,
                 padding: const EdgeInsets.symmetric(vertical: 20),
-                decoration: BoxDecoration(color: Colors.grey[100], boxShadow: [
-                  BoxShadow(
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  boxShadow: [
+                    BoxShadow(
                       color: Colors.black.withOpacity(.08),
                       blurRadius: 20,
-                      offset: const Offset(0, 25),)
-                ],),
-                child: Container(
+                      offset: const Offset(0, 25),
+                    )
+                  ],
+                ),
+                child: DecoratedBox(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [Colors.grey[100]!, Colors.white],
-                    begin: Alignment.center,
-                    end: Alignment.bottomCenter,
-                  ),),
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[100]!, Colors.white],
+                      begin: Alignment.center,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
                   //--------------------------------------
                   // Page View Album Covers
                   //--------------------------------------

@@ -6,11 +6,11 @@ import 'package:flutter_projects/projects/music_album_collection/ui/music_player
 
 class AlbumListViewCard extends StatelessWidget {
   const AlbumListViewCard({
-    Key? key,
+    super.key,
     required this.album,
     required this.hideDisk,
     this.textSize = 14.0,
-  }) : super(key: key);
+  });
 
   final bool hideDisk;
   final AlbumModel album;
@@ -19,7 +19,7 @@ class AlbumListViewCard extends StatelessWidget {
   void _onTapAlbum(BuildContext context) {
     Navigator.push(
       context,
-      PageRouteBuilder(
+      PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
             opacity: animation,
@@ -78,7 +78,7 @@ class AlbumListViewCard extends StatelessWidget {
                             //----------------------------
                             // Album Cover Image
                             //----------------------------
-                            Container(
+                            DecoratedBox(
                               decoration: BoxDecoration(
                                 boxShadow: const [
                                   BoxShadow(
@@ -149,11 +149,11 @@ class AlbumListViewCard extends StatelessWidget {
 
 class AlbumGridViewCard extends StatelessWidget {
   const AlbumGridViewCard({
-    Key? key,
+    super.key,
     required this.album,
     required this.hideDisk,
     this.textSize = 14.0,
-  }) : super(key: key);
+  });
 
   final bool hideDisk;
   final AlbumModel album;
@@ -162,7 +162,7 @@ class AlbumGridViewCard extends StatelessWidget {
   void _onTapAlbum(BuildContext context) {
     Navigator.push(
       context,
-      PageRouteBuilder(
+      PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
             opacity: animation,
@@ -217,7 +217,7 @@ class AlbumGridViewCard extends StatelessWidget {
                   aspectRatio: 1,
                   child: Hero(
                     tag: '${album.title}cover',
-                    child: Container(
+                    child: DecoratedBox(
                       decoration: BoxDecoration(
                         boxShadow: const [
                           BoxShadow(
@@ -267,12 +267,11 @@ class AlbumGridViewCard extends StatelessWidget {
 
 class _AlbumCardText extends StatelessWidget {
   const _AlbumCardText({
-    Key? key,
     required this.textSize,
     required this.heroTag,
     this.text,
     this.colorText,
-  }) : super(key: key);
+  });
 
   final double textSize;
   final String heroTag;

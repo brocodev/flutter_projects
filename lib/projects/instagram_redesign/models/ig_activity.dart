@@ -25,14 +25,15 @@ class IgActivity {
   bool? isViewed;
   final IgTypeActivity? typeNotification;
 
-
   static final listActivities = List.generate(
     64,
-    (index) => IgActivity(
+    (index) {
+      final _listImagesUrl = IgUser.kevin.listPhotosUrl;
+      return IgActivity(
         user: _users[index % _users.length],
         typeNotification:
             IgTypeActivity.values[index % IgTypeActivity.values.length],
-        imageUrl: _listImagesUrl![index % _listImagesUrl!.length],
+        imageUrl: _listImagesUrl![index % _listImagesUrl.length],
         date: _dates[index % _dates.length],
         description:
             'Lorem Ipsum ha sido el texto de relleno estándar de las industrias'
@@ -40,10 +41,11 @@ class IgActivity {
             '(N. del T. persona que se dedica a la imprenta) desconocido usó '
             'una galería de textos y los mezcló de tal '
             'manera que logró hacer un libro de textos especimen.',
-        isViewed: false,),
+        isViewed: false,
+      );
+    },
   );
 
-  static late final _listImagesUrl = IgUser.kevin.listPhotosUrl;
   static final _dates = [
     DateTime.now().subtract(const Duration(minutes: 1)),
     DateTime.now().subtract(const Duration(minutes: 20)),

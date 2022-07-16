@@ -4,10 +4,10 @@ export 'package:flutter_projects/projects/instagram_redesign/bloc/instagram_bloc
 
 class InstagramBlocProvider extends InheritedWidget {
   const InstagramBlocProvider({
-    Key? key,
+    super.key,
     required this.instagramBloc,
-    required  Widget child,
-  }) : super(key: key, child: child);
+    required  super.child,
+  });
 
   final InstagramBloc instagramBloc;
 

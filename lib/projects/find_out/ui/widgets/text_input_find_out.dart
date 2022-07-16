@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class TextInputFindOut extends StatelessWidget {
   const TextInputFindOut({
-    Key? key,
+    super.key,
     required this.label,
     required this.iconData,
     this.textInputType,
-  }) : super(key: key);
+  });
   final String label;
   final IconData iconData;
   final TextInputType? textInputType;
@@ -28,7 +28,7 @@ class TextInputFindOut extends StatelessWidget {
         builder: (context, value, child) {
           return TextField(
             keyboardType: textInputType,
-            obscureText: isPassword ? value : false,
+            obscureText: isPassword,
             style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
                 filled: true,

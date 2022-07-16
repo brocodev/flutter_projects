@@ -5,7 +5,7 @@ import 'package:flutter_projects/projects/find_out/ui/home/widgets/page_view_pla
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
 class HomePageFindOut extends StatefulWidget {
-  const HomePageFindOut({Key? key}) : super(key: key);
+  const HomePageFindOut({super.key});
 
   @override
   State<HomePageFindOut> createState() => _HomePageFindOutState();

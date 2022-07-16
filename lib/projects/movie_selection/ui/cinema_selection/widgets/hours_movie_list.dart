@@ -6,11 +6,11 @@ import 'package:flutter_projects/projects/movie_selection/ui/cinema_selection/wi
 
 class HoursMovieOptions extends StatelessWidget {
   const HoursMovieOptions({
-    Key? key,
+    super.key,
     required this.listHours,
     required this.selectedHourNotifier,
     required this.movie,
-  }) : super(key: key);
+  });
 
   final List<String> listHours;
   final ValueNotifier<int> selectedHourNotifier;

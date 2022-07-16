@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/photographers_app/models/post.dart';
 import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colors.dart';
@@ -11,10 +10,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PhotoPostCard extends StatefulWidget {
   const PhotoPostCard({
-    Key? key,
+    super.key,
     required this.post,
     required this.isInverted,
-  }) : super(key: key);
+  });
 
   final PhotoPost post;
   final bool isInverted;

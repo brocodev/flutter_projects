@@ -1,14 +1,12 @@
-import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlaceImagesPageView extends StatefulWidget {
   const PlaceImagesPageView({
-    Key? key,
+    super.key,
     required this.imagesUrl,
-  }) : super(key: key);
+  });
 
   final List<String> imagesUrl;
 

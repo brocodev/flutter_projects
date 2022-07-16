@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class TypeActivityToggleButton extends StatelessWidget {
   const TypeActivityToggleButton({
-    Key? key,
+    super.key,
     required this.value,
     required this.selectValue,
     required this.labelButton,
     this.notifications,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final int value;
   final int selectValue;
@@ -20,7 +20,7 @@ class TypeActivityToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     const indicatorSize = 35.0;
-    final indicatorColor = Colors.redAccent;
+    const indicatorColor = Colors.redAccent;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -31,7 +31,7 @@ class TypeActivityToggleButton extends StatelessWidget {
             shape: const StadiumBorder(),
             backgroundColor: value == selectValue
                 ? colorScheme.onBackground
-                : colorScheme.primaryVariant,
+                : colorScheme.primaryContainer,
           ),
           child: Text(
             labelButton,

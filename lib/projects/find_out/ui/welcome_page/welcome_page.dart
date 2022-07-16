@@ -7,7 +7,8 @@ import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dar
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatelessWidget {
-  WelcomePage({Key? key}) : super(key: key);
+  WelcomePage({super.key});
+
   final hideNotifier = ValueNotifier(false);
 
   @override
@@ -106,24 +107,26 @@ class WelcomePage extends StatelessWidget {
   Future<void> _openPage(BuildContext context, Widget page) async {
     hideNotifier.value = true;
     await Navigator.push(
-        context,
-        PageRouteBuilder(
-          opaque: false,
-          transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(opacity: animation, child: page);
-          },
-        ),);
+      context,
+      PageRouteBuilder<dynamic>(
+        opaque: false,
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(opacity: animation, child: page);
+        },
+      ),
+    );
     hideNotifier.value = false;
   }
 }
 
 class RectangularButton extends StatelessWidget {
   const RectangularButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.onPressed,
-  }) : super(key: key);
+  });
+
   final String label;
   final VoidCallback onPressed;
 
@@ -136,7 +139,8 @@ class RectangularButton extends StatelessWidget {
         style: TextButton.styleFrom(
           primary: Colors.white,
           shape: const RoundedRectangleBorder(
-              side: BorderSide(color: Colors.white, width: 3),),
+            side: BorderSide(color: Colors.white, width: 3),
+          ),
         ),
         child: Text(
           label,

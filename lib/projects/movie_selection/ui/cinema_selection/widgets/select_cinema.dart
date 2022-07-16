@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SelectCinema extends StatelessWidget {
   const SelectCinema({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

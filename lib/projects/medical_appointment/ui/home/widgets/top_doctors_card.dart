@@ -5,9 +5,9 @@ import 'package:flutter_projects/projects/medical_appointment/utils/md_app_color
 
 class TopDoctorCard extends StatelessWidget {
   const TopDoctorCard({
-    Key? key,
+    super.key,
     required this.doctor,
-  }) : super(key: key);
+  });
 
   final Doctor doctor;
 
@@ -82,9 +82,8 @@ class TopDoctorCard extends StatelessWidget {
 
 class _DoctorInformation extends StatelessWidget {
   const _DoctorInformation({
-    Key? key,
     required this.doctor,
-  }) : super(key: key);
+  });
 
   final Doctor doctor;
 
@@ -181,9 +180,8 @@ class _DoctorInformation extends StatelessWidget {
 
 class _WhiteBackground extends StatelessWidget {
   const _WhiteBackground({
-    Key? key,
     required this.doctor,
-  }) : super(key: key);
+  });
   final Doctor doctor;
 
   @override

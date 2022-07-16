@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HeaderOption extends StatelessWidget {
   const HeaderOption({
-    Key? key,
+    super.key,
     this.title,
     this.isSelected,
-  }) : super(key: key);
+  });
 
   final String? title;
   final bool? isSelected;

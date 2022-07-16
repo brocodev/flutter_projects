@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
-    Key? key,
+    super.key,
     this.text,
     this.onTap,
     this.width,
-  }) : super(key: key);
+  });
 
   final String? text;
   final double? width;

@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixTrendingPage extends StatelessWidget {
   const OrixTrendingPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +79,8 @@ class OrixTrendingPage extends StatelessWidget {
 
 class _MainTrendingGame extends StatelessWidget {
   const _MainTrendingGame({
-    Key? key,
     required this.game,
-  }) : super(key: key);
+  });
 
   final VideoGame game;
 
@@ -190,10 +189,9 @@ class _MainTrendingGame extends StatelessWidget {
 
 class _OrixTrendingGameCard extends StatelessWidget {
   const _OrixTrendingGameCard({
-    Key? key,
     required this.game,
     required this.materialColor,
-  }) : super(key: key);
+  });
 
   final VideoGame game;
   final MaterialColor materialColor;

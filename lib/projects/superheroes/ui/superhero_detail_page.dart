@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroDetailPage extends StatefulWidget {
   const SuperheroDetailPage({
-    Key? key,
+    super.key,
     required this.superhero,
-  }) : super(key: key);
+  });
 
   final Superhero superhero;
 

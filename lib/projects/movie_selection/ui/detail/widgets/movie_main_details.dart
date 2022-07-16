@@ -3,12 +3,11 @@ import 'package:flutter_projects/projects/movie_selection/constants/constants.da
 import 'package:flutter_projects/projects/movie_selection/models/movie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class MovieMainDetails extends StatelessWidget {
   const MovieMainDetails({
-    Key? key,
+    super.key,
     required this.movie,
-  }) : super(key: key);
+  });
 
   final Movie? movie;
 
@@ -30,13 +29,15 @@ class MovieMainDetails extends StatelessWidget {
           const SizedBox(width: 20),
           Flexible(
             child: Column(
-
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 buildInfoText('Genre:', movie!.tags!.first, size),
-                buildInfoText('Duration:',
-                    '${movie!.duration!.inMinutes} min', size,),
+                buildInfoText(
+                  'Duration:',
+                  '${movie!.duration!.inMinutes} min',
+                  size,
+                ),
                 buildInfoText('Release year:', movie!.year, size),
                 buildInfoText('Director:', movie!.director, size),
                 buildInfoText('Writer:', movie!.writer, size),
@@ -51,13 +52,17 @@ class MovieMainDetails extends StatelessWidget {
 
   Text buildInfoText(String title, String subtitle, Size size) {
     return Text.rich(
-      TextSpan(text: title, children: [
-        TextSpan(
+      TextSpan(
+        text: title,
+        children: [
+          TextSpan(
             text: '  $subtitle',
             style: const TextStyle(
               color: Colors.white,
-            ),)
-      ],),
+            ),
+          )
+        ],
+      ),
       maxLines: 1,
       style: GoogleFonts.barlowCondensed(
         color: kPrimaryColorLight,

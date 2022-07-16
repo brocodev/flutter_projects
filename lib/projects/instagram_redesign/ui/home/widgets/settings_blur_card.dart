@@ -7,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SettingsBlurCard extends StatelessWidget {
   const SettingsBlurCard({
-    Key? key,
+    super.key,
     this.height = 0,
-  }) : super(key: key);
+  });
 
   final double height;
 
@@ -129,11 +129,10 @@ class SettingsBlurCard extends StatelessWidget {
 
 class _ViewModeItem extends StatelessWidget {
   const _ViewModeItem({
-    Key? key,
     required this.viewState,
     required this.modeNumber,
     required this.nameMode,
-  }) : super(key: key);
+  });
 
   final ViewState viewState;
   final int modeNumber;
@@ -194,11 +193,10 @@ class _ViewModeItem extends StatelessWidget {
 
 class _SettingsSwitcher extends StatelessWidget {
   const _SettingsSwitcher({
-    Key? key,
     required this.label,
     required this.value,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   final String label;
   final bool value;

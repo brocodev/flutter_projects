@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-class CardPlaceInformation extends StatelessWidget {
-  const CardPlaceInformation({
-    Key? key,
-  }) : super(key: key);
+class PlaceInformationCard extends StatelessWidget {
+  const PlaceInformationCard({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +83,11 @@ class CardPlaceInformation extends StatelessWidget {
           onPressed: () {},
           elevation: 2,
           backgroundColor: Colors.pinkAccent,
-          child: const Icon(Icons.person_pin_circle,
-              color: Colors.white, size: 35,),
+          child: const Icon(
+            Icons.person_pin_circle,
+            color: Colors.white,
+            size: 35,
+          ),
         )
       ],
     );
@@ -92,7 +95,7 @@ class CardPlaceInformation extends StatelessWidget {
 }
 
 class _InlineTextSpan extends StatelessWidget {
-  const _InlineTextSpan({Key? key, this.field, this.value}) : super(key: key);
+  const _InlineTextSpan({this.field, this.value});
 
   final String? field;
   final String? value;
@@ -101,18 +104,20 @@ class _InlineTextSpan extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-          text: field,
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: MediaQuery.of(context).size.height * .014,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,),
-          children: [
-            TextSpan(
-              text: " $value",
-              style: const TextStyle(color: Colors.grey),
-            ),
-          ],),
+        text: field,
+        style: TextStyle(
+          fontFamily: 'Poppins',
+          fontSize: MediaQuery.of(context).size.height * .014,
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+        ),
+        children: [
+          TextSpan(
+            text: " $value",
+            style: const TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
     );
   }
 }

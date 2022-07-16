@@ -8,7 +8,7 @@ import 'package:flutter_projects/projects/movie_selection/ui/widgets/tag_contain
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketPage extends StatelessWidget {
-  const TicketPage({Key? key, this.movie}) : super(key: key);
+  const TicketPage({super.key, this.movie});
 
   final Movie? movie;
 
@@ -155,11 +155,10 @@ class TicketPage extends StatelessWidget {
 
 class _TileInfo extends StatelessWidget {
   const _TileInfo({
-    Key? key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
-  }) : super(key: key);
+  });
   final String? title;
   final String? subtitle;
   final CrossAxisAlignment? crossAxisAlignment;

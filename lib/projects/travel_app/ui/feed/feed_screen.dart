@@ -39,7 +39,7 @@ class FeedScreen extends StatelessWidget {
                 onPressed: () async {
                   Navigator.push(
                     context,
-                    PageRouteBuilder(
+                    PageRouteBuilder<dynamic>(
                       pageBuilder: (_, animation, __) => FadeTransition(
                         opacity: animation,
                         child: PlaceDetailScreen(

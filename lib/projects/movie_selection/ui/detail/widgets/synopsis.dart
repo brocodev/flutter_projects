@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class Synopsis extends StatelessWidget {
-  const Synopsis({Key? key, this.description}) : super(key: key);
+  const Synopsis({super.key, this.description});
 
   final String? description;
 
@@ -26,10 +25,11 @@ class Synopsis extends StatelessWidget {
           description!,
           textAlign: TextAlign.justify,
           style: GoogleFonts.barlowCondensed(
-              fontSize: size.height * .02,
-              height: 1.5,
-              fontWeight: FontWeight.w400,
-              color: kPrimaryColorLight,),
+            fontSize: size.height * .02,
+            height: 1.5,
+            fontWeight: FontWeight.w400,
+            color: kPrimaryColorLight,
+          ),
         ),
       ],
     );

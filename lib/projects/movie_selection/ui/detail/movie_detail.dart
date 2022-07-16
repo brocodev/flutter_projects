@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
@@ -14,9 +13,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MovieDetail extends StatelessWidget {
   const MovieDetail({
-    Key? key,
+    super.key,
     this.movie,
-  }) : super(key: key);
+  });
 
   final Movie? movie;
 
@@ -104,7 +103,7 @@ class MovieDetail extends StatelessWidget {
   void _openCinemaSelection(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
       context,
-      PageRouteBuilder(
+      PageRouteBuilder<dynamic>(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
@@ -118,10 +117,8 @@ class MovieDetail extends StatelessWidget {
 }
 
 class _BodyDetail extends StatelessWidget {
-  const _BodyDetail({
-    Key? key,
-    required this.movie,
-  }) : super(key: key);
+  const _BodyDetail({required this.movie});
+
   final Movie? movie;
 
   @override

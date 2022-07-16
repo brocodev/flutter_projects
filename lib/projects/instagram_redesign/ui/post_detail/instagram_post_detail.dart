@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/post_detail/widgets/detail_widgets.dart';
 
 class InstagramPostDetail extends StatelessWidget {
   const InstagramPostDetail({
-    Key? key,
+    super.key,
     required this.post,
     required this.postCard,
-  }) : super(key: key);
+  });
 
   final IgPost post;
   final Widget postCard;

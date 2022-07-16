@@ -12,7 +12,7 @@ final kAllCategories = Book.bookCategories.where((element) {
 }).toList();
 
 class FilterPage extends StatefulWidget {
-  const FilterPage({Key? key}) : super(key: key);
+  const FilterPage({super.key});
 
   @override
   FilterPageState createState() => FilterPageState();
@@ -55,9 +55,7 @@ class FilterPageState extends State<FilterPage> {
             tag: 'filters-background',
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: Container(
-                color: Colors.blue[800]!.withOpacity(.7),
-              ),
+              child: ColoredBox(color: Colors.blue[800]!.withOpacity(.7)),
             ),
           ),
           Positioned.fill(
@@ -163,10 +161,9 @@ class FilterPageState extends State<FilterPage> {
 
 class _FadeAndSlideTransition extends StatelessWidget {
   const _FadeAndSlideTransition({
-    Key? key,
     this.child,
     this.enableAnimation,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final bool? enableAnimation;
@@ -196,10 +193,9 @@ class _FadeAndSlideTransition extends StatelessWidget {
 
 class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
-    Key? key,
     required this.category,
     this.isSelected,
-  }) : super(key: key);
+  });
 
   final String category;
   final bool? isSelected;

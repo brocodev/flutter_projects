@@ -5,11 +5,11 @@ import 'package:flutter_projects/projects/photographers_app/theme/photo_app_colo
 
 class PhotoUserCard extends StatelessWidget {
   const PhotoUserCard({
-    Key? key,
+    super.key,
     required this.user,
     this.size = 100.0,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final PhotoUser user;
   final double size;

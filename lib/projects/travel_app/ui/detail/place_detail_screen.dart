@@ -7,10 +7,10 @@ import 'package:flutter_projects/projects/travel_app/ui/widgets/translate_animat
 
 class PlaceDetailScreen extends StatefulWidget {
   const PlaceDetailScreen({
-    Key? key,
+    super.key,
     required this.place,
     required this.screenHeight,
-  }) : super(key: key);
+  });
 
   final TravelPlace place;
   final double screenHeight;

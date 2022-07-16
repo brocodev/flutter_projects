@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HourContainer extends StatelessWidget {
   const HourContainer({
-    Key? key,
+    super.key,
     this.hour,
     this.id,
     this.selectedHourNotifier,
     this.onTap,
-  }) : super(key: key);
+  });
   final String? hour;
   final ValueNotifier<int?>? selectedHourNotifier;
   final int? id;

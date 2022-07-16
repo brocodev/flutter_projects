@@ -4,9 +4,9 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_
 
 class CommentListTile extends StatelessWidget {
   const CommentListTile({
-    Key? key,
+    super.key,
     required this.comment,
-  }) : super(key: key);
+  });
 
   final Comment comment;
 

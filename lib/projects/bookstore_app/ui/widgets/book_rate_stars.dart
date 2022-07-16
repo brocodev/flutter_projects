@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 
 class BookRateStars extends StatelessWidget {
   const BookRateStars({
+    super.key,
     required this.rate,
     required this.heroTag,
     this.starsColor = Colors.yellow,
     this.voidStarsColor = const Color(0xFFFFDAAE),
-    Key? key,
     this.iconSize = 18,
     this.fontSize = 14,
-  })  : assert(
+  }) : assert(
           rate >= 0.0 && rate <= 5.0,
           'The rate value must be between 0 to 5',
-        ),
-        super(key: key);
+        );
 
   final double rate;
   final Color starsColor;

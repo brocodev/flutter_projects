@@ -9,7 +9,7 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramApp extends StatelessWidget {
-  const InstagramApp({Key? key}) : super(key: key);
+  const InstagramApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,7 @@ class InstagramApp extends StatelessWidget {
 }
 
 class _MateApp extends StatelessWidget {
-  const _MateApp({
-    Key? key,
-  }) : super(key: key);
+  const _MateApp();
 
   @override
   Widget build(BuildContext context) {

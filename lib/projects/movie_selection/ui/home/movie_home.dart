@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/billboard.dart';
@@ -6,7 +5,7 @@ import 'package:flutter_projects/projects/movie_selection/ui/home/widgets/billbo
 import 'package:flutter_projects/projects/movie_selection/ui/home/widgets/header_option.dart';
 
 class MovieHome extends StatelessWidget {
-  MovieHome({Key? key}) : super(key: key);
+  MovieHome({super.key});
 
   final resizeNotifier = ValueNotifier<double>(0);
   final ScrollController _scrollController = ScrollController();
@@ -55,7 +54,7 @@ class MovieHome extends StatelessWidget {
                 child: child,
               );
             },
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
                   color: kPrimaryColorHeavy,
                   boxShadow: [

@@ -1,12 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
 
 class PlaceCommentsWidget extends StatelessWidget {
   const PlaceCommentsWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,7 @@ class PlaceCommentsWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.all(10),
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),

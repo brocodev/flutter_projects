@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/billboard.dart';
@@ -9,9 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BillboardList extends StatelessWidget {
   const BillboardList({
-    Key? key,
+    super.key,
     required this.billboard,
-  }) : super(key: key);
+  });
 
   final Billboard billboard;
 
@@ -61,16 +60,16 @@ class BillboardList extends StatelessWidget {
 
 class MovieBillboardCard extends StatelessWidget {
   const MovieBillboardCard({
-    Key? key,
+    super.key,
     required this.movie,
-  }) : super(key: key);
+  });
 
   final Movie movie;
 
   void _openMovieDetail(BuildContext context, Movie movie) {
     Navigator.push(
       context,
-      PageRouteBuilder(
+      PageRouteBuilder<dynamic>(
         transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) {
           return MovieDetail(movie: movie);

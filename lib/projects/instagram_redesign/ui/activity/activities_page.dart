@@ -5,7 +5,7 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/activity/widgets
 import 'package:google_fonts/google_fonts.dart';
 
 class ActivitiesPage extends StatefulWidget {
-  const ActivitiesPage({Key? key}) : super(key: key);
+  const ActivitiesPage({super.key});
 
   @override
   ActivitiesPageState createState() => ActivitiesPageState();

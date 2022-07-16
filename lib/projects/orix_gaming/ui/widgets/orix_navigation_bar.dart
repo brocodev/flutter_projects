@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixNavigationBar extends StatelessWidget {
   const OrixNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     this.currentIndex = 0,
     this.onTapItem,
-  }) : super(key: key);
+  });
   final List<OrixNavigationBarItem> items;
   final int currentIndex;
   final ValueChanged<int>? onTapItem;
@@ -36,10 +36,9 @@ class OrixNavigationBar extends StatelessWidget {
 
 class _NavItemWidget extends StatelessWidget {
   const _NavItemWidget({
-    Key? key,
     required this.haveFocus,
     required this.item,
-  }) : super(key: key);
+  });
 
   final bool haveFocus;
   final OrixNavigationBarItem item;

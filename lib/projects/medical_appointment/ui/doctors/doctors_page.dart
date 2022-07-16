@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/medical_appointment/utils/md_app_colors.dart';
 
 class DoctorsPage extends StatelessWidget {
-  const DoctorsPage({Key? key}):super(key: key);
+  const DoctorsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

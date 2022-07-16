@@ -4,8 +4,8 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_
 
 class AddCommentTextField extends StatelessWidget {
   const AddCommentTextField({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionCard extends StatelessWidget {
   const DescriptionCard({
-    Key? key,
+    super.key,
     required this.album,
     this.padding,
-  }) : super(key: key);
+  });
 
   final Album album;
   final EdgeInsetsGeometry? padding;
@@ -177,10 +177,9 @@ class DescriptionCard extends StatelessWidget {
 
 class _Dot extends StatelessWidget {
   const _Dot({
-    Key? key,
     this.sizeDot,
     this.color,
-  }) : super(key: key);
+  });
   final double? sizeDot;
   final Color? color;
 

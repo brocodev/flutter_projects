@@ -5,10 +5,10 @@ import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
 
 class ReadersRow extends StatelessWidget {
   const ReadersRow({
-    Key? key,
+    super.key,
     required this.readers,
     this.avatarSize = 30,
-  }) : super(key: key);
+  });
 
   final List<UserBook>? readers;
   final double avatarSize;

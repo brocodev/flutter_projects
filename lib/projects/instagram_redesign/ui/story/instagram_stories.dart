@@ -6,7 +6,7 @@ import 'package:flutter_projects/projects/instagram_redesign/models/ig_user_stor
 import 'package:flutter_projects/projects/instagram_redesign/ui/story/widgets/stories_widgets.dart';
 
 class InstagramStories extends StatefulWidget {
-  const InstagramStories({Key? key, this.stories}) : super(key: key);
+  const InstagramStories({super.key, this.stories});
 
   final IgUserStories? stories;
 
@@ -64,7 +64,7 @@ class _InstagramStoriesState extends State<InstagramStories>
   //-----OPEN STORY
   //--------------------------------
   void _openUserStories(int index) {
-    Navigator.pushReplacement(context, PageRouteBuilder(
+    Navigator.pushReplacement(context, PageRouteBuilder<dynamic>(
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,

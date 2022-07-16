@@ -7,11 +7,11 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   void _openHomePage(BuildContext context) {
-    final newRoute = PageRouteBuilder(
+    final newRoute = PageRouteBuilder<dynamic>(
       transitionDuration: const Duration(milliseconds: 1000),
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
@@ -151,9 +151,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class _DragDownIndication extends StatelessWidget {
-  const _DragDownIndication({
-    Key? key,
-  }) : super(key: key);
+  const _DragDownIndication();
 
   @override
   Widget build(BuildContext context) {

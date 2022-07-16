@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StreamingApp extends StatelessWidget {
-  const StreamingApp({Key? key}) : super(key: key);
+  const StreamingApp({super.key});
 
   @override
   Widget build(BuildContext context) {

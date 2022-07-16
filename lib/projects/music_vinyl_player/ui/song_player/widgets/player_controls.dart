@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class PlayerControls extends StatelessWidget {
   const PlayerControls({
-    Key? key,
+    super.key,
     required this.onPausePlay,
     required this.isPlaying,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPausePlay;
   final bool isPlaying;

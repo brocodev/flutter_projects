@@ -5,7 +5,7 @@ import 'package:flutter_projects/projects/find_out/ui/widgets/text_input_find_ou
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
           children: <Widget>[
             ValueListenableBuilder<bool>(
               valueListenable: resizeNotifier,
-              builder: (context,  value, child) {
+              builder: (context, value, child) {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.fastOutSlowIn,
@@ -129,9 +129,7 @@ class RegisterPage extends StatelessWidget {
 }
 
 class _DragDownIndication extends StatelessWidget {
-  const _DragDownIndication({
-    Key? key,
-  }) : super(key: key);
+  const _DragDownIndication();
 
   @override
   Widget build(BuildContext context) {
@@ -163,9 +161,7 @@ class _DragDownIndication extends StatelessWidget {
 }
 
 class _AcceptTerms extends StatelessWidget {
-  const _AcceptTerms({
-    Key? key,
-  }) : super(key: key);
+  const _AcceptTerms();
 
   @override
   Widget build(BuildContext context) {

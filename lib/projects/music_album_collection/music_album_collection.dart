@@ -3,7 +3,7 @@ import 'package:flutter_projects/projects/music_album_collection/ui/albums/album
 import 'package:google_fonts/google_fonts.dart';
 
 class MusicAlbumList extends StatelessWidget {
-  const MusicAlbumList({Key? key}) : super(key: key);
+  const MusicAlbumList({super.key});
 
   @override
   Widget build(BuildContext context) {

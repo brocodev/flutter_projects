@@ -8,7 +8,7 @@ import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_readers_
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/cover_page_book.dart';
 
 class BookDetailHeader extends StatelessWidget {
-  BookDetailHeader({Key? key, this.percent, this.book}) : super(key: key);
+  BookDetailHeader({super.key, this.percent, this.book});
 
   final double? percent;
   final Book? book;
@@ -24,7 +24,7 @@ class BookDetailHeader extends StatelessWidget {
     enableOpenBookAnimation.value = true;
     await Navigator.push(
       context,
-      PageRouteBuilder(
+      PageRouteBuilder<dynamic>(
         transitionDuration: const Duration(milliseconds: 600),
         reverseTransitionDuration: const Duration(milliseconds: 600),
         pageBuilder: (context, animation, secondaryAnimation) {
@@ -151,10 +151,9 @@ class BookDetailHeader extends StatelessWidget {
 // Blur
 class _BlurBackground extends StatelessWidget {
   const _BlurBackground({
-    Key? key,
     required this.book,
     required this.percent,
-  }) : super(key: key);
+  });
 
   final Book? book;
   final double? percent;
@@ -174,9 +173,9 @@ class _BlurBackground extends StatelessWidget {
       ),
       child: BackdropFilter(
         filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
+        child: ColoredBox(
           color: ColorTween(begin: Colors.black26, end: Colors.white)
-              .transform(percent!),
+              .transform(percent!)!,
         ),
       ),
     );
@@ -185,9 +184,8 @@ class _BlurBackground extends StatelessWidget {
 
 class _CategoryAndRate extends StatelessWidget {
   const _CategoryAndRate({
-    Key? key,
     required this.book,
-  }) : super(key: key);
+  });
 
   final Book? book;
 

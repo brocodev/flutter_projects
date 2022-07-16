@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class PageIndicators extends StatelessWidget {
   const PageIndicators({
-    Key? key,
+    super.key,
     required this.currentIndex,
     required this.numberIndicators,
-  }) : super(key: key);
+  });
 
   final int currentIndex;
   final int numberIndicators;

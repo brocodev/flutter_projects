@@ -5,11 +5,11 @@ import 'package:flutter_projects/projects/movie_selection/ui/detail/widgets/grad
 
 class GradientAnimationButton extends StatelessWidget {
   const GradientAnimationButton({
-    Key? key,
+    super.key,
     required this.hideWidgets,
     this.label,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final ValueNotifier<bool> hideWidgets;
   final String? label;

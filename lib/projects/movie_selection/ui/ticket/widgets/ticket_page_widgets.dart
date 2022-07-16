@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketDateWidget extends StatelessWidget {
-  const TicketDateWidget({Key? key}):super(key: key);
+  const TicketDateWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +71,13 @@ class TicketDateWidget extends StatelessWidget {
 
 class TileInfo extends StatelessWidget {
   const TileInfo({
-    Key? key,
+    super.key,
     this.title,
     this.subtitle,
     this.crossAxisAlignment,
     this.colorTitle = Colors.white,
     this.colorSubtitle = kPrimaryColorLight,
-  }) : super(key: key);
+  });
   final String? title;
   final String? subtitle;
   final CrossAxisAlignment? crossAxisAlignment;

@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/travel_app/extensions/text_theme_x.dart';
 import 'package:flutter_projects/projects/travel_app/models/place.dart';
 
 class GradientStatusTag extends StatelessWidget {
   const GradientStatusTag({
-    Key? key,
+    super.key,
     required this.statusTag,
-  }) : super(key: key);
+  });
 
   final StatusTag statusTag;
 

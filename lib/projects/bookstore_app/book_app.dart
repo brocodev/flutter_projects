@@ -4,9 +4,8 @@ import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc_pro
 import 'package:flutter_projects/projects/bookstore_app/theme/theme.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/home/home_page.dart';
 
-
 class BookStoreApp extends StatelessWidget {
-  const BookStoreApp({Key? key}) : super(key: key);
+  const BookStoreApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +21,7 @@ class BookStoreApp extends StatelessWidget {
 }
 
 class _BookNavigationPage extends StatefulWidget {
-  const _BookNavigationPage({
-    Key? key,
-  }) : super(key: key);
+  const _BookNavigationPage();
 
   @override
   _BookNavigationPageState createState() => _BookNavigationPageState();
@@ -65,8 +62,11 @@ class _BookNavigationPageState extends State<_BookNavigationPage> {
         height: kToolbarHeight,
         child: BottomNavigationBar(
           onTap: (value) => setState(() {
-            _pageController!.animateToPage(value,
-                duration: kThemeChangeDuration, curve: Curves.decelerate,);
+            _pageController!.animateToPage(
+              value,
+              duration: kThemeChangeDuration,
+              curve: Curves.decelerate,
+            );
             _indexPage = value;
           }),
           selectedItemColor: Colors.blue,

@@ -5,8 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TypeSeatInfo extends StatelessWidget {
 
-  const TypeSeatInfo({Key? key, this.quantity, this.color, this.label})
-      : super(key: key);
+  const TypeSeatInfo({super.key, this.quantity, this.color, this.label});
 
   final int? quantity;
   final Color? color;
@@ -55,11 +54,11 @@ class TypeSeatInfo extends StatelessWidget {
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    Key? key,
+    super.key,
     this.onPressedBack,
     this.title,
     this.subtitle,
-  }) : super(key: key);
+  });
   final VoidCallback? onPressedBack;
   final String? title;
   final String? subtitle;
@@ -116,11 +115,11 @@ class CustomAppBar extends StatelessWidget {
 
 class RowSeats extends StatelessWidget {
   const RowSeats({
-    Key? key,
+    super.key,
     this.numSeats,
     this.seatsOccupied,
     this.seatsSelectedNotifier,
-  }) : super(key: key);
+  });
 
   final int? numSeats;
   final List<int>? seatsOccupied;

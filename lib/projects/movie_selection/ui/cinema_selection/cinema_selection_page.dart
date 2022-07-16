@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_projects/projects/movie_selection/ui/widgets/top_bordere
 import 'package:google_fonts/google_fonts.dart';
 
 class CinemaSelectionPage extends StatelessWidget {
-  const CinemaSelectionPage({Key? key, this.movie}) : super(key: key);
+  const CinemaSelectionPage({super.key, this.movie});
 
   final Movie? movie;
 
@@ -38,10 +37,9 @@ class CinemaSelectionPage extends StatelessWidget {
 
 class _BodyCinemaSelection extends StatelessWidget {
   const _BodyCinemaSelection({
-    Key? key,
     required this.movie,
     required this.hideWidgets,
-  }) : super(key: key);
+  });
 
   final Movie? movie;
   final ValueNotifier<bool> hideWidgets;
@@ -159,7 +157,7 @@ class _BodyCinemaSelection extends StatelessWidget {
   void _openChooseSeats(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
         context,
-        PageRouteBuilder(
+        PageRouteBuilder<dynamic>(
           transitionDuration: kDuration400ms,
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(

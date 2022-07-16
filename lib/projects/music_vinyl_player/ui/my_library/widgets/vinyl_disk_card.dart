@@ -5,13 +5,13 @@ import 'package:flutter_projects/projects/music_vinyl_player/ui/widgets/vinyl_di
 
 class VinylAlbumCover extends StatelessWidget {
   const VinylAlbumCover({
-    Key? key,
+    super.key,
     required this.album,
     required this.factorChange,
     this.height,
     this.currentIndex,
     this.index,
-  }) : super(key: key);
+  });
   final Album album;
   final double factorChange;
   final double? height;
@@ -55,10 +55,9 @@ class VinylAlbumCover extends StatelessWidget {
 
 class _AlbumImage extends StatelessWidget {
   const _AlbumImage({
-    Key? key,
     required this.albumImageHeight,
     required this.album,
-  }) : super(key: key);
+  });
 
   final double? albumImageHeight;
   final Album album;

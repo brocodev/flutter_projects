@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class BackgroundShaderImage extends StatelessWidget {
   const BackgroundShaderImage({
-    Key? key,
+    super.key,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   final String imageUrl;
 
@@ -20,7 +20,7 @@ class BackgroundShaderImage extends StatelessWidget {
           width: double.infinity,
           fit: BoxFit.cover,
           placeholder: (context, url) => const Center(
-            child:  CupertinoActivityIndicator(radius: 40),
+            child: CupertinoActivityIndicator(radius: 40),
           ),
         ),
         Positioned.fill(

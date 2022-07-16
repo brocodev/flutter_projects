@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SongPlayFooter extends StatelessWidget {
   const SongPlayFooter({
-    Key? key,
+    super.key,
     required this.song,
-  }) : super(key: key);
+  });
 
   final Song song;
 

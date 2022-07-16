@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class AnimatedLine extends StatelessWidget {
   const AnimatedLine({
-    Key? key,
+    super.key,
     required this.index,
     required this.selectedIndex,
     this.animationController,
-  }) : super(key: key);
+  });
 
   final int index;
   final int selectedIndex;

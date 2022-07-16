@@ -3,11 +3,11 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramAddItem extends StatelessWidget {
   const InstagramAddItem({
-    Key? key,
+    super.key,
     required this.itemSize,
     this.onTap,
     this.label = "",
-  }) : super(key: key);
+  });
 
   final double itemSize;
   final VoidCallback? onTap;

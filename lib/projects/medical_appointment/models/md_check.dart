@@ -7,6 +7,7 @@ enum TypeCheck {
   glucose,
   height
 }
+
 enum MedicalState { normal, alert, danger }
 
 class MedicalCheck {
@@ -40,7 +41,7 @@ class MedicalCheck {
   }
 
   MedicalState getMedicalState() {
-    switch (check) {
+    switch (check!) {
       case TypeCheck.weight:
         return MedicalState.alert;
       case TypeCheck.glucose:
@@ -53,7 +54,7 @@ class MedicalCheck {
         return MedicalState.normal;
       case TypeCheck.cholesterol:
         return MedicalState.danger;
-      default:
+      case TypeCheck.height:
         return MedicalState.normal;
     }
   }

@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class RoundedIconButton extends StatelessWidget {
   const RoundedIconButton({
-    Key? key,
+    super.key,
     required this.iconData,
     required this.label,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final IconData iconData;
   final String label;

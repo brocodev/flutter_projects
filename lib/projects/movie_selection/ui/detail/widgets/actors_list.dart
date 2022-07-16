@@ -6,9 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ActorsList extends StatelessWidget {
   const ActorsList({
-    Key? key,
+    super.key,
     this.listActors,
-  }) : super(key: key);
+  });
 
   final List<Actor>? listActors;
 

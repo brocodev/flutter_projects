@@ -4,11 +4,11 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_
 
 class InstagramStoriesItem extends StatelessWidget {
   const InstagramStoriesItem({
-    Key? key,
+    super.key,
     this.itemSize,
     required this.onTap,
     required this.stories,
-  }) : super(key: key);
+  });
 
   final double? itemSize;
   final VoidCallback onTap;

@@ -6,10 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SuperheroCard extends StatelessWidget {
   const SuperheroCard({
-    Key? key,
+    super.key,
     required this.superhero,
     required this.factorChange,
-  }) : super(key: key);
+  });
 
   final Superhero superhero;
   final double? factorChange;
@@ -49,7 +49,7 @@ class SuperheroCard extends StatelessWidget {
             child: Opacity(
               opacity: 1.0 - factorChange!,
               child: Transform.scale(
-                scale: lerpDouble(1, .4, factorChange!)!,
+                scale: lerpDouble(1, .4, factorChange!),
                 child: Hero(
                   tag: superhero.pathImage!,
                   child: Image.asset(superhero.pathImage!),
@@ -90,7 +90,7 @@ class SuperheroCard extends StatelessWidget {
                 Text.rich(
                   const TextSpan(
                     text: 'learn more',
-                    children:  [
+                    children: [
                       WidgetSpan(
                         alignment: PlaceholderAlignment.middle,
                         child: Icon(
@@ -101,9 +101,10 @@ class SuperheroCard extends StatelessWidget {
                     ],
                   ),
                   style: GoogleFonts.leagueSpartan(
-                      color: Colors.amber,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,),
+                    color: Colors.amber,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 )
               ],
             ),

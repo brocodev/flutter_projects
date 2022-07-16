@@ -3,7 +3,7 @@ import 'package:flutter_projects/projects/movie_selection/constants/constants.da
 import 'package:google_fonts/google_fonts.dart';
 
 class CreditCardSlide extends StatelessWidget {
-  const CreditCardSlide({Key? key}):super(key: key);
+  const CreditCardSlide({super.key});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -55,9 +55,9 @@ class CreditCardSlide extends StatelessWidget {
 
 class CreditCard extends StatelessWidget {
   const CreditCard({
-    Key? key,
+    super.key,
     required this.colors,
-  }) : super(key: key);
+  });
   final List<Color> colors;
 
   @override

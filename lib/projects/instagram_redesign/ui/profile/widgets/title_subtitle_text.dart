@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class IgTitleSubtitleText extends StatelessWidget {
   const IgTitleSubtitleText({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     this.height = 1.5,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;

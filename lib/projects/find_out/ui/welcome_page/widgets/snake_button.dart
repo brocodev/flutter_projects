@@ -4,16 +4,15 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 /// Watch the full video to create this [SnakeButton] on diegoveloper's channel
 /// https://www.youtube.com/watch?v=e-OPrZWowB4&ab_channel=diegoveloper
 class SnakeButton extends StatefulWidget {
-
   const SnakeButton({
-    Key? key,
+    super.key,
     this.onPressed,
     this.duration = const Duration(milliseconds: 2500),
     this.borderColor = Colors.white,
     this.snakeColor = Colors.pinkAccent,
     this.borderWidth = 3.0,
     this.child,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final VoidCallback? onPressed;
@@ -62,20 +61,13 @@ class _SnakeButtonState extends State<SnakeButton>
 }
 
 class _SnakePainter extends CustomPainter {
-  _SnakePainter({
-    required this.animation,
-    this.snakeColor = Colors.pinkAccent,
-    this.borderColor = Colors.white,
-    this.borderWidth = 3.0,
-  }) : super(repaint: animation);
+  _SnakePainter({required this.animation}) : super(repaint: animation);
 
   final Animation<double>? animation;
-  final Color snakeColor;
-  final Color borderColor;
-  final double borderWidth;
 
   @override
   void paint(Canvas canvas, Size size) {
+    const borderWidth = 3.0;
     //-------------------------------
     // Draw border button
     //-------------------------------
@@ -93,7 +85,7 @@ class _SnakePainter extends CustomPainter {
     //-------------------------------
     final snakePaint = Paint()
       ..shader = SweepGradient(
-          colors: const [
+        colors: const [
           Colors.pinkAccent,
           Colors.transparent,
         ],

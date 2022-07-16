@@ -4,9 +4,9 @@ import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/widgets/b
 
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({
-    Key? key,
+    super.key,
     required this.book,
-  }) : super(key: key);
+  });
 
   final Book book;
 
@@ -146,9 +146,8 @@ class BookDetailPage extends StatelessWidget {
 
 class _SimilarBookCard extends StatelessWidget {
   const _SimilarBookCard({
-    Key? key,
     required this.book,
-  }) : super(key: key);
+  });
 
   final Book book;
 
@@ -192,9 +191,8 @@ class _SimilarBookCard extends StatelessWidget {
 
 class _ReviewContainer extends StatelessWidget {
   const _ReviewContainer({
-    Key? key,
     required this.review,
-  }) : super(key: key);
+  });
 
   final Review review;
 

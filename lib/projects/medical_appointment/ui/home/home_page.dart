@@ -7,7 +7,7 @@ import 'package:flutter_projects/projects/medical_appointment/utils/md_app_color
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicalHomePage extends StatefulWidget {
-  const MedicalHomePage({Key? key}) : super(key: key);
+  const MedicalHomePage({super.key});
 
   @override
   MedicalHomePageState createState() => MedicalHomePageState();
@@ -147,9 +147,8 @@ class MedicalHomePageState extends State<MedicalHomePage> {
 
 class _BodyHome extends StatelessWidget {
   const _BodyHome({
-    Key? key,
     this.contentPadding,
-  }) : super(key: key);
+  });
   final EdgeInsetsGeometry? contentPadding;
 
   @override

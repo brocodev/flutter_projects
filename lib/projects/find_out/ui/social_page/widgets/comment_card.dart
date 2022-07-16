@@ -4,9 +4,9 @@ import 'package:flutter_projects/projects/find_out/models/comments.dart';
 
 class CommentCard extends StatelessWidget {
   const CommentCard({
-    Key? key,
+    super.key,
     required this.comment,
-  }) : super(key: key);
+  });
 
   final Comment comment;
 
@@ -31,21 +31,27 @@ class CommentCard extends StatelessWidget {
               ),
               const SizedBox(width: 5),
               Flexible(
-                  child: RichText(
-                text: TextSpan(
+                child: RichText(
+                  text: TextSpan(
                     text: comment.user,
                     style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        fontSize: fontSize,),
+                      color: Colors.black,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      fontSize: fontSize,
+                    ),
                     children: [
                       TextSpan(
-                          text: '\nhace 20 min',
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: fontSize * .8,),)
-                    ],),
-              ),),
+                        text: '\nhace 20 min',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: fontSize * .8,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -55,10 +61,11 @@ class CommentCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: CachedNetworkImage(
-                    imageUrl: comment.photoCommentUrl!,
-                    height: 100,
-                    width: double.infinity,
-                    fit: BoxFit.cover,),
+                  imageUrl: comment.photoCommentUrl!,
+                  height: 100,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           Flexible(
@@ -69,9 +76,10 @@ class CommentCard extends StatelessWidget {
                 textAlign: TextAlign.justify,
                 overflow: TextOverflow.fade,
                 style: TextStyle(
-                    color: Colors.grey[500],
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,),
+                  color: Colors.grey[500],
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),
               ),
             ),
           ),
@@ -86,7 +94,9 @@ class CommentCard extends StatelessWidget {
               Text(
                 " ${comment.commentLikes}",
                 style: TextStyle(
-                    color: Colors.grey[600], fontWeight: FontWeight.w700,),
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               const SizedBox(width: 20),
               Icon(
@@ -96,7 +106,9 @@ class CommentCard extends StatelessWidget {
               Text(
                 " ${comment.commentResponses}",
                 style: TextStyle(
-                    color: Colors.grey[600], fontWeight: FontWeight.w700,),
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ],
           )

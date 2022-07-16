@@ -5,13 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LikeButton extends StatelessWidget {
   const LikeButton({
-    Key? key,
+    super.key,
     required this.likes,
     required this.isLiked,
     required this.onTap,
     this.textColor = Colors.white,
     this.backgroundColor,
-  }) : super(key: key);
+  });
 
   final int? likes;
   final bool? isLiked;

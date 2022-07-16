@@ -131,7 +131,6 @@ class _PerspectiveListViewState extends State<PerspectiveListView> {
 
 class _PerspectiveItems extends StatelessWidget {
   const _PerspectiveItems({
-    super.key,
     required this.generatedItems,
     required this.currentIndex,
     required this.heightItem,
@@ -205,7 +204,6 @@ class _PerspectiveItems extends StatelessWidget {
 
 class _TransformedItem extends StatelessWidget {
   const _TransformedItem({
-    Key? key,
     required this.heightItem,
     required this.child,
     required this.factorChange,
@@ -213,7 +211,7 @@ class _TransformedItem extends StatelessWidget {
     this.scale = 1.0,
     this.endTranslateY = 0.0,
     this.translateY = 0.0,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final double? heightItem;

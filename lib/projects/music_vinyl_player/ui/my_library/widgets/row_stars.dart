@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class RowStars extends StatelessWidget {
   const RowStars({
-    Key? key,
+    super.key,
     this.stars,
     this.size,
     this.color = Colors.cyan,
-  }) : super(key: key);
+  });
 
   final double? stars;
   final double? size;

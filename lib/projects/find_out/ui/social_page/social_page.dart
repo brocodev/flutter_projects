@@ -10,7 +10,7 @@ import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dar
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SocialPage extends StatelessWidget {
-  const SocialPage({Key? key, required this.place}) : super(key: key);
+  const SocialPage({super.key, required this.place});
 
   final Place place;
 
@@ -161,12 +161,11 @@ class SocialPage extends StatelessWidget {
 
 class _HeaderSocialPage extends StatelessWidget {
   const _HeaderSocialPage({
-    Key? key,
     required this.heightBackPageView,
     required this.place,
     required this.indexImageBackground,
     required this.infoVisibleNotifier,
-  }) : super(key: key);
+  });
 
   final double heightBackPageView;
   final Place place;
@@ -227,7 +226,7 @@ class _HeaderSocialPage extends StatelessWidget {
                 ),
               );
             },
-            child: const CardPlaceInformation(),
+            child: const PlaceInformationCard(),
           )
         ],
       ),
@@ -237,10 +236,9 @@ class _HeaderSocialPage extends StatelessWidget {
 
 class _TitleAndHeart extends StatelessWidget {
   const _TitleAndHeart({
-    Key? key,
     required this.place,
     required this.infoVisibleNotifier,
-  }) : super(key: key);
+  });
 
   final Place place;
   final ValueNotifier<bool> infoVisibleNotifier;
@@ -283,10 +281,9 @@ class _TitleAndHeart extends StatelessWidget {
 
 class _PageViewIndicators extends StatelessWidget {
   const _PageViewIndicators({
-    Key? key,
     required this.maxIndex,
     required this.indexImageBackground,
-  }) : super(key: key);
+  });
 
   final int maxIndex;
   final ValueNotifier<int> indexImageBackground;
@@ -320,9 +317,7 @@ class _PageViewIndicators extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
-  const _CustomAppBar({
-    Key? key,
-  }) : super(key: key);
+  const _CustomAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -341,13 +336,12 @@ class _CustomAppBar extends StatelessWidget {
 
 class _BackImagesPageView extends StatelessWidget {
   const _BackImagesPageView({
-    Key? key,
     required this.place,
     this.indexNotifier,
-  }) : super(key: key);
+  });
 
   final Place place;
-  final ValueNotifier? indexNotifier;
+  final ValueNotifier<int>? indexNotifier;
 
   @override
   Widget build(BuildContext context) {

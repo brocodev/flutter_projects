@@ -9,8 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrixGamingHomePage extends StatefulWidget {
   const OrixGamingHomePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _OrixGamingHomePageState createState() => _OrixGamingHomePageState();
@@ -51,8 +51,7 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
           //--------------------------
           SafeArea(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -87,9 +86,10 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
                       Text(
                         'Gaming',
                         style: GoogleFonts.poppins(
-                            fontSize: 42,
-                            height: 0.8,
-                            fontWeight: FontWeight.w300,),
+                          fontSize: 42,
+                          height: 0.8,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ],
                   ),
@@ -136,7 +136,11 @@ class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
   }
 
   void _openTrendingPage(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const OrixTrendingPage()),);
+    Navigator.push(
+      context,
+      MaterialPageRoute<dynamic>(
+        builder: (context) => const OrixTrendingPage(),
+      ),
+    );
   }
 }

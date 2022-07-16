@@ -4,9 +4,9 @@ import 'package:flutter_svg/svg.dart';
 
 class AppointmentDetails extends StatelessWidget {
   const AppointmentDetails({
-    Key? key,
+    super.key,
     required this.mdAppointment,
-  }) : super(key: key);
+  });
   final MedicalAppointment mdAppointment;
 
   @override

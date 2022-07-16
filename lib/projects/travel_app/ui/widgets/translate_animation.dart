@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TranslateAnimation extends StatelessWidget {
-  const TranslateAnimation({Key? key, required this.child}) : super(key: key);
+  const TranslateAnimation({super.key, required this.child});
 
   final Widget child;
 

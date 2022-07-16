@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PlayerIndicator extends StatelessWidget {
   const PlayerIndicator({
-    Key? key,
+    super.key,
     required this.songTitle,
     required this.percentIndicator,
-  }) : super(key: key);
+  });
 
   final String songTitle;
   final double percentIndicator;

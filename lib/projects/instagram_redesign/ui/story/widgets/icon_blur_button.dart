@@ -2,14 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
 class IconBlurButton extends StatelessWidget {
   const IconBlurButton({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.iconData,
     this.size,
-  }) : super(key: key);
+  });
 
   final VoidCallback onTap;
   final IconData iconData;
@@ -28,7 +27,7 @@ class IconBlurButton extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: IconButton(
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
           color: Colors.white,
           icon: Icon(iconData),
           onPressed: onTap,

@@ -4,9 +4,9 @@ import 'package:flutter_projects/projects/bookstore_app/ui/widgets/cover_page_bo
 
 class OpenBookPage extends StatefulWidget {
   const OpenBookPage({
-    Key? key,
+    super.key,
     required this.book,
-  }) : super(key: key);
+  });
 
   final Book? book;
 
@@ -46,7 +46,7 @@ class OpenBookPageState extends State<OpenBookPage> {
         if (HeroFlightDirection.push == direction)
           OpenBookPage(book: widget.book)
         else
-          Container(color: Colors.white),
+          const ColoredBox(color: Colors.white),
         AnimatedBuilder(
           animation: animation,
           builder: (_, __) {

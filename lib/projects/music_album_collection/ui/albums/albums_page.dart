@@ -4,9 +4,9 @@ import 'package:flutter_projects/projects/music_album_collection/ui/albums/widge
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({
-    Key? key,
+    super.key,
     this.gridMode = true,
-  }) : super(key: key);
+  });
 
   final bool gridMode;
 
@@ -37,7 +37,7 @@ class _AlbumsPageState extends State<AlbumsPage> {
     Future.delayed(const Duration(milliseconds: 600), () {
       Navigator.pushReplacement(
           context,
-          PageRouteBuilder(
+          PageRouteBuilder<dynamic>(
             transitionDuration: const Duration(milliseconds: 600),
             pageBuilder: (context, animation, secondaryAnimation) {
               return FadeTransition(
@@ -79,10 +79,8 @@ class _AlbumsPageState extends State<AlbumsPage> {
 
 class _AlbumsListView extends StatelessWidget {
   const _AlbumsListView({
-    Key? key,
     required bool hideDisks,
-  })  : _hideDisks = hideDisks,
-        super(key: key);
+  })  : _hideDisks = hideDisks;
 
   final bool _hideDisks;
 
@@ -114,10 +112,8 @@ class _AlbumsListView extends StatelessWidget {
 
 class _AlbumsGridView extends StatelessWidget {
   const _AlbumsGridView({
-    Key? key,
     required bool hideDisks,
-  })  : _hideDisk = hideDisks,
-        super(key: key);
+  })  : _hideDisk = hideDisks;
 
   final bool _hideDisk;
 

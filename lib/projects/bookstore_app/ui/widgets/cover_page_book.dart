@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CoverPageBook extends StatelessWidget {
   const CoverPageBook({
-    Key? key,
+    super.key,
     required this.srcImageBook,
-  }) : super(key: key);
+  });
 
   final String? srcImageBook;
 

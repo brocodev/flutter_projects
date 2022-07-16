@@ -11,12 +11,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AmplePostCard extends StatefulWidget {
   const AmplePostCard({
-    Key? key,
+    super.key,
     required this.post,
     this.borderRadius = const BorderRadius.vertical(top: Radius.circular(50)),
     this.height,
     this.onTap,
-  }) : super(key: key);
+  });
   final IgPost post;
   final BorderRadiusGeometry borderRadius;
   final double? height;

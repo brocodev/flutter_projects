@@ -6,7 +6,7 @@ import 'package:flutter_projects/projects/photographers_app/ui/widgets/tile_skew
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoProfilePage extends StatelessWidget {
-  const PhotoProfilePage({Key? key, required this.user}) : super(key: key);
+  const PhotoProfilePage({super.key, required this.user});
 
   final PhotoUser user;
 
@@ -108,9 +108,8 @@ class PhotoProfilePage extends StatelessWidget {
 
 class _ImageProfile extends StatelessWidget {
   const _ImageProfile({
-    Key? key,
     required this.imageUser,
-  }) : super(key: key);
+  });
   final String? imageUser;
 
   @override
@@ -137,12 +136,11 @@ class _ImageProfile extends StatelessWidget {
 
 class _TitleSubtitleText extends StatelessWidget {
   const _TitleSubtitleText({
-    Key? key,
     required this.title,
     required this.subtitle,
     this.height = 1.5,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-  }) : super(key: key);
+  });
 
   final String? title;
   final String? subtitle;
@@ -174,7 +172,7 @@ class _TitleSubtitleText extends StatelessWidget {
 }
 
 class _GreenDot extends StatelessWidget {
-  const _GreenDot({Key? key}) : super(key: key);
+  const _GreenDot();
 
   @override
   Widget build(BuildContext context) {

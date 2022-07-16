@@ -7,11 +7,11 @@ import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/post_but
 
 class CleanPostCard extends StatefulWidget {
   const CleanPostCard({
-    Key? key,
+    super.key,
     this.post,
     this.height,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final IgPost? post;
   final double? height;
@@ -73,7 +73,7 @@ class _CleanPostCardState extends State<CleanPostCard>
         ),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryVariant,
+          color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(

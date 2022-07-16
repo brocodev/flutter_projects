@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/profile/widgets/profile_widgets.dart';
@@ -6,7 +5,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InstagramProfile extends StatelessWidget {
-  const InstagramProfile({Key? key}) : super(key: key);
+  const InstagramProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -237,9 +236,8 @@ class InstagramProfile extends StatelessWidget {
 
 class _ImageProfile extends StatelessWidget {
   const _ImageProfile({
-    Key? key,
     required this.imageProfileUrl,
-  }) : super(key: key);
+  });
 
   final String? imageProfileUrl;
 

@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 
 class MedicalCheckCard extends StatelessWidget {
   const MedicalCheckCard({
-    Key? key,
+    super.key,
     required this.medicalCheck,
-  }) : super(key: key);
+  });
 
   final MedicalCheck medicalCheck;
 

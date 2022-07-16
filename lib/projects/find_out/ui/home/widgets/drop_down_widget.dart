@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DropDownWidget extends StatelessWidget {
   const DropDownWidget({
-    Key? key,
+    super.key,
     required this.labels,
-  }) : super(key: key);
+  });
   final List<String> labels;
 
   @override

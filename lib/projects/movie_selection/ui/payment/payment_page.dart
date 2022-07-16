@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
@@ -10,7 +9,7 @@ import 'package:flutter_projects/projects/movie_selection/ui/widgets/gradient_an
 import 'package:google_fonts/google_fonts.dart';
 
 class PaymentPage extends StatelessWidget {
-  const PaymentPage({Key? key, this.movie}) : super(key: key);
+  const PaymentPage({super.key, this.movie});
 
   final Movie? movie;
 
@@ -68,7 +67,7 @@ class PaymentPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                     context,
-                    PageRouteBuilder(
+                    PageRouteBuilder<dynamic>(
                       transitionDuration: kDuration400ms,
                       pageBuilder: (context, animation, secondaryAnimation) {
                         return FadeTransition(

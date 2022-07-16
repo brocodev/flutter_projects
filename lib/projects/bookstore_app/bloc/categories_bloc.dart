@@ -48,9 +48,9 @@ abstract class CategoriesEvent {
 }
 
 class AddCategoryEvent extends CategoriesEvent {
-  AddCategoryEvent(String category) : super(category);
+  AddCategoryEvent(super.category);
 }
 
 class RemoveCategoryEvent extends CategoriesEvent {
-  RemoveCategoryEvent(String category) : super(category);
+  RemoveCategoryEvent(super.category);
 }

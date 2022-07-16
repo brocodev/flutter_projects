@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class RedDot extends StatelessWidget {
   const RedDot({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
