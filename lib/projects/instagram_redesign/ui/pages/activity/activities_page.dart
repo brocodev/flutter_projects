@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_activity.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/activity/widgets/activity_container.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/activity/widgets/type_activity_toggle_button.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/pages/activity/widgets/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ActivitiesPage extends StatefulWidget {
@@ -31,10 +30,11 @@ class ActivitiesPageState extends State<ActivitiesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-        'Activity',
-        style: GoogleFonts.lato(fontSize: 24),
-      ),),
+        title: Text(
+          'Activity',
+          style: GoogleFonts.lato(fontSize: 24),
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,36 +43,35 @@ class ActivitiesPageState extends State<ActivitiesPage> {
           //-------------------------------
           SizedBox(
             height: 70,
-            child: ListView(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.only(left: 20),
-              scrollDirection: Axis.horizontal,
-              children:
-                  List.generate(IgTypeActivity.values.length + 1, (index) {
-                return Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: TypeActivityToggleButton(
+            child: DefaultTabController(
+              length: IgTypeActivity.values.length + 1,
+              child: TabBar(
+                physics: const BouncingScrollPhysics(),
+                isScrollable: true,
+                splashFactory: NoSplash.splashFactory,
+                indicatorColor: Colors.transparent,
+                onTap: (value) {
+                  setState(() => selectedIndex = value);
+                  _pageController!.jumpToPage(value);
+                },
+                // scrollDirection: Axis.horizontal,
+                tabs: List.generate(IgTypeActivity.values.length + 1, (index) {
+                  return TypeActivityToggleButton(
                     value: index,
-                    onPressed: (value) {
-                      setState(() {
-                        selectedIndex = value;
-                      });
-                      _pageController!.jumpToPage(value);
-                    },
                     selectValue: selectedIndex,
                     notifications: index == 0
                         ? 0
                         : _getLengthActivities(
-                            IgTypeActivity.values[index - 1],),
+                            IgTypeActivity.values[index - 1]),
                     labelButton: index == 0
                         ? 'All activity'
                         : IgTypeActivity.values[index - 1]
                             .toString()
                             .split('.')
                             .last,
-                  ),
-                );
-              }),
+                  );
+                }),
+              ),
             ),
           ),
 
@@ -102,7 +101,8 @@ class ActivitiesPageState extends State<ActivitiesPage> {
                 final listActivities = selectedIndex == 0
                     ? IgActivity.listActivities
                     : _getActivitiesByType(
-                        IgTypeActivity.values[selectedIndex - 1],);
+                        IgTypeActivity.values[selectedIndex - 1],
+                      );
 
                 return ListView.builder(
                   physics: const BouncingScrollPhysics(),

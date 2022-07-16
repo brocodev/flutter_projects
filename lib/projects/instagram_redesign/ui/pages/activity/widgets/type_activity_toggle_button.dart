@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TypeActivityToggleButton extends StatelessWidget {
   const TypeActivityToggleButton({
@@ -7,14 +8,12 @@ class TypeActivityToggleButton extends StatelessWidget {
     required this.selectValue,
     required this.labelButton,
     this.notifications,
-    this.onPressed,
   });
 
   final int value;
   final int selectValue;
   final String labelButton;
   final int? notifications;
-  final ValueChanged<int>? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +23,24 @@ class TypeActivityToggleButton extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        TextButton(
-          onPressed: () => onPressed?.call(value),
-          style: TextButton.styleFrom(
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-            shape: const StadiumBorder(),
-            backgroundColor: value == selectValue
-                ? colorScheme.onBackground
-                : colorScheme.primaryContainer,
-          ),
-          child: Text(
-            labelButton,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
+            decoration: BoxDecoration(
               color: value == selectValue
-                  ? colorScheme.onPrimary
-                  : colorScheme.onBackground,
+                  ? colorScheme.onBackground
+                  : colorScheme.background,
+              borderRadius: BorderRadius.circular(40),
+            ),
+            child: Text(
+              labelButton,
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.bold,
+                color: value == selectValue
+                    ? colorScheme.onPrimary
+                    : colorScheme.onBackground,
+              ),
             ),
           ),
         ),

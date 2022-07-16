@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_user_stories.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_gradient_border_image.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/ig_user_border_image.dart';
 
 class InstagramStoriesItem extends StatelessWidget {
   const InstagramStoriesItem({
@@ -24,7 +24,7 @@ class InstagramStoriesItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RoundedGradientBorderImage(height: itemSize, imageUrl: user.photoUrl),
+          IgUserBorderImage(height: itemSize, imageUrl: user.photoUrl),
           Text(
             user.name!.split(' ').first,
             style: const TextStyle(

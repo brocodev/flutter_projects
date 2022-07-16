@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_user_stories.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/story/widgets/stories_widgets.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/screens/story/widgets/widgets.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/widgets.dart';
 
 class InstagramStories extends StatefulWidget {
   const InstagramStories({super.key, this.stories});
@@ -64,16 +65,19 @@ class _InstagramStoriesState extends State<InstagramStories>
   //-----OPEN STORY
   //--------------------------------
   void _openUserStories(int index) {
-    Navigator.pushReplacement(context, PageRouteBuilder<dynamic>(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: InstagramStories(
-            stories: IgUserStories.listUserStories[index],
-          ),
-        );
-      },
-    ),);
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: InstagramStories(
+              stories: IgUserStories.listUserStories[index],
+            ),
+          );
+        },
+      ),
+    );
   }
 
   //---------------------------------
@@ -85,8 +89,9 @@ class _InstagramStoriesState extends State<InstagramStories>
         _currentStory--;
       });
       _pageController.previousPage(
-          duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOutQuint,);
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOutQuint,
+      );
       _showStory(widget.stories!.listStories[_currentStory]);
     } else {
       if (widget.stories!.indexStory > 0) {
@@ -104,8 +109,9 @@ class _InstagramStoriesState extends State<InstagramStories>
         _currentStory++;
       });
       _pageController.nextPage(
-          duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOutQuint,);
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOutQuint,
+      );
       _showStory(widget.stories!.listStories[_currentStory]);
     } else {
       if (widget.stories!.indexStory <
@@ -166,7 +172,7 @@ class _InstagramStoriesState extends State<InstagramStories>
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  const SizedBox(height: 30),
+                  SizedBox(height: MediaQuery.of(context).padding.top),
                   //----------------------------
                   //-----STORIES VIEW INDICATORS
                   //---------------------------
@@ -228,8 +234,7 @@ class _InstagramStoriesState extends State<InstagramStories>
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(40),
                           child: BackdropFilter(
-                            filter:
-                                ImageFilter.blur(sigmaY: 10, sigmaX: 10),
+                            filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                             child: const SendMessageTextField(),
                           ),
                         ),

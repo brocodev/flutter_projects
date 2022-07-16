@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/home/widgets/home_widgets.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/post_detail/instagram_post_detail.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/pages/home/widgets/widgets.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/screens/post_detail/instagram_post_detail.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/screens/story/instagram_stories.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/widgets.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class InstagramHome extends StatefulWidget {
@@ -222,13 +224,11 @@ class _InstagramHomeState extends State<InstagramHome>
                             tag: post.id!,
                             child: AmplePostCard(
                               post: post,
-                              onTap: () {
-                                _openDetailsFromAmpleView(
-                                  context,
-                                  post,
-                                  index,
-                                );
-                              },
+                              onTap: () => _openDetailsFromAmpleView(
+                                context,
+                                post,
+                                index,
+                              ),
                               height: heightItem as double?,
                             ),
                           ),

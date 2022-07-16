@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/post_detail/widgets/detail_widgets.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/screens/post_detail/widgets/widgets.dart';
 
 class InstagramPostDetail extends StatelessWidget {
   const InstagramPostDetail({
@@ -58,30 +58,33 @@ class InstagramPostDetail extends StatelessWidget {
             valueListenable: expandComments,
             builder: (context, value, child) {
               return AnimatedPositioned(
-                  duration: const Duration(milliseconds: 400),
-                  curve: Curves.fastOutSlowIn,
-                  top: (screenHeight * (value ? 0.12 : 0.7)) - 76,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: child!,);
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.fastOutSlowIn,
+                top: (screenHeight * (value ? 0.12 : 0.7)) - 76,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: child!,
+              );
             },
             child: Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(50)),
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  boxShadow: [
-                    if (instagramBloc.viewState == ViewState.clean)
-                      BoxShadow(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onBackground
-                              .withOpacity(.06),
-                          blurRadius: 10,
-                          offset: const Offset(0, -5),)
-                  ],),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(50)),
+                color: Theme.of(context).colorScheme.onPrimary,
+                boxShadow: [
+                  if (instagramBloc.viewState == ViewState.clean)
+                    BoxShadow(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onBackground
+                          .withOpacity(.06),
+                      blurRadius: 10,
+                      offset: const Offset(0, -5),
+                    )
+                ],
+              ),
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(20),
@@ -100,7 +103,7 @@ class InstagramPostDetail extends StatelessWidget {
           //-----------------------------------
           ValueListenableBuilder<bool>(
             valueListenable: expandComments,
-            builder: (context,  value, _) {
+            builder: (context, value, _) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.fastOutSlowIn,
@@ -110,9 +113,9 @@ class InstagramPostDetail extends StatelessWidget {
                 child: IconButton(
                   iconSize: 30,
                   onPressed: () => expandComments.value = !expandComments.value,
-                  icon: Icon(value
-                      ? Icons.keyboard_arrow_down
-                      : Icons.keyboard_arrow_up,),
+                  icon: Icon(
+                    value ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
+                  ),
                 ),
               );
             },
@@ -129,16 +132,17 @@ class InstagramPostDetail extends StatelessWidget {
               height: 90,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(50),
-                  ),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 20,
-                    )
-                  ],),
+                color: Theme.of(context).colorScheme.onPrimary,
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(50),
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 20,
+                  )
+                ],
+              ),
               child: Row(
                 children: const [
                   Expanded(

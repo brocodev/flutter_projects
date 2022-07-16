@@ -73,7 +73,7 @@ class _CleanPostCardState extends State<CleanPostCard>
         ),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryContainer,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(

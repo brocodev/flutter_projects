@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/home/widgets/red_dot.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/red_dot.dart';
 
 class RoundedNavigationBar extends StatelessWidget {
   const RoundedNavigationBar({
@@ -20,14 +20,15 @@ class RoundedNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 76,
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      height: kToolbarHeight + MediaQuery.of(context).padding.bottom,
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimary,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(50)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(items.length, (index) {
           final item = items[index];
           return IconButton(
@@ -61,5 +62,4 @@ class RoundedNavigationBarItem {
   final IconData iconData;
   final bool hasNotification;
   final IconData? selectedIconData;
-
 }

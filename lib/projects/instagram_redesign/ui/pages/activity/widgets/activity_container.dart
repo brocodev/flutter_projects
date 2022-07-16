@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/models/ig_activity.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/ig_user_border_image.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_border_image.dart';
-import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/rounded_gradient_border_image.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,7 +25,7 @@ class ActivityContainer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RoundedGradientBorderImage(
+          IgUserBorderImage(
             height: 80,
             imageUrl: activity.user!.photoUrl,
           ),
@@ -113,25 +113,29 @@ class ActivityContainer extends StatelessWidget {
         return Container(
           margin: const EdgeInsets.only(top: 10, right: 10, left: 10),
           decoration: BoxDecoration(
-              color: Colors.lightBlueAccent[400],
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.lightBlueAccent.withOpacity(.3),
-                    blurRadius: 10,
-                    offset: const Offset(0, 8),)
-              ],),
+            color: Colors.lightBlueAccent[400],
+            borderRadius: BorderRadius.circular(25),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.lightBlueAccent.withOpacity(.3),
+                blurRadius: 10,
+                offset: const Offset(0, 8),
+              )
+            ],
+          ),
           child: TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(20),
-                textStyle: const TextStyle(color: Colors.white),),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              primary: Colors.white,
+            ),
             child: Text(
               activity.typeNotification == IgTypeActivity.follows
                   ? 'Follow back'
                   : 'Open message',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: 12,
               ),
             ),
           ),
