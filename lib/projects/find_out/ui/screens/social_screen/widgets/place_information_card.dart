@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PlaceInformationCard extends StatelessWidget {
   const PlaceInformationCard({
@@ -105,8 +106,7 @@ class _InlineTextSpan extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: field,
-        style: TextStyle(
-          fontFamily: 'Poppins',
+        style: GoogleFonts.poppins(
           fontSize: MediaQuery.of(context).size.height * .014,
           color: Colors.black,
           fontWeight: FontWeight.w500,

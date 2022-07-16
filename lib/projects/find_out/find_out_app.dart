@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/welcome_page/welcome_page.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/welcome_screen/welcome_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindOutApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class FindOutApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomePage(),
+      home: WelcomeScreen(),
     );
   }
 }

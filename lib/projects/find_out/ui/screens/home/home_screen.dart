@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/find_out/models/place.dart';
-import 'package:flutter_projects/projects/find_out/ui/home/widgets/drop_down_widget.dart';
-import 'package:flutter_projects/projects/find_out/ui/home/widgets/page_view_places.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/home/widgets/drop_down_widget.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/home/widgets/page_view_places.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 
-class HomePageFindOut extends StatefulWidget {
-  const HomePageFindOut({super.key});
+class FindOutHomeScreen extends StatefulWidget {
+  const FindOutHomeScreen({super.key});
 
   @override
-  State<HomePageFindOut> createState() => _HomePageFindOutState();
+  State<FindOutHomeScreen> createState() => _FindOutHomeScreenState();
 }
 
-class _HomePageFindOutState extends State<HomePageFindOut> {
+class _FindOutHomeScreenState extends State<FindOutHomeScreen> {
   late final ValueNotifier<double> _pageValueNotifier;
   late final PageController _pageController;
 

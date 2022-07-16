@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/find_out/ui/home/home_page.dart';
+import 'package:flutter_projects/projects/find_out/ui/screens/home/home_screen.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/common_widgets.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/inverted_top_border_clipper.dart';
 import 'package:flutter_projects/projects/find_out/ui/widgets/text_input_find_out.dart';
@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
       pageBuilder: (context, animation, secondaryAnimation) {
         return FadeTransition(
           opacity: animation,
-          child: const HomePageFindOut(),
+          child: const FindOutHomeScreen(),
         );
       },
     );
