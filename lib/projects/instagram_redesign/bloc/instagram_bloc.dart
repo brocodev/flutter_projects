@@ -6,23 +6,23 @@ export 'package:flutter_projects/projects/instagram_redesign/models/ig_external_
 export 'package:flutter_projects/projects/instagram_redesign/models/ig_post.dart';
 export 'package:flutter_projects/projects/instagram_redesign/models/ig_user.dart';
 export 'package:flutter_projects/projects/instagram_redesign/models/ig_user_stories.dart';
-enum SettingsSate { visible, hide }
+enum SettingsState { visible, hide }
 enum ViewState { ample, clean, old }
 
 class InstagramBloc with ChangeNotifier {
-  SettingsSate settingState = SettingsSate.hide;
+  SettingsState settingState = SettingsState.hide;
   ViewState viewState = ViewState.ample;
   ThemeMode themeMode = ThemeMode.light;
 
 
 
   void showSettings() {
-    settingState = SettingsSate.visible;
+    settingState = SettingsState.visible;
     notifyListeners();
   }
 
   void hideSettings() {
-    settingState = SettingsSate.hide;
+    settingState = SettingsState.hide;
     notifyListeners();
   }
 

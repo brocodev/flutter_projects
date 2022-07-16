@@ -50,7 +50,7 @@ class _InstagramNavigationScreenState extends State<InstagramNavigationScreen> {
                 return AnimatedPositioned(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.fastOutSlowIn,
-                  top: instagramBloc.settingState == SettingsSate.visible
+                  top: instagramBloc.settingState == SettingsState.visible
                       ? 0
                       : -settingsHeight,
                   left: 0,
@@ -61,7 +61,7 @@ class _InstagramNavigationScreenState extends State<InstagramNavigationScreen> {
                       //--------------------------
                       // HIDE SETTINGS ZONE
                       //--------------------------
-                      if (instagramBloc.settingState == SettingsSate.visible)
+                      if (instagramBloc.settingState == SettingsState.visible)
                         Positioned.fill(
                           child: GestureDetector(
                             onPanDown: (details) {
