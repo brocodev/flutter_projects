@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/template_gallery/models/contact.dart';
+import 'package:flutter_projects/projects/template_gallery/ui/contact_detail_screen.dart';
 import 'package:flutter_projects/projects/template_gallery/ui/widgets/cards.dart';
 import 'package:flutter_projects/projects/template_gallery/ui/widgets/perspective_list_view.dart';
 
@@ -46,7 +47,18 @@ class _ContactListPageState extends State<ContactListPage> {
         enableBackItemsShadow: true,
         backItemsShadowColor: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.all(10),
-        onTapFrontItem: (value) {},
+        onTapFrontItem: (index) {
+          final color = Colors.accents[index! % Colors.accents.length];
+          Navigator.push(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (_) => ContactDetailScreen(
+                contact: Contact.contacts[index],
+                color: color,
+              ),
+            ),
+          );
+        },
         children: List.generate(Contact.contacts.length, (index) {
           final borderColor = Colors.accents[index % Colors.accents.length];
           final contact = Contact.contacts[index];
