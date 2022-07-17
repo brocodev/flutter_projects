@@ -29,6 +29,5 @@ class ProjectRoutes {
     ProjectModel.bookApp.route: (_) => const BookStoreApp(),
     ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
     ProjectModel.travelApp.route: (_) => const TravelApp(),
-    // _ProjectModel.streamingApp.route!: (_) => const StreamingApp(),
   };
 }
