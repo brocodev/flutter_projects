@@ -3,8 +3,11 @@ import 'package:flutter_projects/projects/template_gallery/models/contact.dart';
 import 'package:flutter_projects/projects/template_gallery/ui/widgets/cards.dart';
 
 class ContactDetailScreen extends StatelessWidget {
-  const ContactDetailScreen(
-      {super.key, required this.contact, required this.color});
+  const ContactDetailScreen({
+    super.key,
+    required this.contact,
+    required this.color,
+  });
 
   final Contact contact;
   final Color color;

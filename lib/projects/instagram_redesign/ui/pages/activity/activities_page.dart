@@ -62,7 +62,8 @@ class ActivitiesPageState extends State<ActivitiesPage> {
                     notifications: index == 0
                         ? 0
                         : _getLengthActivities(
-                            IgTypeActivity.values[index - 1]),
+                            IgTypeActivity.values[index - 1],
+                          ),
                     labelButton: index == 0
                         ? 'All activity'
                         : IgTypeActivity.values[index - 1]

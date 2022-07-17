@@ -137,9 +137,7 @@ class _ProfileOptionsButtons extends StatelessWidget {
 }
 
 class _UserDescription extends StatelessWidget {
-  const _UserDescription({
-    Key? key,
-  }) : super(key: key);
+  const _UserDescription();
 
   @override
   Widget build(BuildContext context) {
