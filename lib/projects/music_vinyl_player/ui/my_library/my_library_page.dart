@@ -12,10 +12,10 @@ class MyLibraryPage extends StatefulWidget {
   });
 
   @override
-  _MyLibraryPageState createState() => _MyLibraryPageState();
+  MyLibraryPageState createState() => MyLibraryPageState();
 }
 
-class _MyLibraryPageState extends State<MyLibraryPage> {
+class MyLibraryPageState extends State<MyLibraryPage> {
   PageController? _pageAlbumController;
   PageController? _pageDescriptionController;
   double? _pageDescription;

@@ -13,10 +13,10 @@ class BottomTabViewProfile extends StatefulWidget {
   final IgUser user;
 
   @override
-  _BottomTabViewProfileState createState() => _BottomTabViewProfileState();
+  BottomTabViewProfileState createState() => BottomTabViewProfileState();
 }
 
-class _BottomTabViewProfileState extends State<BottomTabViewProfile>
+class BottomTabViewProfileState extends State<BottomTabViewProfile>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 

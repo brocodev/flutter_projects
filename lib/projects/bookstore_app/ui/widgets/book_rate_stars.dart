@@ -23,7 +23,7 @@ class BookRateStars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _showHalfStar = rate - rate.floor() >= .4;
+    final showHalfStar = rate - rate.floor() >= .4;
     final listStars = List<Widget>.generate(
       rate.floor(),
       (index) => Hero(
@@ -36,7 +36,7 @@ class BookRateStars extends StatelessWidget {
       ),
     );
 
-    if (_showHalfStar) {
+    if (showHalfStar) {
       listStars.add(
         Hero(
           tag: 'star${rate.floor()}$heroTag',
@@ -50,7 +50,7 @@ class BookRateStars extends StatelessWidget {
     }
 
     listStars.addAll(
-      List.generate(5 - rate.floor() - (_showHalfStar ? 1 : 0), (index) {
+      List.generate(5 - rate.floor() - (showHalfStar ? 1 : 0), (index) {
         return Hero(
           tag: 'star${rate.ceil() + index}$heroTag',
           child: Icon(

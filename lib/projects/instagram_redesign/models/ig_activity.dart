@@ -28,12 +28,12 @@ class IgActivity {
   static final listActivities = List.generate(
     64,
     (index) {
-      final _listImagesUrl = IgUser.kevin.listPhotosUrl;
+      final listImagesUrl = IgUser.kevin.listPhotosUrl;
       return IgActivity(
         user: _users[index % _users.length],
         typeNotification:
             IgTypeActivity.values[index % IgTypeActivity.values.length],
-        imageUrl: _listImagesUrl![index % _listImagesUrl.length],
+        imageUrl: listImagesUrl![index % listImagesUrl.length],
         date: _dates[index % _dates.length],
         description:
             'Lorem Ipsum ha sido el texto de relleno estándar de las industrias'

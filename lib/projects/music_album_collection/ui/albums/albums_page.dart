@@ -11,10 +11,10 @@ class AlbumsPage extends StatefulWidget {
   final bool gridMode;
 
   @override
-  _AlbumsPageState createState() => _AlbumsPageState();
+  AlbumsPageState createState() => AlbumsPageState();
 }
 
-class _AlbumsPageState extends State<AlbumsPage> {
+class AlbumsPageState extends State<AlbumsPage> {
   bool _hideDisks = true;
 
   @override

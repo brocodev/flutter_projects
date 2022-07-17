@@ -18,10 +18,10 @@ class SongPlayerPage extends StatefulWidget {
   final Song song;
 
   @override
-  _SongPlayerPageState createState() => _SongPlayerPageState();
+  SongPlayerPageState createState() => SongPlayerPageState();
 }
 
-class _SongPlayerPageState extends State<SongPlayerPage>
+class SongPlayerPageState extends State<SongPlayerPage>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   late AnimationController _controllerSkew;

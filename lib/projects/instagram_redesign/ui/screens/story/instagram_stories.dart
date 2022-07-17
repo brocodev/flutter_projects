@@ -12,10 +12,10 @@ class InstagramStories extends StatefulWidget {
   final IgUserStories? stories;
 
   @override
-  _InstagramStoriesState createState() => _InstagramStoriesState();
+  InstagramStoriesState createState() => InstagramStoriesState();
 }
 
-class _InstagramStoriesState extends State<InstagramStories>
+class InstagramStoriesState extends State<InstagramStories>
     with SingleTickerProviderStateMixin {
   late final PageController _pageController;
   late final AnimationController _animationController;

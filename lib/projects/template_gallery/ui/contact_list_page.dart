@@ -8,10 +8,10 @@ class ContactListPage extends StatefulWidget {
   const ContactListPage({super.key});
 
   @override
-  _ContactListPageState createState() => _ContactListPageState();
+  ContactListPageState createState() => ContactListPageState();
 }
 
-class _ContactListPageState extends State<ContactListPage> {
+class ContactListPageState extends State<ContactListPage> {
   int? _visibleItems;
   double? _itemExtent;
 

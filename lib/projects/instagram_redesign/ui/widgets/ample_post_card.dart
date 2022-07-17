@@ -23,10 +23,10 @@ class AmplePostCard extends StatefulWidget {
   final VoidCallback? onTap;
 
   @override
-  _AmplePostCardState createState() => _AmplePostCardState();
+  AmplePostCardState createState() => AmplePostCardState();
 }
 
-class _AmplePostCardState extends State<AmplePostCard>
+class AmplePostCardState extends State<AmplePostCard>
     with SingleTickerProviderStateMixin {
   late AnimationController? _controller;
   late Animation<double> _scaleHeart;

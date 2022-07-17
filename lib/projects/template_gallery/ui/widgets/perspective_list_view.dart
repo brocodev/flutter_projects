@@ -27,10 +27,10 @@ class PerspectiveListView extends StatefulWidget {
   final bool enableBackItemsShadow;
 
   @override
-  _PerspectiveListViewState createState() => _PerspectiveListViewState();
+  PerspectiveListViewState createState() => PerspectiveListViewState();
 }
 
-class _PerspectiveListViewState extends State<PerspectiveListView> {
+class PerspectiveListViewState extends State<PerspectiveListView> {
   PageController? _pageController;
   int? _currentIndex;
   double? _pagePercent;

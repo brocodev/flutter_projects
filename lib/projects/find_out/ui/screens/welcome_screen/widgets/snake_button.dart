@@ -22,10 +22,10 @@ class SnakeButton extends StatefulWidget {
   final double borderWidth;
 
   @override
-  _SnakeButtonState createState() => _SnakeButtonState();
+  SnakeButtonState createState() => SnakeButtonState();
 }
 
-class _SnakeButtonState extends State<SnakeButton>
+class SnakeButtonState extends State<SnakeButton>
     with SingleTickerProviderStateMixin {
   AnimationController? _controller;
 

@@ -13,10 +13,10 @@ class OrixGamingHomePage extends StatefulWidget {
   });
 
   @override
-  _OrixGamingHomePageState createState() => _OrixGamingHomePageState();
+  OrixGamingHomePageState createState() => OrixGamingHomePageState();
 }
 
-class _OrixGamingHomePageState extends State<OrixGamingHomePage> {
+class OrixGamingHomePageState extends State<OrixGamingHomePage> {
   PageController? _pageController;
   int? _gameIndex;
   double? _page;

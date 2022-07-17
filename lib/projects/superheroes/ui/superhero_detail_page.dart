@@ -12,10 +12,10 @@ class SuperheroDetailPage extends StatefulWidget {
   final Superhero superhero;
 
   @override
-  _SuperheroDetailPageState createState() => _SuperheroDetailPageState();
+  SuperheroDetailPageState createState() => SuperheroDetailPageState();
 }
 
-class _SuperheroDetailPageState extends State<SuperheroDetailPage>
+class SuperheroDetailPageState extends State<SuperheroDetailPage>
     with SingleTickerProviderStateMixin {
   late AnimationController? _controller;
   late Animation<double> _colorGradientValue;

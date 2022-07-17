@@ -11,11 +11,11 @@ class InstagramNavigationScreen extends StatefulWidget {
   const InstagramNavigationScreen({super.key});
 
   @override
-  _InstagramNavigationScreenState createState() =>
-      _InstagramNavigationScreenState();
+  InstagramNavigationScreenState createState() =>
+      InstagramNavigationScreenState();
 }
 
-class _InstagramNavigationScreenState extends State<InstagramNavigationScreen> {
+class InstagramNavigationScreenState extends State<InstagramNavigationScreen> {
   int index = 0;
 
   @override

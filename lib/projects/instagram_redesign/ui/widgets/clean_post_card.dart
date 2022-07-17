@@ -18,10 +18,10 @@ class CleanPostCard extends StatefulWidget {
   final VoidCallback? onTap;
 
   @override
-  _CleanPostCardState createState() => _CleanPostCardState();
+  CleanPostCardState createState() => CleanPostCardState();
 }
 
-class _CleanPostCardState extends State<CleanPostCard>
+class CleanPostCardState extends State<CleanPostCard>
     with SingleTickerProviderStateMixin {
   int indexPageView = 0;
   late AnimationController _controller;

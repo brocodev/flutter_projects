@@ -5,10 +5,10 @@ class BookNavigationScreen extends StatefulWidget {
   const BookNavigationScreen({super.key});
 
   @override
-  _BookNavigationScreenState createState() => _BookNavigationScreenState();
+  BookNavigationScreenState createState() => BookNavigationScreenState();
 }
 
-class _BookNavigationScreenState extends State<BookNavigationScreen> {
+class BookNavigationScreenState extends State<BookNavigationScreen> {
   PageController? _pageController;
   late int _indexPage;
 

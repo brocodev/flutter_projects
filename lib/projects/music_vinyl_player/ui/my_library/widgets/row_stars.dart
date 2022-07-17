@@ -15,29 +15,29 @@ class RowStars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorStars = color;
-    final _fillStar = Padding(
+    final fillStar = Padding(
       padding: const EdgeInsets.only(right: 1),
       child: Icon(Icons.star, color: colorStars, size: size),
     );
 
-    final _halfStar = Padding(
+    final halfStar = Padding(
       padding: const EdgeInsets.only(right: 1),
       child: Icon(Icons.star_half, color: colorStars, size: size),
     );
 
-    final _voidStar = Padding(
+    final voidStar = Padding(
       padding: const EdgeInsets.only(right: 1),
       child: Icon(Icons.star, color: Colors.grey[300], size: size),
     );
 
     var fillStars = stars!.floor();
     final addHalfStar = (stars! - fillStars) >= 0.5;
-    final listStars = List<Widget>.generate(fillStars, (i) => _fillStar);
+    final listStars = List<Widget>.generate(fillStars, (i) => fillStar);
     if (addHalfStar) {
-      listStars.add(_halfStar);
+      listStars.add(halfStar);
       fillStars++;
     }
-    listStars.addAll(List.generate(5 - fillStars, (i) => _voidStar));
+    listStars.addAll(List.generate(5 - fillStars, (i) => voidStar));
     return Row(children: listStars);
   }
 }

@@ -1,16 +1,6 @@
-include: package:very_good_analysis/analysis_options.yaml
+include: package:flutter_lints/flutter.yaml
 linter:
   rules:
-    public_member_api_docs: false
-    prefer_single_quotes: false
-    unawaited_futures: false
-    cascade_invocations: false
-    missing_whitespace_between_adjacent_strings: false
-    library_private_types_in_public_api: false
-    avoid_implementing_value_types: false
-    sort_pub_dependencies: false
-    flutter_style_todos: false
-    inference_failure_on_instance_creation: false
 
 analyzer:
   strong-mode:

@@ -12,10 +12,10 @@ class InstagramHome extends StatefulWidget {
   });
 
   @override
-  _InstagramHomeState createState() => _InstagramHomeState();
+  InstagramHomeState createState() => InstagramHomeState();
 }
 
-class _InstagramHomeState extends State<InstagramHome>
+class InstagramHomeState extends State<InstagramHome>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _heightFactor;

@@ -11,10 +11,10 @@ class SuperheroSliderPage extends StatefulWidget {
   });
 
   @override
-  _SuperheroSliderPageState createState() => _SuperheroSliderPageState();
+  SuperheroSliderPageState createState() => SuperheroSliderPageState();
 }
 
-class _SuperheroSliderPageState extends State<SuperheroSliderPage> {
+class SuperheroSliderPageState extends State<SuperheroSliderPage> {
   PageController? _pageController;
   late int _index;
   late int _auxIndex;
