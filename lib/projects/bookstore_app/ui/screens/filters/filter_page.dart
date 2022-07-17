@@ -55,7 +55,11 @@ class FilterPageState extends State<FilterPage> {
             tag: 'filters-background',
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: ColoredBox(color: Colors.blue[800]!.withOpacity(.7)),
+              child: SizedBox.expand(
+                child: ColoredBox(
+                  color: Colors.blue[800]!.withOpacity(.7),
+                ),
+              ),
             ),
           ),
           Positioned.fill(

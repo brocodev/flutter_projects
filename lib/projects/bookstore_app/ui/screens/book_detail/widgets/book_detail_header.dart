@@ -2,10 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/open_book_page.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_rate_stars.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_readers_row.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/widgets/cover_page_book.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/screens/book_detail/open_book_page.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/widgets/widgets.dart';
 
 class BookDetailHeader extends StatelessWidget {
   BookDetailHeader({super.key, this.percent, this.book});

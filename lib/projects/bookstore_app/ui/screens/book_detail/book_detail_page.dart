@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/widgets/book_detail_header.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/screens/book_detail/widgets/book_detail_header.dart';
 
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({

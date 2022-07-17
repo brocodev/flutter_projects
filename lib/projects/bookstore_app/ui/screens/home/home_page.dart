@@ -1,11 +1,10 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc.dart';
 import 'package:flutter_projects/projects/bookstore_app/bloc/categories_bloc_provider.dart';
 import 'package:flutter_projects/projects/bookstore_app/models/book.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/book_detail/book_detail_page.dart';
-import 'package:flutter_projects/projects/bookstore_app/ui/filters/filter_page.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/screens/book_detail/book_detail_page.dart';
+import 'package:flutter_projects/projects/bookstore_app/ui/screens/filters/filter_page.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_rate_stars.dart';
 import 'package:flutter_projects/projects/bookstore_app/ui/widgets/book_readers_row.dart';
 
@@ -19,13 +18,15 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   late final ScrollController _scrollController;
   late final ValueNotifier<double> _scrollPercentNotifier;
-  late final CategoriesBloc _categoriesBloc;
 
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollPercentNotifier = ValueNotifier(0);
     _scrollController.addListener(_scrollListener);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      CategoriesBlocProvider.of(context)!.categoriesBloc.eventsSink.add(null);
+    });
     super.initState();
   }
 
@@ -34,7 +35,6 @@ class HomePageState extends State<HomePage> {
     _scrollController
       ..removeListener(_scrollListener)
       ..dispose();
-    _categoriesBloc.dispose();
     super.dispose();
   }
 
@@ -62,8 +62,7 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
-    _categoriesBloc.eventsSink.add(null);
+    final categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
 
     return Scaffold(
       //----------------------------
@@ -113,7 +112,7 @@ class HomePageState extends State<HomePage> {
                 //----------------------------------
                 Expanded(
                   child: StreamBuilder<List<String>>(
-                    stream: _categoriesBloc.categoriesStream,
+                    stream: categoriesBloc.categoriesStream,
                     builder: (context, snapshot) {
                       return snapshot.connectionState != ConnectionState.waiting
                           ? ListView.builder(
