@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/billboard.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/home/widgets/billboard_list.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/home/widgets/header_option.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/home/widgets/billboard_list.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/home/widgets/header_option.dart';
 
 class MovieHome extends StatelessWidget {
   MovieHome({super.key});

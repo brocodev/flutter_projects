@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/movie.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/payment/payment_page.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/payment/payment_page.dart';
 import 'package:flutter_projects/projects/movie_selection/ui/widgets/gradient_animation_button.dart';
 import 'package:flutter_projects/projects/movie_selection/ui/widgets/tag_container.dart';
 import 'package:google_fonts/google_fonts.dart';

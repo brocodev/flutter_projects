@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_projects/core/models/project_model.dart';
-import 'package:flutter_projects/core/ui/screens/main_page.dart';
+import 'package:flutter_projects/core/ui/screens/broco_projects_screen.dart';
 import 'package:flutter_projects/projects/bookstore_app/book_app.dart';
 import 'package:flutter_projects/projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/projects/instagram_redesign/instagram_app.dart';
@@ -16,7 +16,7 @@ import 'package:flutter_projects/projects/travel_app/travel_app.dart';
 
 class ProjectRoutes {
   static Map<String, WidgetBuilder> routes = {
-    "/": (context) => const MainPage(),
+    "/": (context) => const BrocoProjectsScreen(),
     ProjectModel.findOut.route: (_) => const FindOutApp(),
     ProjectModel.movieSelection.route: (_) => const MovieSelectionApp(),
     ProjectModel.musicApp.route: (_) => const MusicAlbumList(),

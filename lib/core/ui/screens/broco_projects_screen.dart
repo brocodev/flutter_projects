@@ -3,8 +3,8 @@ import 'package:flutter_projects/core/models/project_model.dart';
 import 'package:flutter_projects/core/ui/widgets/project_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class BrocoProjectsScreen extends StatelessWidget {
+  const BrocoProjectsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Brocodev Projects",
+          'Brocodev Projects',
           style: GoogleFonts.poppins(
             color: const Color(0xff001800),
             fontWeight: FontWeight.w600,

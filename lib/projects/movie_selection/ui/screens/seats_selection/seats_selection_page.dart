@@ -3,8 +3,8 @@ import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
 import 'package:flutter_projects/projects/movie_selection/models/movie.dart';
 import 'package:flutter_projects/projects/movie_selection/models/seats.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/seats_selection/widgets/seats_selection_widgets.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/summary/summary_page.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/seats_selection/widgets/seats_selection_widgets.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/summary/summary_page.dart';
 import 'package:flutter_projects/projects/movie_selection/ui/widgets/gradient_animation_button.dart';
 
 class SeatsSelectionPage extends StatelessWidget {

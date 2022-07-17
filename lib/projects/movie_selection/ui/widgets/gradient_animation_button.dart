@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/core/shared/ui/animations/tween_animations.dart';
 import 'package:flutter_projects/projects/movie_selection/constants/constants.dart';
-import 'package:flutter_projects/projects/movie_selection/ui/detail/widgets/gradient_button.dart';
+import 'package:flutter_projects/projects/movie_selection/ui/screens/detail/widgets/gradient_button.dart';
 
 class GradientAnimationButton extends StatelessWidget {
   const GradientAnimationButton({

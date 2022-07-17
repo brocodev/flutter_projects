@@ -38,55 +38,56 @@ class TopBorderedContainer extends StatelessWidget {
         ],
         color: kPrimaryColor,
       ),
-      child: child ?? Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.favorite,
-                size: sizeIcon,
-                color: Colors.white60,
+      child: child ??
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    size: sizeIcon,
+                    color: Colors.white60,
+                  ),
+                  Text(
+                    movie!.likes.toString(),
+                    style: textStyle,
+                  ),
+                ],
               ),
-              Text(
-                movie!.likes.toString(),
-                style: textStyle,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const TagContainer(
+                    tag: '  IDMB  ',
+                    gradient: LinearGradient(
+                      colors: [Colors.yellow, Colors.orangeAccent],
+                    ),
+                  ),
+                  const SizedBox(height: 3),
+                  Text(
+                    movie!.rate.toString(),
+                    style: textStyle,
+                  ),
+                ],
               ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.favorite_border,
+                    size: sizeIcon,
+                    color: Colors.white60,
+                  ),
+                  Text(
+                    movie!.dislikes.toString(),
+                    style: textStyle,
+                  ),
+                ],
+              )
             ],
           ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const TagContainer(
-                tag: '  IDMB  ',
-                gradient: LinearGradient(
-                  colors: [Colors.yellow, Colors.orangeAccent],
-                ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                movie!.rate.toString(),
-                style: textStyle,
-              ),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.favorite_border,
-                size: sizeIcon,
-                color: Colors.white60,
-              ),
-              Text(
-                movie!.dislikes.toString(),
-                style: textStyle,
-              ),
-            ],
-          )
-        ],
-      ),
     );
   }
 }
