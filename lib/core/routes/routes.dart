@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_projects/core/models/project_model.dart';
 import 'package:flutter_projects/core/ui/screens/broco_projects_screen.dart';
+import 'package:flutter_projects/projects/boats_app/boats_app.dart';
 import 'package:flutter_projects/projects/bookstore_app/book_app.dart';
 import 'package:flutter_projects/projects/find_out/find_out_app.dart';
 import 'package:flutter_projects/projects/instagram_redesign/instagram_app.dart';
@@ -27,6 +28,7 @@ class ProjectRoutes {
     ProjectModel.superheroes.route: (_) => const SuperheroesApp(),
     ProjectModel.orixGaming.route: (_) => const OrixGamingApp(),
     ProjectModel.bookApp.route: (_) => const BookStoreApp(),
+    ProjectModel.boatsApp.route: (_) => const BoatsApp(),
     ProjectModel.templateGallery.route: (_) => const TemplateGalleryApp(),
     ProjectModel.travelApp.route: (_) => const TravelApp(),
   };

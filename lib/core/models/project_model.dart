@@ -100,9 +100,18 @@ class ProjectModel {
     pathImage: 'assets/img/projects/travel.gif',
     route: 'travel',
   );
+
+  static const boatsApp = ProjectModel._(
+    title: 'Boats app',
+    description: 'Hero Custom Animation',
+    designer: 'Unknown',
+    pathImage: 'assets/img/projects/boats.gif',
+    route: 'boats',
+  );
   static const listProjects = [
     travelApp,
     templateGallery,
+    boatsApp,
     bookApp,
     orixGaming,
     superheroes,

@@ -41,6 +41,7 @@ flutter:
     - assets/svg/streaming/
     - assets/img/books/
     - assets/img/projects/
+    - assets/img/boats/
   fonts:
     - family: MDIcons
       fonts:
