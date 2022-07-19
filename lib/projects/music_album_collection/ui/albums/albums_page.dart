@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/animated_album_card.dart';
+import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/album_grid_view_card.dart';
+import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/album_list_view_card.dart';
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({
@@ -36,18 +37,19 @@ class AlbumsPageState extends State<AlbumsPage> {
     });
     Future.delayed(const Duration(milliseconds: 600), () {
       Navigator.pushReplacement(
-          context,
-          PageRouteBuilder<dynamic>(
-            transitionDuration: const Duration(milliseconds: 600),
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return FadeTransition(
-                opacity: animation,
-                child: AlbumsPage(
-                  gridMode: !widget.gridMode,
-                ),
-              );
-            },
-          ),);
+        context,
+        PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 600),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+              opacity: animation,
+              child: AlbumsPage(
+                gridMode: !widget.gridMode,
+              ),
+            );
+          },
+        ),
+      );
     });
   }
 
@@ -80,7 +82,7 @@ class AlbumsPageState extends State<AlbumsPage> {
 class _AlbumsListView extends StatelessWidget {
   const _AlbumsListView({
     required bool hideDisks,
-  })  : _hideDisks = hideDisks;
+  }) : _hideDisks = hideDisks;
 
   final bool _hideDisks;
 
@@ -89,7 +91,10 @@ class _AlbumsListView extends StatelessWidget {
     return ListView.builder(
       itemCount: AlbumModel.listAlbum.length,
       padding: EdgeInsets.only(
-          left: 40, top: 20, bottom: MediaQuery.of(context).size.height * 1.2,),
+        left: 40,
+        top: 20,
+        bottom: MediaQuery.of(context).size.height * 1.2,
+      ),
       itemBuilder: (context, index) {
         final album = AlbumModel.listAlbum[index];
         return Align(
@@ -113,7 +118,7 @@ class _AlbumsListView extends StatelessWidget {
 class _AlbumsGridView extends StatelessWidget {
   const _AlbumsGridView({
     required bool hideDisks,
-  })  : _hideDisk = hideDisks;
+  }) : _hideDisk = hideDisks;
 
   final bool _hideDisk;
 

@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
+import 'package:flutter_projects/projects/music_album_collection/ui/music_player/widgets/animated_player_controls.dart';
 import 'package:flutter_projects/projects/music_album_collection/ui/music_player/widgets/wave_painter.dart';
 
 class MusicPlayerPage extends StatefulWidget {
@@ -51,22 +53,27 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
     super.dispose();
   }
 
+  BoxDecoration get _gradientDecoration {
+    return const BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [Colors.white, Colors.blueGrey],
+        stops: [0, 0],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final album = widget.album;
     return Scaffold(
       //--------------------------------
       // Animated Background
       //--------------------------------
       body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.white, Colors.blueGrey],
-            stops: [0, 0],
-          ),
-        ),
+        decoration: _gradientDecoration,
         child: Column(
           children: [
             //-------------------------
@@ -74,20 +81,9 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
             //-------------------------
             SafeArea(
               child: Row(
-                children: [
-                  const SizedBox(width: 20),
-                  TextButton.icon(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                        Colors.white,
-                      ),
-                    ),
-                    icon: const Icon(Icons.arrow_back_ios),
-                    label: const Text('Back'),
-                  )
+                children: const [
+                  SizedBox(width: 20),
+                  _BackButton(),
                 ],
               ),
             ),
@@ -101,6 +97,7 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                   return AnimatedBuilder(
                     animation: _animationController,
                     builder: (context, child) {
+                      var imagePath = album.pathImage;
                       return Stack(
                         children: [
                           //-------------------------------------
@@ -145,30 +142,15 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                                     //------------------------------
                                     // Album Cover Image
                                     //------------------------------
-                                    Expanded(
+                                    // Text(_sizeAnimation.value.toString()),
+                                    Flexible(
                                       flex: 4,
-                                      child: FadeTransition(
-                                        opacity: _itemsAnimation,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.vertical(
-                                              top: Radius.circular(8),
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                color: Colors.black26,
-                                                blurRadius: 10,
-                                                offset: Offset(0, 8),
-                                              )
-                                            ],
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                widget.album.pathImage,
-                                              ),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                      child: AspectRatio(
+                                        aspectRatio: 1,
+                                        child: FadeTransition(
+                                          opacity: _itemsAnimation,
+                                          child:
+                                              _AlbumImage(imagePath: imagePath),
                                         ),
                                       ),
                                     ),
@@ -178,23 +160,7 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                                     Expanded(
                                       child: FadeTransition(
                                         opacity: _itemsAnimation,
-                                        child: Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 30,
-                                            ),
-                                            child: Text(
-                                              '${widget.album.songs.first} '
-                                              'by ${widget.album.author} - '
-                                              '${widget.album.title}',
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                                        child: _SongInformation(album: album),
                                       ),
                                     ),
                                     //-----------------------------
@@ -203,22 +169,14 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
                                     Expanded(
                                       child: FadeTransition(
                                         opacity: _itemsAnimation,
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 10,
-                                          ),
-                                          child: CustomPaint(
-                                            painter: WavePainter(),
-                                            child: Container(),
-                                          ),
-                                        ),
+                                        child: const WavePlayingIndicator(),
                                       ),
                                     ),
                                     //-----------------------------
                                     // Music Player Controls
                                     //-----------------------------
                                     Expanded(
-                                      child: _AnimatedPlayerControls(
+                                      child: AnimatedPlayerControls(
                                         animation1: _sizeAnimation,
                                         animation2: _itemsAnimation,
                                       ),
@@ -236,32 +194,10 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
               ),
             ),
             const SizedBox(height: 20),
-            AnimatedBuilder(
-              animation: _animationController,
-              builder: (context, child) {
-                return Transform.translate(
-                  offset: Offset(
-                    0,
-                    lerpDouble(size.width * .1, 0, _itemsAnimation.value)!,
-                  ),
-                  child: child,
-                );
-              },
-              child: Container(
-                width: size.width * .2,
-                height: size.width * .15,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(25),
-                  ),
-                ),
-                child: Icon(
-                  Icons.tv,
-                  size: 30,
-                  color: Colors.blueGrey[800],
-                ),
-              ),
+            _TVBottomButton(
+              animationController: _animationController,
+              size: size,
+              itemsAnimation: _itemsAnimation,
             )
           ],
         ),
@@ -270,54 +206,144 @@ class MusicPlayerPageState extends State<MusicPlayerPage>
   }
 }
 
-class _AnimatedPlayerControls extends StatelessWidget {
-  const _AnimatedPlayerControls({
-    required this.animation1,
-    required this.animation2,
-  });
-
-  final Animation<double> animation1;
-  final Animation<double> animation2;
+class _BackButton extends StatelessWidget {
+  const _BackButton({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: animation1,
+    return TextButton.icon(
+      onPressed: () => Navigator.pop(context),
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Colors.white,
+        ),
+      ),
+      icon: const Icon(Icons.arrow_back_ios),
+      label: const Text('Back'),
+    );
+  }
+}
+
+class _TVBottomButton extends StatelessWidget {
+  const _TVBottomButton({
+    Key? key,
+    required AnimationController animationController,
+    required this.size,
+    required Animation<double> itemsAnimation,
+  })  : _animationController = animationController,
+        _itemsAnimation = itemsAnimation,
+        super(key: key);
+
+  final AnimationController _animationController;
+  final Size size;
+  final Animation<double> _itemsAnimation;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _animationController,
+      builder: (_, child) {
+        var value = lerpDouble(size.width * .1, 0, _itemsAnimation.value);
+        return Transform.translate(
+          offset: Offset(0, value!),
+          child: child,
+        );
+      },
+      child: Container(
+        width: size.width * .2,
+        height: size.width * .15,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25),
+          ),
+        ),
+        child: Icon(
+          Icons.tv,
+          size: 30,
+          color: Colors.blueGrey[800],
+        ),
+      ),
+    );
+  }
+}
+
+class WavePlayingIndicator extends StatelessWidget {
+  const WavePlayingIndicator({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+      ),
+      child: CustomPaint(
+        painter: WavePainter(),
+        child: Container(),
+      ),
+    );
+  }
+}
+
+class _SongInformation extends StatelessWidget {
+  const _SongInformation({
+    Key? key,
+    required this.album,
+  }) : super(key: key);
+
+  final AlbumModel album;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(5, (i) {
-            final listIcons = [
-              Icons.replay,
-              Icons.fast_rewind,
-              Icons.play_arrow_rounded,
-              Icons.fast_forward,
-              Icons.volume_up
-            ];
-            return (i == 0 || i == 4)
-                ? IconButton(
-                    onPressed: () {},
-                    color: Colors.grey,
-                    icon: Icon(listIcons[i]),
-                  )
-                : Transform.scale(
-                    scale: lerpDouble(
-                      .5,
-                      1,
-                      animation2.value,
-                    ),
-                    child: FloatingActionButton(
-                      mini: i != 2,
-                      heroTag: i.toString(),
-                      onPressed: () {},
-                      backgroundColor: Colors.white,
-                      elevation: 1,
-                      foregroundColor: const Color(0xffc21451),
-                      child: Icon(listIcons[i]),
-                    ),
-                  );
-          }),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30,
+        ),
+        child: Text(
+          '${album.songs.first} '
+          'by ${album.author} - '
+          '${album.title}',
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AlbumImage extends StatelessWidget {
+  const _AlbumImage({
+    Key? key,
+    required this.imagePath,
+  }) : super(key: key);
+
+  final String imagePath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(8),
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10,
+            offset: Offset(0, 8),
+          )
+        ],
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.fill,
         ),
       ),
     );
