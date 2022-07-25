@@ -53,20 +53,16 @@ class _NavPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
-    final h5 = h * .5;
+    final h5 = h * .55;
     final w5 = w * .5;
     final h6 = h * .6;
 
     final path = Path()
-      ..lineTo(w5 - 80, 0)
-      ..cubicTo((w5 - 40), 0, (w5 - 50), h5, w5 - 3, h6)
-      ..lineTo(w5, h)
-      ..lineTo(w, h)
+      ..lineTo(w5 - 75, 0)
+      ..cubicTo((w5 - 50), 0, (w5 - 35), h5, w5, h6)
+      ..cubicTo((w5 + 35), h5, (w5 + 50), 0, (w5 + 75), 0)
       ..lineTo(w, 0)
-      ..lineTo(w5 + 80, 0)
-      ..cubicTo((w5 + 40), 0, (w5 + 50), h5, w5 + 3, h6)
-      ..lineTo(w5 - 3, h6)
-      ..lineTo(w5, h)
+      ..lineTo(w, h)
       ..lineTo(0, h);
 
     canvas.drawShadow(path, Colors.black26, 10, false);
