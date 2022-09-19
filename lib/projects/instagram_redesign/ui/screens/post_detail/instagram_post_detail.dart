@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/instagram_redesign/bloc/bloc_provider.dart';
 import 'package:flutter_projects/projects/instagram_redesign/ui/screens/post_detail/widgets/widgets.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/ample_post_card.dart';
+import 'package:flutter_projects/projects/instagram_redesign/ui/widgets/clean_post_card.dart';
 
 class InstagramPostDetail extends StatelessWidget {
   const InstagramPostDetail({
     super.key,
     required this.post,
-    required this.postCard,
   });
 
   final IgPost post;
-  final Widget postCard;
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final expandComments = ValueNotifier(false);
     final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
-
+    final viewState = instagramBloc.viewState;
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       //------------------------------
@@ -48,7 +48,14 @@ class InstagramPostDetail extends StatelessWidget {
             right: 0,
             left: 0,
             height: (screenHeight * .7) - 76,
-            child: Hero(tag: post.id!, child: postCard),
+            child: Hero(
+                tag: post.id!,
+                child: viewState == ViewState.ample
+                    ? AmplePostCard(
+                        post: post,
+                        borderRadius: BorderRadius.circular(50),
+                      )
+                    : CleanPostCard(post: post)),
           ),
 
           //-----------------------------------

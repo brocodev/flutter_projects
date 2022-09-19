@@ -68,13 +68,7 @@ class InstagramHomeState extends State<InstagramHome>
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
             opacity: animation,
-            child: InstagramPostDetail(
-              post: post,
-              postCard: AmplePostCard(
-                post: post,
-                borderRadius: BorderRadius.circular(50),
-              ),
-            ),
+            child: InstagramPostDetail(post: post),
           );
         },
       ),
@@ -195,10 +189,7 @@ class InstagramHomeState extends State<InstagramHome>
                                       (context, animation, secondaryAnimation) {
                                     return FadeTransition(
                                       opacity: animation,
-                                      child: InstagramPostDetail(
-                                        post: post,
-                                        postCard: CleanPostCard(post: post),
-                                      ),
+                                      child: InstagramPostDetail(post: post),
                                     );
                                   },
                                 ),
