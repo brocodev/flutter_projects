@@ -107,7 +107,7 @@ class SuperheroDetailPageState extends State<SuperheroDetailPage>
           //-------------------------
           Positioned.fill(
             child: Hero(
-              tag: "${widget.superhero.heroName}background",
+              tag: '${widget.superhero.heroName}background',
               child: AnimatedBuilder(
                 animation: _controller!,
                 builder: (_, __) {

@@ -30,7 +30,7 @@ class SelectCinema extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "SELECT YOUR CINEMA",
+                'SELECT YOUR CINEMA',
                 style: GoogleFonts.barlowCondensed(
                   color: kPrimaryColorLight,
                   fontSize: size.height * .018,
@@ -38,7 +38,7 @@ class SelectCinema extends StatelessWidget {
                 ),
               ),
               Text(
-                "Gulliver",
+                'Gulliver',
                 style: GoogleFonts.barlowCondensed(
                   height: 2,
                   fontSize: size.height * .025,

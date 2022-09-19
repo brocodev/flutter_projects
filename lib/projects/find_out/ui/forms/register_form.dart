@@ -115,7 +115,7 @@ class _FormInputsColumn extends StatelessWidget {
           child: TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               padding: const EdgeInsets.all(12),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -123,7 +123,7 @@ class _FormInputsColumn extends StatelessWidget {
               backgroundColor: Colors.pinkAccent,
             ),
             child: const Text(
-              "Crear cuenta",
+              'Crear cuenta',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -191,7 +191,7 @@ class _AcceptTerms extends StatelessWidget {
             },
           ),
           Text(
-            "Acepto",
+            'Acepto',
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -199,7 +199,7 @@ class _AcceptTerms extends StatelessWidget {
             ),
           ),
           const Text(
-            " terminos y condiciones",
+            ' terminos y condiciones',
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,

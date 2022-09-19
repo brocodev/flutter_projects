@@ -10,13 +10,13 @@ class InstagramApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return InstagramBlocProvider(
       instagramBloc: InstagramBloc(),
-      child: const _MateApp(),
+      child: const _InstagramApp(),
     );
   }
 }
 
-class _MateApp extends StatelessWidget {
-  const _MateApp();
+class _InstagramApp extends StatelessWidget {
+  const _InstagramApp();
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class _MateApp extends StatelessWidget {
           title: 'Instagram',
           debugShowCheckedModeBanner: false,
           themeMode: instagramBloc.themeMode,
-          darkTheme: InstagramTheme.kDarkTheme,
-          theme: InstagramTheme.kLightTheme,
+          darkTheme: InstagramTheme.darkTheme,
+          theme: InstagramTheme.lightTheme,
           home: child,
         );
       },

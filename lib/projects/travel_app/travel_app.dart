@@ -7,10 +7,9 @@ class TravelApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: TravelTheme.theme,
-      home: const FeedScreen(),
+    return Theme(
+      data: TravelTheme.theme,
+      child: const FeedScreen(),
     );
   }
 }

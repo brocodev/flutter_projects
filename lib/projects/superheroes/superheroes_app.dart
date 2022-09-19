@@ -7,15 +7,10 @@ class SuperheroesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Superheroes App",
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
-        //-------------------
-        // App Bar Theme
-        //-------------------
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
@@ -25,9 +20,6 @@ class SuperheroesApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        //-------------------
-        // Text Theme
-        //-------------------
         textTheme: TextTheme(
           headline2: GoogleFonts.leagueSpartan(
             fontWeight: FontWeight.w600,
@@ -44,7 +36,7 @@ class SuperheroesApp extends StatelessWidget {
           bodyColor: Colors.white,
         ),
       ),
-      home:const SuperheroSliderPage(),
+      child: const SuperheroSliderPage(),
     );
   }
 }

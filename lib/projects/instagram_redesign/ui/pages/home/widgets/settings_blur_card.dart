@@ -13,7 +13,6 @@ class SettingsBlurCard extends StatelessWidget {
 
   final double height;
 
-
   @override
   Widget build(BuildContext context) {
     final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
@@ -30,17 +29,17 @@ class SettingsBlurCard extends StatelessWidget {
             child: Column(
               children: [
                 AnimatedBuilder(
-                    animation: instagramBloc,
-                    builder: (context, child) {
-                      return Row(
-                        children: [
-                          Expanded(
-                            flex: 10,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                  animation: instagramBloc,
+                  builder: (context, child) {
+                    return Row(
+                      children: [
+                        Expanded(
+                          flex: 10,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
                               Text(
-                                "Visualization",
+                                'Visualization',
                                 style: GoogleFonts.lato(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w800,
@@ -53,48 +52,47 @@ class SettingsBlurCard extends StatelessWidget {
                                   return _ViewModeItem(
                                     modeNumber: index + 1,
                                     nameMode: [
-                                      "Ample",
-                                      "Clean",
-                                      "Old",
+                                      'Ample',
+                                      'Clean',
+                                      'Old',
                                     ][index],
                                     viewState: [
-                                        ViewState.ample,
-                                        ViewState.clean,
-                                        ViewState.old,
-                                      ][index],
-                                    );
-                                  }),
-                                )
-                              ],
-                            ),
+                                      ViewState.ample,
+                                      ViewState.clean,
+                                      ViewState.old,
+                                    ][index],
+                                  );
+                                }),
+                              )
+                            ],
                           ),
-                          Expanded(
-                            flex: 7,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 10, top: 10),
-                              child: Column(
-                                children: [
-                                  _SettingsSwitcher(
-                                    label: 'Horizontal',
-                                    value: false,
-                                    onChanged: (val) {},
-                                  ),
-                                  _SettingsSwitcher(
-                                    label: 'Swift chat',
-                                    value: false,
-                                    onChanged: (val) {},
-                                  ),
-                                  _SettingsSwitcher(
-                                    label: 'Dark Theme',
-                                    value: instagramBloc.themeMode ==
-                                        ThemeMode.dark,
-                                    onChanged: (val) {
-                                      if (val) {
-                                        instagramBloc
-                                            .setThemeMode(ThemeMode.dark);
-                                      } else {
-                                        instagramBloc
+                        ),
+                        Expanded(
+                          flex: 7,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10, top: 10),
+                            child: Column(
+                              children: [
+                                _SettingsSwitcher(
+                                  label: 'Horizontal',
+                                  value: false,
+                                  onChanged: (val) {},
+                                ),
+                                _SettingsSwitcher(
+                                  label: 'Swift chat',
+                                  value: false,
+                                  onChanged: (val) {},
+                                ),
+                                _SettingsSwitcher(
+                                  label: 'Dark Theme',
+                                  value:
+                                      instagramBloc.themeMode == ThemeMode.dark,
+                                  onChanged: (val) {
+                                    if (val) {
+                                      instagramBloc
+                                          .setThemeMode(ThemeMode.dark);
+                                    } else {
+                                      instagramBloc
                                           .setThemeMode(ThemeMode.light);
                                     }
                                   },
@@ -168,7 +166,7 @@ class _ViewModeItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Text(
-                "$modeNumber",
+                '$modeNumber',
                 style: GoogleFonts.lato(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

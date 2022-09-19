@@ -113,7 +113,7 @@ class _InlineTextSpan extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: " $value",
+            text: ' $value',
             style: const TextStyle(color: Colors.grey),
           ),
         ],

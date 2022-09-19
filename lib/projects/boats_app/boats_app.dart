@@ -6,10 +6,8 @@ class BoatsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Boats App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           headline4: TextStyle(
@@ -19,7 +17,7 @@ class BoatsApp extends StatelessWidget {
           bodyText2: const TextStyle(fontSize: 16),
         ),
       ),
-      home: const BoatListPage(),
+      child: const BoatListPage(),
     );
   }
 }

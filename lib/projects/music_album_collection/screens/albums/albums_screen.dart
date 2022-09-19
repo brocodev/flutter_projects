@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/album_grid_view_card.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/albums/widgets/album_list_view_card.dart';
+import 'package:flutter_projects/projects/music_album_collection/screens/albums/widgets/album_grid_view_card.dart';
+import 'package:flutter_projects/projects/music_album_collection/screens/albums/widgets/album_list_view_card.dart';
 
-class AlbumsPage extends StatefulWidget {
-  const AlbumsPage({
+class AlbumsScreen extends StatefulWidget {
+  const AlbumsScreen({
     super.key,
     this.gridMode = true,
   });
@@ -12,10 +12,10 @@ class AlbumsPage extends StatefulWidget {
   final bool gridMode;
 
   @override
-  AlbumsPageState createState() => AlbumsPageState();
+  AlbumsScreenState createState() => AlbumsScreenState();
 }
 
-class AlbumsPageState extends State<AlbumsPage> {
+class AlbumsScreenState extends State<AlbumsScreen> {
   bool _hideDisks = true;
 
   @override
@@ -43,7 +43,7 @@ class AlbumsPageState extends State<AlbumsPage> {
           pageBuilder: (context, animation, secondaryAnimation) {
             return FadeTransition(
               opacity: animation,
-              child: AlbumsPage(
+              child: AlbumsScreen(
                 gridMode: !widget.gridMode,
               ),
             );

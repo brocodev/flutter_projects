@@ -14,32 +14,32 @@ class ProjectModel {
   final String route;
 
   static const findOut = ProjectModel._(
-    title: "Find Out",
-    description: "Flutter UI + Simple Animations",
-    designer: "Mao Lop",
+    title: 'Find Out',
+    description: 'Flutter UI + Simple Animations',
+    designer: 'Mao Lop',
     pathImage: 'assets/img/projects/findout.png',
-    route: "findOut",
+    route: 'findOut',
   );
   static const movieSelection = ProjectModel._(
-    title: "Movie Selection",
-    description: "Flutter UI + Animations",
-    designer: "Leonid Arestov",
+    title: 'Movie Selection',
+    description: 'Flutter UI + Animations',
+    designer: 'Leonid Arestov',
     pathImage: 'assets/img/projects/movie.gif',
-    route: "movie",
+    route: 'movie',
   );
   static const musicApp = ProjectModel._(
-    title: "Music App",
-    description: "Flutter UI + Hero Animations",
-    designer: "Mantra Design",
-    pathImage: "assets/img/projects/music.gif",
-    route: "music",
+    title: 'Music App',
+    description: 'Flutter UI + Hero Animations',
+    designer: 'Mantra Design',
+    pathImage: 'assets/img/projects/music.gif',
+    route: 'music',
   );
   static const musicAppTwo = ProjectModel._(
-    title: "Music App Two",
-    description: "Flutter UI + Explicit Animations",
-    designer: "Khonok Lee",
+    title: 'Music App Two',
+    description: 'Flutter UI + Explicit Animations',
+    designer: 'Khonok Lee',
     pathImage: 'assets/img/projects/music_two.png',
-    route: "music_two",
+    route: 'music_two',
   );
   static const medicalAppointment = ProjectModel._(
     title: 'Medical Appointment',

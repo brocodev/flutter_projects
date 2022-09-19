@@ -12,22 +12,16 @@ class PhotographersApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF4F3F3),
-        //-----------------------------
-        // App Bar Theme
-        //-----------------------------
         appBarTheme: AppBarTheme(
-            color: Colors.transparent,
-            elevation: 0,
-            titleTextStyle:
-                GoogleFonts.philosopher(color: PhotoAppColors.kDarkBlue),
-            iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),),
-        //---------------------------
-        // Text Theme
-        //---------------------------
+          color: Colors.transparent,
+          elevation: 0,
+          titleTextStyle:
+              GoogleFonts.philosopher(color: PhotoAppColors.kDarkBlue),
+          iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),
+        ),
         textTheme: GoogleFonts.philosopherTextTheme().apply(
           bodyColor: PhotoAppColors.kDarkBlue,
           displayColor: PhotoAppColors.kDarkBlue,
@@ -35,7 +29,7 @@ class PhotographersApp extends StatelessWidget {
         iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: _NavigationPage(),
+      child: _NavigationPage(),
     );
   }
 }
@@ -55,13 +49,14 @@ class _NavigationPageState extends State<_NavigationPage> {
         maxHeight: MediaQuery.of(context).size.height,
         alignment: Alignment.topCenter,
         child: AnimatedSwitcher(
-            duration: kThemeAnimationDuration,
-            child: [
-              const PhotoHomePage(),
-              const Scaffold(body: Center(child: Text("Messages"))),
-              const Scaffold(body: Center(child: Text("Favorites"))),
-              PhotoProfilePage(user: PhotoUser.liliana),
-            ][index],),
+          duration: kThemeAnimationDuration,
+          child: [
+            const PhotoHomePage(),
+            const Scaffold(body: Center(child: Text('Messages'))),
+            const Scaffold(body: Center(child: Text('Favorites'))),
+            PhotoProfilePage(user: PhotoUser.liliana),
+          ][index],
+        ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
         onTap: (val) => setState(() {
@@ -81,14 +76,16 @@ class _NavigationPageState extends State<_NavigationPage> {
         width: 70,
         margin: const EdgeInsets.only(top: 40),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.shade200,
-                  blurRadius: 10,
-                  offset: const Offset(0, 10),)
-            ],),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(40),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade200,
+              blurRadius: 10,
+              offset: const Offset(0, 10),
+            )
+          ],
+        ),
         child: const Icon(Icons.add, size: 32),
       ),
     );

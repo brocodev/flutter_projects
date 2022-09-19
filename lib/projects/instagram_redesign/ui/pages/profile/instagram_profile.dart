@@ -119,7 +119,7 @@ class _ProfileOptionsButtons extends StatelessWidget {
               ),
               onPressed: () {},
               child: Text(
-                ["Edit profile", "Statistics", "Contact"][index],
+                ['Edit profile', 'Statistics', 'Contact'][index],
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color:
@@ -152,7 +152,7 @@ class _UserDescription extends StatelessWidget {
           style: GoogleFonts.lato(color: Colors.grey),
           children: const [
             TextSpan(
-              text: " @brocodev",
+              text: ' @brocodev',
               style: TextStyle(
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
@@ -188,7 +188,7 @@ class _UserProfileNameRow extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Text(
-          "|",
+          '|',
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
             fontSize: 18,
@@ -264,7 +264,7 @@ class _ProfileImageHeader extends StatelessWidget {
       children: [
         IgTitleSubtitleText(
           title: currentUser.following.toString(),
-          subtitle: "Following",
+          subtitle: 'Following',
           height: 2,
           crossAxisAlignment: CrossAxisAlignment.end,
         ),
@@ -278,8 +278,8 @@ class _ProfileImageHeader extends StatelessWidget {
         const SizedBox(width: 20),
         IgTitleSubtitleText(
           title:
-              "${(currentUser.followers! / 1000).toString().substring(0, 4)}K",
-          subtitle: "Followers",
+              '${(currentUser.followers! / 1000).toString().substring(0, 4)}K',
+          subtitle: 'Followers',
           height: 2,
           crossAxisAlignment: CrossAxisAlignment.start,
         ),

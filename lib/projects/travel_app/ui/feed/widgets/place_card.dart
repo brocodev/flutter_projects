@@ -67,7 +67,7 @@ class _ActionButtons extends StatelessWidget {
         TextButton.icon(
           onPressed: () {},
           style: TextButton.styleFrom(
-            primary: Colors.white,
+            foregroundColor: Colors.white,
             shape: const StadiumBorder(),
           ),
           icon: const Icon(CupertinoIcons.heart),
@@ -76,7 +76,7 @@ class _ActionButtons extends StatelessWidget {
         TextButton.icon(
           onPressed: () {},
           style: TextButton.styleFrom(
-            primary: Colors.white,
+            foregroundColor: Colors.white,
             shape: const StadiumBorder(),
           ),
           icon: const Icon(CupertinoIcons.reply),

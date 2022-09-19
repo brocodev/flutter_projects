@@ -16,7 +16,7 @@ class PhotoHomePage extends StatelessWidget {
       appBar: AppBar(
         leading: const Icon(Icons.scatter_plot),
         title: const Text(
-          "Explore",
+          'Explore',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
         actions: const [
@@ -59,7 +59,7 @@ class PhotoHomePage extends StatelessWidget {
                 //--------------------------------
                 child: RichText(
                   text: TextSpan(
-                    text: "P",
+                    text: 'P',
                     style: GoogleFonts.philosopher(
                       color: PhotoAppColors.kDarkBlue,
                       fontSize: 20,
@@ -69,7 +69,7 @@ class PhotoHomePage extends StatelessWidget {
                     ),
                     children: const [
                       TextSpan(
-                        text: "opular Users",
+                        text: 'opular Users',
                         style: TextStyle(decoration: TextDecoration.none),
                       )
                     ],
@@ -129,7 +129,7 @@ class _SearchInput extends StatelessWidget {
         children: [
           const Icon(Icons.search),
           Text(
-            "Search",
+            'Search',
             style: GoogleFonts.lato(
               color: PhotoAppColors.kGrey,
               fontWeight: FontWeight.w600,

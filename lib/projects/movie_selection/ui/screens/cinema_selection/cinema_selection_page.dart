@@ -21,16 +21,17 @@ class CinemaSelectionPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
       body: ValueListenableBuilder<bool>(
-          valueListenable: hideWidgets,
-          builder: (context, value, child) {
-            return AnimatedContainer(
-              duration: kDuration400ms,
-              margin: EdgeInsets.only(top: value ? 100 : 0),
-              curve: Curves.fastOutSlowIn,
-              child: child,
-            );
-          },
-          child: _BodyCinemaSelection(movie: movie, hideWidgets: hideWidgets),),
+        valueListenable: hideWidgets,
+        builder: (context, value, child) {
+          return AnimatedContainer(
+            duration: kDuration400ms,
+            margin: EdgeInsets.only(top: value ? 100 : 0),
+            curve: Curves.fastOutSlowIn,
+            child: child,
+          );
+        },
+        child: _BodyCinemaSelection(movie: movie, hideWidgets: hideWidgets),
+      ),
     );
   }
 }
@@ -109,30 +110,36 @@ class _BodyCinemaSelection extends StatelessWidget {
                   child: TopBorderedContainer(
                     movie: movie,
                     child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text("Today",
-                              style: GoogleFonts.barlowCondensed(
-                                fontSize: size.height * .03,
-                                fontWeight: FontWeight.w500,
-                              ),),
-                          const SizedBox(height: 10),
-                          const TagContainer(tag: 'PREMIERE')
-                        ],),
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'Today',
+                          style: GoogleFonts.barlowCondensed(
+                            fontSize: size.height * .03,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const TagContainer(tag: 'PREMIERE')
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 40),
                 const TranslateAnimation(
-                    duration: Duration(milliseconds: 700),
-                    child: SelectCinema(),),
+                  duration: Duration(milliseconds: 700),
+                  child: SelectCinema(),
+                ),
                 const SizedBox(height: 30),
                 TranslateAnimation(
                   child: SizedBox(
-                      height: size.height * .22,
-                      child: HoursMovieOptions(
-                          listHours: listHours,
-                          selectedHourNotifier: selectedHourNotifier,
-                          movie: movie,),),
+                    height: size.height * .22,
+                    child: HoursMovieOptions(
+                      listHours: listHours,
+                      selectedHourNotifier: selectedHourNotifier,
+                      movie: movie,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -156,15 +163,16 @@ class _BodyCinemaSelection extends StatelessWidget {
 
   void _openChooseSeats(BuildContext context, Movie? movie) {
     Navigator.pushReplacement(
-        context,
-        PageRouteBuilder<dynamic>(
-          transitionDuration: kDuration400ms,
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return FadeTransition(
-              opacity: animation,
-              child: SeatsSelectionPage(movie: movie),
-            );
-          },
-        ),);
+      context,
+      PageRouteBuilder<dynamic>(
+        transitionDuration: kDuration400ms,
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: SeatsSelectionPage(movie: movie),
+          );
+        },
+      ),
+    );
   }
 }

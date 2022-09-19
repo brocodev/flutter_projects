@@ -106,7 +106,7 @@ class InstagramHomeState extends State<InstagramHome>
                   icon: const Icon(Feather.settings),
                   onPressed: instagramBloc.showSettings,
                 ),
-                title: const Text("Instagram"),
+                title: const Text('Instagram'),
                 actions: [
                   Padding(
                     padding: const EdgeInsets.only(right: 20),

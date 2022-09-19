@@ -11,10 +11,9 @@ class BookStoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return CategoriesBlocProvider(
       categoriesBloc: CategoriesBloc(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: BookAppTheme.themeData,
-        home: const BookNavigationScreen(),
+      child: Theme(
+        data: BookAppTheme.themeData,
+        child: const BookNavigationScreen(),
       ),
     );
   }

@@ -58,13 +58,13 @@ class SuperheroSliderPageState extends State<SuperheroSliderPage> {
   @override
   Widget build(BuildContext context) {
     const heroes = Superhero.marvelHeroes;
-    const  angleRotate = -pi * .5;
+    const angleRotate = -pi * .5;
     return Scaffold(
       //---------------
       // App Bar
       //---------------
       appBar: AppBar(
-        title:const  Text("movies"),
+        title: const Text('movies'),
         elevation: 0,
         centerTitle: true,
         leading: Hero(
@@ -136,15 +136,18 @@ class SuperheroSliderPageState extends State<SuperheroSliderPage> {
   }
 
   void _openDetail(BuildContext context, Superhero superhero) {
-    Navigator.push(context, PageRouteBuilder<dynamic>(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return FadeTransition(
-          opacity: animation,
-          child: SuperheroDetailPage(
-            superhero: superhero,
-          ),
-        );
-      },
-    ),);
+    Navigator.push(
+      context,
+      PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return FadeTransition(
+            opacity: animation,
+            child: SuperheroDetailPage(
+              superhero: superhero,
+            ),
+          );
+        },
+      ),
+    );
   }
 }

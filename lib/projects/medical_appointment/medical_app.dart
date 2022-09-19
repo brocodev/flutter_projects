@@ -15,20 +15,20 @@ class MedicalApp extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     });
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.grey[50],
-          primaryColor: MdAppColors.kBlue,
-          primaryColorLight: MdAppColors.kLightBlue,
-          primaryColorDark: MdAppColors.kDarkBlue,
-          textTheme: GoogleFonts.poppinsTextTheme(),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-            secondary: Colors.pinkAccent,
-          ),
+    return Theme(
+      data: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[50],
+        primaryColor: MdAppColors.kBlue,
+        primaryColorLight: MdAppColors.kLightBlue,
+        primaryColorDark: MdAppColors.kDarkBlue,
+        textTheme: GoogleFonts.poppinsTextTheme(),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.pinkAccent,
         ),
-        home: _MainPage(),);
+      ),
+      child: _MainPage(),
+    );
   }
 }
 
@@ -51,8 +51,8 @@ class _MainPageState extends State<_MainPage> {
           child: const [
             MedicalHomePage(),
             DoctorsPage(),
-            Scaffold(body: Center(child: Text("History"))),
-            Scaffold(body: Center(child: Text("Urgency"))),
+            Scaffold(body: Center(child: Text('History'))),
+            Scaffold(body: Center(child: Text('Urgency'))),
           ][indexPage],
         ),
       ),
@@ -67,17 +67,20 @@ class _MainPageState extends State<_MainPage> {
             selectedIcon: Icons.home_rounded,
           ),
           TopRoundedNavigationBarItem(
-              label: 'Doctors',
-              selectedIcon: FontAwesome.user_md,
-              color: Color(0xFF06F884),),
+            label: 'Doctors',
+            selectedIcon: FontAwesome.user_md,
+            color: Color(0xFF06F884),
+          ),
           TopRoundedNavigationBarItem(
-              label: 'History',
-              selectedIcon: Icons.history,
-              color: Colors.purpleAccent,),
+            label: 'History',
+            selectedIcon: Icons.history,
+            color: Colors.purpleAccent,
+          ),
           TopRoundedNavigationBarItem(
-              label: 'Urgency',
-              selectedIcon: Icons.notifications,
-              color: Colors.redAccent,),
+            label: 'Urgency',
+            selectedIcon: Icons.notifications,
+            color: Colors.redAccent,
+          ),
         ],
       ),
     );

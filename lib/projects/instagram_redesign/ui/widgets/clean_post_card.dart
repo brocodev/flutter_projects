@@ -35,16 +35,20 @@ class CleanPostCardState extends State<CleanPostCard>
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 800),);
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
     _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
-          curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
-          parent: _controller,),
+        curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn),
+        parent: _controller,
+      ),
     );
     _outScaleHeart = Tween<double>(begin: 1, end: 0).animate(
       CurvedAnimation(
-          curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
-          parent: _controller,),
+        curve: const Interval(0.6, 1, curve: Curves.easeInOutQuint),
+        parent: _controller,
+      ),
     );
     _controller.addStatusListener(_statusListener);
     super.initState();
@@ -90,17 +94,22 @@ class CleanPostCardState extends State<CleanPostCard>
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text.rich(
-                    TextSpan(text: user.name, children: [
-                      TextSpan(
-                          text: "\n${user.username}",
+                    TextSpan(
+                      text: user.name,
+                      children: [
+                        TextSpan(
+                          text: '\n${user.username}',
                           style: TextStyle(
-                              fontSize: 14,
-                              height: 1.4,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onBackground
-                                  .withOpacity(.3),),)
-                    ],),
+                            fontSize: 14,
+                            height: 1.4,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onBackground
+                                .withOpacity(.3),
+                          ),
+                        )
+                      ],
+                    ),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -133,14 +142,16 @@ class CleanPostCardState extends State<CleanPostCard>
                 },
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20,
-                            offset: Offset(0, 10),)
-                      ],),
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 20,
+                        offset: Offset(0, 10),
+                      )
+                    ],
+                  ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Stack(
@@ -176,16 +187,17 @@ class CleanPostCardState extends State<CleanPostCard>
                         //-------------------------
                         Center(
                           child: AnimatedBuilder(
-                              animation: _controller,
-                              builder: (context, _) {
-                                return Icon(
-                                  Icons.favorite,
-                                  color: Colors.white,
-                                  size: 90 *
-                                      _scaleHeart.value *
-                                      _outScaleHeart.value,
-                                );
-                              },),
+                            animation: _controller,
+                            builder: (context, _) {
+                              return Icon(
+                                Icons.favorite,
+                                color: Colors.white,
+                                size: 90 *
+                                    _scaleHeart.value *
+                                    _outScaleHeart.value,
+                              );
+                            },
+                          ),
                         )
                       ],
                     ),

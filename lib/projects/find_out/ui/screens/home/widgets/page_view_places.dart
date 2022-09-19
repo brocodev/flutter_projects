@@ -85,7 +85,7 @@ class PageViewPlaces extends StatelessWidget {
                       Center(child: TitlePlace(place: place)),
                       const Spacer(flex: 2),
                       Text(
-                        "Información",
+                        'Información',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

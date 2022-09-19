@@ -69,9 +69,9 @@ class BottomTabViewProfileState extends State<BottomTabViewProfile>
                 StaggeredTile.count(index == 0 ? 2 : 1, index == 0 ? 2 : 1),
           ),
 
-          const Center(child: Text("Videos")), //---VIDEOS
-          const Center(child: Text("Streams")), //---STREAMS
-          const Center(child: Text("Friends")), //---CONTACTS
+          const Center(child: Text('Videos')), //---VIDEOS
+          const Center(child: Text('Streams')), //---STREAMS
+          const Center(child: Text('Friends')), //---CONTACTS
 
           //-------------------------------------
           //------EXTERNAL PLATFORMS GRID VIEW
@@ -109,7 +109,7 @@ class BottomTabViewProfileState extends State<BottomTabViewProfile>
               );
             },
           ), //---LINKS
-          const Center(child: Text("Saved")), //---SAVED
+          const Center(child: Text('Saved')), //---SAVED
         ],
       ),
     );

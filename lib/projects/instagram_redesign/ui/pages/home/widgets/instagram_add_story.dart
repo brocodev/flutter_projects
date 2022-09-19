@@ -6,7 +6,7 @@ class InstagramAddItem extends StatelessWidget {
     super.key,
     required this.itemSize,
     this.onTap,
-    this.label = "",
+    this.label = '',
   });
 
   final double itemSize;

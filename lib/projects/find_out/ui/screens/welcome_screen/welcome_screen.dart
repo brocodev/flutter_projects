@@ -137,7 +137,7 @@ class RectangularButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          primary: Colors.white,
+          foregroundColor: Colors.white,
           shape: const RoundedRectangleBorder(
             side: BorderSide(color: Colors.white, width: 3),
           ),

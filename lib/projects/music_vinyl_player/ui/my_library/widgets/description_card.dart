@@ -19,17 +19,18 @@ class DescriptionCard extends StatelessWidget {
       padding: padding,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              offset: Offset(-10, 10),
-              blurRadius: 10,
-            )
-          ],),
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(30),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(-10, 10),
+            blurRadius: 10,
+          )
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -39,11 +40,12 @@ class DescriptionCard extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "Album",
+                'Album',
                 style: GoogleFonts.spectral(
-                    color: const Color(0xffd4af90),
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16,),
+                  color: const Color(0xffd4af90),
+                  fontWeight: FontWeight.w800,
+                  fontSize: 16,
+                ),
               ),
               const Spacer(),
               RowStars(
@@ -53,9 +55,11 @@ class DescriptionCard extends StatelessWidget {
               ),
               const SizedBox(width: 5),
               Text(
-                "${album.rate}",
+                '${album.rate}',
                 style: GoogleFonts.spectral(
-                    fontSize: 18, fontWeight: FontWeight.w600,),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               )
             ],
           ),
@@ -76,12 +80,15 @@ class DescriptionCard extends StatelessWidget {
           // Artist name
           //----------------------------
           Text.rich(
-            TextSpan(text: 'By ', children: [
-              TextSpan(
-                text: album.author,
-                style: GoogleFonts.poppins(color: Colors.grey[800]),
-              ),
-            ],),
+            TextSpan(
+              text: 'By ',
+              children: [
+                TextSpan(
+                  text: album.author,
+                  style: GoogleFonts.poppins(color: Colors.grey[800]),
+                ),
+              ],
+            ),
             style: GoogleFonts.poppins(
               color: Colors.grey[400],
               fontWeight: FontWeight.w500,
@@ -98,10 +105,11 @@ class DescriptionCard extends StatelessWidget {
                 TextSpan(text: '${album.songsCount} songs'),
                 _buildDotSpan(),
                 TextSpan(
-                    text: '${album.duration.inHours} hr '
-                        // ignore: lines_longer_than_80_chars
-                        '${(album.duration - const Duration(hours: 1)).inMinutes}'
-                        ' min',),
+                  text: '${album.duration.inHours} hr '
+                      // ignore: lines_longer_than_80_chars
+                      '${(album.duration - const Duration(hours: 1)).inMinutes}'
+                      ' min',
+                ),
               ],
             ),
             style: GoogleFonts.poppins(
@@ -143,9 +151,10 @@ class DescriptionCard extends StatelessWidget {
                     child: Chip(
                       label: Text(album.genres[index]),
                       labelStyle: GoogleFonts.poppins(
-                          color: Colors.grey[700],
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,),
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
                       shape: ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),

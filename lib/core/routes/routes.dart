@@ -17,7 +17,7 @@ import 'package:flutter_projects/projects/travel_app/travel_app.dart';
 
 class ProjectRoutes {
   static Map<String, WidgetBuilder> routes = {
-    "/": (context) => const BrocoProjectsScreen(),
+    '/': (context) => const BrocoProjectsScreen(),
     ProjectModel.findOut.route: (_) => const FindOutApp(),
     ProjectModel.movieSelection.route: (_) => const MovieSelectionApp(),
     ProjectModel.musicApp.route: (_) => const MusicAlbumList(),

@@ -6,7 +6,7 @@ class InstagramBlocProvider extends InheritedWidget {
   const InstagramBlocProvider({
     super.key,
     required this.instagramBloc,
-    required  super.child,
+    required super.child,
   });
 
   final InstagramBloc instagramBloc;
@@ -15,5 +15,5 @@ class InstagramBlocProvider extends InheritedWidget {
       context.dependOnInheritedWidgetOfExactType<InstagramBlocProvider>();
 
   @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
+  bool updateShouldNotify(InheritedWidget oldWidget) => this != oldWidget;
 }

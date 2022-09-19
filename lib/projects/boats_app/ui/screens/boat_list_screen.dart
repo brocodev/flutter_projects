@@ -125,7 +125,7 @@ class _AnimatedCustomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Boats",
+                  'Boats',
                   style: Theme.of(context)
                       .textTheme
                       .headline4!

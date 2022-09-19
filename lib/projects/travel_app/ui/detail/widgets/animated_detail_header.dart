@@ -121,8 +121,6 @@ class AnimatedDetailHeader extends StatelessWidget {
   }
 }
 
-
-
 class _UserInfoContainer extends StatelessWidget {
   const _UserInfoContainer({
     required this.place,
@@ -165,7 +163,7 @@ class _UserInfoContainer extends StatelessWidget {
           TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
-              primary: Colors.blue.shade600,
+              foregroundColor: Colors.blue.shade600,
               textStyle: context.subtitle1,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
@@ -203,7 +201,7 @@ class _LikesAndSharesContainer extends StatelessWidget {
           TextButton.icon(
             onPressed: () {},
             style: TextButton.styleFrom(
-              primary: Colors.black,
+              foregroundColor: Colors.black,
               textStyle: context.subtitle1,
               shape: const StadiumBorder(),
             ),
@@ -216,7 +214,7 @@ class _LikesAndSharesContainer extends StatelessWidget {
           TextButton.icon(
             onPressed: () {},
             style: TextButton.styleFrom(
-              primary: Colors.black,
+              foregroundColor: Colors.black,
               textStyle: context.subtitle1,
               shape: const StadiumBorder(),
             ),
@@ -231,7 +229,7 @@ class _LikesAndSharesContainer extends StatelessWidget {
             onPressed: () {},
             style: TextButton.styleFrom(
               backgroundColor: Colors.blue.shade100,
-              primary: Colors.blue.shade600,
+              foregroundColor: Colors.blue.shade600,
               textStyle: context.subtitle1,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),

@@ -14,11 +14,12 @@ class DoctorsPage extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: const BoxDecoration(
-                gradient: LinearGradient(
-              colors: [MdAppColors.kBlue, MdAppColors.kDarkBlue],
-              end: Alignment.bottomCenter,
-              begin: Alignment.topCenter,
-            ),),
+              gradient: LinearGradient(
+                colors: [MdAppColors.kBlue, MdAppColors.kDarkBlue],
+                end: Alignment.bottomCenter,
+                begin: Alignment.topCenter,
+              ),
+            ),
             child: SafeArea(
               child: Column(
                 children: [
@@ -30,14 +31,15 @@ class DoctorsPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: const [
                           Text(
-                            "Find your doctor",
+                            'Find your doctor',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,),
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),
                           ),
                           Text(
-                            "The best doctors catalog",
+                            'The best doctors catalog',
                             style:
                                 TextStyle(color: Colors.white70, fontSize: 16),
                           ),

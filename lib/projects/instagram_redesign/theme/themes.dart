@@ -24,15 +24,15 @@ class InstagramTheme {
     ),
   );
 
-  static final kDarkTheme = ThemeData.dark().copyWith(
-      scaffoldBackgroundColor: Colors.black,
-      backgroundColor: Colors.black,
-      colorScheme:
-          const ColorScheme.dark(),
-      textTheme: GoogleFonts.latoTextTheme(),
-      appBarTheme: InstagramTheme.kAppBarThemeDark,);
+  static final darkTheme = ThemeData.dark().copyWith(
+    scaffoldBackgroundColor: Colors.black,
+    backgroundColor: Colors.black,
+    colorScheme: const ColorScheme.dark(),
+    textTheme: GoogleFonts.latoTextTheme(),
+    appBarTheme: InstagramTheme.kAppBarThemeDark,
+  );
 
-  static final kLightTheme = ThemeData(
+  static final lightTheme = ThemeData(
     scaffoldBackgroundColor: const Color(0xFFF2F6F9),
     backgroundColor: Colors.grey[100],
     colorScheme: const ColorScheme.light(),

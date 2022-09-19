@@ -29,7 +29,7 @@ class SuperheroCard extends StatelessWidget {
           Positioned.fill(
             top: separation,
             child: Hero(
-              tag: "${superhero.heroName}background",
+              tag: '${superhero.heroName}background',
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: Color(superhero.rawColor!),

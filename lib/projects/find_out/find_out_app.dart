@@ -7,17 +7,15 @@ class FindOutApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'find Out',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
+    return Theme(
+      data: ThemeData.dark().copyWith(
         primaryColor: const Color(0xFFFF256C),
         textTheme: GoogleFonts.poppinsTextTheme().apply(
           bodyColor: Colors.white,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomeScreen(),
+      child: WelcomeScreen(),
     );
   }
 }

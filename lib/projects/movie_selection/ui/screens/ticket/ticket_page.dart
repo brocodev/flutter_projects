@@ -126,7 +126,7 @@ class TicketPage extends StatelessWidget {
                       ),
                       Center(
                         child: Text(
-                          "# 0X43012",
+                          '# 0X43012',
                           style: GoogleFonts.barlowCondensed(
                             color: kPrimaryColorLight,
                             height: 1.5,

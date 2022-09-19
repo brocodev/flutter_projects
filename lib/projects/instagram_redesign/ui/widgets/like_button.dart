@@ -63,6 +63,6 @@ class LikeButton extends StatelessWidget {
       final textLikes = (likes! / 1000).toString().split('.');
       return "${textLikes.first} , ${textLikes.last.split('').first} 'K'";
     }
-    return "$likes";
+    return '$likes';
   }
 }

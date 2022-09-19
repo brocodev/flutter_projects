@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/ui/screens/home/movie_home.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,10 +7,8 @@ class MovieSelectionApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Movie Selection',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         textTheme: GoogleFonts.barlowCondensedTextTheme()
             .apply(bodyColor: Colors.white)
             .copyWith(
@@ -21,7 +18,7 @@ class MovieSelectionApp extends StatelessWidget {
               ),
             ),
       ),
-      home: MovieHome(),
+      child: MovieHome(),
     );
   }
 }

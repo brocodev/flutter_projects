@@ -22,7 +22,7 @@ class SendMessageTextField extends StatelessWidget {
         suffixIcon: const Padding(
           padding: EdgeInsets.only(right: 20),
           child: Text(
-            "| 😍",
+            '| 😍',
             style: TextStyle(
               fontSize: 22,
               height: 1.8,

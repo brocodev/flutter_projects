@@ -17,7 +17,7 @@ class BrocodevProjectsApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: "/",
+      initialRoute: '/',
       routes: ProjectRoutes.routes,
     );
   }

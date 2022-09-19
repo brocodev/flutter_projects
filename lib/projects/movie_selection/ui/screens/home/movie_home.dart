@@ -28,7 +28,7 @@ class MovieHome extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColorDark,
       body: Stack(
-          children: [
+        children: [
           //-------------------------
           // Movie lists
           //-------------------------
@@ -56,25 +56,26 @@ class MovieHome extends StatelessWidget {
             },
             child: DecoratedBox(
               decoration: BoxDecoration(
-                  color: kPrimaryColorHeavy,
-                  boxShadow: [
-                    BoxShadow(
-                      color: kPrimaryColorDark.withOpacity(.4),
-                      blurRadius: 15,
-                    )
-                  ],
-                ),
-                child: Row(children: const [
+                color: kPrimaryColorHeavy,
+                boxShadow: [
+                  BoxShadow(
+                    color: kPrimaryColorDark.withOpacity(.4),
+                    blurRadius: 15,
+                  )
+                ],
+              ),
+              child: Row(
+                children: const [
                   HeaderOption(
-                    title: "Cinema",
+                    title: 'Cinema',
                     isSelected: false,
                   ),
                   HeaderOption(
-                    title: "Movie",
+                    title: 'Movie',
                     isSelected: true,
                   ),
                   HeaderOption(
-                    title: "Time",
+                    title: 'Time',
                     isSelected: false,
                   ),
                 ],

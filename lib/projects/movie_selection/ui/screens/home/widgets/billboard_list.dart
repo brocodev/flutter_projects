@@ -138,7 +138,7 @@ class MovieBillboardCard extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                "${movie.reviews} Reviews",
+                '${movie.reviews} Reviews',
                 style: GoogleFonts.barlowCondensed(
                   fontWeight: FontWeight.w500,
                   letterSpacing: 3,

@@ -92,7 +92,7 @@ class CommentCard extends StatelessWidget {
                 color: Colors.pinkAccent,
               ),
               Text(
-                " ${comment.commentLikes}",
+                ' ${comment.commentLikes}',
                 style: TextStyle(
                   color: Colors.grey[600],
                   fontWeight: FontWeight.w700,
@@ -104,7 +104,7 @@ class CommentCard extends StatelessWidget {
                 color: Colors.grey[600],
               ),
               Text(
-                " ${comment.commentResponses}",
+                ' ${comment.commentResponses}',
                 style: TextStyle(
                   color: Colors.grey[600],
                   fontWeight: FontWeight.w700,

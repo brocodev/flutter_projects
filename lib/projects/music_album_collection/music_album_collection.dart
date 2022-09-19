@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/albums/albums_page.dart';
+import 'package:flutter_projects/projects/music_album_collection/screens/albums/albums_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MusicAlbumList extends StatelessWidget {
@@ -7,9 +7,8 @@ class MusicAlbumList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(),
         primarySwatch: Colors.grey,
@@ -19,7 +18,7 @@ class MusicAlbumList extends StatelessWidget {
         ),
         primaryColor: Colors.white,
       ),
-      home:const  AlbumsPage(),
+      child: const AlbumsScreen(),
     );
   }
 }

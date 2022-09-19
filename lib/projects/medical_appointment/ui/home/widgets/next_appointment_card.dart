@@ -78,7 +78,7 @@ class NextAppointmentCard extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     _buildTextRich(
-                      title: "Date",
+                      title: 'Date',
                       subtitle: MdUtils.formatToTextDate(mdAppointment.date!),
                     ),
                     const Spacer(),
@@ -88,16 +88,16 @@ class NextAppointmentCard extends StatelessWidget {
                     Row(
                       children: [
                         _buildTextRich(
-                          title: "Dr. ${doctor.name}",
+                          title: 'Dr. ${doctor.name}',
                           subtitle: doctor.doctorCategory!.nameCategory,
                         ),
                         const Spacer(),
                         Container(
                           padding: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border:
-                                  Border.all(color: Colors.white60, width: 3),),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white60, width: 3),
+                          ),
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
                             backgroundImage:
@@ -122,9 +122,10 @@ class NextAppointmentCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               decoration: const BoxDecoration(
-                  color: Colors.white60,
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(20)),),
+                color: Colors.white60,
+                borderRadius:
+                    BorderRadius.only(bottomLeft: Radius.circular(20)),
+              ),
               child: Text(
                 MdUtils.extractHourDate(mdAppointment.date!),
                 style: const TextStyle(
@@ -151,7 +152,7 @@ class NextAppointmentCard extends StatelessWidget {
           ),
         ],
       ),
-      style:const  TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.white,
       ),

@@ -17,7 +17,7 @@ class RoundedIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       style: TextButton.styleFrom(
-        primary: Colors.black,
+        foregroundColor: Colors.black,
         shape: StadiumBorder(
           side: BorderSide(color: Colors.grey[200]!, width: 1.5),
         ),
@@ -27,13 +27,14 @@ class RoundedIconButton extends StatelessWidget {
       icon: Container(
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Theme.of(context).primaryColorLight,
-                Theme.of(context).primaryColorDark,
-              ],
-            ),
-            shape: BoxShape.circle,),
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).primaryColorLight,
+              Theme.of(context).primaryColorDark,
+            ],
+          ),
+          shape: BoxShape.circle,
+        ),
         child: Icon(
           iconData,
           color: Colors.white,

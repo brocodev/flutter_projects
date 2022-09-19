@@ -121,7 +121,7 @@ class SongPlayerPageState extends State<SongPlayerPage>
     final seconds =
         (duration - Duration(minutes: duration.inMinutes)).inSeconds.toString();
     final sec = seconds.length == 1 ? '0$seconds' : seconds;
-    return "${duration.inMinutes}:$sec";
+    return '${duration.inMinutes}:$sec';
   }
 
   @override

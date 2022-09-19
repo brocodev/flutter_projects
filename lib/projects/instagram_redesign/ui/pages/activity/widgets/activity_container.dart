@@ -127,7 +127,7 @@ class ActivityContainer extends StatelessWidget {
             onPressed: () {},
             style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
             ),
             child: Text(
               activity.typeNotification == IgTypeActivity.follows

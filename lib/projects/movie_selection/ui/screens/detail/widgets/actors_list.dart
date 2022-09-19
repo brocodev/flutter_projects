@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/movie_selection/models/actors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 class ActorsList extends StatelessWidget {
   const ActorsList({
     super.key,
@@ -21,7 +19,7 @@ class ActorsList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            "Actors",
+            'Actors',
             style: GoogleFonts.barlowCondensed(
               fontSize: size.height * .03,
               fontWeight: FontWeight.w400,
@@ -61,7 +59,8 @@ class ActorsList extends StatelessWidget {
                         style: GoogleFonts.barlowCondensed(
                           fontWeight: FontWeight.w500,
                           color: Colors.white.withOpacity(.9),
-                          fontSize: size.height*.02,),
+                          fontSize: size.height * .02,
+                        ),
                       ),
                     )
                   ],

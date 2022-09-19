@@ -36,35 +36,40 @@ class FooterPost extends StatelessWidget {
         //-----ADDING THE NEXT WIDGETS
         //-------------------------------------
         ..add(const SizedBox(width: 20))
-        ..add(Flexible(
+        ..add(
+          Flexible(
             child: Text(
-          post.description,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            color:
-                colorDescription ?? Theme.of(context).colorScheme.onBackground,
-            fontWeight: FontWeight.bold,
-          ),
-        ),),)
-        ..add(const SizedBox(width: 5))
-        ..add(SizedBox(
-          height: 30,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: colorMoreButton ?? Colors.white,
-              shape: const StadiumBorder(),
-            ),
-            onPressed: () {},
-            child: Text(
-              "More",
+              post.description,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
+                color: colorDescription ??
+                    Theme.of(context).colorScheme.onBackground,
                 fontWeight: FontWeight.bold,
-                color: colorMoreText ?? colorDescription,
               ),
             ),
           ),
-        ),),
+        )
+        ..add(const SizedBox(width: 5))
+        ..add(
+          SizedBox(
+            height: 30,
+            child: TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: colorMoreButton ?? Colors.white,
+                shape: const StadiumBorder(),
+              ),
+              onPressed: () {},
+              child: Text(
+                'More',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: colorMoreText ?? colorDescription,
+                ),
+              ),
+            ),
+          ),
+        ),
     );
   }
 }

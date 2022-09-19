@@ -130,7 +130,7 @@ class _DoctorInformation extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Patients",
+                  'Patients',
                   style: TextStyle(
                     color: Colors.white.withOpacity(.8),
                     fontWeight: FontWeight.w500,
@@ -149,7 +149,7 @@ class _DoctorInformation extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Rate",
+                  'Rate',
                   style: TextStyle(
                     color: Colors.white.withOpacity(.8),
                     fontWeight: FontWeight.w500,
@@ -206,15 +206,15 @@ class _WhiteBackground extends StatelessWidget {
         children: <Widget>[
           _buildIconButton(
             iconData: Icons.favorite,
-            label: "${doctor.likes} likes",
+            label: '${doctor.likes} likes',
           ),
           _buildIconButton(
             iconData: Icons.comment,
-            label: "${doctor.comments} comments",
+            label: '${doctor.comments} comments',
           ),
           _buildIconButton(
             iconData: Icons.send,
-            label: "Message",
+            label: 'Message',
             onTap: () {},
           ),
         ],

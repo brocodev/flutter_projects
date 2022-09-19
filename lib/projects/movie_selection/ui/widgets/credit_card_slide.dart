@@ -34,17 +34,18 @@ class CreditCardSlide extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: List.generate(listColors.length, (index) {
               return ValueListenableBuilder<int>(
-                  valueListenable: indexNotifier,
-                  builder: (context, value, _) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: CircleAvatar(
-                        backgroundColor:
-                            value == index ? kAccentColor : Colors.white70,
-                        radius: value == index ? 5 : 2.5,
-                      ),
-                    );
-                  },);
+                valueListenable: indexNotifier,
+                builder: (context, value, _) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: CircleAvatar(
+                      backgroundColor:
+                          value == index ? kAccentColor : Colors.white70,
+                      radius: value == index ? 5 : 2.5,
+                    ),
+                  );
+                },
+              );
             }),
           ),
         )
@@ -68,12 +69,14 @@ class CreditCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(30),
-          gradient: LinearGradient(
-              colors: colors,
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,),),
+        color: Colors.red,
+        borderRadius: BorderRadius.circular(30),
+        gradient: LinearGradient(
+          colors: colors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -83,7 +86,8 @@ class CreditCard extends StatelessWidget {
               Row(
                 children: <Widget>[
                   CircleAvatar(
-                      backgroundColor: Colors.redAccent.withOpacity(.8),),
+                    backgroundColor: Colors.redAccent.withOpacity(.8),
+                  ),
                   Align(
                     widthFactor: .3,
                     child: CircleAvatar(
@@ -99,23 +103,33 @@ class CreditCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("Kevin Melendez Hernandez".toUpperCase(),
-                  maxLines: 1,
-                  style: GoogleFonts.barlowCondensed(
-                      color: Colors.white70, fontSize: size.height * .018,),),
-              Text("05/24".toUpperCase(),
-                  maxLines: 1,
-                  style: GoogleFonts.barlowCondensed(
-                      color: Colors.white70, fontSize: size.height * .018,),),
+              Text(
+                'Kevin Melendez Hernandez'.toUpperCase(),
+                maxLines: 1,
+                style: GoogleFonts.barlowCondensed(
+                  color: Colors.white70,
+                  fontSize: size.height * .018,
+                ),
+              ),
+              Text(
+                '05/24'.toUpperCase(),
+                maxLines: 1,
+                style: GoogleFonts.barlowCondensed(
+                  color: Colors.white70,
+                  fontSize: size.height * .018,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 30),
-          Text("9189 .... .... 1299".toUpperCase(),
-              maxLines: 1,
-              style: GoogleFonts.barlowCondensed(
-                fontSize: size.height * .024,
-                letterSpacing: 12,
-              ),),
+          Text(
+            '9189 .... .... 1299'.toUpperCase(),
+            maxLines: 1,
+            style: GoogleFonts.barlowCondensed(
+              fontSize: size.height * .024,
+              letterSpacing: 12,
+            ),
+          ),
         ],
       ),
     );

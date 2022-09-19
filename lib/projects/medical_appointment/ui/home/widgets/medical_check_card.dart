@@ -22,9 +22,10 @@ class MedicalCheckCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey.withOpacity(.1),
-                  blurRadius: 10,
-                  offset: const Offset(-3, 3),),
+                color: Colors.grey.withOpacity(.1),
+                blurRadius: 10,
+                offset: const Offset(-3, 3),
+              ),
             ],
           ),
           child: Row(
@@ -50,7 +51,7 @@ class MedicalCheckCard extends StatelessWidget {
                     ),
                     Text(
                       '${medicalCheck.value.toString()} '
-                          '${medicalCheck.getMeasure()}',
+                      '${medicalCheck.getMeasure()}',
                       overflow: TextOverflow.fade,
                       softWrap: false,
                       style: const TextStyle(
@@ -78,7 +79,7 @@ class MedicalCheckCard extends StatelessWidget {
               ),
             ),
             child: Text(
-              medicalCheck.getMedicalState().toString().split(".")[1],
+              medicalCheck.getMedicalState().toString().split('.')[1],
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 12,

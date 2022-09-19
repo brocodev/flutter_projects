@@ -31,16 +31,22 @@ class PhotoPostCardState extends State<PhotoPostCard>
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600),);
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    );
     _scaleHeart = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(curve: Curves.decelerate, parent: _controller),);
-    _downOpacity = Tween<double>(begin: 1, end: 0).animate(CurvedAnimation(
+      CurvedAnimation(curve: Curves.decelerate, parent: _controller),
+    );
+    _downOpacity = Tween<double>(begin: 1, end: 0).animate(
+      CurvedAnimation(
         curve: const Interval(
           0.5,
           1,
           curve: Curves.decelerate,
         ),
-        parent: _controller,),);
+        parent: _controller,
+      ),
+    );
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -99,13 +105,16 @@ class PhotoPostCardState extends State<PhotoPostCard>
                           radius: 15,
                           backgroundColor: Colors.white,
                           backgroundImage: CachedNetworkImageProvider(
-                              widget.post.user!.photoUrl!,),
+                            widget.post.user!.photoUrl!,
+                          ),
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          widget.post.user!.name!.split(" ").first,
+                          widget.post.user!.name!.split(' ').first,
                           style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold,),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -163,22 +172,23 @@ class PhotoPostCardState extends State<PhotoPostCard>
             // Heart Animation
             //----------------------------------
             AnimatedBuilder(
-                animation: _controller,
-                builder: (context, _) {
-                  return Center(
-                    child: Transform.scale(
-                      scale: 20 * _scaleHeart.value,
-                      child: Icon(
-                        Icons.favorite,
-                        color: Colors.white.withOpacity(
-                          1 *
-                              (_scaleHeart.value.clamp(0.0, .5) *
-                                  _downOpacity.value),
-                        ),
+              animation: _controller,
+              builder: (context, _) {
+                return Center(
+                  child: Transform.scale(
+                    scale: 20 * _scaleHeart.value,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white.withOpacity(
+                        1 *
+                            (_scaleHeart.value.clamp(0.0, .5) *
+                                _downOpacity.value),
                       ),
                     ),
-                  );
-                },)
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),

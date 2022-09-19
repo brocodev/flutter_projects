@@ -36,7 +36,7 @@ class PhotoProfilePage extends StatelessWidget {
             children: [
               _TitleSubtitleText(
                 title: user.following.toString(),
-                subtitle: "Following",
+                subtitle: 'Following',
                 height: 2,
                 crossAxisAlignment: CrossAxisAlignment.end,
               ),
@@ -48,8 +48,8 @@ class PhotoProfilePage extends StatelessWidget {
                 ],
               ),
               _TitleSubtitleText(
-                title: "${followers}K",
-                subtitle: "Followers",
+                title: '${followers}K',
+                subtitle: 'Followers',
                 height: 2,
                 crossAxisAlignment: CrossAxisAlignment.start,
               ),
@@ -73,9 +73,10 @@ class PhotoProfilePage extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 itemCount: user.listPhotosUrl!.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 2 / 3,
-                    crossAxisSpacing: 10,),
+                  crossAxisCount: 2,
+                  childAspectRatio: 2 / 3,
+                  crossAxisSpacing: 10,
+                ),
                 itemBuilder: (context, index) {
                   final imageUrl = user.listPhotosUrl![index];
                   return Center(
@@ -119,17 +120,19 @@ class _ImageProfile extends StatelessWidget {
       height: 90,
       width: 90,
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: CachedNetworkImageProvider(imageUser!),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(35),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(.26),
-                blurRadius: 20,
-                offset: const Offset(0, 10),)
-          ],),
+        image: DecorationImage(
+          image: CachedNetworkImageProvider(imageUser!),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(35),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(.26),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          )
+        ],
+      ),
     );
   }
 }
@@ -153,18 +156,21 @@ class _TitleSubtitleText extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title!,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: PhotoAppColors.kDarkBlue,
-              fontSize: 17,
-            ),),
+        Text(
+          title!,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: PhotoAppColors.kDarkBlue,
+            fontSize: 17,
+          ),
+        ),
         Text(
           subtitle!,
           style: GoogleFonts.lato(
-              height: height,
-              color: PhotoAppColors.kGrey,
-              fontWeight: FontWeight.bold,),
+            height: height,
+            color: PhotoAppColors.kGrey,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
@@ -180,9 +186,10 @@ class _GreenDot extends StatelessWidget {
       height: 18,
       width: 18,
       decoration: BoxDecoration(
-          color: PhotoAppColors.kGreen,
-          border: Border.all(color: Colors.white, width: 2),
-          borderRadius: BorderRadius.circular(10),),
+        color: PhotoAppColors.kGreen,
+        border: Border.all(color: Colors.white, width: 2),
+        borderRadius: BorderRadius.circular(10),
+      ),
     );
   }
 }

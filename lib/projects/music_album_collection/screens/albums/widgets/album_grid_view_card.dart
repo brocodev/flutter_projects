@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/projects/music_album_collection/models/album_model.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/music_player/music_player_page.dart';
-import 'package:flutter_projects/projects/music_album_collection/ui/widgets/album_card_text.dart';
+import 'package:flutter_projects/projects/music_album_collection/screens/music_player/music_player_screen.dart';
+import 'package:flutter_projects/projects/music_album_collection/screens/widgets/album_card_text.dart';
 
 class AlbumGridViewCard extends StatelessWidget {
   const AlbumGridViewCard({
@@ -24,7 +24,7 @@ class AlbumGridViewCard extends StatelessWidget {
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
             opacity: animation,
-            child: MusicPlayerPage(album: album),
+            child: MusicPlayerScreen(album: album),
           );
         },
       ),

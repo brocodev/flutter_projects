@@ -28,7 +28,9 @@ class CommentListTile extends StatelessWidget {
               Text(
                 comment.user!.username!,
                 style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.grey,),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                ),
               ),
               Text(
                 comment.comment!,
@@ -43,7 +45,7 @@ class CommentListTile extends StatelessWidget {
         ),
         TextButton(
           style: TextButton.styleFrom(
-            primary: Theme.of(context).colorScheme.onBackground,
+            foregroundColor: Theme.of(context).colorScheme.onBackground,
             backgroundColor: instagramBloc.themeMode == ThemeMode.dark
                 ? Colors.grey[900]
                 : Colors.grey[100],
@@ -52,7 +54,7 @@ class CommentListTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           ),
           onPressed: () {},
-          child: const Text("Reply"),
+          child: const Text('Reply'),
         ),
         FloatingActionButton(
           heroTag: UniqueKey(),

@@ -14,7 +14,7 @@ class Synopsis extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Synopsis",
+          'Synopsis',
           style: GoogleFonts.barlowCondensed(
             fontSize: size.height * .03,
             fontWeight: FontWeight.w400,
