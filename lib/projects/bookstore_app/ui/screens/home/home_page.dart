@@ -46,6 +46,7 @@ class HomePageState extends State<HomePage> {
 
   // Open the detail page of a book in the list.
   void _openPage(Widget page, BuildContext context, {bool opaque = false}) {
+     CategoriesBlocProvider.of(context)!.categoriesBloc.eventsSink.add(null);
     final route = PageRouteBuilder<dynamic>(
       opaque: opaque,
       transitionDuration: const Duration(milliseconds: 600),
