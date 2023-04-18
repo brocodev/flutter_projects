@@ -15,8 +15,8 @@ class MedicalApp extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     });
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
         primaryColor: MdAppColors.kBlue,
         primaryColorLight: MdAppColors.kLightBlue,
@@ -27,7 +27,7 @@ class MedicalApp extends StatelessWidget {
           secondary: Colors.pinkAccent,
         ),
       ),
-      child: _MainPage(),
+      home: _MainPage(),
     );
   }
 }

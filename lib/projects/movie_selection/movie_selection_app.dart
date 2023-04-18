@@ -7,8 +7,8 @@ class MovieSelectionApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         textTheme: GoogleFonts.barlowCondensedTextTheme()
             .apply(bodyColor: Colors.white)
             .copyWith(
@@ -18,7 +18,7 @@ class MovieSelectionApp extends StatelessWidget {
               ),
             ),
       ),
-      child: MovieHome(),
+      home: MovieHome(),
     );
   }
 }

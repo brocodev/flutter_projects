@@ -7,8 +7,8 @@ class MusicAlbumList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(),
         primarySwatch: Colors.grey,
@@ -18,7 +18,7 @@ class MusicAlbumList extends StatelessWidget {
         ),
         primaryColor: Colors.white,
       ),
-      child: const AlbumsScreen(),
+      home: const AlbumsScreen(),
     );
   }
 }

@@ -12,8 +12,8 @@ class PhotographersApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF4F3F3),
         appBarTheme: AppBarTheme(
           color: Colors.transparent,
@@ -29,7 +29,7 @@ class PhotographersApp extends StatelessWidget {
         iconTheme: const IconThemeData(color: PhotoAppColors.kDarkBlue),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      child: _NavigationPage(),
+      home: _NavigationPage(),
     );
   }
 }

@@ -99,16 +99,16 @@ class AnimatedDetailHeader extends StatelessWidget {
             ),
           ),
         ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(color: Colors.white, height: 10),
+        ),
         Positioned.fill(
           top: null,
           bottom: -140 * (1 - topPercent),
           child: TranslateAnimation(
             child: _LikesAndSharesContainer(place: place),
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(color: Colors.white, height: 10),
         ),
         Positioned.fill(
           top: null,

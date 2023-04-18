@@ -7,8 +7,8 @@ class MusicVinylPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         iconTheme: const IconThemeData(color: Colors.black),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: GoogleFonts.spectralTextTheme(),
@@ -20,7 +20,7 @@ class MusicVinylPlayer extends StatelessWidget {
           actionsIconTheme: const IconThemeData(color: Colors.black),
         ),
       ),
-      child: const MyLibraryPage(),
+      home: const MyLibraryPage(),
     );
   }
 }

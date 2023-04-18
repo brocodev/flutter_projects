@@ -7,8 +7,8 @@ class SuperheroesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
@@ -36,7 +36,7 @@ class SuperheroesApp extends StatelessWidget {
           bodyColor: Colors.white,
         ),
       ),
-      child: const SuperheroSliderPage(),
+      home: const SuperheroSliderPage(),
     );
   }
 }

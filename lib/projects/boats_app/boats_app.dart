@@ -6,8 +6,8 @@ class BoatsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           headline4: TextStyle(
@@ -17,7 +17,7 @@ class BoatsApp extends StatelessWidget {
           bodyText2: const TextStyle(fontSize: 16),
         ),
       ),
-      child: const BoatListPage(),
+      home: const BoatListPage(),
     );
   }
 }

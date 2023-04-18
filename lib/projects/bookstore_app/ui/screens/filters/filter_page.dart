@@ -25,9 +25,12 @@ class FilterPageState extends State<FilterPage> {
   @override
   void initState() {
     super.initState();
+    _categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
+    _categoriesBloc.eventsSink.add(null);
     Future.delayed(const Duration(milliseconds: 700), () {
-      _enableShowAnimation = true;
-      setState(() {});
+      setState(() {
+        _enableShowAnimation = true;
+      });
     });
   }
 
@@ -44,8 +47,7 @@ class FilterPageState extends State<FilterPage> {
 
   @override
   Widget build(BuildContext context) {
-    _categoriesBloc = CategoriesBlocProvider.of(context)!.categoriesBloc;
-    _categoriesBloc.eventsSink.add(null);
+
 
     return Material(
       color: Colors.transparent,

@@ -7,13 +7,13 @@ class OrixGamingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
+    return MaterialApp(
+      theme: ThemeData(
         primaryColor: Colors.white,
         primaryColorLight: Colors.orange[700],
         primaryColorDark: Colors.deepOrange[700],
       ),
-      child: const _MainPage(),
+      home: const _MainPage(),
     );
   }
 }

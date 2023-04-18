@@ -6,8 +6,8 @@ class TemplateGalleryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData.dark().copyWith(
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xff23202a),
         appBarTheme: AppBarTheme(
           color: Colors.deepPurple[400],
@@ -21,7 +21,7 @@ class TemplateGalleryApp extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: Colors.grey),
       ),
-      child: const ContactListPage(),
+      home: const ContactListPage(),
     );
   }
 }
