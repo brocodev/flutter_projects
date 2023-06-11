@@ -12,7 +12,7 @@ class MovieSelectionApp extends StatelessWidget {
         textTheme: GoogleFonts.barlowCondensedTextTheme()
             .apply(bodyColor: Colors.white)
             .copyWith(
-              bodyText2: GoogleFonts.barlowCondensed(
+              bodyMedium: GoogleFonts.barlowCondensed(
                 letterSpacing: 2,
                 color: Colors.white,
               ),

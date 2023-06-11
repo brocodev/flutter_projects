@@ -10,11 +10,11 @@ class BoatsApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
-          headline4: TextStyle(
+          headlineMedium: TextStyle(
             fontSize: 32,
             color: Colors.grey[800],
           ),
-          bodyText2: const TextStyle(fontSize: 16),
+          bodyMedium: const TextStyle(fontSize: 16),
         ),
       ),
       home: const BoatListPage(),

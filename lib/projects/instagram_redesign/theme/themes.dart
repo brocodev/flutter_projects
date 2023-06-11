@@ -26,17 +26,13 @@ class InstagramTheme {
 
   static final darkTheme = ThemeData.dark().copyWith(
     scaffoldBackgroundColor: Colors.black,
-    backgroundColor: Colors.black,
-    colorScheme: const ColorScheme.dark(),
     textTheme: GoogleFonts.latoTextTheme(),
-    appBarTheme: InstagramTheme.kAppBarThemeDark,
+    appBarTheme: InstagramTheme.kAppBarThemeDark, colorScheme: const ColorScheme.dark().copyWith(background: Colors.black),
   );
 
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: const Color(0xFFF2F6F9),
-    backgroundColor: Colors.grey[100],
-    colorScheme: const ColorScheme.light(),
     textTheme: GoogleFonts.latoTextTheme(),
-    appBarTheme: InstagramTheme.kAppBarThemeLight,
+    appBarTheme: InstagramTheme.kAppBarThemeLight, colorScheme: const ColorScheme.light().copyWith(background: Colors.grey[100]),
   );
 }

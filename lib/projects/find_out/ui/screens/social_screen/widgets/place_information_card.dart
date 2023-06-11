@@ -50,8 +50,8 @@ class PlaceInformationCard extends StatelessWidget {
                 }),
               ),
               const SizedBox(height: 10),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   _InlineTextSpan(
                     field: 'Telefono',
                     value: '355 655 8898',
@@ -64,8 +64,8 @@ class PlaceInformationCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   _InlineTextSpan(
                     field: 'Lugar',
                     value: 'Mexico Guerrero',

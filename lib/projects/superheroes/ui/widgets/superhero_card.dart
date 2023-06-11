@@ -72,7 +72,7 @@ class SuperheroCard extends StatelessWidget {
                     tag: superhero.heroName!,
                     child: Text(
                       superhero.heroName!.replaceAll(' ', '\n').toLowerCase(),
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                   ),
                 ),
@@ -83,7 +83,7 @@ class SuperheroCard extends StatelessWidget {
                   tag: superhero.name!,
                   child: Text(
                     superhero.name!.toLowerCase(),
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ),
                 const SizedBox(height: 25),

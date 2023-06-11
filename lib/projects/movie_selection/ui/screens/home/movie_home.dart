@@ -64,8 +64,8 @@ class MovieHome extends StatelessWidget {
                   )
                 ],
               ),
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   HeaderOption(
                     title: 'Cinema',
                     isSelected: false,

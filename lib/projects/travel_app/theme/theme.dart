@@ -26,50 +26,50 @@ class TravelTheme {
 
   static TextTheme get textTheme {
     return TextTheme(
-      caption: GoogleFonts.montserrat(
+      bodySmall: GoogleFonts.montserrat(
         fontSize: 12,
         fontWeight: FontWeight.w400,
         color: Colors.grey,
       ),
-      subtitle1: GoogleFonts.montserrat(
+      titleMedium: GoogleFonts.montserrat(
         fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
-      subtitle2: GoogleFonts.montserrat(
+      titleSmall: GoogleFonts.montserrat(
         fontSize: 16,
         fontWeight: FontWeight.w400,
       ),
-      bodyText1: GoogleFonts.montserrat(
+      bodyLarge: GoogleFonts.montserrat(
         fontSize: 14,
         fontWeight: FontWeight.w500,
       ),
-      bodyText2: GoogleFonts.montserrat(
+      bodyMedium: GoogleFonts.montserrat(
         fontSize: 14,
         fontWeight: FontWeight.w400,
       ),
-      headline6: GoogleFonts.montserrat(
+      titleLarge: GoogleFonts.montserrat(
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      headline5: GoogleFonts.montserrat(
+      headlineSmall: GoogleFonts.montserrat(
         fontSize: 24,
         fontWeight: FontWeight.w500,
       ),
-      headline4: GoogleFonts.montserrat(
+      headlineMedium: GoogleFonts.montserrat(
         fontSize: 28,
         fontWeight: FontWeight.w500,
       ),
-      headline3: GoogleFonts.montserrat(
+      displaySmall: GoogleFonts.montserrat(
         fontSize: 32,
         fontWeight: FontWeight.w500,
         color: Colors.white,
       ),
-      headline2: GoogleFonts.montserrat(
+      displayMedium: GoogleFonts.montserrat(
         fontSize: 36,
         fontWeight: FontWeight.w500,
         color: Colors.white,
       ),
-      headline1: GoogleFonts.montserrat(
+      displayLarge: GoogleFonts.montserrat(
         fontSize: 40,
         fontWeight: FontWeight.w500,
       ),

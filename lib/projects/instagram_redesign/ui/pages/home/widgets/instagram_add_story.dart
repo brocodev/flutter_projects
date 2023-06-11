@@ -22,7 +22,7 @@ class InstagramAddItem extends StatelessWidget {
           width: itemSize,
           height: itemSize,
           decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.background,
             border: Border.all(
               color: Colors.grey[200]!,
               width: 3,

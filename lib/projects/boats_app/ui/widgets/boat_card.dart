@@ -37,7 +37,7 @@ class BoatCard extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             boat.model,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           //------------------------------
           // Owner boat

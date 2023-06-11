@@ -150,8 +150,8 @@ class InstagramPostDetail extends StatelessWidget {
                   )
                 ],
               ),
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Expanded(
                     child: AddCommentTextField(),
                   )

@@ -128,7 +128,7 @@ class _AnimatedCustomAppBar extends StatelessWidget {
                   'Boats',
                   style: Theme.of(context)
                       .textTheme
-                      .headline4!
+                      .headlineMedium!
                       .copyWith(fontWeight: FontWeight.w500),
                 ),
                 IconButton(

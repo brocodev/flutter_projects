@@ -103,7 +103,7 @@ class BookDetailHeader extends StatelessWidget {
                           Text(
                             book!.title!,
                             style:
-                                Theme.of(context).textTheme.headline5!.copyWith(
+                                Theme.of(context).textTheme.headlineSmall!.copyWith(
                                       color: ColorTween(
                                         begin: Colors.white,
                                         end: Colors.black,

@@ -13,25 +13,25 @@ class BookAppTheme {
   );
 
   static final _textTheme = GoogleFonts.workSansTextTheme().copyWith(
-    headline6: GoogleFonts.workSans(
+    titleLarge: GoogleFonts.workSans(
       color: Colors.white,
       fontSize: 18,
     ),
-    headline5: GoogleFonts.workSans(
+    headlineSmall: GoogleFonts.workSans(
       color: Colors.white,
       fontWeight: FontWeight.w500,
       fontSize: 22,
     ),
-    headline4: GoogleFonts.workSans(
+    headlineMedium: GoogleFonts.workSans(
       color: Colors.white,
       fontWeight: FontWeight.w500,
     ),
-    subtitle1: GoogleFonts.workSans(
+    titleMedium: GoogleFonts.workSans(
       fontSize: 16,
       color: Colors.grey[800],
       fontWeight: FontWeight.w500,
     ),
-    subtitle2: GoogleFonts.workSans(
+    titleSmall: GoogleFonts.workSans(
       fontSize: 15,
       color: Colors.grey[400],
       fontWeight: FontWeight.w400,
@@ -39,9 +39,9 @@ class BookAppTheme {
   );
 
   static final themeData = ThemeData(
-      scaffoldBackgroundColor: Colors.white,
-      backgroundColor: Colors.white,
-      primaryColor: Colors.white,
-      textTheme: _textTheme,
-      appBarTheme: _appBarTheme,);
+    scaffoldBackgroundColor: Colors.white,
+    primaryColor: Colors.white,
+    textTheme: _textTheme,
+    appBarTheme: _appBarTheme,
+  );
 }

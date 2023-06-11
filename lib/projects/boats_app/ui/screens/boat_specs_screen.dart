@@ -79,7 +79,7 @@ class BoatSpecsScreen extends StatelessWidget {
                     children: [
                       Text(
                         boat.model,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       //------------------------------
                       // Owner boat

@@ -17,7 +17,7 @@ class TemplateGalleryApp extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          bodyText2: TextStyle(color: Colors.grey[800]),
+          bodyMedium: TextStyle(color: Colors.grey[800]),
         ),
         iconTheme: const IconThemeData(color: Colors.grey),
       ),

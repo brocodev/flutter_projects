@@ -20,7 +20,7 @@ class DoctorsPage extends StatelessWidget {
                 begin: Alignment.topCenter,
               ),
             ),
-            child: SafeArea(
+            child: const SafeArea(
               child: Column(
                 children: [
                   Row(
@@ -29,7 +29,7 @@ class DoctorsPage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Text(
                             'Find your doctor',
                             style: TextStyle(
@@ -45,7 +45,7 @@ class DoctorsPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Icon(
+                      Icon(
                         Icons.search,
                         color: Colors.white,
                         size: 50,

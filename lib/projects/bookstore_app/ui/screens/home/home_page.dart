@@ -203,7 +203,7 @@ class _HomeAppBar extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           'We recommended the following books for you',
-          style: Theme.of(context).textTheme.subtitle2,
+          style: Theme.of(context).textTheme.titleSmall,
           maxLines: 2,
         )
       ],
@@ -255,7 +255,7 @@ class _HomeBookCard extends StatelessWidget {
             children: [
               Text(
                 book.title!,
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -263,7 +263,7 @@ class _HomeBookCard extends StatelessWidget {
                 'By ${book.author}',
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle2!
+                    .titleSmall!
                     .copyWith(height: 1.7),
               ),
             ],

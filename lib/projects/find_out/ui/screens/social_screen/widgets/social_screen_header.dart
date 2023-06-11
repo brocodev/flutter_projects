@@ -163,8 +163,8 @@ class _CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
+    return const Row(
+      children: [
         BackButton(),
         Spacer(flex: 2),
         FindOutHorizontalLogo(),

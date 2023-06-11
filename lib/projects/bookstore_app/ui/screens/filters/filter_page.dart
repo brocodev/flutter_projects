@@ -82,13 +82,13 @@ class FilterPageState extends State<FilterPage> {
                       children: [
                         Text(
                           'Filter',
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         InkWell(
                           onTap: onTapConfirm,
                           child: Text(
                             'Confirm',
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
                       ],
@@ -99,7 +99,7 @@ class FilterPageState extends State<FilterPage> {
                     //---------------------------------------
                     Text(
                       'FAVORITE CATEGORIES',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 15),
                     StreamBuilder<List<String>>(
@@ -129,7 +129,7 @@ class FilterPageState extends State<FilterPage> {
                     //---------------------------------------
                     Text(
                       'ALL CATEGORIES',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 15),
                     StreamBuilder<List<String>>(

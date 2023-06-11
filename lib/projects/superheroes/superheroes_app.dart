@@ -21,13 +21,13 @@ class SuperheroesApp extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          headline2: GoogleFonts.leagueSpartan(
+          displayMedium: GoogleFonts.leagueSpartan(
             fontWeight: FontWeight.w600,
             letterSpacing: -3,
             height: 0.9,
             fontSize: 64,
           ),
-          headline5: GoogleFonts.leagueSpartan(
+          headlineSmall: GoogleFonts.leagueSpartan(
             letterSpacing: -1,
             fontWeight: FontWeight.w500,
           ),

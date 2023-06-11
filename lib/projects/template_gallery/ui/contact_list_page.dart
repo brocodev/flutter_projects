@@ -84,8 +84,8 @@ class ContactListPageState extends State<ContactListPage> {
                   //----------------------------
                   // Drawer title
                   //----------------------------
-                  Row(
-                    children: const [
+                  const Row(
+                    children: [
                       Icon(
                         Icons.settings_outlined,
                         color: Colors.white,

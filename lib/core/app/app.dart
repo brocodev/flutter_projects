@@ -12,10 +12,12 @@ class BrocodevProjectsApp extends StatelessWidget {
       title: 'Brocodev Projects',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
-        backgroundColor: Colors.grey[50],
         textTheme: GoogleFonts.poppinsTextTheme(),
-        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme:
+            ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
+          background: Colors.grey[50],
+        ),
       ),
       initialRoute: '/',
       routes: ProjectRoutes.routes,

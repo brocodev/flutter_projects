@@ -25,7 +25,7 @@ class RoundedBorderImage extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
-          color: borderColor ?? Theme.of(context).backgroundColor,
+          color: borderColor ?? Theme.of(context).colorScheme.background,
           width: borderWidth,
         ),
         borderRadius: BorderRadius.circular(borderRadius ?? height! * .4),

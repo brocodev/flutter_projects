@@ -44,7 +44,7 @@ class _FindOutHomeScreenState extends State<FindOutHomeScreen> {
             pageController: _pageController,
             pageValueNotifier: _pageValueNotifier,
           ),
-          Positioned(
+          const Positioned(
             top: 20,
             left: 20,
             right: 20,
@@ -53,7 +53,7 @@ class _FindOutHomeScreenState extends State<FindOutHomeScreen> {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       CircleAvatar(
                         backgroundColor: Colors.black12,
                         child: Icon(
@@ -71,11 +71,11 @@ class _FindOutHomeScreenState extends State<FindOutHomeScreen> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       DropDownWidget(
                         labels: ['Mexico', 'Colombia', 'Brasil', 'Argentina'],
                       ),

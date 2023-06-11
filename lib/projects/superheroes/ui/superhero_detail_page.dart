@@ -168,7 +168,7 @@ class SuperheroDetailPageState extends State<SuperheroDetailPage>
                             tag: widget.superhero.heroName!,
                             child: AnimatedDefaultTextStyle(
                               duration: kThemeAnimationDuration,
-                              style: textTheme.headline2!.copyWith(
+                              style: textTheme.displayMedium!.copyWith(
                                 color: _changeToBlack
                                     ? Colors.black
                                     : Colors.white,
@@ -197,7 +197,7 @@ class SuperheroDetailPageState extends State<SuperheroDetailPage>
                                   fit: BoxFit.scaleDown,
                                   child: AnimatedDefaultTextStyle(
                                     duration: kThemeAnimationDuration,
-                                    style: textTheme.headline5!.copyWith(
+                                    style: textTheme.headlineSmall!.copyWith(
                                       color: _changeToBlack
                                           ? Colors.black
                                           : Colors.white,
@@ -277,7 +277,7 @@ class SuperheroDetailPageState extends State<SuperheroDetailPage>
                           opacity: _enableInfoItems ? 1.0 : 0.0,
                           child: Text(
                             'movies',
-                            style: textTheme.headline5!
+                            style: textTheme.headlineSmall!
                                 .copyWith(color: Colors.black),
                           ),
                         ),
