@@ -38,7 +38,9 @@ class BrocoProjectsScreen extends StatelessWidget {
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        itemCount: ProjectModel.listProjects.length,
+        itemCount: ProjectModel.listProjects.reversed.length,
+        reverse: true,
+        primary: true,
         itemBuilder: (context, index) {
           final project = ProjectModel.listProjects[index];
           return ProjectCard(
