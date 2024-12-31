@@ -90,7 +90,7 @@ class AmplePostCardState extends State<AmplePostCard>
               //------PAGE VIEW IMAGES POST
               //-------------------------------------
               ClipRRect(
-                borderRadius: widget.borderRadius as BorderRadius?,
+                borderRadius: widget.borderRadius ?? BorderRadius.zero,
                 child: PageView.builder(
                   onPageChanged: (value) => _indexNotifier.value = value,
                   itemCount: post.photos!.length,
@@ -107,7 +107,7 @@ class AmplePostCardState extends State<AmplePostCard>
                             imageUrl: post.photos![index],
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
-                                const CupertinoActivityIndicator(radius: 40),
+                            const CupertinoActivityIndicator(radius: 40),
                           ),
                         ),
                         //-----------------------
@@ -133,6 +133,7 @@ class AmplePostCardState extends State<AmplePostCard>
                   },
                 ),
               ),
+
               //------------------------------------
               //---USER PHOTO AND PAGE INDICATORS
               //------------------------------------
