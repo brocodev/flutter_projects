@@ -16,7 +16,7 @@ class PhotoUser {
   final List<String>? listPhotosUrl;
 
   static final liliana = PhotoUser(
-    name: 'Liliana Mondragon',
+    name: 'Sonia Melendez',
     followers: 14320,
     following: 120,
     photoUrl:

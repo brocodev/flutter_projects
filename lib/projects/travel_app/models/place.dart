@@ -149,7 +149,7 @@ class TravelUser {
   static TravelUser alex = TravelUser('Alex Fernandez',
       'https://images.unsplash.com/photo-1589304038421-449708a42983?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',);
   static TravelUser mario =
-      TravelUser('Mario Calzada', 'https://i.ibb.co/c1j1VDT/yo.jpg');
+      TravelUser('Mario Calzada', 'https://images.unsplash.com/photo-1496869836330-cd25f013c377?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   static TravelUser luna = TravelUser('Luna Benioly',
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',);
   static TravelUser javier = TravelUser('Javier',

@@ -42,7 +42,7 @@ class Doctor {
   );
 
   static const drLiliana = Doctor(
-    name: 'Liliana Mondragon',
+    name: 'Sonia Melendez',
     photoUrl:
         'https://images.unsplash.com/photo-1591604021695-0c69b7c05981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     doctorCategory: DoctorCategory.kDermatologist,
