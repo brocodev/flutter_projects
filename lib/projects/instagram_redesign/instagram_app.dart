@@ -20,7 +20,7 @@ class _InstagramApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final instagramBloc = InstagramBlocProvider.of(context)!.instagramBloc;
+    final instagramBloc = InstagramBlocProvider.of(context)?.instagramBloc;
     return AnimatedBuilder(
       animation: instagramBloc,
       builder: (context, child) {
